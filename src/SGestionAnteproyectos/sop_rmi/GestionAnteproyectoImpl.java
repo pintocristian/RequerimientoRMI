@@ -124,6 +124,7 @@ public class GestionAnteproyectoImpl extends UnicastRemoteObject implements Gest
 
     @Override
     public int solicitarCodigo() throws RemoteException {
+                System.out.println("Entrando a solicitarCodigo");
         String periodo="";
         incremento =incremento+1;
         Date date = new Date();
@@ -145,7 +146,7 @@ public class GestionAnteproyectoImpl extends UnicastRemoteObject implements Gest
 
     @Override
     public clsConceptosDTO ConsultarConceptos(int codigo) throws RemoteException {
-      
+              System.out.println("Entrando a consultar Conceptos");
        int concepto1=0;
        int concepto2=0;
        int id=0;
@@ -173,7 +174,9 @@ public class GestionAnteproyectoImpl extends UnicastRemoteObject implements Gest
 
     @Override
     public int ConsultarConceptoJefe(int codigo) throws RemoteException {
-       for(int i=0;i<this.FormatoC.size();i++){
+               System.out.println("Entrando a consultarConceptoJefe");
+        
+        for(int i=0;i<this.FormatoC.size();i++){
            if(this.FormatoC.get(i).getCodigo()==codigo){
                return this.FormatoC.get(i).getConceptoDpto();
            }
@@ -182,7 +185,9 @@ public class GestionAnteproyectoImpl extends UnicastRemoteObject implements Gest
     }
      @Override
     public int ConsultarConceptoD(int codigo) throws RemoteException {
-       for(int i=0;i<this.FormatoD.size();i++){
+       
+                System.out.println("Entrando a consultarConceptoD");
+        for(int i=0;i<this.FormatoD.size();i++){
            if(this.FormatoD.get(i).getCodigo()==codigo){
                return this.FormatoD.get(i).getConceptoCoor();
            }
@@ -207,16 +212,33 @@ public class GestionAnteproyectoImpl extends UnicastRemoteObject implements Gest
     }
 
     @Override
-    public boolean consultarAnteproyecto(int codigo) throws RemoteException {
-       boolean bandera = false;
-        for(int i=0;i<this.FormatoA.size();i++){
-           for(int j=0;j<this.FormatoB.size();i++){
-               if(this.FormatoA.get(i).getCodigo()==this.FormatoB.get(j).getCodigo() && this.FormatoA.get(i).getFlujo()==1){
-                   bandera =true;
-                   return bandera;
-               }
-           }
+    public int consultarAnteproyecto(int codigo) throws RemoteException {
+        System.out.println("Entrando a consultar Anteproyecto");
+        
+        int bandera = -1;
+       boolean encontro=false;
+       if(this.FormatoA.isEmpty()){
+               System.out.println("no se encuentran anteproyectos registrados");
+       }else{
+             for(int i=0;i<this.FormatoA.size();i++){
+           if(this.FormatoA.get(i).getCodigo()==codigo && this.FormatoA.get(i).getFlujo()==1){
+            encontro=true;
+            bandera=1;
+            break;
+           } 
        }
+        if(encontro==true){
+         for(int j=0;j<this.FormatoB.size();j++){
+             if(this.FormatoB.get(j).getCodigo()==codigo){
+                 bandera=2;
+                 break;
+             }
+        
+             }
+        }else{
+               bandera=0;
+        }
+      }
         return bandera;
     }
 
