@@ -145,8 +145,8 @@ public class GUIRFormatoB extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEvaluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEvaluarActionPerformed
-        if (txtCodAnt.getText().isEmpty() && txtConceptoEv.getText().isEmpty() && txtFecha.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "EL unico campo no obligatorio son las observaciones");
+        if (txtCodAnt.getText().isEmpty() || txtConceptoEv.getText().isEmpty() || txtFecha.getText().isEmpty() || txtObservaciones.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Todos los campos deben ser ingresados");
         } else {
 
             int CodigoAnt = Integer.parseInt(txtCodAnt.getText());

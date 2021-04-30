@@ -123,13 +123,13 @@ public class GUIMenuCoordinador extends javax.swing.JFrame {
     private void btnAsignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsignarActionPerformed
        GUIAsignar GUIAsignar =new GUIAsignar(objetoRemotoAnteproyecto,objetoRemotoUsuario);
         GUIAsignar.setVisible(true);
-        this.dispose();
+        
     }//GEN-LAST:event_btnAsignarActionPerformed
 
     private void btnEvaluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEvaluarActionPerformed
         GUIRFormatoD GUID=new   GUIRFormatoD(objetoRemotoAnteproyecto);
         GUID.setVisible(true);
-        this.dispose();
+        
     }//GEN-LAST:event_btnEvaluarActionPerformed
 
     /**

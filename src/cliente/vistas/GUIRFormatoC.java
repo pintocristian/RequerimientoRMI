@@ -26,6 +26,10 @@ public class GUIRFormatoC extends javax.swing.JFrame {
     public GUIRFormatoC(GestionAnteproyectoINT  objAnte) {
         initComponents();
         this.objetoRemotoAnteproyecto=objAnte;
+        this.txtEstructura.setEnabled(false);
+        this.txtConcepto.setEnabled(false);
+        this.txtObservaciones.setEnabled(false);
+        this.btnEvaluar.setEnabled(false);
     }
    public GUIRFormatoC(){}
     /**
@@ -176,8 +180,8 @@ public class GUIRFormatoC extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEvaluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEvaluarActionPerformed
-       if(txtCodigoAnt.getText().isEmpty() && txtConcepto.getText().isEmpty() && txtEstructura.getText().isEmpty()){
-         JOptionPane.showMessageDialog(null, "EL unico campo no obligatorio son las observaciones");
+       if(txtCodigoAnt.getText().isEmpty() || txtConcepto.getText().isEmpty() || txtEstructura.getText().isEmpty() || txtObservaciones.getText().isEmpty()){
+         JOptionPane.showMessageDialog(null, "Todos los campos deben ser ingresados");
        }else {
         
            try {
@@ -186,14 +190,7 @@ public class GUIRFormatoC extends javax.swing.JFrame {
                String Observaciones=txtObservaciones.getText();
                int concepto =Integer.parseInt(txtConcepto.getText());
                clsFormatoTiCDTO objC = new clsFormatoTiCDTO(codAnt,estructura,concepto,Observaciones);
-               int flujo=objetoRemotoAnteproyecto.VerificarAnteproyecto(codAnt);
-               if(flujo<3){
-                JOptionPane.showMessageDialog(null, "EL Anteproyecto no ah sido evaluado");
-                 this.dispose();
-               }else if(flujo==0){
-                 JOptionPane.showMessageDialog(null, "No se encontro Anteproyecto");
-                  this.dispose();
-                }else {
+             
                    boolean funciono=objetoRemotoAnteproyecto.RegistrarFormatoTiC(objC);
                    if(funciono==true){
                    JOptionPane.showMessageDialog(null, "EL Anteproyecto  ah sido evaluado con exito");
@@ -202,7 +199,7 @@ public class GUIRFormatoC extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "EL Anteproyecto no ah sido evaluado con exito");
                      this.dispose();
                     }
-               }       
+                     
            } catch (RemoteException ex) {
                Logger.getLogger(GUIRFormatoC.class.getName()).log(Level.SEVERE, null, ex);
            }
@@ -211,11 +208,29 @@ public class GUIRFormatoC extends javax.swing.JFrame {
 
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
          try {
-          
-            clsConceptosDTO Conceptos;
-            Conceptos = this.objetoRemotoAnteproyecto.ConsultarConceptos(Integer.parseInt(this.txtCodigoAnt.getText()));
+                         
+           int flujo=objetoRemotoAnteproyecto.VerificarAnteproyecto(Integer.parseInt(txtCodigoAnt.getText()));
+           clsConceptosDTO Conceptos;
+           Conceptos = this.objetoRemotoAnteproyecto.ConsultarConceptos(Integer.parseInt(txtCodigoAnt.getText()));
            this.lblConceptos.setText("Concepto 1:" +Conceptos.getConcepto1()+"Concepto 2:"+Conceptos.getConcepto2());
-    
+           if(Conceptos.getConcepto1()==1 &&Conceptos.getConcepto2()==1){
+               this.txtEstructura.setEnabled(true);
+               this.txtConcepto.setEnabled(true);
+               this.txtObservaciones.setEnabled(true);
+               this.btnEvaluar.setEnabled(true);
+           }else if(flujo==0){
+                 JOptionPane.showMessageDialog(null, "No se encontro Anteproyecto");
+                  this.dispose();
+                }else if(flujo==4){
+                    JOptionPane.showMessageDialog(null, "EL Anteproyecto ya fue evaluador por el jefe de departamento");
+                    this.dispose();
+               }else if(flujo<3){
+                JOptionPane.showMessageDialog(null, "EL Anteproyecto aun no ha completa la fase del formato b");
+                 this.dispose();
+               }else{
+                   JOptionPane.showMessageDialog(null, "EL Anteproyecto no fue aprobado por los evaluadores");
+                   this.dispose();
+            }
         } catch (RemoteException ex) {
             Logger.getLogger(GUIRFormatoC.class.getName()).log(Level.SEVERE, null, ex);
         }

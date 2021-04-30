@@ -25,6 +25,10 @@ public class GUIRFormatoD extends javax.swing.JFrame {
     public GUIRFormatoD(GestionAnteproyectoINT objAnteproyecto) {
         initComponents();
         this.objetoRemotoAnteproyecto=objAnteproyecto;
+        this.txtConcepto.setEditable(false);
+        this.txtEstructura.setEnabled(false);
+        this.txtObservaciones.setEnabled(false);
+        this.btnEvaluar.setEnabled(false);
     }
  public GUIRFormatoD() {}
     /**
@@ -48,6 +52,7 @@ public class GUIRFormatoD extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         txtObservaciones = new javax.swing.JTextArea();
         txtCodigoAnt = new javax.swing.JTextField();
+        btnValidar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -74,32 +79,41 @@ public class GUIRFormatoD extends javax.swing.JFrame {
         txtObservaciones.setRows(5);
         jScrollPane1.setViewportView(txtObservaciones);
 
+        btnValidar.setText("Validar");
+        btnValidar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnValidarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(lblObservaciones)
                         .addGap(199, 199, 199))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(lblConcepto)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtConcepto, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblEstructura)
                                     .addComponent(lblCodigoAnt))
-                                .addGap(154, 154, 154)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtCodigoAnt, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE)
-                                    .addComponent(txtEstructura))))
-                        .addGap(48, 48, 48))))
+                                    .addComponent(txtEstructura, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtCodigoAnt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblConcepto)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtConcepto, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(17, 17, 17)
+                        .addComponent(btnValidar)
+                        .addContainerGap())))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -118,10 +132,11 @@ public class GUIRFormatoD extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblEvaluarAnt)
-                .addGap(24, 24, 24)
+                .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCodigoAnt)
-                    .addComponent(txtCodigoAnt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCodigoAnt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnValidar))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblEstructura)
@@ -133,7 +148,7 @@ public class GUIRFormatoD extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(lblObservaciones)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnEvaluar)
                 .addContainerGap())
@@ -160,8 +175,8 @@ public class GUIRFormatoD extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEvaluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEvaluarActionPerformed
-        if(txtCodigoAnt.getText().isEmpty() && txtConcepto.getText().isEmpty() && txtEstructura.getText().isEmpty()){
-          JOptionPane.showMessageDialog(null, "EL unico campo no obligatorio son las observaciones");
+        if(txtCodigoAnt.getText().isEmpty() || txtConcepto.getText().isEmpty() || txtEstructura.getText().isEmpty() || txtObservaciones.getText().isEmpty()){
+          JOptionPane.showMessageDialog(null, "Todos los campos deben ser ingresados");
         }else{
           try {
                int codAnt=Integer.parseInt(txtCodigoAnt.getText()); 
@@ -169,14 +184,8 @@ public class GUIRFormatoD extends javax.swing.JFrame {
                String Observaciones=txtObservaciones.getText();
                int concepto =Integer.parseInt(txtConcepto.getText());
                clsFormatoTiDDTO objD = new clsFormatoTiDDTO(codAnt,estructura,concepto,Observaciones);
-               int flujo=objetoRemotoAnteproyecto.VerificarAnteproyecto(codAnt);
-               if(flujo<4){
-                JOptionPane.showMessageDialog(null, "EL Anteproyecto no ah sido evaluado");
-                 this.dispose();
-               }else if(flujo==0){
-                 JOptionPane.showMessageDialog(null, "No se encontro Anteproyecto");
-                  this.dispose();
-                }else {
+           
+              
                    boolean funciono=objetoRemotoAnteproyecto.RegistrarFormatoTiD(objD);
                    if(funciono==true){
                    JOptionPane.showMessageDialog(null, "EL Anteproyecto  ah sido evaluado con exito");
@@ -185,12 +194,42 @@ public class GUIRFormatoD extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "EL Anteproyecto no ah sido evaluado con exito");
                      this.dispose();
                     }
-               }       
+                      
            } catch (RemoteException ex) {
                Logger.getLogger(GUIRFormatoC.class.getName()).log(Level.SEVERE, null, ex);
            }
         }
     }//GEN-LAST:event_btnEvaluarActionPerformed
+
+    private void btnValidarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValidarActionPerformed
+
+        try {
+            int flujo = objetoRemotoAnteproyecto.VerificarAnteproyecto(Integer.parseInt(txtCodigoAnt.getText()));
+            int concepto = objetoRemotoAnteproyecto.ConsultarConceptoJefe(Integer.parseInt(txtCodigoAnt.getText()));
+            if (concepto == 1) {
+                this.txtConcepto.setEditable(true);
+                this.txtEstructura.setEnabled(true);
+                this.txtObservaciones.setEnabled(true);
+                this.btnEvaluar.setEnabled(true);
+            } else if (flujo==0){
+                 JOptionPane.showMessageDialog(null, "No se encontro Anteproyecto");
+                  this.dispose();
+                }else if (flujo<4){
+                    JOptionPane.showMessageDialog(null, "EL Anteproyecto todavia no ha sido evaluado por el jefe de departamentp");
+                    this.dispose();
+                }else if(flujo==5){
+                    JOptionPane.showMessageDialog(null, "El  Anteproyecto ya fue evaluado por el decano");
+                    this.dispose();
+                }else {
+                JOptionPane.showMessageDialog(null, "EL Anteproyecto no fue aprobado por el jede de departamento");
+               
+                this.dispose();
+            }
+
+        } catch (RemoteException ex) {
+            Logger.getLogger(GUIRFormatoD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnValidarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -229,6 +268,7 @@ public class GUIRFormatoD extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEvaluar;
+    private javax.swing.JButton btnValidar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCodigoAnt;
