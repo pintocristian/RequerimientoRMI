@@ -5,7 +5,13 @@
  */
 package cliente.vistas;
 
+import SGestionAnteproyectos.dto.clsFormatoTiBDTO;
 import SGestionAnteproyectos.sop_rmi.GestionAnteproyectoINT;
+import SGestionAnteproyectos.sop_rmi.GestionUsuariosINT;
+import java.rmi.RemoteException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,9 +23,11 @@ public class GUIAsignar extends javax.swing.JFrame {
      * Creates new form GUIAsignar
      */
     private static GestionAnteproyectoINT objetoRemotoAnteproyecto;
-    public GUIAsignar(GestionAnteproyectoINT  objAnte) {
+      private static GestionUsuariosINT objetoRemotoUsuario;
+    public GUIAsignar(GestionAnteproyectoINT  objAnte,GestionUsuariosINT objUsuario) {
         initComponents();
-         this.objetoRemotoAnteproyecto=objAnte;
+        this.objetoRemotoAnteproyecto=objAnte;
+        this.objetoRemotoUsuario=objUsuario;
     }
      public GUIAsignar(){}
     /**
@@ -54,6 +62,11 @@ public class GUIAsignar extends javax.swing.JFrame {
         lblIdEv2.setText("id del evaluador 2:");
 
         btnAsignar.setText("Asignar");
+        btnAsignar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAsignarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -121,6 +134,55 @@ public class GUIAsignar extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAsignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsignarActionPerformed
+        int u1=-2;
+        int u2=-2;
+        int a=-2;
+        if(txtCodAnt.getText().isEmpty() && txtCodEv1.getText().isEmpty() && txtCodEv2.getText().isEmpty()){
+         JOptionPane.showMessageDialog(null, "Todos los campos son obligatorios");
+        
+        }
+        else if( txtCodEv1.getText().equals(txtCodEv2.getText())){
+             JOptionPane.showMessageDialog(null, "los id de los evaluadores deben ser diferentes");
+        }else{
+            int codigoAnte=Integer.parseInt(txtCodAnt.getText());
+            int codEva1=Integer.parseInt( txtCodEv1.getText());
+            int codEva2=Integer.parseInt( txtCodEv2.getText());
+            try {
+                a=objetoRemotoAnteproyecto.consultarAnteproyecto(codigoAnte);
+                u1=objetoRemotoUsuario.consultarEvaluador(codEva1);
+                u2=objetoRemotoUsuario.consultarEvaluador(codEva2);
+                
+                if(a==1 && u1==1 && u2==1){
+                    clsFormatoTiBDTO objB1 = new clsFormatoTiBDTO(codEva1,codigoAnte,-1,"","");
+                    clsFormatoTiBDTO objB2 = new clsFormatoTiBDTO(codEva2,codigoAnte,-1,"","");
+                    boolean asignando1=objetoRemotoAnteproyecto.Asignar(objB1);
+                    boolean asignando2=objetoRemotoAnteproyecto.Asignar(objB2);
+                    
+                    if(asignando1==true && asignando2==true){
+                      JOptionPane.showMessageDialog(null, "Evaluadores asignados correctamente");
+                    }
+                }else if(a==-1){
+                  JOptionPane.showMessageDialog(null, "No se encuentran Anteproyectos registrados ");
+                }else if(a==0){
+                    JOptionPane.showMessageDialog(null, "No se encuentra el anteproyecto regitrado ");
+                }else if(a==2){
+                    JOptionPane.showMessageDialog(null, "Al anteproyecto ya se le asignaron los evaluadores ");
+                }else if(u1==-1){
+                      JOptionPane.showMessageDialog(null, "No se encuentran Evaluadores registrados ");
+                }else if(u1==2){
+                      JOptionPane.showMessageDialog(null, "No existe este evaluador ");
+                }
+                
+            } catch (RemoteException ex) {
+                Logger.getLogger(GUIAsignar.class.getName()).log(Level.SEVERE, null, ex);
+            }
+           
+        }
+        
+        
+    }//GEN-LAST:event_btnAsignarActionPerformed
 
     /**
      * @param args the command line arguments

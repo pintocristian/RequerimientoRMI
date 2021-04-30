@@ -17,15 +17,15 @@ public class clsFormatoTiBDTO implements Serializable{
     private int concepto;
     private String observaciones;
     private String fecha;
-    private String evaluador;
+    
 
-    public clsFormatoTiBDTO(int id_evaluador, int codigo, int concepto, String observaciones, String fecha, String evaluador) {
+    public clsFormatoTiBDTO(int id_evaluador, int codigo, int concepto, String observaciones, String fecha) {
         this.id_evaluador = id_evaluador;
         this.codigo = codigo;
         this.concepto = concepto;
         this.observaciones = observaciones;
         this.fecha = fecha;
-        this.evaluador = evaluador;
+       
     }
 
     public int getId_evaluador() {
@@ -68,13 +68,7 @@ public class clsFormatoTiBDTO implements Serializable{
         this.fecha = fecha;
     }
 
-    public String getEvaluador() {
-        return evaluador;
-    }
 
-    public void setEvaluador(String evaluador) {
-        this.evaluador = evaluador;
-    }
     
     
 }

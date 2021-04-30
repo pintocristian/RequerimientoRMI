@@ -87,17 +87,26 @@ public class GestionUsuariosImpl extends UnicastRemoteObject implements GestionU
   }
 
     @Override
-    public boolean consultarEvaluador(int id) throws RemoteException {
-            System.out.println("Entrando a consultar Evaluador ");
-            boolean bandera=false;
-        for (int i = 0; i < this.Usuarios.size(); i++) {
-            if (this.Usuarios.get(i).getId()==id && this.Usuarios.get(i).getRole().equals("Evaluador")) {
-                bandera = true;
-               
+    public int consultarEvaluador(int id) throws RemoteException {
+        System.out.println("Entrando a consultar Evaluador ");
+        int bandera = -1;
+        boolean encontro =false;
+        if (this.Usuarios.isEmpty()) {
+            System.out.println("NO hay usuarios Registrados ");
+        } else {
+            for (int i = 0; i < this.Usuarios.size(); i++) {
+                if (this.Usuarios.get(i).getId() == id && this.Usuarios.get(i).getRole().equals("Evaluador")) {
+                    bandera = 1;
+                    encontro=true;
+                }
             }
         }
+        if(encontro==false){
+                bandera=2;
+            }
+
         return bandera;
-                  
+
     }
 
  
