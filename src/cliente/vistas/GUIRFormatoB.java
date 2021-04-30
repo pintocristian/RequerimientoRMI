@@ -160,6 +160,8 @@ public class GUIRFormatoB extends javax.swing.JFrame {
                 
                 if(funciono2>=3){
                      JOptionPane.showMessageDialog(null, "ya se realizaron las evaluaciones para este anteproyecto");
+                }else if(funciono2==0){
+                 JOptionPane.showMessageDialog(null, "No se encontro Anteproyecto");
                 }else if(funciono==false){
                         JOptionPane.showMessageDialog(null, "No puede evaluar anteproyectos que no le han sido asignados");
                 }else{

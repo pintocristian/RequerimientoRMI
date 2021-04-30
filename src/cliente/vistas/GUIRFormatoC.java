@@ -183,7 +183,9 @@ public class GUIRFormatoC extends javax.swing.JFrame {
                int flujo=objetoRemotoAnteproyecto.VerificarAnteproyecto(codAnt);
                if(flujo<3){
                 JOptionPane.showMessageDialog(null, "EL Anteproyecto no ah sido evaluado");
-               }else {
+               }else if(flujo==0){
+                 JOptionPane.showMessageDialog(null, "No se encontro Anteproyecto");
+                }else {
                    boolean funciono=objetoRemotoAnteproyecto.RegistrarFormatoTiC(objC);
                    if(funciono==true){
                    JOptionPane.showMessageDialog(null, "EL Anteproyecto  ah sido evaluado con exito");
