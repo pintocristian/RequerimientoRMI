@@ -14,10 +14,8 @@ import java.util.ArrayList;
  * @author Usuario
  */
 public interface GestionSeguimientoINT extends Remote {
-    
     public boolean RegistrarHistorial(clsFormatosDTO objFormatos)throws RemoteException;
-    public boolean RegistrarResolucion(int codigo)throws RemoteException;
-    public ArrayList<clsResolucionDTO>ConsultarResoluciones()throws RemoteException;
-    public ArrayList<clsFormatosDTO>ConsultarHistorial()throws RemoteException;
-    
+    public boolean RegistrarResolucion(int idAnteproyecto)throws RemoteException;
+    public ArrayList<clsResolucionDTO> ConsultarResoluciones() throws RemoteException;
+    public ArrayList<clsFormatosDTO> ConsultarHistorial() throws RemoteException;
 }

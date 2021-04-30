@@ -7,38 +7,66 @@ package SSeguimientoAnteproyectos.sop_rmi;
 
 import SSeguimientoAnteproyectos.dto.clsFormatosDTO;
 import SSeguimientoAnteproyectos.dto.clsResolucionDTO;
+import SSeguimientoAnteproyectos.utilidades.GestionFicheros;
+import SSeguimientoAnteproyectos.utilidades.ObjectOutputStreamV2;
+import java.io.EOFException;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Usuario
  */
-public class GestionSeguimientoImpl  extends UnicastRemoteObject implements GestionSeguimientoINT{
+public class GestionSeguimientoImpl extends UnicastRemoteObject implements GestionSeguimientoINT {
+
+    private ArrayList<clsResolucionDTO> listaResoluciones;
+    private ArrayList<clsFormatosDTO> listaHistorial;
+    private boolean auxRegistrarResolucion = false;
+    private boolean auxRegistrarFormatos = false;
+    private GestionFicheros objG;
+    private String numR = "8.4.2-90.14/453";
+    private String fecha = "2017";
+    private String ficheroHistorial = "HistorialTGI.txt";
+    private String ficheroResolucion = "ListadoTGIAprobados.txt";
 
     public GestionSeguimientoImpl() throws RemoteException {
-     super();
+        super();
+        listaResoluciones = new ArrayList();
+        listaHistorial = new ArrayList();
+        objG = new GestionFicheros();
     }
     
     @Override
     public boolean RegistrarHistorial(clsFormatosDTO objFormatos) throws RemoteException {
-       return true;
+        objG.escribirEnHistorial(ficheroHistorial, objFormatos);
+        return true;
     }
 
     @Override
-    public boolean RegistrarResolucion(int codigo) throws RemoteException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean RegistrarResolucion(int idAnteproyecto) throws RemoteException {
+        clsResolucionDTO objResolucion = new clsResolucionDTO(numR,fecha,idAnteproyecto);
+        objG.escribirEnResolucion(ficheroResolucion, objResolucion);
+        return true;
     }
 
     @Override
     public ArrayList<clsResolucionDTO> ConsultarResoluciones() throws RemoteException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        listaResoluciones = objG.leerResolucion(ficheroResolucion);
+        return listaResoluciones;
     }
 
     @Override
     public ArrayList<clsFormatosDTO> ConsultarHistorial() throws RemoteException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        listaHistorial = objG.leerHistorial(ficheroHistorial);
+        return listaHistorial;
     }
-    
+
 }
