@@ -155,13 +155,13 @@ public class GestionAnteproyectoImpl extends UnicastRemoteObject implements Gest
        for(int i=0;i<this.FormatoB.size();i++){
            if(this.FormatoB.get(i).getCodigo()==codigo){
               concepto1=this.FormatoB.get(i).getConcepto(); 
-              id=this.FormatoB.get(i).getCodigo();
+              id=this.FormatoB.get(i).getId_evaluador();
                break;
            }
        }
-       for(int i=0;i<this.FormatoB.size();i++){
-           if(this.FormatoB.get(i).getCodigo()==codigo && this.FormatoB.get(i).getCodigo() != id){
-               concepto2=this.FormatoB.get(i).getConcepto(); 
+       for(int j=0;j<this.FormatoB.size();j++){
+           if(this.FormatoB.get(j).getCodigo()==codigo && this.FormatoB.get(j).getCodigo() != id){
+               concepto2=this.FormatoB.get(j).getConcepto(); 
              
                break;
            }
@@ -246,13 +246,13 @@ public class GestionAnteproyectoImpl extends UnicastRemoteObject implements Gest
 
     @Override
     public boolean verificarPropiedad(int codigoAnt, int codEv) throws RemoteException {
-     
+     boolean bandera =false;
         for(int i=0;i<this.FormatoB.size();i++){
           if(this.FormatoB.get(i).getCodigo()==codigoAnt && this.FormatoB.get(i).getId_evaluador()==codEv){
-              return true;
+              bandera= true;
           }
       }
-        return false;
+        return bandera;
     }
 
    

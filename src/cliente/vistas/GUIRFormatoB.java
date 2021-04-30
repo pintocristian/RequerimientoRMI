@@ -25,7 +25,7 @@ public class GUIRFormatoB extends javax.swing.JFrame {
     public GUIRFormatoB(GestionAnteproyectoINT  objAnte, int idv) {
         initComponents();
          this.objetoRemotoAnteproyecto=objAnte;
-         this.idEv=idEv;
+         this.idEv=idv;
     }
  public GUIRFormatoB(){}
     /**
@@ -160,17 +160,22 @@ public class GUIRFormatoB extends javax.swing.JFrame {
                 
                 if(funciono2>=3){
                      JOptionPane.showMessageDialog(null, "ya se realizaron las evaluaciones para este anteproyecto");
+                      this.dispose();
                 }else if(funciono2==0){
                  JOptionPane.showMessageDialog(null, "No se encontro Anteproyecto");
+                  this.dispose();
                 }else if(funciono==false){
                         JOptionPane.showMessageDialog(null, "No puede evaluar anteproyectos que no le han sido asignados");
+                         this.dispose();
                 }else{
                    boolean funciono3 =objetoRemotoAnteproyecto.RegistrarFormatoTiB(objB);
                    
                    if(funciono3==true){
                      JOptionPane.showMessageDialog(null, "Anteproyecto evaluado exitosamente");
+                      this.dispose();
                    }else{
                         JOptionPane.showMessageDialog(null, "El Anteproyecto No se logro evaluar");
+                         this.dispose();
                    }
                 }
 

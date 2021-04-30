@@ -170,16 +170,20 @@ public class GUIRFormatoD extends javax.swing.JFrame {
                int concepto =Integer.parseInt(txtConcepto.getText());
                clsFormatoTiDDTO objD = new clsFormatoTiDDTO(codAnt,estructura,concepto,Observaciones);
                int flujo=objetoRemotoAnteproyecto.VerificarAnteproyecto(codAnt);
-               if(flujo<3){
+               if(flujo<4){
                 JOptionPane.showMessageDialog(null, "EL Anteproyecto no ah sido evaluado");
+                 this.dispose();
                }else if(flujo==0){
                  JOptionPane.showMessageDialog(null, "No se encontro Anteproyecto");
+                  this.dispose();
                 }else {
                    boolean funciono=objetoRemotoAnteproyecto.RegistrarFormatoTiD(objD);
                    if(funciono==true){
                    JOptionPane.showMessageDialog(null, "EL Anteproyecto  ah sido evaluado con exito");
+                    this.dispose();
                    }else{
                     JOptionPane.showMessageDialog(null, "EL Anteproyecto no ah sido evaluado con exito");
+                     this.dispose();
                     }
                }       
            } catch (RemoteException ex) {

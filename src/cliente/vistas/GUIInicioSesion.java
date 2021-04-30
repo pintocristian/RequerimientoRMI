@@ -124,7 +124,7 @@ public class GUIInicioSesion extends javax.swing.JFrame {
                             GUIMenuEvaluador GUIMEva =new  GUIMenuEvaluador(objetoRemotoUsuario,objetoRemotoAnteproyectos,idEv);
                             GUIMEva.setVisible(true);
                             break;
-                        case "Jefe Departamento":
+                        case "Jefe departamento":
                             GUIMenuJdpto GUIMJdpto =new  GUIMenuJdpto(objetoRemotoUsuario,objetoRemotoAnteproyectos);
                             GUIMJdpto.setVisible(true);
                             break;

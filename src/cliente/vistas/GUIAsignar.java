@@ -162,17 +162,23 @@ public class GUIAsignar extends javax.swing.JFrame {
                     
                     if(asignando1==true && asignando2==true){
                       JOptionPane.showMessageDialog(null, "Evaluadores asignados correctamente");
+                            this.dispose();
                     }
                 }else if(a==-1){
                   JOptionPane.showMessageDialog(null, "No se encuentran Anteproyectos registrados ");
+                        this.dispose();
                 }else if(a==0){
                     JOptionPane.showMessageDialog(null, "No se encuentra el anteproyecto regitrado ");
+                          this.dispose();
                 }else if(a==2){
                     JOptionPane.showMessageDialog(null, "Al anteproyecto ya se le asignaron los evaluadores ");
+                          this.dispose();
                 }else if(u1==-1){
                       JOptionPane.showMessageDialog(null, "No se encuentran Evaluadores registrados ");
+                            this.dispose();
                 }else if(u1==2){
                       JOptionPane.showMessageDialog(null, "No existe este evaluador ");
+                            this.dispose();
                 }
                 
             } catch (RemoteException ex) {
