@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Component id="jPanel1" alignment="1" max="32767" attributes="0"/>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jPanel1" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JPanel" name="jPanel1">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="99" green="66" red="0" type="rgb"/>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblNombreCodir" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblNombrePrograma" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblCodigoA" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblTituloAnteproyecto" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblNombreEst01" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblCodigo01" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblNombreEst02" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblCodigo02" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblNombreDir" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="192" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="txtNombreCoodir" min="-2" pref="98" max="-2" attributes="0"/>
+                              <Component id="txtNombreDir" min="-2" pref="98" max="-2" attributes="0"/>
+                              <Component id="txtCodigoEst02" min="-2" pref="98" max="-2" attributes="0"/>
+                              <Component id="txtNombreEst02" min="-2" pref="98" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="txtTituloA" alignment="1" pref="98" max="32767" attributes="0"/>
+                                  <Component id="txtNombreEst01" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="txtCodigoEst01" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="txtNombrePA" max="32767" attributes="0"/>
+                              </Group>
+                              <Component id="lblCodigoASalida" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="164" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="lblRegistrarAnte" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblObjetivos" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <EmptySpace pref="103" max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="178" max="-2" attributes="0"/>
+                          <Component id="btnRegistrarA" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="149" max="-2" attributes="0"/>
+                          <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="lblRegistrarAnte" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblCodigoA" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblCodigoASalida" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="txtNombrePA" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblNombrePrograma" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblTituloAnteproyecto" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtTituloA" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblNombreEst01" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtNombreEst01" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblCodigo01" alignment="3" min="-2" pref="19" max="-2" attributes="0"/>
+                      <Component id="txtCodigoEst01" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblNombreEst02" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtNombreEst02" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="txtCodigoEst02" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblCodigo02" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                          <Component id="lblObjetivos" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="txtNombreDir" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblNombreDir" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="txtNombreCoodir" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblNombreCodir" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="36" max="32767" attributes="0"/>
+                  <Component id="btnRegistrarA" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="lblRegistrarAnte">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Registrar Anteproyecto"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblNombrePrograma">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Nombre del programa"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblTituloAnteproyecto">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Titulo Anteproyecto"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblNombreEst01">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Nombre estudiante01"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblNombreEst02">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Nombre estudiante02"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblCodigo01">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Codigo01"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblCodigo02">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Codigo02"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblNombreDir">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Nombre Director"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblNombreCodir">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Nombre Co-director"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblObjetivos">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Objetivos del anteproyecto"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblCodigoA">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Codigo"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtTituloA">
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtNombreEst01">
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtCodigoEst01">
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtNombreEst02">
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtCodigoEst02">
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtNombreDir">
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtNombreCoodir">
+        </Component>
+        <Component class="javax.swing.JButton" name="btnRegistrarA">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Registrar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegistrarAActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtNombrePA">
+        </Component>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+          <AuxValues>
+            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+          </AuxValues>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JTextArea" name="txtObjetivos">
+              <Properties>
+                <Property name="columns" type="int" value="20"/>
+                <Property name="rows" type="int" value="5"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Component class="javax.swing.JLabel" name="lblCodigoASalida">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="-"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+  </SubComponents>
+</Form>

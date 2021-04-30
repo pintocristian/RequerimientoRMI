@@ -9,7 +9,7 @@ import java.io.Serializable;
 
 /**
  *
- * @author Usuario
+ * @author Cristian
  */
 public class clsConceptosDTO implements Serializable{
     int concepto1;
