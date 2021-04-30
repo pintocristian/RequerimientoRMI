@@ -6,7 +6,11 @@
 package cliente.vistas;
 
 import SGestionAnteproyectos.sop_rmi.GestionAnteproyectoINT;
-
+import SGestionAnteproyectos.dto.clsFormatoTiBDTO;
+import java.rmi.RemoteException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Usuario
@@ -17,9 +21,11 @@ public class GUIRFormatoB extends javax.swing.JFrame {
      * Creates new form GURIFormatoB
      */
     private static GestionAnteproyectoINT objetoRemotoAnteproyecto;
-    public GUIRFormatoB(GestionAnteproyectoINT  objAnte) {
+    private int idEv;
+    public GUIRFormatoB(GestionAnteproyectoINT  objAnte, int idv) {
         initComponents();
          this.objetoRemotoAnteproyecto=objAnte;
+         this.idEv=idEv;
     }
  public GUIRFormatoB(){}
     /**
@@ -37,10 +43,8 @@ public class GUIRFormatoB extends javax.swing.JFrame {
         lblConceptoEv = new javax.swing.JLabel();
         lblObsevaciones = new javax.swing.JLabel();
         lblFechaEvaluacion = new javax.swing.JLabel();
-        lblNombreEvaluador = new javax.swing.JLabel();
         btnEvaluar = new javax.swing.JButton();
         txtObservaciones = new javax.swing.JTextField();
-        txtNombreEv = new javax.swing.JTextField();
         txtConceptoEv = new javax.swing.JTextField();
         txtFecha = new javax.swing.JTextField();
         txtCodAnt = new javax.swing.JTextField();
@@ -60,9 +64,12 @@ public class GUIRFormatoB extends javax.swing.JFrame {
         lblFechaEvaluacion.setText("Fecha Evaluacion");
         lblFechaEvaluacion.setToolTipText("");
 
-        lblNombreEvaluador.setText("Nombre Evaluador");
-
         btnEvaluar.setText("Evaluar");
+        btnEvaluar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEvaluarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -75,25 +82,19 @@ public class GUIRFormatoB extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblObsevaciones)
-                            .addComponent(lblNombreEvaluador)
-                            .addComponent(lblFechaEvaluacion)
-                            .addComponent(lblCodigoAnt))
-                        .addGap(118, 118, 118))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblConceptoEv)
-                        .addGap(40, 40, 40)))
+                    .addComponent(lblObsevaciones)
+                    .addComponent(lblFechaEvaluacion)
+                    .addComponent(lblCodigoAnt)
+                    .addComponent(lblConceptoEv))
+                .addGap(118, 118, 118)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtNombreEv, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
-                    .addComponent(txtFecha, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtFecha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
                     .addComponent(txtConceptoEv, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtObservaciones, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtCodAnt))
                 .addGap(63, 63, 63))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(135, 135, 135)
+                .addGap(140, 140, 140)
                 .addComponent(btnEvaluar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -118,13 +119,9 @@ public class GUIRFormatoB extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblFechaEvaluacion)
                     .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNombreEvaluador)
-                    .addComponent(txtNombreEv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addComponent(btnEvaluar)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addGap(41, 41, 41))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -146,6 +143,42 @@ public class GUIRFormatoB extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnEvaluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEvaluarActionPerformed
+        if (txtCodAnt.getText().isEmpty() && txtConceptoEv.getText().isEmpty() && txtFecha.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "EL unico campo no obligatorio son las observaciones");
+        } else {
+
+            int CodigoAnt = Integer.parseInt(txtCodAnt.getText());
+            int Concepto = Integer.parseInt(txtConceptoEv.getText());
+            String Observaciones = txtObservaciones.getText();
+            String Fecha = txtFecha.getText();
+            clsFormatoTiBDTO objB = new clsFormatoTiBDTO(idEv, CodigoAnt, Concepto, Observaciones, Fecha);
+            try {
+                boolean funciono = objetoRemotoAnteproyecto.verificarPropiedad(CodigoAnt, idEv);
+                int funciono2 = objetoRemotoAnteproyecto.VerificarAnteproyecto(CodigoAnt);
+                
+                if(funciono2>=3){
+                     JOptionPane.showMessageDialog(null, "ya se realizaron las evaluaciones para este anteproyecto");
+                }else if(funciono==false){
+                        JOptionPane.showMessageDialog(null, "No puede evaluar anteproyectos que no le han sido asignados");
+                }else{
+                   boolean funciono3 =objetoRemotoAnteproyecto.RegistrarFormatoTiB(objB);
+                   
+                   if(funciono3==true){
+                     JOptionPane.showMessageDialog(null, "Anteproyecto evaluado exitosamente");
+                   }else{
+                        JOptionPane.showMessageDialog(null, "El Anteproyecto No se logro evaluar");
+                   }
+                }
+
+            } catch (RemoteException ex) {
+                Logger.getLogger(GUIRFormatoB.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+      
+    }//GEN-LAST:event_btnEvaluarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -190,12 +223,10 @@ public class GUIRFormatoB extends javax.swing.JFrame {
     private javax.swing.JLabel lblConceptoEv;
     private javax.swing.JLabel lblEvaluarAnt;
     private javax.swing.JLabel lblFechaEvaluacion;
-    private javax.swing.JLabel lblNombreEvaluador;
     private javax.swing.JLabel lblObsevaciones;
     private javax.swing.JTextField txtCodAnt;
     private javax.swing.JTextField txtConceptoEv;
     private javax.swing.JTextField txtFecha;
-    private javax.swing.JTextField txtNombreEv;
     private javax.swing.JTextField txtObservaciones;
     // End of variables declaration//GEN-END:variables
 }

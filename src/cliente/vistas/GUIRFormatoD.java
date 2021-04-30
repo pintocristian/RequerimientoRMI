@@ -5,6 +5,13 @@
  */
 package cliente.vistas;
 
+import SGestionAnteproyectos.dto.clsFormatoTiDDTO;
+import SGestionAnteproyectos.sop_rmi.GestionAnteproyectoINT;
+import java.rmi.RemoteException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Usuario
@@ -14,10 +21,12 @@ public class GUIRFormatoD extends javax.swing.JFrame {
     /**
      * Creates new form GUIRFormatoD
      */
-    public GUIRFormatoD() {
+        private static GestionAnteproyectoINT objetoRemotoAnteproyecto;
+    public GUIRFormatoD(GestionAnteproyectoINT objAnteproyecto) {
         initComponents();
+        this.objetoRemotoAnteproyecto=objAnteproyecto;
     }
-
+ public GUIRFormatoD() {}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -55,6 +64,11 @@ public class GUIRFormatoD extends javax.swing.JFrame {
         lblObservaciones.setText("Observaciones");
 
         btnEvaluar.setText("Evaluar");
+        btnEvaluar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEvaluarActionPerformed(evt);
+            }
+        });
 
         txtObservaciones.setColumns(20);
         txtObservaciones.setRows(5);
@@ -144,6 +158,33 @@ public class GUIRFormatoD extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnEvaluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEvaluarActionPerformed
+        if(txtCodigoAnt.getText().isEmpty() && txtConcepto.getText().isEmpty() && txtEstructura.getText().isEmpty()){
+          JOptionPane.showMessageDialog(null, "EL unico campo no obligatorio son las observaciones");
+        }else{
+          try {
+               int codAnt=Integer.parseInt(txtCodigoAnt.getText()); 
+               String estructura=txtEstructura.getText();
+               String Observaciones=txtObservaciones.getText();
+               int concepto =Integer.parseInt(txtConcepto.getText());
+               clsFormatoTiDDTO objD = new clsFormatoTiDDTO(codAnt,estructura,concepto,Observaciones);
+               int flujo=objetoRemotoAnteproyecto.VerificarAnteproyecto(codAnt);
+               if(flujo<3){
+                JOptionPane.showMessageDialog(null, "EL Anteproyecto no ah sido evaluado");
+               }else {
+                   boolean funciono=objetoRemotoAnteproyecto.RegistrarFormatoTiD(objD);
+                   if(funciono==true){
+                   JOptionPane.showMessageDialog(null, "EL Anteproyecto  ah sido evaluado con exito");
+                   }else{
+                    JOptionPane.showMessageDialog(null, "EL Anteproyecto no ah sido evaluado con exito");
+                    }
+               }       
+           } catch (RemoteException ex) {
+               Logger.getLogger(GUIRFormatoC.class.getName()).log(Level.SEVERE, null, ex);
+           }
+        }
+    }//GEN-LAST:event_btnEvaluarActionPerformed
 
     /**
      * @param args the command line arguments

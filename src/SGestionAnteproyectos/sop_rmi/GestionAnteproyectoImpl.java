@@ -47,27 +47,29 @@ public class GestionAnteproyectoImpl extends UnicastRemoteObject implements Gest
     }
   
     @Override
-    public boolean RegistrarFormatoTiB(clsFormatoTiBDTO objFormatoB) throws RemoteException {    
-          System.out.println("Entrando a registrar formato");
+    public boolean RegistrarFormatoTiB(clsFormatoTiBDTO objFormatoB) throws RemoteException {
+        System.out.println("Entrando a registrar formato");
         boolean encontro = false;
-        
-        for(int i=0; i<FormatoB.size();i++){
-            if(this.FormatoB.get(i).getCodigo()==objFormatoB.getCodigo()){
+
+        for (int i = 0; i < FormatoB.size(); i++) {
+            if (this.FormatoB.get(i).getCodigo() == objFormatoB.getCodigo() && this.FormatoB.get(i).getCodigo() == objFormatoB.getCodigo()) {
                 this.FormatoB.get(i).setConcepto(objFormatoB.getConcepto());
                 this.FormatoB.get(i).setObservaciones(objFormatoB.getObservaciones());
                 this.FormatoB.get(i).setFecha(objFormatoB.getFecha());
-                encontro=true;
+                encontro = true;
             }
         }
-        for(int i=0;i<this.FormatoA.size();i++){
-            if(this.FormatoA.get(i).getCodigo()==objFormatoB.getCodigo()){
-                this.FormatoA.get(i).setFlujo(FormatoA.get(i).getFlujo()+1);
-                break;
+        if (encontro = true) {
+            for (int i = 0; i < this.FormatoA.size(); i++) {
+                if (this.FormatoA.get(i).getCodigo() == objFormatoB.getCodigo()) {
+                    this.FormatoA.get(i).setFlujo(FormatoA.get(i).getFlujo() + 1);
+                    break;
+                }
             }
         }
+
         return encontro;
-        
-        
+
     }
 
     @Override
@@ -240,6 +242,17 @@ public class GestionAnteproyectoImpl extends UnicastRemoteObject implements Gest
         }
       }
         return bandera;
+    }
+
+    @Override
+    public boolean verificarPropiedad(int codigoAnt, int codEv) throws RemoteException {
+     
+        for(int i=0;i<this.FormatoB.size();i++){
+          if(this.FormatoB.get(i).getCodigo()==codigoAnt && this.FormatoB.get(i).getId_evaluador()==codEv){
+              return true;
+          }
+      }
+        return false;
     }
 
    

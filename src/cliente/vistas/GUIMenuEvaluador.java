@@ -19,10 +19,13 @@ public class GUIMenuEvaluador extends javax.swing.JFrame {
      */
     private static GestionAnteproyectoINT objetoRemotoAnteproyecto;
     private static GestionUsuariosINT objetoRemotoUsuario;
-    public GUIMenuEvaluador(GestionUsuariosINT objUsuario,GestionAnteproyectoINT objAnteproyecto) {
+    private int idEv;
+    public GUIMenuEvaluador(GestionUsuariosINT objUsuario,GestionAnteproyectoINT objAnteproyecto, int idEv) {
         initComponents();
         this.objetoRemotoUsuario=objUsuario;
         this.objetoRemotoAnteproyecto=objAnteproyecto;
+        this.idEv=idEv;
+        
     }
     public GUIMenuEvaluador(){}
     /**
@@ -121,7 +124,7 @@ public class GUIMenuEvaluador extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnEvaluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEvaluarActionPerformed
-        GUIRFormatoB GUIB = new GUIRFormatoB (objetoRemotoAnteproyecto);
+        GUIRFormatoB GUIB = new GUIRFormatoB (objetoRemotoAnteproyecto,idEv);
         GUIB.setVisible(true);
     }//GEN-LAST:event_btnEvaluarActionPerformed
 

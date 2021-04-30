@@ -6,6 +6,12 @@
 package cliente.vistas;
 
 import SGestionAnteproyectos.sop_rmi.GestionAnteproyectoINT;
+import SGestionAnteproyectos.dto.clsConceptosDTO;
+import SGestionAnteproyectos.dto.clsFormatoTiCDTO;
+import java.rmi.RemoteException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -43,6 +49,7 @@ public class GUIRFormatoC extends javax.swing.JFrame {
         txtEstructura = new javax.swing.JTextField();
         txtConcepto = new javax.swing.JTextField();
         txtCodigoAnt = new javax.swing.JTextField();
+        btnEvaluar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,6 +70,13 @@ public class GUIRFormatoC extends javax.swing.JFrame {
         txtObservaciones.setColumns(20);
         txtObservaciones.setRows(5);
         jScrollPane1.setViewportView(txtObservaciones);
+
+        btnEvaluar.setText("Evaluar");
+        btnEvaluar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEvaluarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -100,6 +114,10 @@ public class GUIRFormatoC extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(txtCodigoAnt, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(85, 85, 85))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(126, 126, 126)
+                .addComponent(btnEvaluar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -124,7 +142,9 @@ public class GUIRFormatoC extends javax.swing.JFrame {
                 .addComponent(lblObservaciones)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnEvaluar)
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -146,6 +166,36 @@ public class GUIRFormatoC extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnEvaluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEvaluarActionPerformed
+       if(txtCodigoAnt.getText().isEmpty() && txtConcepto.getText().isEmpty() && txtEstructura.getText().isEmpty()){
+         JOptionPane.showMessageDialog(null, "EL unico campo no obligatorio son las observaciones");
+       }else {
+        
+           try {
+               int codAnt=Integer.parseInt(txtCodigoAnt.getText()); 
+               clsConceptosDTO Conceptos= objetoRemotoAnteproyecto.ConsultarConceptos(codAnt);
+               lblConceptos.setText("Concepto 1:" +Conceptos.getConcepto1()+"Concepto 2:"+Conceptos.getConcepto2());
+               String estructura=txtEstructura.getText();
+               String Observaciones=txtObservaciones.getText();
+               int concepto =Integer.parseInt(txtConcepto.getText());
+               clsFormatoTiCDTO objC = new clsFormatoTiCDTO(codAnt,estructura,concepto,Observaciones);
+               int flujo=objetoRemotoAnteproyecto.VerificarAnteproyecto(codAnt);
+               if(flujo<3){
+                JOptionPane.showMessageDialog(null, "EL Anteproyecto no ah sido evaluado");
+               }else {
+                   boolean funciono=objetoRemotoAnteproyecto.RegistrarFormatoTiC(objC);
+                   if(funciono==true){
+                   JOptionPane.showMessageDialog(null, "EL Anteproyecto  ah sido evaluado con exito");
+                   }else{
+                    JOptionPane.showMessageDialog(null, "EL Anteproyecto no ah sido evaluado con exito");
+                    }
+               }       
+           } catch (RemoteException ex) {
+               Logger.getLogger(GUIRFormatoC.class.getName()).log(Level.SEVERE, null, ex);
+           }
+       }
+    }//GEN-LAST:event_btnEvaluarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -184,6 +234,7 @@ public class GUIRFormatoC extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnEvaluar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCodigoAnt;

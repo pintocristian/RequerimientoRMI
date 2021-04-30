@@ -29,4 +29,5 @@ public interface GestionAnteproyectoINT extends Remote {
     public int ConsultarConceptoJefe(int codigo)throws RemoteException;
     public int ConsultarConceptoD(int codigo)throws RemoteException;
     public int  consultarAnteproyecto(int codigo)throws RemoteException;
+    public boolean verificarPropiedad(int codigoAnt, int codEv)throws RemoteException;
 }

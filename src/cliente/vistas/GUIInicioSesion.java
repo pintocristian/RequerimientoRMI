@@ -120,7 +120,8 @@ public class GUIInicioSesion extends javax.swing.JFrame {
                             GUIMDir.setVisible(true);
                             break;
                         case "Evaluador":
-                            GUIMenuEvaluador GUIMEva =new  GUIMenuEvaluador(objetoRemotoUsuario,objetoRemotoAnteproyectos);
+                            int idEv=objUsuario.getId();
+                            GUIMenuEvaluador GUIMEva =new  GUIMenuEvaluador(objetoRemotoUsuario,objetoRemotoAnteproyectos,idEv);
                             GUIMEva.setVisible(true);
                             break;
                         case "Jefe Departamento":
