@@ -27,5 +27,6 @@ public interface GestionAnteproyectoINT extends Remote {
     public clsConceptosDTO ConsultarConceptos(int codigo)throws RemoteException;
     public boolean Asignar(clsFormatoTiBDTO objFormatoB)throws RemoteException;
     public int ConsultarConceptoJefe(int codigo)throws RemoteException;
-     public int ConsultarConceptoD(int codigo)throws RemoteException;
+    public int ConsultarConceptoD(int codigo)throws RemoteException;
+    public boolean  consultarAnteproyecto(int codigo)throws RemoteException;
 }

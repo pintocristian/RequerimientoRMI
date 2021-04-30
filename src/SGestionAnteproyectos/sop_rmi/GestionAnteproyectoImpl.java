@@ -206,5 +206,19 @@ public class GestionAnteproyectoImpl extends UnicastRemoteObject implements Gest
         return FormatoB.add(objFormatoB); 
     }
 
+    @Override
+    public boolean consultarAnteproyecto(int codigo) throws RemoteException {
+       boolean bandera = false;
+        for(int i=0;i<this.FormatoA.size();i++){
+           for(int j=0;j<this.FormatoB.size();i++){
+               if(this.FormatoA.get(i).getCodigo()==this.FormatoB.get(j).getCodigo() && this.FormatoA.get(i).getFlujo()==1){
+                   bandera =true;
+                   return bandera;
+               }
+           }
+       }
+        return bandera;
+    }
+
    
 }

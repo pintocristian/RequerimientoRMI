@@ -85,7 +85,22 @@ public class GestionUsuariosImpl extends UnicastRemoteObject implements GestionU
     numPuertoRMIRegistry, "objetoRemotoSeguimiento");
     return Mensaje;
   }
-  
+
+    @Override
+    public boolean consultarEvaluador(int id) throws RemoteException {
+            System.out.println("Entrando a consultar Evaluador ");
+            boolean bandera=false;
+        for (int i = 0; i < this.Usuarios.size(); i++) {
+            if (this.Usuarios.get(i).getId()==id && this.Usuarios.get(i).getRole().equals("Evaluador")) {
+                bandera = true;
+               
+            }
+        }
+        return bandera;
+                  
+    }
+
+ 
 
     
    

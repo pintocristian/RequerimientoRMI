@@ -18,4 +18,5 @@ public interface GestionUsuariosINT extends Remote{
     public clsUsuarioDTO ConsultarUsuario(int id)throws RemoteException;
     public boolean ModificarUsuario(clsUsuarioDTO objUsuario)throws RemoteException;
     public clsUsuarioDTO Sesion(String usuario, String clave)throws RemoteException;
+   public boolean consultarEvaluador(int id)throws RemoteException;
 }
