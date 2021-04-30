@@ -15,6 +15,7 @@ public class clsConceptosDTO implements Serializable{
     int concepto1;
     int concepto2;
 
+    //comentario
     public clsConceptosDTO(int concepto1, int concepto2) {
         this.concepto1 = concepto1;
         this.concepto2 = concepto2;
