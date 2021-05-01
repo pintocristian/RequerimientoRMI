@@ -53,13 +53,15 @@ public class GestionAnteproyectoImpl extends UnicastRemoteObject implements Gest
 
         for (int i = 0; i < FormatoB.size(); i++) {
             if (this.FormatoB.get(i).getCodigo() == objFormatoB.getCodigo() && this.FormatoB.get(i).getCodigo() == objFormatoB.getCodigo()) {
-                this.FormatoB.get(i).setConcepto(objFormatoB.getConcepto());
-                this.FormatoB.get(i).setObservaciones(objFormatoB.getObservaciones());
-                this.FormatoB.get(i).setFecha(objFormatoB.getFecha());
-                encontro = true;
+               if(this.FormatoB.get(i).getConcepto()==-1){
+                    this.FormatoB.get(i).setConcepto(objFormatoB.getConcepto());
+                    this.FormatoB.get(i).setObservaciones(objFormatoB.getObservaciones());
+                    this.FormatoB.get(i).setFecha(objFormatoB.getFecha());
+                    encontro = true;
+               }
             }
         }
-        if (encontro = true) {
+        if (encontro == true) {
             for (int i = 0; i < this.FormatoA.size(); i++) {
                 if (this.FormatoA.get(i).getCodigo() == objFormatoB.getCodigo()) {
                     this.FormatoA.get(i).setFlujo(FormatoA.get(i).getFlujo() + 1);

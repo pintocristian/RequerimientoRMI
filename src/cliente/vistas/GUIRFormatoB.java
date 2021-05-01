@@ -165,7 +165,7 @@ public class GUIRFormatoB extends javax.swing.JFrame {
                  JOptionPane.showMessageDialog(null, "No se encontro Anteproyecto");
                   this.dispose();
                 }else if(funciono==false){
-                        JOptionPane.showMessageDialog(null, "No puede evaluar anteproyectos que no le han sido asignados");
+                        JOptionPane.showMessageDialog(null, "No puede evaluar anteproyectos que no le han sido asignado");
                          this.dispose();
                 }else{
                    boolean funciono3 =objetoRemotoAnteproyecto.RegistrarFormatoTiB(objB);
@@ -174,7 +174,7 @@ public class GUIRFormatoB extends javax.swing.JFrame {
                      JOptionPane.showMessageDialog(null, "Anteproyecto evaluado exitosamente");
                       this.dispose();
                    }else{
-                        JOptionPane.showMessageDialog(null, "El Anteproyecto No se logro evaluar");
+                        JOptionPane.showMessageDialog(null, "Usted ya emitio un concepto para este anteproyecto");
                          this.dispose();
                    }
                 }

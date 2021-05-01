@@ -66,9 +66,9 @@ public class GUIConectarCliente extends javax.swing.JFrame {
         jPanel1.add(lblConexionC);
         lblConexionC.setBounds(140, 20, 140, 14);
         jPanel1.add(txtIPC);
-        txtIPC.setBounds(190, 70, 120, 20);
+        txtIPC.setBounds(190, 60, 120, 30);
         jPanel1.add(txtPuertoC);
-        txtPuertoC.setBounds(190, 120, 120, 20);
+        txtPuertoC.setBounds(190, 110, 120, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

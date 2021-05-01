@@ -218,7 +218,7 @@ public class GUIRFormatoD extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "EL Anteproyecto todavia no ha sido evaluado por el jefe de departamentp");
                     this.dispose();
                 }else if(flujo==5){
-                    JOptionPane.showMessageDialog(null, "El  Anteproyecto ya fue evaluado por el decano");
+                    JOptionPane.showMessageDialog(null, "El  Anteproyecto ya fue evaluado por el coordinador");
                     this.dispose();
                 }else {
                 JOptionPane.showMessageDialog(null, "EL Anteproyecto no fue aprobado por el jede de departamento");

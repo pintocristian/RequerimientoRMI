@@ -53,11 +53,11 @@ public class GUIConectarServidor1 extends javax.swing.JFrame {
 
         lblIP1.setText("Digite la direccion ip:");
         jPanel1.add(lblIP1);
-        lblIP1.setBounds(50, 90, 110, 14);
+        lblIP1.setBounds(50, 90, 160, 14);
 
         lblPuerto1.setText("Digite el numero del puerto:");
         jPanel1.add(lblPuerto1);
-        lblPuerto1.setBounds(50, 170, 150, 14);
+        lblPuerto1.setBounds(50, 170, 170, 14);
 
         btnConectar1.setText("Conectar");
         btnConectar1.addActionListener(new java.awt.event.ActionListener() {
@@ -68,9 +68,9 @@ public class GUIConectarServidor1 extends javax.swing.JFrame {
         jPanel1.add(btnConectar1);
         btnConectar1.setBounds(190, 260, 90, 23);
         jPanel1.add(txtIP1);
-        txtIP1.setBounds(250, 90, 160, 20);
+        txtIP1.setBounds(250, 90, 100, 30);
         jPanel1.add(txtPuerto1);
-        txtPuerto1.setBounds(250, 170, 160, 20);
+        txtPuerto1.setBounds(250, 160, 100, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
