@@ -19,7 +19,7 @@ public class clsFormatoTiBDTO2 implements Serializable{
     private String observaciones;
     private String fecha;
   
-
+    public clsFormatoTiBDTO2(){}
     public clsFormatoTiBDTO2(int id_evaluador, int codigo, int concepto, String observaciones, String fecha) {
         this.id_evaluador = id_evaluador;
         this.codigo = codigo;

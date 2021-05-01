@@ -5,26 +5,19 @@
  */
 package cliente.vistas;
 
-import SGestionAnteproyectos.sop_rmi.GestionAnteproyectoINT;
-import SGestionAnteproyectos.sop_rmi.GestionUsuariosINT;
-
 /**
  *
  * @author Usuario
  */
-public class GUIMenuJdpto extends javax.swing.JFrame {
+public class GUIListarJdpto extends javax.swing.JFrame {
 
     /**
-     * Creates new form GUIMenuJdpto
+     * Creates new form GUIListarJdpto
      */
-    private static GestionAnteproyectoINT objetoRemotoAnteproyecto;
-    private static GestionUsuariosINT objetoRemotoUsuario;
-    public GUIMenuJdpto(GestionUsuariosINT objUsuario,GestionAnteproyectoINT objAnteproyecto) {
+    public GUIListarJdpto() {
         initComponents();
-        this.objetoRemotoUsuario=objUsuario;
-        this.objetoRemotoAnteproyecto=objAnteproyecto;
     }
-    public GUIMenuJdpto(){}
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -35,65 +28,64 @@ public class GUIMenuJdpto extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        btnEvauar = new javax.swing.JButton();
-        lblMenuJdpto = new javax.swing.JLabel();
-        btnSalir = new javax.swing.JButton();
-        btnListarAnteproyectos = new javax.swing.JButton();
+        lblTitulo = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblAnt = new javax.swing.JTable();
+        btnAtras = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 153));
 
-        btnEvauar.setText("Evaluar");
-        btnEvauar.addActionListener(new java.awt.event.ActionListener() {
+        lblTitulo.setText("Listado de anteproyectos ");
+
+        tblAnt.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tblAnt);
+
+        btnAtras.setText("Atras");
+        btnAtras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEvauarActionPerformed(evt);
+                btnAtrasActionPerformed(evt);
             }
         });
-
-        lblMenuJdpto.setText("Menu Jefe de Departamento");
-
-        btnSalir.setText("Salir");
-        btnSalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalirActionPerformed(evt);
-            }
-        });
-
-        btnListarAnteproyectos.setText("Listar Anteproyectos");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(102, Short.MAX_VALUE)
-                .addComponent(lblMenuJdpto)
-                .addGap(95, 95, 95))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(129, 129, 129)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(btnSalir, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnEvauar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(125, 125, 125)
+                        .addComponent(lblTitulo))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(94, 94, 94)
-                        .addComponent(btnListarAnteproyectos)))
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(144, 144, 144)
+                        .addComponent(btnAtras)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(lblMenuJdpto)
-                .addGap(51, 51, 51)
-                .addComponent(btnEvauar)
+                .addContainerGap()
+                .addComponent(lblTitulo)
+                .addGap(31, 31, 31)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnListarAnteproyectos)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addComponent(btnSalir)
-                .addGap(60, 60, 60))
+                .addComponent(btnAtras)
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -116,16 +108,9 @@ public class GUIMenuJdpto extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        GUIInicioSesion GUISesion =new GUIInicioSesion(objetoRemotoUsuario,objetoRemotoAnteproyecto);
-        GUISesion.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnSalirActionPerformed
-
-    private void btnEvauarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEvauarActionPerformed
-        GUIRFormatoC GUIC = new GUIRFormatoC (objetoRemotoAnteproyecto);
-        GUIC.setVisible(true);
-    }//GEN-LAST:event_btnEvauarActionPerformed
+    private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
+       this.dispose();
+    }//GEN-LAST:event_btnAtrasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -144,29 +129,29 @@ public class GUIMenuJdpto extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GUIMenuJdpto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUIListarJdpto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GUIMenuJdpto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUIListarJdpto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GUIMenuJdpto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUIListarJdpto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GUIMenuJdpto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUIListarJdpto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GUIMenuJdpto().setVisible(true);
+                new GUIListarJdpto().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnEvauar;
-    private javax.swing.JButton btnListarAnteproyectos;
-    private javax.swing.JButton btnSalir;
+    private javax.swing.JButton btnAtras;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lblMenuJdpto;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblTitulo;
+    private javax.swing.JTable tblAnt;
     // End of variables declaration//GEN-END:variables
 }

@@ -38,7 +38,7 @@ public class clsFormatoTiADTO2 implements Serializable{
         this.objetivo = objetivo;
       
     }
-
+   public clsFormatoTiADTO2(){}
     public int getCodigo() {
         return codigo;
     }

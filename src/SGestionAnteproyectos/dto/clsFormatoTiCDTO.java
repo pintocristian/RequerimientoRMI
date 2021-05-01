@@ -16,7 +16,7 @@ public class clsFormatoTiCDTO implements Serializable{
     private String estructura;
     private int conceptoDpto;
     private String observaciones;
-
+     public clsFormatoTiCDTO(){}
     public clsFormatoTiCDTO(int codigo, String estructura, int conceptoDpto, String observaciones) {
         this.codigo = codigo;
         this.estructura = estructura;

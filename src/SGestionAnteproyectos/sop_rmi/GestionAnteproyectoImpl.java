@@ -66,6 +66,7 @@ public class GestionAnteproyectoImpl extends UnicastRemoteObject implements Gest
                     this.FormatoB.get(i).setObservaciones(objFormatoB.getObservaciones());
                     this.FormatoB.get(i).setFecha(objFormatoB.getFecha());
                     encontro = true;
+                    break;
                }
             }
         }
@@ -107,17 +108,20 @@ public class GestionAnteproyectoImpl extends UnicastRemoteObject implements Gest
     @Override
     public boolean RegistrarFormatoTiD(clsFormatoTiDDTO objFormatoD) throws RemoteException {
         System.out.println("Entrando a registrar formato D");
-         
-        boolean funciono=false;
-        if(FormatoD.add(objFormatoD)==true){
-        
-        for(int i=0;i<this.FormatoA.size();i++){
-            if(this.FormatoA.get(i).getCodigo()==objFormatoD.getCodigo()){
-                this.FormatoA.get(i).setFlujo(5);
-                funciono=true;
-                break;
+
+        boolean funciono = false;
+        if (FormatoD.add(objFormatoD) == true) {
+            if(objFormatoD.getConceptoCoor()==1){
+                EnviarFormatos(objFormatoD.getCodigo());
             }
-        }
+            
+            for (int i = 0; i < this.FormatoA.size(); i++) {
+                if (this.FormatoA.get(i).getCodigo() == objFormatoD.getCodigo()) {
+                    this.FormatoA.get(i).setFlujo(5);
+                    funciono = true;
+                    break;
+                }
+            }
         }
         return funciono;
     }
@@ -268,16 +272,16 @@ public class GestionAnteproyectoImpl extends UnicastRemoteObject implements Gest
    public void EnviarFormatos(int ide){
        int id=ide;
        int ev1=0;
-       clsFormatoTiADTO objA=null ;
-       clsFormatoTiBDTO objB1 =null;
-       clsFormatoTiBDTO objB2=null;
-       clsFormatoTiCDTO objC=null;
-       clsFormatoTiDDTO objD=null;
-       clsFormatoTiADTO2 objAS=null ;
-       clsFormatoTiBDTO2 objB1S =null;
-       clsFormatoTiBDTO2 objB2S=null;
-       clsFormatoTiCDTO2 objCS=null;
-       clsFormatoTiDDTO2 objDS=null;
+       clsFormatoTiADTO objA=new  clsFormatoTiADTO();
+       clsFormatoTiBDTO objB1 =new clsFormatoTiBDTO();
+       clsFormatoTiBDTO objB2=new clsFormatoTiBDTO();
+       clsFormatoTiCDTO objC=new clsFormatoTiCDTO();
+       clsFormatoTiDDTO objD=new  clsFormatoTiDDTO();
+       clsFormatoTiADTO2 objAS= new clsFormatoTiADTO2();
+       clsFormatoTiBDTO2 objB1S =new clsFormatoTiBDTO2();
+       clsFormatoTiBDTO2 objB2S=new  clsFormatoTiBDTO2();
+       clsFormatoTiCDTO2 objCS= new  clsFormatoTiCDTO2();
+       clsFormatoTiDDTO2 objDS=new   clsFormatoTiDDTO2 ();
        for (int i=0;i<this.FormatoA.size();i++){
            if(this.FormatoA.get(i).getCodigo()==id){
            objA = this.FormatoA.get(i);
@@ -287,9 +291,14 @@ public class GestionAnteproyectoImpl extends UnicastRemoteObject implements Gest
            if(this.FormatoB.get(i).getCodigo()==id){
                objB1 = this.FormatoB.get(i);
                ev1=this.FormatoB.get(i).getId_evaluador();
+               break;
            } 
+       }
+        for (int i=0;i<this.FormatoB.size();i++){
+           
            if(this.FormatoB.get(i).getCodigo()==id && ev1 != this.FormatoB.get(i).getId_evaluador()){
                  objB2 = this.FormatoB.get(i);
+                 break;
            }
        }
        for (int i=0;i<this.FormatoC.size();i++){
@@ -302,7 +311,41 @@ public class GestionAnteproyectoImpl extends UnicastRemoteObject implements Gest
                objD = this.FormatoD.get(i);
            }
        }
+      
+       // Formato A
        objAS.setCodigo(objA.getCodigo());
+       objAS.setNombrePrograma(objA.getNombrePrograma());
+       objAS.setTitulo(objA.getTitulo());
+       objAS.setEstudiante01(objA.getEstudiante01());
+       objAS.setCodigoestudiante01(objA.getCodigoestudiante01());
+       objAS.setEstudiante02(objA.getEstudiante02());
+       objAS.setCodigoestudiante02(objA.getCodigoestudiante02());
+       objAS.setDirector(objA.getDirector());
+       objAS.setCodirector(objA.getCodirector());
+       objAS.setObjetivo(objA.getObjetivo());
+       objAS.setFlujo(objA.getFlujo());
+        // Formato B1
+       objB1S.setId_evaluador(objB1.getId_evaluador());
+       objB1S.setCodigo(objB1.getCodigo());
+       objB1S.setConcepto(objB1.getConcepto());
+       objB1S.setObservaciones(objB1.getObservaciones());
+       objB1S.setFecha(objB1.getFecha());
+       // Formato B2
+       objB2S.setId_evaluador(objB2.getId_evaluador());
+       objB2S.setCodigo(objB2.getCodigo());
+       objB2S.setConcepto(objB2.getConcepto());
+       objB2S.setObservaciones(objB2.getObservaciones());
+       objB2S.setFecha(objB2.getFecha());
+       // Formato C
+       objCS.setCodigo(objC.getCodigo());
+       objCS.setEstructura(objC.getEstructura());
+       objCS.setConceptoDpto(objC.getConceptoDpto());
+       objCS.setObservaciones(objC.getObservaciones());
+       // Formato D
+       objDS.setCodigo(objD.getCodigo());
+       objDS.setEstructura(objD.getEstructura());
+       objDS.setConceptoCoor(objD.getConceptoCoor());
+       objDS.setObservaciones(objD.getObservaciones());
        
        clsFormatosDTO2 objFormatos =new clsFormatosDTO2(id,objAS,objB1S,objB2S,objCS,objDS);
          try {

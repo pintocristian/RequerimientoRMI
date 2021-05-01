@@ -25,7 +25,7 @@ public class GUIRFormatoD extends javax.swing.JFrame {
     public GUIRFormatoD(GestionAnteproyectoINT objAnteproyecto) {
         initComponents();
         this.objetoRemotoAnteproyecto=objAnteproyecto;
-        this.txtConcepto.setEditable(false);
+        this.txtConcepto.setEnabled(false);
         this.txtEstructura.setEnabled(false);
         this.txtObservaciones.setEnabled(false);
         this.btnEvaluar.setEnabled(false);
@@ -207,7 +207,7 @@ public class GUIRFormatoD extends javax.swing.JFrame {
             int flujo = objetoRemotoAnteproyecto.VerificarAnteproyecto(Integer.parseInt(txtCodigoAnt.getText()));
             int concepto = objetoRemotoAnteproyecto.ConsultarConceptoJefe(Integer.parseInt(txtCodigoAnt.getText()));
             if (concepto == 1) {
-                this.txtConcepto.setEditable(true);
+                this.txtConcepto.setEnabled(true);
                 this.txtEstructura.setEnabled(true);
                 this.txtObservaciones.setEnabled(true);
                 this.btnEvaluar.setEnabled(true);

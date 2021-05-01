@@ -23,7 +23,7 @@ public class clsFormatoTiADTO implements Serializable{
     private String codirector;
     private String objetivo;
     private int flujo;
-
+    public clsFormatoTiADTO(){}
     public clsFormatoTiADTO(int codigo, String nombrePrograma, String titulo, String estudiante01, int codigoestudiante01, String estudiante02, int codigoestudiante02, String director, String codirector, String objetivo) {
         this.codigo = codigo;
         this.nombrePrograma = nombrePrograma;

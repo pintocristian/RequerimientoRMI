@@ -169,7 +169,6 @@ public class GUIRFormatoB extends javax.swing.JFrame {
                          this.dispose();
                 }else{
                    boolean funciono3 =objetoRemotoAnteproyecto.RegistrarFormatoTiB(objB);
-                   
                    if(funciono3==true){
                      JOptionPane.showMessageDialog(null, "Anteproyecto evaluado exitosamente");
                       this.dispose();
