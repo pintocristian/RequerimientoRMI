@@ -8,16 +8,11 @@ package SSeguimientoAnteproyectos.sop_rmi;
 import SSeguimientoAnteproyectos.dto.clsFormatosDTO2;
 import SSeguimientoAnteproyectos.dto.clsResolucionDTO;
 import SSeguimientoAnteproyectos.utilidades.GestionFicheros;
-import SSeguimientoAnteproyectos.utilidades.ObjectOutputStreamV2;
-import java.io.EOFException;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Formatter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -32,8 +27,8 @@ public class GestionSeguimientoImpl extends UnicastRemoteObject implements Gesti
     private boolean auxRegistrarResolucion = false;
     private boolean auxRegistrarFormatos = false;
     private GestionFicheros objG;
-    private String numR = "8.4.2-90.14/453";
-    private String fecha = "2017";
+    private String numR ;
+    private String fecha = String.valueOf(Calendar.getInstance().get(Calendar.YEAR));
     private String ficheroHistorial = "HistorialTGI.txt";
     private String ficheroResolucion = "ListadoTGIAprobados.txt";
 
@@ -46,17 +41,44 @@ public class GestionSeguimientoImpl extends UnicastRemoteObject implements Gesti
     
     @Override
     public boolean RegistrarHistorial(clsFormatosDTO2 objFormatos) throws RemoteException {
-        objG.escribirEnHistorial(ficheroHistorial, objFormatos);
+        boolean r = objG.escribirEnHistorial(ficheroHistorial, objFormatos);
+        if (r) {
+            System.out.println("Registro Historial exitoso");
+        }else{
+            System.out.println("Error al registrar historial");
+        }
         return true;
     }
 
     @Override
     public boolean RegistrarResolucion(int idAnteproyecto) throws RemoteException {
+        numR = generarCodigoR();
         clsResolucionDTO objResolucion = new clsResolucionDTO(numR,fecha,idAnteproyecto);
-        objG.escribirEnResolucion(ficheroResolucion, objResolucion);
-        return true;
+        boolean r = objG.escribirEnResolucion(ficheroResolucion, objResolucion);
+        if (r) {
+            System.out.println("Registro Resolucion exitoso");
+        }else{
+            System.out.println("Error al registrar resolucion");
+        }
+        return r;
     }
-
+    public String generarCodigoR(){
+        String codigo = "8.4.2-90.14/";
+        ArrayList<clsResolucionDTO> aux;
+        int numero = 0;
+        try {
+            aux = ConsultarResoluciones();
+            numero = aux.size()+1;
+        } catch (RemoteException ex) {
+            System.out.println("ocurrio un error al genera codigo");
+        }
+        
+        Formatter frmt = new Formatter();
+        frmt.format("%03d",numero);
+        codigo = codigo + frmt;
+        return codigo;
+        
+    }
     @Override
     public ArrayList<clsResolucionDTO> ConsultarResoluciones() throws RemoteException {
         listaResoluciones = objG.leerResolucion(ficheroResolucion);

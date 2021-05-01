@@ -8,6 +8,7 @@ package cliente.vistas;
 import SGestionAnteproyectos.sop_rmi.GestionAnteproyectoINT;
 import SGestionAnteproyectos.sop_rmi.GestionUsuariosINT;
 import SSeguimientoAnteproyectos.sop_rmi.GestionSeguimientoINT;
+import java.io.IOException;
 import java.rmi.RemoteException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -47,6 +48,7 @@ public class GUIRResolucion extends javax.swing.JFrame {
         lblCodA = new javax.swing.JLabel();
         txtCodA = new javax.swing.JTextField();
         btnRegistrar = new javax.swing.JButton();
+        btnRegresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -61,6 +63,14 @@ public class GUIRResolucion extends javax.swing.JFrame {
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrarActionPerformed(evt);
+            }
+        });
+
+        btnRegresar.setText("Regresar");
+        btnRegresar.setToolTipText("");
+        btnRegresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegresarActionPerformed(evt);
             }
         });
 
@@ -80,7 +90,10 @@ public class GUIRResolucion extends javax.swing.JFrame {
                         .addComponent(txtCodA, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(138, 138, 138)
-                        .addComponent(btnRegistrar)))
+                        .addComponent(btnRegistrar))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnRegresar)))
                 .addContainerGap(103, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -92,9 +105,11 @@ public class GUIRResolucion extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCodA)
                     .addComponent(txtCodA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
+                .addGap(48, 48, 48)
                 .addComponent(btnRegistrar)
-                .addGap(48, 48, 48))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addComponent(btnRegresar)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -118,19 +133,25 @@ public class GUIRResolucion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+        // TODO add your handling code here:
+        int codigo = Integer.parseInt(txtCodA.getText());
+        boolean r=false;
         try {
-            // TODO add your handling code here:
-            int codigo = Integer.parseInt(txtCodA.getText());
-            boolean r = objetoRemotoSeguimiento.RegistrarResolucion(codigo);
-            if (r) {
-                JOptionPane.showMessageDialog(null, "Resolucion registrada Exitosamente!");
-            }else{
-                JOptionPane.showMessageDialog(null, "No se ha podido realizar el registro de la resolucion");
-            }
-        } catch (RemoteException ex) {
+            r = objetoRemotoSeguimiento.RegistrarResolucion(codigo);
+        } catch (IOException ex) {
             Logger.getLogger(GUIRResolucion.class.getName()).log(Level.SEVERE, null, ex);
         }
+        if (r) {
+            JOptionPane.showMessageDialog(null, "Resolucion registrada Exitosamente!");
+        }else{
+            JOptionPane.showMessageDialog(null, "No se ha podido realizar el registro de la resolucion");
+        }
     }//GEN-LAST:event_btnRegistrarActionPerformed
+
+    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_btnRegresarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -169,6 +190,7 @@ public class GUIRResolucion extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegistrar;
+    private javax.swing.JButton btnRegresar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblCodA;
     private javax.swing.JLabel lblRResolucion;

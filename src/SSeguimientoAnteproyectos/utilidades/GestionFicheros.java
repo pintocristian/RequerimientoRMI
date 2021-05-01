@@ -11,6 +11,7 @@ import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
@@ -20,60 +21,67 @@ import java.util.ArrayList;
  * @author Cristian Pinto
  */
 public class GestionFicheros {
-    private  final String ruta = System.getProperty("user.dir");
-    private  final String so = System.getProperty("os.name");
-    private  final String carpetaBuscada = "pruebitas"; 
-    private ArrayList<clsFormatosDTO2> listaFormatos;
-    private ArrayList<clsResolucionDTO> listaResoluciones;
-    
+
     public GestionFicheros() {
-        listaFormatos = new ArrayList();
-        listaFormatos = new ArrayList();
     }
-    public void escribirEnHistorial(String fichero, clsFormatosDTO2 objFormatos){
-        if(estaVacio(fichero)){
+
+    public boolean escribirEnHistorial(String fichero, clsFormatosDTO2 objFormatos) {
+        boolean r = false;
+        if (estaVacio(fichero)) {
             try {
                 ObjectOutputStream oos = new ObjectOutputStream(
                         new FileOutputStream(fichero));
                 oos.writeObject(objFormatos);
                 oos.close();
-            } catch (Exception e) {
-                e.printStackTrace();
+                r = true;
+            } catch (IOException e) {
+                System.out.println("error al escribir en historial");
             }
-        }else{
+        } else {
             try {
                 ObjectOutputStreamV2 oos = new ObjectOutputStreamV2(
                         new FileOutputStream(fichero, true));
                 oos.writeUnshared(objFormatos);
                 oos.close();
-            } catch (Exception e) {
-                e.printStackTrace();
+                r = true;
+            } catch (IOException e) {
+                System.out.println("error al escribir en historial");
             }
         }
+        return r;
     }
-    public void escribirEnResolucion(String fichero,clsResolucionDTO objResolucion){
-        if(estaVacio(fichero)){
+
+    public boolean escribirEnResolucion(String fichero, clsResolucionDTO objResolucion) {
+        boolean r = false;
+        if (estaVacio(fichero)) {
             try {
                 ObjectOutputStream oos = new ObjectOutputStream(
                         new FileOutputStream(fichero));
                 oos.writeObject(objResolucion);
                 oos.close();
-            } catch (Exception e) {
-                e.printStackTrace();
+                return true;
+            } catch (IOException e) {
+                System.out.println("error al escribir en resolucion1");
             }
-        }else{
+
+        } else {
             try {
                 ObjectOutputStreamV2 oos = new ObjectOutputStreamV2(
                         new FileOutputStream(fichero, true));
                 oos.writeUnshared(objResolucion);
                 oos.close();
-            } catch (Exception e) {
-                e.printStackTrace();
+                return true;
+            } catch (IOException e) {
+                System.out.println("error al escribir en resolucion2");
             }
+
         }
+        return r;
     }
-    public  ArrayList<clsResolucionDTO> leerResolucion(String fichero){
-         try {
+
+    public ArrayList<clsResolucionDTO> leerResolucion(String fichero) {
+        ArrayList<clsResolucionDTO> listaResoluciones=new ArrayList();
+        try {
             ObjectInputStream ois = new ObjectInputStream(
                     new FileInputStream(fichero));
             Object aux = ois.readObject();
@@ -83,19 +91,24 @@ public class GestionFicheros {
                     System.out.println("es de tipo resoluciones");
                 }
                 listaResoluciones.add((clsResolucionDTO) aux);
+                System.out.println("paso el lista.add");
                 aux = ois.readObject();
+                System.out.println("leyo objeto");
             }
             ois.close();
-            
+            System.out.println("cerro");
+
         } catch (EOFException e1) {
             System.out.println("Fin de fichero");
-        } catch (Exception e2) {
-             System.out.println("persona leidaxd");
+        } catch (IOException | ClassNotFoundException e2) {
+            System.out.println("persona leida");
         }
-         return listaResoluciones;
+        return listaResoluciones;
     }
-    public ArrayList<clsFormatosDTO2> leerHistorial(String fichero){
-         try {
+
+    public ArrayList<clsFormatosDTO2> leerHistorial(String fichero) {
+        ArrayList<clsFormatosDTO2> listaFormatos=new ArrayList();
+        try {
             ObjectInputStream ois = new ObjectInputStream(
                     new FileInputStream(fichero));
             Object aux = ois.readObject();
@@ -110,40 +123,30 @@ public class GestionFicheros {
             ois.close();
         } catch (EOFException e1) {
             System.out.println("Fin de fichero");
-        } catch (Exception e2) {
-             System.out.println("persona leidaxd");
+        } catch (IOException | ClassNotFoundException e2) {
+            System.out.println("persona leidaxd");
         }
         return listaFormatos;
     }
-    
-    public boolean buscarArchivo(String fichero) {
-        System.out.println("entro a la busqueda");
-        File carpeta = new File(ruta + "/" + carpetaBuscada);
-        System.out.println("creo archivo file");
-        File[] archivos = carpeta.listFiles();
-        System.out.println("creo lista de archivos");
-        for (File archivo : archivos) {
-            if(archivo.getName().equals("datos.txt"))
-                return true;
-        }
-        return false;
-    }
-    public boolean estaVacio(String prmArchivo){
+
+
+    public boolean estaVacio(String prmArchivo) {
         boolean r = false;
         try {
             ObjectInputStream objIs = new ObjectInputStream(
                     new FileInputStream(prmArchivo));
 
             Object aux = objIs.readObject();
+            r = false;
             objIs.close();
-            return false;
+
         } catch (EOFException e) {
             System.out.println("fin fichero");
-            r =  true;
+            r = true;
         } catch (Exception ex) {
             System.out.println("creando");
-            r=true;
-        } 
+            r = true;
+        }
         return r;
     }
 }

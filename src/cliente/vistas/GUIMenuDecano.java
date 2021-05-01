@@ -59,6 +59,11 @@ public class GUIMenuDecano extends javax.swing.JFrame {
         });
 
         btnConHistorial.setText("Consultar Historial TGI");
+        btnConHistorial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConHistorialActionPerformed(evt);
+            }
+        });
 
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -68,6 +73,11 @@ public class GUIMenuDecano extends javax.swing.JFrame {
         });
 
         btnAprobados.setText("Consultar Listado TGI Aprobados");
+        btnAprobados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAprobadosActionPerformed(evt);
+            }
+        });
 
         btnAprobadosCoor.setText("Listado aprobados por el coordinador");
         btnAprobadosCoor.setToolTipText("");
@@ -151,8 +161,19 @@ public class GUIMenuDecano extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAprobadosCoorActionPerformed
 
     private void btnRegistrarRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarRActionPerformed
-        
+    GUIRResolucion objR = new GUIRResolucion(objetoRemotoAnteproyecto,objetoRemotoSeguimiento);
+    objR.setVisible(true);
     }//GEN-LAST:event_btnRegistrarRActionPerformed
+
+    private void btnAprobadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAprobadosActionPerformed
+        GUIConsultarResolucion objCR = new  GUIConsultarResolucion(objetoRemotoAnteproyecto,objetoRemotoSeguimiento);
+        objCR.setVisible(true);
+    }//GEN-LAST:event_btnAprobadosActionPerformed
+
+    private void btnConHistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConHistorialActionPerformed
+          GUIConsultarHistorial objH = new  GUIConsultarHistorial(objetoRemotoAnteproyecto,objetoRemotoSeguimiento);
+        objH.setVisible(true);
+    }//GEN-LAST:event_btnConHistorialActionPerformed
 
     /**
      * @param args the command line arguments

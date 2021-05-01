@@ -55,26 +55,45 @@ public class GUIRFormatoC extends javax.swing.JFrame {
         txtCodigoAnt = new javax.swing.JTextField();
         btnEvaluar = new javax.swing.JButton();
         btnConsultar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 102));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        lblEvaluarAnt.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         lblEvaluarAnt.setText("Evaluar Anteproyecto");
+        jPanel1.add(lblEvaluarAnt, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 180, -1));
 
+        lblCodigoAnt.setFont(new java.awt.Font("Arial Black", 0, 11)); // NOI18N
         lblCodigoAnt.setText("Codigo Anteproyecto");
+        jPanel1.add(lblCodigoAnt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 150, -1));
 
+        lblConceptos.setFont(new java.awt.Font("Arial Black", 0, 11)); // NOI18N
         lblConceptos.setText("-");
+        jPanel1.add(lblConceptos, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, -1));
 
+        lblEstructura.setFont(new java.awt.Font("Arial Black", 0, 11)); // NOI18N
         lblEstructura.setText("Estructura");
+        jPanel1.add(lblEstructura, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 80, -1));
 
+        lblConceptoJdpto.setFont(new java.awt.Font("Arial Black", 0, 11)); // NOI18N
         lblConceptoJdpto.setText("Concepto");
+        jPanel1.add(lblConceptoJdpto, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 80, -1));
 
+        lblObservaciones.setFont(new java.awt.Font("Arial Black", 0, 11)); // NOI18N
         lblObservaciones.setText("Observaciones");
+        jPanel1.add(lblObservaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, 100, -1));
 
         txtObservaciones.setColumns(20);
         txtObservaciones.setRows(5);
         jScrollPane1.setViewportView(txtObservaciones);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(77, 217, 181, 117));
+        jPanel1.add(txtEstructura, new org.netbeans.lib.awtextra.AbsoluteConstraints(218, 116, 71, -1));
+        jPanel1.add(txtConcepto, new org.netbeans.lib.awtextra.AbsoluteConstraints(218, 154, 71, -1));
+        jPanel1.add(txtCodigoAnt, new org.netbeans.lib.awtextra.AbsoluteConstraints(218, 44, 71, -1));
 
         btnEvaluar.setText("Evaluar");
         btnEvaluar.addActionListener(new java.awt.event.ActionListener() {
@@ -82,6 +101,7 @@ public class GUIRFormatoC extends javax.swing.JFrame {
                 btnEvaluarActionPerformed(evt);
             }
         });
+        jPanel1.add(btnEvaluar, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 352, -1, -1));
 
         btnConsultar.setText("Consultar");
         btnConsultar.addActionListener(new java.awt.event.ActionListener() {
@@ -89,75 +109,10 @@ public class GUIRFormatoC extends javax.swing.JFrame {
                 btnConsultarActionPerformed(evt);
             }
         });
+        jPanel1.add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(315, 43, -1, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(lblConceptos))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(127, 127, 127)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblObservaciones)
-                                    .addComponent(lblEvaluarAnt)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(77, 77, 77)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 55, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblConceptoJdpto)
-                            .addComponent(lblEstructura)
-                            .addComponent(lblCodigoAnt))
-                        .addGap(106, 106, 106)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCodigoAnt)
-                            .addComponent(txtConcepto)
-                            .addComponent(txtEstructura))
-                        .addGap(24, 24, 24)))
-                .addGap(2, 2, 2)
-                .addComponent(btnConsultar)
-                .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(126, 126, 126)
-                .addComponent(btnEvaluar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblEvaluarAnt)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCodigoAnt)
-                    .addComponent(txtCodigoAnt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnConsultar))
-                .addGap(18, 18, 18)
-                .addComponent(lblConceptos)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblEstructura)
-                    .addComponent(txtEstructura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblConceptoJdpto)
-                    .addComponent(txtConcepto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(lblObservaciones)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnEvaluar)
-                .addContainerGap(25, Short.MAX_VALUE))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/c.jpg"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 430, 390));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -165,15 +120,15 @@ public class GUIRFormatoC extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -275,6 +230,7 @@ public class GUIRFormatoC extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConsultar;
     private javax.swing.JButton btnEvaluar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCodigoAnt;
