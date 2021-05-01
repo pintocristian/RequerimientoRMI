@@ -12,6 +12,7 @@ import SGestionAnteproyectos.dto.clsFormatoTiCDTO;
 import SGestionAnteproyectos.dto.clsFormatoTiDDTO;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 /**
  *
@@ -30,4 +31,5 @@ public interface GestionAnteproyectoINT extends Remote {
     public int ConsultarConceptoD(int codigo)throws RemoteException;
     public int  consultarAnteproyecto(int codigo)throws RemoteException;
     public boolean verificarPropiedad(int codigoAnt, int codEv)throws RemoteException;
+    public ArrayList<clsFormatoTiBDTO> ListarAnt(int id)throws RemoteException;
 }

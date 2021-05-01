@@ -6,6 +6,7 @@
 package SGestionAnteproyectos.sop_rmi;
 
 
+import SGestionAnteproyectos.dto.clsFormatoTiBDTO;
 import SGestionAnteproyectos.dto.clsUsuarioDTO;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
@@ -107,6 +108,18 @@ public class GestionUsuariosImpl extends UnicastRemoteObject implements GestionU
 
         return bandera;
 
+    }
+
+    @Override
+    public ArrayList<clsUsuarioDTO> listarEv() throws RemoteException {
+         System.out.println("Entrando a listar Evaluadores ");
+          ArrayList<clsUsuarioDTO> lista =new ArrayList();
+          for (int i=0;i<this.Usuarios.size();i++){
+              if(this.Usuarios.get(i).getRole().equals("Evaluador")){
+                  lista.add(this.Usuarios.get(i));
+              }
+          }
+          return lista;
     }
 
  

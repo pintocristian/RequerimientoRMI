@@ -129,7 +129,7 @@ public class GUIMenuEvaluador extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEvaluarActionPerformed
 
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
-        GUIListarEv GUIList= new GUIListarEv (objetoRemotoAnteproyecto);
+        GUIListarAnt GUIList = new GUIListarAnt(objetoRemotoAnteproyecto,idEv);
         GUIList.setVisible(true);
     }//GEN-LAST:event_btnListarActionPerformed
 

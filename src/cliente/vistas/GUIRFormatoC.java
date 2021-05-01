@@ -221,7 +221,7 @@ public class GUIRFormatoC extends javax.swing.JFrame {
            }else if(flujo==0){
                  JOptionPane.showMessageDialog(null, "No se encontro Anteproyecto");
                   this.dispose();
-                }else if(flujo==4){
+                }else if(flujo>=4){
                     JOptionPane.showMessageDialog(null, "EL Anteproyecto ya fue evaluador por el jefe de departamento");
                     this.dispose();
                }else if(flujo<3){

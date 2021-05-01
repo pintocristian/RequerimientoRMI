@@ -255,5 +255,48 @@ public class GestionAnteproyectoImpl extends UnicastRemoteObject implements Gest
         return bandera;
     }
 
+   public void EnviarFormatos(int ide){
+       int id=ide;
+       int ev1=0;
+       
+       for (int i=0;i<this.FormatoA.size();i++){
+           if(this.FormatoA.get(i).getCodigo()==id){
+           clsFormatoTiADTO objA = this.FormatoA.get(i);
+           }
+       }
+       for (int i=0;i<this.FormatoB.size();i++){
+           if(this.FormatoB.get(i).getCodigo()==id){
+               clsFormatoTiBDTO objB1 = this.FormatoB.get(i);
+               ev1=this.FormatoB.get(i).getId_evaluador();
+           } 
+           if(this.FormatoB.get(i).getCodigo()==id && ev1 != this.FormatoB.get(i).getId_evaluador()){
+                clsFormatoTiBDTO objB2 = this.FormatoB.get(i);
+           }
+       }
+       for (int i=0;i<this.FormatoC.size();i++){
+           if(this.FormatoC.get(i).getCodigo()==id){
+               clsFormatoTiCDTO objC = this.FormatoC.get(i);
+           }
+       }
+       for (int i=0;i<this.FormatoD.size();i++){
+           if(this.FormatoD.get(i).getCodigo()==id){
+               clsFormatoTiDDTO objD = this.FormatoD.get(i);
+           }
+       }
+       
+       
    
+    }
+
+    @Override
+    public ArrayList<clsFormatoTiBDTO> ListarAnt(int id) throws RemoteException {
+         System.out.println("Entrando a listar anteproyectos");
+         ArrayList<clsFormatoTiBDTO> listaAnt = new   ArrayList();
+         for(int i=0;i<this.FormatoB.size();i++){
+             if(this.FormatoB.get(i).getId_evaluador()==id){
+             listaAnt.add(this.FormatoB.get(i));
+             }
+         }
+         return listaAnt;
+    }
 }

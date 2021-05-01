@@ -39,6 +39,7 @@ public class GUIMenuCoordinador extends javax.swing.JFrame {
         btnEvaluar = new javax.swing.JButton();
         btnAsignar = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
+        btnListar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,18 +68,30 @@ public class GUIMenuCoordinador extends javax.swing.JFrame {
             }
         });
 
+        btnListar.setText("Listar evaluadores");
+        btnListar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(136, 136, 136)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAsignar)
-                    .addComponent(btnEvaluar)
-                    .addComponent(lblMenuEvaluador))
-                .addContainerGap(167, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(136, 136, 136)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnAsignar)
+                            .addComponent(btnEvaluar)
+                            .addComponent(lblMenuEvaluador)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(122, 122, 122)
+                        .addComponent(btnListar)))
+                .addContainerGap(137, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -89,9 +102,11 @@ public class GUIMenuCoordinador extends javax.swing.JFrame {
                 .addComponent(btnEvaluar)
                 .addGap(40, 40, 40)
                 .addComponent(btnAsignar)
-                .addGap(38, 38, 38)
+                .addGap(29, 29, 29)
+                .addComponent(btnListar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addComponent(btnSalir)
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addGap(31, 31, 31))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -132,6 +147,12 @@ public class GUIMenuCoordinador extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnEvaluarActionPerformed
 
+    private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
+        GUIListarEv GUIList= new GUIListarEv (objetoRemotoUsuario);
+        GUIList.setVisible(true);
+        
+    }//GEN-LAST:event_btnListarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -171,6 +192,7 @@ public class GUIMenuCoordinador extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAsignar;
     private javax.swing.JButton btnEvaluar;
+    private javax.swing.JButton btnListar;
     private javax.swing.JButton btnSalir;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblMenuEvaluador;
