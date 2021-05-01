@@ -7,6 +7,7 @@ package cliente.vistas;
 
 import SGestionAnteproyectos.sop_rmi.GestionAnteproyectoINT;
 import SGestionAnteproyectos.sop_rmi.GestionUsuariosINT;
+import SSeguimientoAnteproyectos.sop_rmi.GestionSeguimientoINT;
 
 /**
  *
@@ -19,10 +20,12 @@ public class GUIMenuDirector extends javax.swing.JFrame {
      */
     private static GestionAnteproyectoINT objetoRemotoAnteproyecto;
     private static GestionUsuariosINT objetoRemotoUsuario;
-    public GUIMenuDirector(GestionUsuariosINT objUsuario,GestionAnteproyectoINT objAnteproyecto) {
+    private static GestionSeguimientoINT objetoRemotoSeguimiento;
+    public GUIMenuDirector(GestionUsuariosINT objUsuario,GestionAnteproyectoINT objAnteproyecto,GestionSeguimientoINT objRemotoSeg) {
         initComponents();
         this.objetoRemotoUsuario=objUsuario;
         this.objetoRemotoAnteproyecto=objAnteproyecto;
+         this.objetoRemotoSeguimiento= objRemotoSeg;
     }
   public GUIMenuDirector(){}
     /**
@@ -39,6 +42,7 @@ public class GUIMenuDirector extends javax.swing.JFrame {
         btnRFormatoA = new javax.swing.JButton();
         btnSalirA = new javax.swing.JButton();
         lblMenuDirector = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -74,9 +78,14 @@ public class GUIMenuDirector extends javax.swing.JFrame {
         jPanel2.add(btnSalirA);
         btnSalirA.setBounds(120, 160, 90, 23);
 
+        lblMenuDirector.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         lblMenuDirector.setText("Menu Director");
         jPanel2.add(lblMenuDirector);
-        lblMenuDirector.setBounds(130, 30, 90, 14);
+        lblMenuDirector.setBounds(110, 20, 150, 21);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/director.jpg"))); // NOI18N
+        jPanel2.add(jLabel1);
+        jLabel1.setBounds(0, 0, 360, 280);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -99,7 +108,7 @@ public class GUIMenuDirector extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalirAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirAActionPerformed
-        GUIInicioSesion GUISesion =new GUIInicioSesion(objetoRemotoUsuario,objetoRemotoAnteproyecto);
+        GUIInicioSesion GUISesion =new GUIInicioSesion(objetoRemotoUsuario,objetoRemotoAnteproyecto,objetoRemotoSeguimiento);
         GUISesion.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnSalirAActionPerformed
@@ -148,6 +157,7 @@ public class GUIMenuDirector extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRFormatoA;
     private javax.swing.JButton btnSalirA;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblMenuDirector;

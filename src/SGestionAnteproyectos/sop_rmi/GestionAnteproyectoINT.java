@@ -32,4 +32,7 @@ public interface GestionAnteproyectoINT extends Remote {
     public int  consultarAnteproyecto(int codigo)throws RemoteException;
     public boolean verificarPropiedad(int codigoAnt, int codEv)throws RemoteException;
     public ArrayList<clsFormatoTiBDTO> ListarAnt(int id)throws RemoteException;
+    public ArrayList<clsFormatoTiBDTO> ListarAntBAprobados()throws RemoteException;
+    public ArrayList<clsFormatoTiCDTO> ListarAntCAprobados()throws RemoteException;
+    public ArrayList<clsFormatoTiDDTO> ListarAntDAprobados()throws RemoteException;    
 }

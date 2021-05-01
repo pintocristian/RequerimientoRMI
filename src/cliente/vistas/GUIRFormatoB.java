@@ -48,21 +48,33 @@ public class GUIRFormatoB extends javax.swing.JFrame {
         txtConceptoEv = new javax.swing.JTextField();
         txtFecha = new javax.swing.JTextField();
         txtCodAnt = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        lblEvaluarAnt.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         lblEvaluarAnt.setText("Evaluar Anteproyecto");
+        jPanel1.add(lblEvaluarAnt, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 11, -1, -1));
 
+        lblCodigoAnt.setFont(new java.awt.Font("Arial Black", 0, 11)); // NOI18N
         lblCodigoAnt.setText("Codigo del Anteproyecto");
+        jPanel1.add(lblCodigoAnt, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 170, -1));
 
+        lblConceptoEv.setFont(new java.awt.Font("Arial Black", 0, 11)); // NOI18N
         lblConceptoEv.setText("Concepto");
+        jPanel1.add(lblConceptoEv, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 90, -1));
 
+        lblObsevaciones.setFont(new java.awt.Font("Arial Black", 0, 11)); // NOI18N
         lblObsevaciones.setText("Observaciones");
+        jPanel1.add(lblObsevaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 110, -1));
 
+        lblFechaEvaluacion.setFont(new java.awt.Font("Arial Black", 0, 11)); // NOI18N
         lblFechaEvaluacion.setText("Fecha Evaluacion");
         lblFechaEvaluacion.setToolTipText("");
+        jPanel1.add(lblFechaEvaluacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 130, -1));
 
         btnEvaluar.setText("Evaluar");
         btnEvaluar.addActionListener(new java.awt.event.ActionListener() {
@@ -70,59 +82,14 @@ public class GUIRFormatoB extends javax.swing.JFrame {
                 btnEvaluarActionPerformed(evt);
             }
         });
+        jPanel1.add(btnEvaluar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 214, -1, -1));
+        jPanel1.add(txtObservaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(258, 119, 59, -1));
+        jPanel1.add(txtConceptoEv, new org.netbeans.lib.awtextra.AbsoluteConstraints(258, 81, 59, -1));
+        jPanel1.add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(258, 163, 59, -1));
+        jPanel1.add(txtCodAnt, new org.netbeans.lib.awtextra.AbsoluteConstraints(258, 43, 59, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblEvaluarAnt)
-                .addGap(133, 133, 133))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblObsevaciones)
-                    .addComponent(lblFechaEvaluacion)
-                    .addComponent(lblCodigoAnt)
-                    .addComponent(lblConceptoEv))
-                .addGap(118, 118, 118)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtFecha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
-                    .addComponent(txtConceptoEv, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtObservaciones, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtCodAnt))
-                .addGap(63, 63, 63))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(140, 140, 140)
-                .addComponent(btnEvaluar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblEvaluarAnt)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCodigoAnt)
-                    .addComponent(txtCodAnt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblConceptoEv)
-                    .addComponent(txtConceptoEv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblObsevaciones)
-                    .addComponent(txtObservaciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblFechaEvaluacion)
-                    .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
-                .addComponent(btnEvaluar)
-                .addGap(41, 41, 41))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/b.jpg"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 270));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -130,15 +97,15 @@ public class GUIRFormatoB extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -224,6 +191,7 @@ public class GUIRFormatoB extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEvaluar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblCodigoAnt;
     private javax.swing.JLabel lblConceptoEv;

@@ -31,6 +31,8 @@ public class GestionUsuariosImpl extends UnicastRemoteObject implements GestionU
     public boolean RegistrarUsuarios(clsUsuarioDTO objUsuario) throws RemoteException {
          System.out.println("Entrando a registrar Usuarios ");
          return this.Usuarios.add(objUsuario);
+         
+         
     }
 
     @Override

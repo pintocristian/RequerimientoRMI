@@ -78,6 +78,7 @@ public class GestionAnteproyectoImpl extends UnicastRemoteObject implements Gest
                 }
             }
         }
+        
 
         return encontro;
 
@@ -363,11 +364,83 @@ public class GestionAnteproyectoImpl extends UnicastRemoteObject implements Gest
          System.out.println("Entrando a listar anteproyectos");
          ArrayList<clsFormatoTiBDTO> listaAnt = new   ArrayList();
          for(int i=0;i<this.FormatoB.size();i++){
-             if(this.FormatoB.get(i).getId_evaluador()==id){
+             if(this.FormatoB.get(i).getId_evaluador()==id && this.FormatoB.get(i).getConcepto()==-1){
              listaAnt.add(this.FormatoB.get(i));
              }
          }
          return listaAnt;
+    }
+
+    @Override
+    public ArrayList<clsFormatoTiBDTO> ListarAntBAprobados() throws RemoteException {
+         System.out.println("Entrando a listar Anteproyectos aprobados por los evaluadores");
+          ArrayList<clsFormatoTiBDTO> aux1 = new  ArrayList();
+          ArrayList<clsFormatoTiBDTO> aux2 = new  ArrayList();
+          ArrayList<clsFormatoTiBDTO> ListaEnviar = new  ArrayList();
+          aux1=this.FormatoB;
+          for(int i=0;i<this.FormatoB.size();i++){
+              if(this.FormatoB.get(i).getConcepto()==1){
+                  for(int j=0;j<aux1.size();j++){
+                      if(this.FormatoB.get(i).getCodigo()==aux1.get(j).getCodigo() && this.FormatoB.get(i).getId_evaluador() != aux1.get(j).getId_evaluador()){
+                          if(aux1.get(j).getConcepto()==1){
+                              aux2.add(this.FormatoB.get(i));
+                          }
+                      }
+                  }
+              }
+          }
+          
+          if(!(aux2.isEmpty())){
+              for(int i=0;i<aux2.size();i=i+2){
+                  for(int j=0 ;j<this.FormatoA.size();j++){
+                    if(aux2.get(i).getCodigo()==this.FormatoA.get(j).getCodigo() && this.FormatoA.get(j).getFlujo()==3){
+                                ListaEnviar.add(aux2.get(i));
+                    }
+            
+                  }
+                 
+                }
+          }
+          
+          return ListaEnviar;
+    }
+
+    @Override
+    public ArrayList<clsFormatoTiCDTO> ListarAntCAprobados() throws RemoteException {
+           System.out.println("Entrando a listar anteproyectos aprobados por el jdpto");
+           ArrayList<clsFormatoTiCDTO> objC = new ArrayList();
+           
+           for(int i=0; i<this.FormatoA.size();i++){
+               if(this.FormatoA.get(i).getFlujo()==4){
+                   for(int j=0;j<this.FormatoC.size();j++){
+                   
+                       if(this.FormatoC.get(j).getCodigo()==this.FormatoA.get(i).getCodigo() && this.FormatoC.get(j).getConceptoDpto()==1){
+                           objC.add(this.FormatoC.get(j));
+                       }
+                       
+                    }
+               }
+           }
+           return objC;
+    }
+
+    @Override
+    public ArrayList<clsFormatoTiDDTO> ListarAntDAprobados() throws RemoteException {
+       System.out.println("Entrando a listar anteproyectos aprobados por el coordinador");
+       ArrayList<clsFormatoTiDDTO> objD = new ArrayList();
+           
+           for(int i=0; i<this.FormatoA.size();i++){
+               if(this.FormatoA.get(i).getFlujo()==5){
+                   for(int j=0;j<this.FormatoD.size();j++){
+                   
+                       if(this.FormatoD.get(j).getCodigo()==this.FormatoA.get(i).getCodigo() && this.FormatoD.get(j).getConceptoCoor()==1){
+                           objD.add(this.FormatoD.get(j));
+                       }
+                       
+                    }
+               }
+           }
+           return objD;
     }
 
   

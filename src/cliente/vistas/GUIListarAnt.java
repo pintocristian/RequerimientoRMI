@@ -72,7 +72,7 @@ public class GUIListarAnt extends javax.swing.JFrame {
 
         lblSalida.setText("-");
 
-        lblListadoAnt.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblListadoAnt.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         lblListadoAnt.setText("Listado de Anteproyectos");
 
         tblAnt.setModel(new javax.swing.table.DefaultTableModel(
@@ -102,16 +102,16 @@ public class GUIListarAnt extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(134, 134, 134)
-                        .addComponent(lblListadoAnt))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblSalida)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(157, 157, 157)
-                        .addComponent(btnAtras)))
+                        .addComponent(btnAtras))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(76, 76, 76)
+                        .addComponent(lblListadoAnt, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(

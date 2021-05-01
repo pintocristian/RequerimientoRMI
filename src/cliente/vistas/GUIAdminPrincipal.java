@@ -7,6 +7,7 @@ package cliente.vistas;
 
 import SGestionAnteproyectos.sop_rmi.GestionAnteproyectoINT;
 import SGestionAnteproyectos.sop_rmi.GestionUsuariosINT;
+import SSeguimientoAnteproyectos.sop_rmi.GestionSeguimientoINT;
 
 /**
  *
@@ -19,10 +20,12 @@ public class GUIAdminPrincipal extends javax.swing.JFrame {
      */
     private static GestionUsuariosINT objetoRemotoUsuario;
      private static GestionAnteproyectoINT objetoRemotoAnteproyecto;
-    public GUIAdminPrincipal(GestionUsuariosINT objetoUsuario,GestionAnteproyectoINT objAnteproyecto) {
+        private static GestionSeguimientoINT objetoRemotoSeguimiento;
+    public GUIAdminPrincipal(GestionUsuariosINT objetoUsuario,GestionAnteproyectoINT objAnteproyecto,GestionSeguimientoINT objRemotoSeg) {
         initComponents();
         this.objetoRemotoUsuario=objetoUsuario;
         this.objetoRemotoAnteproyecto=objAnteproyecto;
+           this.objetoRemotoSeguimiento= objRemotoSeg;
     }
      public GUIAdminPrincipal(){}
     /**
@@ -40,13 +43,18 @@ public class GUIAdminPrincipal extends javax.swing.JFrame {
         btnModificar = new javax.swing.JButton();
         btnConsultar = new javax.swing.JButton();
         btnCerrarAdmin = new javax.swing.JButton();
+        lblfondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Menu Principal");
 
         jPanel1.setBackground(new java.awt.Color(0, 204, 204));
+        jPanel1.setLayout(null);
 
+        lblAdministradorTitulo.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         lblAdministradorTitulo.setText("ADMINISTRADOR");
+        jPanel1.add(lblAdministradorTitulo);
+        lblAdministradorTitulo.setBounds(100, 0, 160, 21);
 
         btnRegistrar.setText("Registrar");
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
@@ -54,6 +62,8 @@ public class GUIAdminPrincipal extends javax.swing.JFrame {
                 btnRegistrarActionPerformed(evt);
             }
         });
+        jPanel1.add(btnRegistrar);
+        btnRegistrar.setBounds(120, 50, 90, 23);
 
         btnModificar.setText("Modificar");
         btnModificar.addActionListener(new java.awt.event.ActionListener() {
@@ -61,6 +71,8 @@ public class GUIAdminPrincipal extends javax.swing.JFrame {
                 btnModificarActionPerformed(evt);
             }
         });
+        jPanel1.add(btnModificar);
+        btnModificar.setBounds(117, 105, 90, 23);
 
         btnConsultar.setText("Consultar");
         btnConsultar.addActionListener(new java.awt.event.ActionListener() {
@@ -68,6 +80,8 @@ public class GUIAdminPrincipal extends javax.swing.JFrame {
                 btnConsultarActionPerformed(evt);
             }
         });
+        jPanel1.add(btnConsultar);
+        btnConsultar.setBounds(121, 157, 90, 23);
 
         btnCerrarAdmin.setText("Salir");
         btnCerrarAdmin.addActionListener(new java.awt.event.ActionListener() {
@@ -75,37 +89,12 @@ public class GUIAdminPrincipal extends javax.swing.JFrame {
                 btnCerrarAdminActionPerformed(evt);
             }
         });
+        jPanel1.add(btnCerrarAdmin);
+        btnCerrarAdmin.setBounds(120, 210, 90, 23);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(132, 132, 132)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnModificar)
-                    .addComponent(btnRegistrar)
-                    .addComponent(lblAdministradorTitulo)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(btnCerrarAdmin, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnConsultar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(163, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(lblAdministradorTitulo)
-                .addGap(18, 18, 18)
-                .addComponent(btnRegistrar)
-                .addGap(31, 31, 31)
-                .addComponent(btnModificar)
-                .addGap(29, 29, 29)
-                .addComponent(btnConsultar)
-                .addGap(33, 33, 33)
-                .addComponent(btnCerrarAdmin)
-                .addContainerGap(42, Short.MAX_VALUE))
-        );
+        lblfondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Admin.jpg"))); // NOI18N
+        jPanel1.add(lblfondo);
+        lblfondo.setBounds(0, 0, 500, 290);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -113,14 +102,14 @@ public class GUIAdminPrincipal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 358, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -146,7 +135,7 @@ public class GUIAdminPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnConsultarActionPerformed
 
     private void btnCerrarAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarAdminActionPerformed
-        GUIInicioSesion GUISesion =new GUIInicioSesion(objetoRemotoUsuario,objetoRemotoAnteproyecto);
+        GUIInicioSesion GUISesion =new GUIInicioSesion(objetoRemotoUsuario,objetoRemotoAnteproyecto,objetoRemotoSeguimiento);
         GUISesion.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnCerrarAdminActionPerformed
@@ -193,5 +182,6 @@ public class GUIAdminPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblAdministradorTitulo;
+    private javax.swing.JLabel lblfondo;
     // End of variables declaration//GEN-END:variables
 }

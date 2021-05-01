@@ -40,6 +40,7 @@ public class GUIConectarServidor1 extends javax.swing.JFrame {
         btnConectar1 = new javax.swing.JButton();
         txtIP1 = new javax.swing.JTextField();
         txtPuerto1 = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Conectar servidor de gestion");
@@ -47,17 +48,18 @@ public class GUIConectarServidor1 extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 255, 204));
         jPanel1.setLayout(null);
 
+        lblConexion1.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         lblConexion1.setText("CONEXION CON EL SERVIDOR");
         jPanel1.add(lblConexion1);
-        lblConexion1.setBounds(150, 20, 230, 30);
+        lblConexion1.setBounds(0, 20, 240, 30);
 
         lblIP1.setText("Digite la direccion ip:");
         jPanel1.add(lblIP1);
-        lblIP1.setBounds(50, 90, 160, 14);
+        lblIP1.setBounds(10, 90, 140, 14);
 
-        lblPuerto1.setText("Digite el numero del puerto:");
+        lblPuerto1.setText("Digite el  puerto:");
         jPanel1.add(lblPuerto1);
-        lblPuerto1.setBounds(50, 170, 170, 14);
+        lblPuerto1.setBounds(10, 170, 120, 14);
 
         btnConectar1.setText("Conectar");
         btnConectar1.addActionListener(new java.awt.event.ActionListener() {
@@ -66,11 +68,15 @@ public class GUIConectarServidor1 extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnConectar1);
-        btnConectar1.setBounds(190, 260, 90, 23);
+        btnConectar1.setBounds(110, 260, 90, 23);
         jPanel1.add(txtIP1);
-        txtIP1.setBounds(250, 90, 100, 30);
+        txtIP1.setBounds(200, 80, 100, 30);
         jPanel1.add(txtPuerto1);
-        txtPuerto1.setBounds(250, 160, 100, 30);
+        txtPuerto1.setBounds(200, 160, 100, 30);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/conexion.jpg"))); // NOI18N
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(0, 0, 400, 320);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -78,14 +84,14 @@ public class GUIConectarServidor1 extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 481, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 392, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 338, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 319, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -158,6 +164,7 @@ public class GUIConectarServidor1 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConectar1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblConexion1;
     private javax.swing.JLabel lblIP1;

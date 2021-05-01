@@ -7,6 +7,7 @@ package cliente.vistas;
 
 import SGestionAnteproyectos.sop_rmi.GestionAnteproyectoINT;
 import SGestionAnteproyectos.sop_rmi.GestionUsuariosINT;
+import SSeguimientoAnteproyectos.sop_rmi.GestionSeguimientoINT;
 
 /**
  *
@@ -19,10 +20,12 @@ public class GUIMenuDecano extends javax.swing.JFrame {
      */
     private static GestionAnteproyectoINT objetoRemotoAnteproyecto;
     private static GestionUsuariosINT objetoRemotoUsuario;
-    public GUIMenuDecano(GestionUsuariosINT objUsuario,GestionAnteproyectoINT objAnteproyecto) {
+         private static GestionSeguimientoINT objetoRemotoSeguimiento;
+    public GUIMenuDecano(GestionUsuariosINT objUsuario,GestionAnteproyectoINT objAnteproyecto,GestionSeguimientoINT objRemotoSeg) {
         initComponents();
         this.objetoRemotoUsuario=objUsuario;
         this.objetoRemotoAnteproyecto=objAnteproyecto;
+        this.objetoRemotoSeguimiento= objRemotoSeg;
     }
     public GUIMenuDecano(){}
     /**
@@ -40,6 +43,7 @@ public class GUIMenuDecano extends javax.swing.JFrame {
         btnConHistorial = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
         btnAprobados = new javax.swing.JButton();
+        btnAprobadosCoor = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,6 +52,11 @@ public class GUIMenuDecano extends javax.swing.JFrame {
         lblMenuDecano.setText("Menu Decano");
 
         btnRegistrarR.setText("Registrar Resolucion");
+        btnRegistrarR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarRActionPerformed(evt);
+            }
+        });
 
         btnConHistorial.setText("Consultar Historial TGI");
 
@@ -60,10 +69,26 @@ public class GUIMenuDecano extends javax.swing.JFrame {
 
         btnAprobados.setText("Consultar Listado TGI Aprobados");
 
+        btnAprobadosCoor.setText("Listado aprobados por el coordinador");
+        btnAprobadosCoor.setToolTipText("");
+        btnAprobadosCoor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAprobadosCoorActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(146, 146, 146)
+                .addComponent(lblMenuDecano, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(151, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(156, 156, 156)
+                .addComponent(btnSalir)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -71,14 +96,10 @@ public class GUIMenuDecano extends javax.swing.JFrame {
                     .addComponent(btnAprobados)
                     .addComponent(btnRegistrarR, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(149, 149, 149)
-                .addComponent(btnSalir)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(146, 146, 146)
-                .addComponent(lblMenuDecano, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(151, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnAprobadosCoor)
+                .addGap(79, 79, 79))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -91,9 +112,11 @@ public class GUIMenuDecano extends javax.swing.JFrame {
                 .addComponent(btnConHistorial)
                 .addGap(18, 18, 18)
                 .addComponent(btnAprobados)
-                .addGap(29, 29, 29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addComponent(btnAprobadosCoor)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnSalir)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -117,10 +140,19 @@ public class GUIMenuDecano extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        GUIInicioSesion GUISesion =new GUIInicioSesion(objetoRemotoUsuario,objetoRemotoAnteproyecto);
+        GUIInicioSesion GUISesion =new GUIInicioSesion(objetoRemotoUsuario,objetoRemotoAnteproyecto,objetoRemotoSeguimiento);
         GUISesion.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void btnAprobadosCoorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAprobadosCoorActionPerformed
+      GUIListarAprobadosD objListD = new GUIListarAprobadosD(objetoRemotoAnteproyecto);
+      objListD.setVisible(true);
+    }//GEN-LAST:event_btnAprobadosCoorActionPerformed
+
+    private void btnRegistrarRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarRActionPerformed
+        
+    }//GEN-LAST:event_btnRegistrarRActionPerformed
 
     /**
      * @param args the command line arguments
@@ -159,6 +191,7 @@ public class GUIMenuDecano extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAprobados;
+    private javax.swing.JButton btnAprobadosCoor;
     private javax.swing.JButton btnConHistorial;
     private javax.swing.JButton btnRegistrarR;
     private javax.swing.JButton btnSalir;

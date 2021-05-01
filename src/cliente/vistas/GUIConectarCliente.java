@@ -7,6 +7,7 @@ package cliente.vistas;
 
 import SGestionAnteproyectos.sop_rmi.GestionAnteproyectoINT;
 import SGestionAnteproyectos.sop_rmi.GestionUsuariosINT;
+import SSeguimientoAnteproyectos.sop_rmi.GestionSeguimientoINT;
 import cliente.utilidades.UtilidadesRegistroC;
 
 /**
@@ -38,6 +39,7 @@ public class GUIConectarCliente extends javax.swing.JFrame {
         lblConexionC = new javax.swing.JLabel();
         txtIPC = new javax.swing.JTextField();
         txtPuertoC = new javax.swing.JTextField();
+        lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Conectar Cliente");
@@ -47,11 +49,11 @@ public class GUIConectarCliente extends javax.swing.JFrame {
 
         lblIPC.setText("Digite la direccion ip:");
         jPanel1.add(lblIPC);
-        lblIPC.setBounds(40, 70, 100, 14);
+        lblIPC.setBounds(20, 70, 120, 14);
 
         lblPuertoC.setText("Digite el puerto:");
         jPanel1.add(lblPuertoC);
-        lblPuertoC.setBounds(40, 120, 100, 14);
+        lblPuertoC.setBounds(20, 120, 100, 14);
 
         btnConectarC.setText("conectar");
         btnConectarC.addActionListener(new java.awt.event.ActionListener() {
@@ -60,15 +62,20 @@ public class GUIConectarCliente extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnConectarC);
-        btnConectarC.setBounds(130, 180, 80, 23);
+        btnConectarC.setBounds(130, 190, 80, 23);
 
+        lblConexionC.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         lblConexionC.setText("Conexion del cliente");
         jPanel1.add(lblConexionC);
-        lblConexionC.setBounds(140, 20, 140, 14);
+        lblConexionC.setBounds(20, 10, 170, 21);
         jPanel1.add(txtIPC);
         txtIPC.setBounds(190, 60, 120, 30);
         jPanel1.add(txtPuertoC);
         txtPuertoC.setBounds(190, 110, 120, 30);
+
+        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/conexion.jpg"))); // NOI18N
+        jPanel1.add(lblFondo);
+        lblFondo.setBounds(0, 0, 360, 300);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -96,9 +103,11 @@ public class GUIConectarCliente extends javax.swing.JFrame {
         String direccion=txtIPC.getText();
         GestionAnteproyectoINT objRemoto;
         GestionUsuariosINT objRemotoU;
+        GestionSeguimientoINT  objRemotoSeguimiento;
         objRemotoU =  (GestionUsuariosINT) UtilidadesRegistroC.obtenerObjRemoto(direccion,puerto,"objetoRemotoUsuario");
         objRemoto = (GestionAnteproyectoINT) UtilidadesRegistroC.obtenerObjRemoto(direccion,puerto,"objetoRemotoGestion");
-        GUIInicioSesion GUISesion =new GUIInicioSesion(objRemotoU,objRemoto);
+        objRemotoSeguimiento = (GestionSeguimientoINT) UtilidadesRegistroC.obtenerObjRemoto(direccion, puerto, "objetoRemotoSeguimiento");
+        GUIInicioSesion GUISesion =new GUIInicioSesion(objRemotoU,objRemoto,objRemotoSeguimiento);
         GUISesion.setVisible(true);
          this.dispose();
     }//GEN-LAST:event_btnConectarCActionPerformed
@@ -142,6 +151,7 @@ public class GUIConectarCliente extends javax.swing.JFrame {
     private javax.swing.JButton btnConectarC;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblConexionC;
+    private javax.swing.JLabel lblFondo;
     private javax.swing.JLabel lblIPC;
     private javax.swing.JLabel lblPuertoC;
     private javax.swing.JTextField txtIPC;

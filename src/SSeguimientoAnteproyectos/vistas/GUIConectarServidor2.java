@@ -36,6 +36,7 @@ public class GUIConectarServidor2 extends javax.swing.JFrame {
         btnConectar2 = new javax.swing.JButton();
         txtIP2 = new javax.swing.JTextField();
         txtPuerto2 = new javax.swing.JTextField();
+        lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Coneccion Servidor");
@@ -43,17 +44,18 @@ public class GUIConectarServidor2 extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 255, 255));
         jPanel1.setLayout(null);
 
+        lblConexion2.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         lblConexion2.setText("Conexion con el servidor");
         jPanel1.add(lblConexion2);
-        lblConexion2.setBounds(110, 20, 170, 30);
+        lblConexion2.setBounds(30, 10, 210, 30);
 
         lblIP2.setText("Digite la direccion IP:");
         jPanel1.add(lblIP2);
-        lblIP2.setBounds(40, 90, 130, 14);
+        lblIP2.setBounds(30, 90, 120, 20);
 
-        lblPuerto2.setText("DIgite el Puerto:");
+        lblPuerto2.setText("Digite el Puerto:");
         jPanel1.add(lblPuerto2);
-        lblPuerto2.setBounds(40, 140, 120, 14);
+        lblPuerto2.setBounds(30, 140, 100, 20);
 
         btnConectar2.setText("Conectar");
         btnConectar2.addActionListener(new java.awt.event.ActionListener() {
@@ -67,6 +69,10 @@ public class GUIConectarServidor2 extends javax.swing.JFrame {
         txtIP2.setBounds(200, 90, 140, 30);
         jPanel1.add(txtPuerto2);
         txtPuerto2.setBounds(200, 130, 140, 30);
+
+        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/conexion.jpg"))); // NOI18N
+        jPanel1.add(lblFondo);
+        lblFondo.setBounds(0, 0, 390, 320);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -146,6 +152,7 @@ public class GUIConectarServidor2 extends javax.swing.JFrame {
     private javax.swing.JButton btnConectar2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblConexion2;
+    private javax.swing.JLabel lblFondo;
     private javax.swing.JLabel lblIP2;
     private javax.swing.JLabel lblPuerto2;
     private javax.swing.JTextField txtIP2;

@@ -53,25 +53,39 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
         btnBuscarMod = new javax.swing.JButton();
         lblUsuarioMod = new javax.swing.JLabel();
         txtUsuarioMod = new javax.swing.JTextField();
+        lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Modificar Usuario");
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 153));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        lblModificarUsuario.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         lblModificarUsuario.setText("Modificar Usuario");
+        jPanel1.add(lblModificarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 11, 147, 20));
 
         lblIdentificacionMod.setText("Identificacion:");
+        jPanel1.add(lblIdentificacionMod, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 107, -1));
 
         lblNombreComMod.setText("Nombre Completo:");
+        jPanel1.add(lblNombreComMod, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 107, -1));
 
         lblRolMod.setText("Rol:");
+        jPanel1.add(lblRolMod, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 39, -1));
 
         lblDepartamentoMod.setText("Departamento");
+        jPanel1.add(lblDepartamentoMod, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 107, -1));
 
         lblContraseniaMod.setText("Contraseña:");
+        jPanel1.add(lblContraseniaMod, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 82, -1));
+        jPanel1.add(txtIdentificacionMod, new org.netbeans.lib.awtextra.AbsoluteConstraints(188, 47, 94, -1));
+        jPanel1.add(txtNombreComMod, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 94, 20));
+        jPanel1.add(txtDepartamentoMod, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, 94, -1));
+        jPanel1.add(txtContraseniaMod, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, 94, 20));
 
         cmbRolMod.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Director", "Evaluador", "Jefe departamento\t", "Coordinador", "Decano" }));
+        jPanel1.add(cmbRolMod, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 94, -1));
 
         btnModificarU.setText("Modificar");
         btnModificarU.addActionListener(new java.awt.event.ActionListener() {
@@ -79,6 +93,7 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
                 btnModificarUActionPerformed(evt);
             }
         });
+        jPanel1.add(btnModificarU, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, -1, -1));
 
         btnBuscarMod.setText("Buscar");
         btnBuscarMod.addActionListener(new java.awt.event.ActionListener() {
@@ -86,78 +101,14 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
                 btnBuscarModActionPerformed(evt);
             }
         });
+        jPanel1.add(btnBuscarMod, new org.netbeans.lib.awtextra.AbsoluteConstraints(324, 46, -1, -1));
 
         lblUsuarioMod.setText("Usuario");
+        jPanel1.add(lblUsuarioMod, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 60, -1));
+        jPanel1.add(txtUsuarioMod, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 200, 94, 20));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblIdentificacionMod, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblNombreComMod)
-                            .addComponent(lblDepartamentoMod, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblContraseniaMod)
-                            .addComponent(lblRolMod)
-                            .addComponent(lblUsuarioMod))
-                        .addGap(68, 68, 68)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtDepartamentoMod, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cmbRolMod, javax.swing.GroupLayout.Alignment.LEADING, 0, 1, Short.MAX_VALUE)
-                            .addComponent(txtNombreComMod, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtIdentificacionMod, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtContraseniaMod)
-                            .addComponent(txtUsuarioMod, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                        .addComponent(btnBuscarMod))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(115, 115, 115)
-                        .addComponent(lblModificarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(95, 95, 95)
-                .addComponent(btnModificarU)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblModificarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblIdentificacionMod)
-                    .addComponent(txtIdentificacionMod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscarMod))
-                .addGap(8, 8, 8)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNombreComMod)
-                    .addComponent(txtNombreComMod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblRolMod)
-                    .addComponent(cmbRolMod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDepartamentoMod)
-                    .addComponent(txtDepartamentoMod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblUsuarioMod)
-                    .addComponent(txtUsuarioMod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblContraseniaMod)
-                    .addComponent(txtContraseniaMod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(12, 12, 12)
-                .addComponent(btnModificarU)
-                .addGap(33, 33, 33))
-        );
+        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/modificar.jpg"))); // NOI18N
+        jPanel1.add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 420));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -165,15 +116,15 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -201,7 +152,11 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
     private void btnModificarUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarUActionPerformed
 
         try {
-             Id = Integer.parseInt(txtIdentificacionMod.getText());
+            
+            if(txtIdentificacionMod.getText().isEmpty() || txtNombreComMod.getText().isEmpty() || txtDepartamentoMod.getText().isEmpty() || txtContraseniaMod.getText().isEmpty() ||  txtUsuarioMod.getText().isEmpty()){
+                 JOptionPane.showMessageDialog(null,"Ningun campo debe quedar vacio!!");
+            }else{
+                     Id = Integer.parseInt(txtIdentificacionMod.getText());
             String Nombre = txtNombreComMod.getText();
             String Rol = (String) cmbRolMod.getSelectedItem();
             String Departamento = txtDepartamentoMod.getText();
@@ -218,6 +173,9 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
                 this.dispose();
             }
             this.dispose();
+            }
+            
+            
         } catch (RemoteException ex) {
             Logger.getLogger(GUIModificarUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -267,6 +225,7 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblContraseniaMod;
     private javax.swing.JLabel lblDepartamentoMod;
+    private javax.swing.JLabel lblFondo;
     private javax.swing.JLabel lblIdentificacionMod;
     private javax.swing.JLabel lblModificarUsuario;
     private javax.swing.JLabel lblNombreComMod;

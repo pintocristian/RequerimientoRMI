@@ -49,15 +49,22 @@ public class GUIConsultarUsuario extends javax.swing.JFrame {
         lblRolConSalida = new javax.swing.JLabel();
         lblDepartamentoConSalida = new javax.swing.JLabel();
         lblUsuarioConSalida = new javax.swing.JLabel();
+        btnAtras = new javax.swing.JButton();
+        lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Consultar Usuario");
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 204));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        lblConsultarUsuario.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         lblConsultarUsuario.setText("Consultar Usuario");
+        jPanel1.add(lblConsultarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 150, -1));
 
         lblIdentifiacionConsultar.setText("Identificacion");
+        jPanel1.add(lblIdentifiacionConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 90, -1));
+        jPanel1.add(txtIndentificacionConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(222, 44, 112, -1));
 
         btnConsultarU.setText("Consultar");
         btnConsultarU.addActionListener(new java.awt.event.ActionListener() {
@@ -65,86 +72,46 @@ public class GUIConsultarUsuario extends javax.swing.JFrame {
                 btnConsultarUActionPerformed(evt);
             }
         });
+        jPanel1.add(btnConsultarU, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 43, -1, -1));
 
         lblNombreComCon.setText("Nombre Completo:");
+        jPanel1.add(lblNombreComCon, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 110, -1));
 
         lblRolCon.setText("Rol:");
+        jPanel1.add(lblRolCon, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 40, -1));
 
         lblDepartamentoCon.setText("Departamento:");
+        jPanel1.add(lblDepartamentoCon, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 110, -1));
 
         lblUsuarioCon.setText("Usuario:");
+        jPanel1.add(lblUsuarioCon, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, 60, -1));
 
+        lblNombreComSalida.setFont(new java.awt.Font("Arial Black", 0, 11)); // NOI18N
         lblNombreComSalida.setText("-");
+        jPanel1.add(lblNombreComSalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(222, 84, -1, -1));
 
+        lblRolConSalida.setFont(new java.awt.Font("Arial Black", 0, 11)); // NOI18N
         lblRolConSalida.setText("-");
+        jPanel1.add(lblRolConSalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(222, 116, -1, -1));
 
+        lblDepartamentoConSalida.setFont(new java.awt.Font("Arial Black", 0, 11)); // NOI18N
         lblDepartamentoConSalida.setText("-");
+        jPanel1.add(lblDepartamentoConSalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(222, 159, -1, -1));
 
+        lblUsuarioConSalida.setFont(new java.awt.Font("Arial Black", 0, 11)); // NOI18N
         lblUsuarioConSalida.setText("-");
+        jPanel1.add(lblUsuarioConSalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(222, 199, -1, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(94, 94, 94)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblIdentifiacionConsultar)
-                    .addComponent(lblNombreComCon)
-                    .addComponent(lblUsuarioCon)
-                    .addComponent(lblDepartamentoCon)
-                    .addComponent(lblRolCon))
-                .addGap(39, 39, 39)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(lblNombreComSalida)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(txtIndentificacionConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnConsultarU)))
-                        .addContainerGap())
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblRolConSalida)
-                            .addComponent(lblDepartamentoConSalida)
-                            .addComponent(lblUsuarioConSalida))
-                        .addGap(0, 0, Short.MAX_VALUE))))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(175, 175, 175)
-                .addComponent(lblConsultarUsuario)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblConsultarUsuario)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblIdentifiacionConsultar)
-                    .addComponent(txtIndentificacionConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnConsultarU))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNombreComCon)
-                    .addComponent(lblNombreComSalida))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblRolCon)
-                    .addComponent(lblRolConSalida))
-                .addGap(29, 29, 29)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDepartamentoCon)
-                    .addComponent(lblDepartamentoConSalida))
-                .addGap(26, 26, 26)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblUsuarioCon)
-                    .addComponent(lblUsuarioConSalida))
-                .addContainerGap(27, Short.MAX_VALUE))
-        );
+        btnAtras.setText("Atras");
+        btnAtras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtrasActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(168, 231, -1, -1));
+
+        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/consultar.jpg"))); // NOI18N
+        jPanel1.add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 0, 470, 290));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -169,6 +136,9 @@ public class GUIConsultarUsuario extends javax.swing.JFrame {
     private void btnConsultarUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarUActionPerformed
    
         try {
+            if(txtIndentificacionConsultar.getText().isEmpty()){
+                  JOptionPane.showMessageDialog(null,"Por favor ingrese el identificador");
+            }else{
             int id =Integer.parseInt(txtIndentificacionConsultar.getText());
             clsUsuarioDTO objUsuario=objetoRemotoUsuario.ConsultarUsuario(id);
             if(objUsuario!=null){
@@ -179,12 +149,20 @@ public class GUIConsultarUsuario extends javax.swing.JFrame {
                 lblDepartamentoConSalida.setText(objUsuario.getDepartamento());
             }else{
               JOptionPane.showMessageDialog(null,"Usuario No encontrado");
+              this.dispose();
             }
+            
+           }
+            
         } catch (RemoteException ex) {
             Logger.getLogger(GUIConsultarUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
       
     }//GEN-LAST:event_btnConsultarUActionPerformed
+
+    private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
+      this.dispose();
+    }//GEN-LAST:event_btnAtrasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -222,11 +200,13 @@ public class GUIConsultarUsuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAtras;
     private javax.swing.JButton btnConsultarU;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblConsultarUsuario;
     private javax.swing.JLabel lblDepartamentoCon;
     private javax.swing.JLabel lblDepartamentoConSalida;
+    private javax.swing.JLabel lblFondo;
     private javax.swing.JLabel lblIdentifiacionConsultar;
     private javax.swing.JLabel lblNombreComCon;
     private javax.swing.JLabel lblNombreComSalida;

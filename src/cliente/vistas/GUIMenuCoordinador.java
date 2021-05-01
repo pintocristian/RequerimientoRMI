@@ -7,6 +7,7 @@ package cliente.vistas;
 
 import SGestionAnteproyectos.sop_rmi.GestionAnteproyectoINT;
 import SGestionAnteproyectos.sop_rmi.GestionUsuariosINT;
+import SSeguimientoAnteproyectos.sop_rmi.GestionSeguimientoINT;
 
 /**
  *
@@ -19,10 +20,12 @@ public class GUIMenuCoordinador extends javax.swing.JFrame {
      */
     private static GestionAnteproyectoINT objetoRemotoAnteproyecto;
     private static GestionUsuariosINT objetoRemotoUsuario;
-    public GUIMenuCoordinador(GestionUsuariosINT objUsuario,GestionAnteproyectoINT objAnteproyecto) {
+        private static GestionSeguimientoINT objetoRemotoSeguimiento;
+    public GUIMenuCoordinador(GestionUsuariosINT objUsuario,GestionAnteproyectoINT objAnteproyecto,GestionSeguimientoINT objRemotoSeg) {
         initComponents();
         this.objetoRemotoUsuario=objUsuario;
         this.objetoRemotoAnteproyecto=objAnteproyecto;
+        this.objetoRemotoSeguimiento= objRemotoSeg;
     }
        public GUIMenuCoordinador(){}
     /**
@@ -40,6 +43,7 @@ public class GUIMenuCoordinador extends javax.swing.JFrame {
         btnAsignar = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
         btnListar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -75,10 +79,21 @@ public class GUIMenuCoordinador extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Listar Anteproyectos Aprobados");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(lblMenuEvaluador)
+                .addGap(145, 145, 145))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(155, 155, 155)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -87,13 +102,14 @@ public class GUIMenuCoordinador extends javax.swing.JFrame {
                     .addComponent(btnEvaluar))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(lblMenuEvaluador)
-                .addGap(145, 145, 145))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(134, Short.MAX_VALUE)
-                .addComponent(btnListar)
-                .addGap(125, 125, 125))
+                .addContainerGap(101, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnListar)
+                        .addGap(124, 124, 124))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(92, 92, 92))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -102,11 +118,13 @@ public class GUIMenuCoordinador extends javax.swing.JFrame {
                 .addComponent(lblMenuEvaluador)
                 .addGap(18, 18, 18)
                 .addComponent(btnEvaluar)
-                .addGap(40, 40, 40)
+                .addGap(18, 18, 18)
                 .addComponent(btnAsignar)
-                .addGap(29, 29, 29)
+                .addGap(18, 18, 18)
                 .addComponent(btnListar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addComponent(btnSalir)
                 .addGap(31, 31, 31))
         );
@@ -132,7 +150,7 @@ public class GUIMenuCoordinador extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        GUIInicioSesion GUISesion =new GUIInicioSesion(objetoRemotoUsuario,objetoRemotoAnteproyecto);
+        GUIInicioSesion GUISesion =new GUIInicioSesion(objetoRemotoUsuario,objetoRemotoAnteproyecto,objetoRemotoSeguimiento);
         GUISesion.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
@@ -154,6 +172,11 @@ public class GUIMenuCoordinador extends javax.swing.JFrame {
         GUIList.setVisible(true);
         
     }//GEN-LAST:event_btnListarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+      GUIListarAprobadosC objAprC = new  GUIListarAprobadosC(objetoRemotoAnteproyecto);
+      objAprC.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -196,6 +219,7 @@ public class GUIMenuCoordinador extends javax.swing.JFrame {
     private javax.swing.JButton btnEvaluar;
     private javax.swing.JButton btnListar;
     private javax.swing.JButton btnSalir;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblMenuEvaluador;
     // End of variables declaration//GEN-END:variables

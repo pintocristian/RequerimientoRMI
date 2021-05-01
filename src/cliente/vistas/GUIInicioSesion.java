@@ -8,6 +8,7 @@ package cliente.vistas;
 import SGestionAnteproyectos.dto.clsUsuarioDTO;
 import SGestionAnteproyectos.sop_rmi.GestionAnteproyectoINT;
 import SGestionAnteproyectos.sop_rmi.GestionUsuariosINT;
+import SSeguimientoAnteproyectos.sop_rmi.GestionSeguimientoINT;
 import java.rmi.RemoteException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,10 +25,12 @@ public class GUIInicioSesion extends javax.swing.JFrame {
      */
       private static GestionUsuariosINT objetoRemotoUsuario;
       private static GestionAnteproyectoINT objetoRemotoAnteproyectos;
-    public GUIInicioSesion(GestionUsuariosINT objetoRemotoU,GestionAnteproyectoINT objetoRemotoA) {
+       private static GestionSeguimientoINT objetoRemotoSeguimiento;
+    public GUIInicioSesion(GestionUsuariosINT objetoRemotoU,GestionAnteproyectoINT objetoRemotoA,GestionSeguimientoINT objRemotoSeg) {
         initComponents();
         this.objetoRemotoUsuario=objetoRemotoU;
         this.objetoRemotoAnteproyectos=objetoRemotoA;
+        this.objetoRemotoSeguimiento= objRemotoSeg;
     }
     public GUIInicioSesion(){}
     /**
@@ -46,6 +49,7 @@ public class GUIInicioSesion extends javax.swing.JFrame {
         txtUsuario = new javax.swing.JTextField();
         btnGuardarInicioSesion = new javax.swing.JButton();
         txtClave = new javax.swing.JPasswordField();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Inicio Sesion");
@@ -53,30 +57,37 @@ public class GUIInicioSesion extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 204, 204));
         jPanel1.setLayout(null);
 
+        lblInicioSesion.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         lblInicioSesion.setText("Inicio de Sesion");
         jPanel1.add(lblInicioSesion);
-        lblInicioSesion.setBounds(120, 20, 100, 14);
+        lblInicioSesion.setBounds(120, 20, 160, 21);
 
+        lblUsuario.setFont(new java.awt.Font("Arial Black", 0, 11)); // NOI18N
         lblUsuario.setText("Usuario:");
         jPanel1.add(lblUsuario);
-        lblUsuario.setBounds(50, 60, 70, 14);
+        lblUsuario.setBounds(30, 60, 70, 17);
 
+        lblClave.setFont(new java.awt.Font("Arial Black", 0, 11)); // NOI18N
         lblClave.setText("Clave:");
         jPanel1.add(lblClave);
-        lblClave.setBounds(50, 120, 50, 14);
+        lblClave.setBounds(30, 120, 50, 14);
         jPanel1.add(txtUsuario);
-        txtUsuario.setBounds(200, 60, 130, 20);
+        txtUsuario.setBounds(180, 60, 130, 30);
 
-        btnGuardarInicioSesion.setText("registrar");
+        btnGuardarInicioSesion.setText("iniciar");
         btnGuardarInicioSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarInicioSesionActionPerformed(evt);
             }
         });
         jPanel1.add(btnGuardarInicioSesion);
-        btnGuardarInicioSesion.setBounds(90, 170, 80, 30);
+        btnGuardarInicioSesion.setBounds(110, 220, 80, 30);
         jPanel1.add(txtClave);
-        txtClave.setBounds(200, 120, 130, 20);
+        txtClave.setBounds(180, 120, 130, 30);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/login.jpg"))); // NOI18N
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(0, 0, 390, 290);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -84,14 +95,14 @@ public class GUIInicioSesion extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 354, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -102,7 +113,7 @@ public class GUIInicioSesion extends javax.swing.JFrame {
         String usuarioAdmin="Admin";
         String claveAdmin="Admin";
         if(txtUsuario.getText().equals(usuarioAdmin) && txtClave.getText().equals(claveAdmin)){
-            GUIAdminPrincipal GUIAdminP = new GUIAdminPrincipal(objetoRemotoUsuario,objetoRemotoAnteproyectos);
+            GUIAdminPrincipal GUIAdminP = new GUIAdminPrincipal(objetoRemotoUsuario,objetoRemotoAnteproyectos,objetoRemotoSeguimiento);
             GUIAdminP.setVisible(true);
             this.dispose();
         }else{
@@ -116,25 +127,25 @@ public class GUIInicioSesion extends javax.swing.JFrame {
                     switch(Rol){
                         case "Director":
                             
-                            GUIMenuDirector GUIMDir =new  GUIMenuDirector(objetoRemotoUsuario,objetoRemotoAnteproyectos);
+                            GUIMenuDirector GUIMDir =new  GUIMenuDirector(objetoRemotoUsuario,objetoRemotoAnteproyectos,objetoRemotoSeguimiento);
                             GUIMDir.setVisible(true);
                             break;
                         case "Evaluador":
                             int idEv=objUsuario.getId();
-                            GUIMenuEvaluador GUIMEva =new  GUIMenuEvaluador(objetoRemotoUsuario,objetoRemotoAnteproyectos,idEv);
+                            GUIMenuEvaluador GUIMEva =new  GUIMenuEvaluador(objetoRemotoUsuario,objetoRemotoAnteproyectos,idEv,objetoRemotoSeguimiento);
                             GUIMEva.setVisible(true);
                             break;
                         case "Jefe departamento":
-                            GUIMenuJdpto GUIMJdpto =new  GUIMenuJdpto(objetoRemotoUsuario,objetoRemotoAnteproyectos);
+                            GUIMenuJdpto GUIMJdpto =new  GUIMenuJdpto(objetoRemotoUsuario,objetoRemotoAnteproyectos,objetoRemotoSeguimiento);
                             GUIMJdpto.setVisible(true);
                             break;
                           
                         case "Coordinador":
-                            GUIMenuCoordinador GUIMCoor =new  GUIMenuCoordinador(objetoRemotoUsuario,objetoRemotoAnteproyectos);
+                            GUIMenuCoordinador GUIMCoor =new  GUIMenuCoordinador(objetoRemotoUsuario,objetoRemotoAnteproyectos,objetoRemotoSeguimiento);
                             GUIMCoor.setVisible(true);
                             break;
                         case "Decano":
-                            GUIMenuDecano GUIMDec =new  GUIMenuDecano(objetoRemotoUsuario,objetoRemotoAnteproyectos);
+                            GUIMenuDecano GUIMDec =new  GUIMenuDecano(objetoRemotoUsuario,objetoRemotoAnteproyectos,objetoRemotoSeguimiento);
                             GUIMDec.setVisible(true);
                             break;
                         default :
@@ -189,6 +200,7 @@ public class GUIInicioSesion extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGuardarInicioSesion;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblClave;
     private javax.swing.JLabel lblInicioSesion;

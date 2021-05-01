@@ -5,11 +5,13 @@
  */
 package SSeguimientoAnteproyectos.dto;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Usuario
  */
-public class clsResolucionDTO {
+public class clsResolucionDTO implements Serializable {
     String numeroReosolucion;
     String fecha;
     int codigo;

@@ -53,25 +53,40 @@ public class GUIRegistrarUsuario extends javax.swing.JFrame {
         txtContraseniaU = new javax.swing.JTextField();
         btnRegistrarU = new javax.swing.JButton();
         cmbRolU = new javax.swing.JComboBox<>();
+        lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Registrar Usuario");
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        lblRegistrarUsuario.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         lblRegistrarUsuario.setText("Registrar Usuario");
+        jPanel1.add(lblRegistrarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 160, 22));
 
         lblIdentificacionU.setText("Identificacion:");
+        jPanel1.add(lblIdentificacionU, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 51, 89, -1));
 
         lblNombreComU.setText("Nombre Completo:");
+        jPanel1.add(lblNombreComU, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 77, 111, -1));
 
         lblRolU.setText("rol:");
+        jPanel1.add(lblRolU, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 106, 31, -1));
 
         lblDepartamentoU.setText("Departamento:");
+        jPanel1.add(lblDepartamentoU, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 132, 85, -1));
 
         lblUsuarioU.setText("Usuario:");
+        jPanel1.add(lblUsuarioU, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 158, 58, -1));
 
         lblContraseniaU.setText("contraseña:");
+        jPanel1.add(lblContraseniaU, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 184, 76, -1));
+        jPanel1.add(txtIdentificacionU, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 48, 89, -1));
+        jPanel1.add(txtNombreComU, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 77, 89, -1));
+        jPanel1.add(txtDepartamentoU, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 132, 89, -1));
+        jPanel1.add(txtUsuarioU, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 158, 89, -1));
+        jPanel1.add(txtContraseniaU, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 184, 89, -1));
 
         btnRegistrarU.setText("Registrar");
         btnRegistrarU.addActionListener(new java.awt.event.ActionListener() {
@@ -79,73 +94,13 @@ public class GUIRegistrarUsuario extends javax.swing.JFrame {
                 btnRegistrarUActionPerformed(evt);
             }
         });
+        jPanel1.add(btnRegistrarU, new org.netbeans.lib.awtextra.AbsoluteConstraints(135, 264, -1, -1));
 
         cmbRolU.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Director", "Evaluador", "Jefe departamento", "Coordinador", "Decano" }));
+        jPanel1.add(cmbRolU, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 103, 89, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblRegistrarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(131, 131, 131))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblIdentificacionU)
-                    .addComponent(lblContraseniaU)
-                    .addComponent(lblUsuarioU)
-                    .addComponent(lblDepartamentoU)
-                    .addComponent(lblRolU)
-                    .addComponent(lblNombreComU))
-                .addGap(100, 100, 100)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtDepartamentoU, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
-                    .addComponent(txtUsuarioU)
-                    .addComponent(txtContraseniaU)
-                    .addComponent(txtIdentificacionU)
-                    .addComponent(txtNombreComU)
-                    .addComponent(cmbRolU, 0, 1, Short.MAX_VALUE))
-                .addGap(66, 66, 66))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(145, 145, 145)
-                .addComponent(btnRegistrarU)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblRegistrarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblIdentificacionU)
-                    .addComponent(txtIdentificacionU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblNombreComU)
-                    .addComponent(txtNombreComU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblRolU)
-                    .addComponent(cmbRolU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(9, 9, 9)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblDepartamentoU)
-                    .addComponent(txtDepartamentoU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblUsuarioU)
-                    .addComponent(txtUsuarioU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblContraseniaU)
-                    .addComponent(txtContraseniaU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addComponent(btnRegistrarU)
-                .addGap(33, 33, 33))
-        );
+        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/registrar.jpg"))); // NOI18N
+        jPanel1.add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, 330));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -153,43 +108,50 @@ public class GUIRegistrarUsuario extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegistrarUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarUActionPerformed
-    
+
         try {
-        int id=Integer.parseInt(txtIdentificacionU.getText());
-        String NombreCompleto=txtNombreComU.getText();
-        String Rol=(String) cmbRolU.getSelectedItem();
-        String Departamento=txtDepartamentoU.getText();
-        String Usuario=txtUsuarioU.getText();
-        String Contrasenia=(String) txtContraseniaU.getText();
-        clsUsuarioDTO objUsuario=new clsUsuarioDTO(id,NombreCompleto,Rol,Departamento,Usuario,Contrasenia);
-        boolean funciono =objetoRemotoUsuario.RegistrarUsuarios(objUsuario);
-        if(funciono==true){
-            JOptionPane.showMessageDialog(null,"Usuario registrado exitosamente");
-            this.dispose();
-        }else{
-            JOptionPane.showMessageDialog(null,"El usuario no se pudo Registrar con exito");
-             this.dispose();
-        }
-        this.dispose();
+
+            if(txtIdentificacionU.getText().isEmpty() || txtNombreComU.getText().isEmpty() || txtDepartamentoU.getText().isEmpty() || txtUsuarioU.getText().isEmpty() ||  txtContraseniaU.getText().isEmpty()){
+                JOptionPane.showMessageDialog(null,"Ningun campo debe quedar vacio!!");
+            }else{
+                int id=Integer.parseInt(txtIdentificacionU.getText());
+                String NombreCompleto=txtNombreComU.getText();
+                String Rol=(String) cmbRolU.getSelectedItem();
+                String Departamento=txtDepartamentoU.getText();
+                String Usuario=txtUsuarioU.getText();
+                String Contrasenia=(String) txtContraseniaU.getText();
+                clsUsuarioDTO objUsuario=new clsUsuarioDTO(id,NombreCompleto,Rol,Departamento,Usuario,Contrasenia);
+                boolean funciono =objetoRemotoUsuario.RegistrarUsuarios(objUsuario);
+                if(funciono==true){
+                    JOptionPane.showMessageDialog(null,"Usuario registrado exitosamente");
+                    this.dispose();
+                }else{
+                    JOptionPane.showMessageDialog(null,"El usuario no se pudo Registrar con exito");
+                    this.dispose();
+                }
+                this.dispose();
+
+            }
+
         } catch (RemoteException ex) {
-        
+
             Logger.getLogger(GUIRegistrarUsuario.class.getName()).log(Level.SEVERE, null, ex);
-             this.dispose();
+            this.dispose();
         }
     }//GEN-LAST:event_btnRegistrarUActionPerformed
 
@@ -237,6 +199,7 @@ public class GUIRegistrarUsuario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblContraseniaU;
     private javax.swing.JLabel lblDepartamentoU;
+    private javax.swing.JLabel lblFondo;
     private javax.swing.JLabel lblIdentificacionU;
     private javax.swing.JLabel lblNombreComU;
     private javax.swing.JLabel lblRegistrarUsuario;

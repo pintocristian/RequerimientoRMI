@@ -7,6 +7,7 @@ package cliente.vistas;
 
 import SGestionAnteproyectos.sop_rmi.GestionAnteproyectoINT;
 import SGestionAnteproyectos.sop_rmi.GestionUsuariosINT;
+import SSeguimientoAnteproyectos.sop_rmi.GestionSeguimientoINT;
 
 /**
  *
@@ -19,10 +20,12 @@ public class GUIMenuJdpto extends javax.swing.JFrame {
      */
     private static GestionAnteproyectoINT objetoRemotoAnteproyecto;
     private static GestionUsuariosINT objetoRemotoUsuario;
-    public GUIMenuJdpto(GestionUsuariosINT objUsuario,GestionAnteproyectoINT objAnteproyecto) {
+        private static GestionSeguimientoINT objetoRemotoSeguimiento;
+    public GUIMenuJdpto(GestionUsuariosINT objUsuario,GestionAnteproyectoINT objAnteproyecto,GestionSeguimientoINT objRemotoSeg) {
         initComponents();
         this.objetoRemotoUsuario=objUsuario;
         this.objetoRemotoAnteproyecto=objAnteproyecto;
+                this.objetoRemotoSeguimiento= objRemotoSeg;
     }
     public GUIMenuJdpto(){}
     /**
@@ -39,10 +42,12 @@ public class GUIMenuJdpto extends javax.swing.JFrame {
         lblMenuJdpto = new javax.swing.JLabel();
         btnSalir = new javax.swing.JButton();
         btnListarAnteproyectos = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnEvauar.setText("Evaluar");
         btnEvauar.addActionListener(new java.awt.event.ActionListener() {
@@ -50,8 +55,11 @@ public class GUIMenuJdpto extends javax.swing.JFrame {
                 btnEvauarActionPerformed(evt);
             }
         });
+        jPanel1.add(btnEvauar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, -1, -1));
 
+        lblMenuJdpto.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         lblMenuJdpto.setText("Menu Jefe de Departamento");
+        jPanel1.add(lblMenuJdpto, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 233, -1));
 
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -59,42 +67,18 @@ public class GUIMenuJdpto extends javax.swing.JFrame {
                 btnSalirActionPerformed(evt);
             }
         });
+        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 69, -1));
 
         btnListarAnteproyectos.setText("Listar Anteproyectos");
+        btnListarAnteproyectos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListarAnteproyectosActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnListarAnteproyectos, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 145, -1, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(102, Short.MAX_VALUE)
-                .addComponent(lblMenuJdpto)
-                .addGap(95, 95, 95))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(129, 129, 129)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(btnSalir, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnEvauar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(94, 94, 94)
-                        .addComponent(btnListarAnteproyectos)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(lblMenuJdpto)
-                .addGap(51, 51, 51)
-                .addComponent(btnEvauar)
-                .addGap(18, 18, 18)
-                .addComponent(btnListarAnteproyectos)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addComponent(btnSalir)
-                .addGap(60, 60, 60))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/jefe.jpg"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 350));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -102,22 +86,22 @@ public class GUIMenuJdpto extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        GUIInicioSesion GUISesion =new GUIInicioSesion(objetoRemotoUsuario,objetoRemotoAnteproyecto);
+        GUIInicioSesion GUISesion =new GUIInicioSesion(objetoRemotoUsuario,objetoRemotoAnteproyecto,objetoRemotoSeguimiento);
         GUISesion.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
@@ -126,6 +110,11 @@ public class GUIMenuJdpto extends javax.swing.JFrame {
         GUIRFormatoC GUIC = new GUIRFormatoC (objetoRemotoAnteproyecto);
         GUIC.setVisible(true);
     }//GEN-LAST:event_btnEvauarActionPerformed
+
+    private void btnListarAnteproyectosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarAnteproyectosActionPerformed
+        GUIListarAprobadosB objListB = new  GUIListarAprobadosB(objetoRemotoAnteproyecto);
+        objListB.setVisible(true);
+    }//GEN-LAST:event_btnListarAnteproyectosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -166,6 +155,7 @@ public class GUIMenuJdpto extends javax.swing.JFrame {
     private javax.swing.JButton btnEvauar;
     private javax.swing.JButton btnListarAnteproyectos;
     private javax.swing.JButton btnSalir;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblMenuJdpto;
     // End of variables declaration//GEN-END:variables
