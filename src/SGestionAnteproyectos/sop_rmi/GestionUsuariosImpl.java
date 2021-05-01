@@ -21,6 +21,7 @@ import java.util.ArrayList;
 public class GestionUsuariosImpl extends UnicastRemoteObject implements GestionUsuariosINT{
     private ArrayList<clsUsuarioDTO> Usuarios;
     private GestionSeguimientoINT objReferenciaRemota;
+
     public GestionUsuariosImpl() throws RemoteException {
       super();
        Usuarios= new ArrayList();
@@ -123,8 +124,6 @@ public class GestionUsuariosImpl extends UnicastRemoteObject implements GestionU
     }
 
  
-
-    
    
     
 }

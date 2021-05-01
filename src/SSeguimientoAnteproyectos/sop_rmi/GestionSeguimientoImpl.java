@@ -5,7 +5,7 @@
  */
 package SSeguimientoAnteproyectos.sop_rmi;
 
-import SSeguimientoAnteproyectos.dto.clsFormatosDTO;
+import SSeguimientoAnteproyectos.dto.clsFormatosDTO2;
 import SSeguimientoAnteproyectos.dto.clsResolucionDTO;
 import SSeguimientoAnteproyectos.utilidades.GestionFicheros;
 import SSeguimientoAnteproyectos.utilidades.ObjectOutputStreamV2;
@@ -28,7 +28,7 @@ import java.util.logging.Logger;
 public class GestionSeguimientoImpl extends UnicastRemoteObject implements GestionSeguimientoINT {
 
     private ArrayList<clsResolucionDTO> listaResoluciones;
-    private ArrayList<clsFormatosDTO> listaHistorial;
+    private ArrayList<clsFormatosDTO2> listaHistorial;
     private boolean auxRegistrarResolucion = false;
     private boolean auxRegistrarFormatos = false;
     private GestionFicheros objG;
@@ -45,7 +45,7 @@ public class GestionSeguimientoImpl extends UnicastRemoteObject implements Gesti
     }
     
     @Override
-    public boolean RegistrarHistorial(clsFormatosDTO objFormatos) throws RemoteException {
+    public boolean RegistrarHistorial(clsFormatosDTO2 objFormatos) throws RemoteException {
         objG.escribirEnHistorial(ficheroHistorial, objFormatos);
         return true;
     }
@@ -64,7 +64,7 @@ public class GestionSeguimientoImpl extends UnicastRemoteObject implements Gesti
     }
 
     @Override
-    public ArrayList<clsFormatosDTO> ConsultarHistorial() throws RemoteException {
+    public ArrayList<clsFormatosDTO2> ConsultarHistorial() throws RemoteException {
         listaHistorial = objG.leerHistorial(ficheroHistorial);
         return listaHistorial;
     }

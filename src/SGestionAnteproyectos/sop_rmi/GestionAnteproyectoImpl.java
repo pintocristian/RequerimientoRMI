@@ -10,7 +10,13 @@ import SGestionAnteproyectos.dto.clsFormatoTiADTO;
 import SGestionAnteproyectos.dto.clsFormatoTiBDTO;
 import SGestionAnteproyectos.dto.clsFormatoTiCDTO;
 import SGestionAnteproyectos.dto.clsFormatoTiDDTO;
+import SGestionAnteproyectos.dto.clsFormatosDTO;
 import SGestionAnteproyectos.utilidades.UtilidadesRegistroC;
+import SSeguimientoAnteproyectos.dto.clsFormatoTiADTO2;
+import SSeguimientoAnteproyectos.dto.clsFormatoTiBDTO2;
+import SSeguimientoAnteproyectos.dto.clsFormatoTiCDTO2;
+import SSeguimientoAnteproyectos.dto.clsFormatoTiDDTO2;
+import SSeguimientoAnteproyectos.dto.clsFormatosDTO2;
 import SSeguimientoAnteproyectos.sop_rmi.GestionSeguimientoINT;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
@@ -18,6 +24,8 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -260,31 +268,48 @@ public class GestionAnteproyectoImpl extends UnicastRemoteObject implements Gest
    public void EnviarFormatos(int ide){
        int id=ide;
        int ev1=0;
-       
+       clsFormatoTiADTO objA=null ;
+       clsFormatoTiBDTO objB1 =null;
+       clsFormatoTiBDTO objB2=null;
+       clsFormatoTiCDTO objC=null;
+       clsFormatoTiDDTO objD=null;
+       clsFormatoTiADTO2 objAS=null ;
+       clsFormatoTiBDTO2 objB1S =null;
+       clsFormatoTiBDTO2 objB2S=null;
+       clsFormatoTiCDTO2 objCS=null;
+       clsFormatoTiDDTO2 objDS=null;
        for (int i=0;i<this.FormatoA.size();i++){
            if(this.FormatoA.get(i).getCodigo()==id){
-           clsFormatoTiADTO objA = this.FormatoA.get(i);
+           objA = this.FormatoA.get(i);
            }
        }
        for (int i=0;i<this.FormatoB.size();i++){
            if(this.FormatoB.get(i).getCodigo()==id){
-               clsFormatoTiBDTO objB1 = this.FormatoB.get(i);
+               objB1 = this.FormatoB.get(i);
                ev1=this.FormatoB.get(i).getId_evaluador();
            } 
            if(this.FormatoB.get(i).getCodigo()==id && ev1 != this.FormatoB.get(i).getId_evaluador()){
-                clsFormatoTiBDTO objB2 = this.FormatoB.get(i);
+                 objB2 = this.FormatoB.get(i);
            }
        }
        for (int i=0;i<this.FormatoC.size();i++){
            if(this.FormatoC.get(i).getCodigo()==id){
-               clsFormatoTiCDTO objC = this.FormatoC.get(i);
+                objC = this.FormatoC.get(i);
            }
        }
        for (int i=0;i<this.FormatoD.size();i++){
            if(this.FormatoD.get(i).getCodigo()==id){
-               clsFormatoTiDDTO objD = this.FormatoD.get(i);
+               objD = this.FormatoD.get(i);
            }
        }
+       objAS.setCodigo(objA.getCodigo());
+       
+       clsFormatosDTO2 objFormatos =new clsFormatosDTO2(id,objAS,objB1S,objB2S,objCS,objDS);
+         try {
+             this.objReferenciaRemota.RegistrarHistorial(objFormatos);
+         } catch (RemoteException ex) {
+             Logger.getLogger(GestionAnteproyectoImpl.class.getName()).log(Level.SEVERE, null, ex);
+         }
        
        
    
@@ -301,4 +326,11 @@ public class GestionAnteproyectoImpl extends UnicastRemoteObject implements Gest
          }
          return listaAnt;
     }
+
+  
+   
+
+    
+
+
 }

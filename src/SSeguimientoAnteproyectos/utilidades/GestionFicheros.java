@@ -5,7 +5,7 @@
  */
 package SSeguimientoAnteproyectos.utilidades;
 
-import SSeguimientoAnteproyectos.dto.clsFormatosDTO;
+import SSeguimientoAnteproyectos.dto.clsFormatosDTO2;
 import SSeguimientoAnteproyectos.dto.clsResolucionDTO;
 import java.io.EOFException;
 import java.io.File;
@@ -23,14 +23,14 @@ public class GestionFicheros {
     private  final String ruta = System.getProperty("user.dir");
     private  final String so = System.getProperty("os.name");
     private  final String carpetaBuscada = "pruebitas"; 
-    private ArrayList<clsFormatosDTO> listaFormatos;
+    private ArrayList<clsFormatosDTO2> listaFormatos;
     private ArrayList<clsResolucionDTO> listaResoluciones;
     
     public GestionFicheros() {
         listaFormatos = new ArrayList();
         listaFormatos = new ArrayList();
     }
-    public void escribirEnHistorial(String fichero, clsFormatosDTO objFormatos){
+    public void escribirEnHistorial(String fichero, clsFormatosDTO2 objFormatos){
         if(estaVacio(fichero)){
             try {
                 ObjectOutputStream oos = new ObjectOutputStream(
@@ -94,17 +94,17 @@ public class GestionFicheros {
         }
          return listaResoluciones;
     }
-    public ArrayList<clsFormatosDTO> leerHistorial(String fichero){
+    public ArrayList<clsFormatosDTO2> leerHistorial(String fichero){
          try {
             ObjectInputStream ois = new ObjectInputStream(
                     new FileInputStream(fichero));
             Object aux = ois.readObject();
 
             while (aux != null) {
-                if (aux instanceof clsFormatosDTO) {
+                if (aux instanceof clsFormatosDTO2) {
                     System.out.println("es de tipo formatos");
                 }
-                listaFormatos.add((clsFormatosDTO) aux);
+                listaFormatos.add((clsFormatosDTO2) aux);
                 aux = ois.readObject();
             }
             ois.close();
