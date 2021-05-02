@@ -44,12 +44,16 @@ public class GUIMenuDecano extends javax.swing.JFrame {
         btnSalir = new javax.swing.JButton();
         btnAprobados = new javax.swing.JButton();
         btnAprobadosCoor = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 102));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        lblMenuDecano.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         lblMenuDecano.setText("Menu Decano");
+        jPanel1.add(lblMenuDecano, new org.netbeans.lib.awtextra.AbsoluteConstraints(132, 40, 146, -1));
 
         btnRegistrarR.setText("Registrar Resolucion");
         btnRegistrarR.addActionListener(new java.awt.event.ActionListener() {
@@ -57,6 +61,7 @@ public class GUIMenuDecano extends javax.swing.JFrame {
                 btnRegistrarRActionPerformed(evt);
             }
         });
+        jPanel1.add(btnRegistrarR, new org.netbeans.lib.awtextra.AbsoluteConstraints(81, 92, 211, -1));
 
         btnConHistorial.setText("Consultar Historial TGI");
         btnConHistorial.addActionListener(new java.awt.event.ActionListener() {
@@ -64,6 +69,7 @@ public class GUIMenuDecano extends javax.swing.JFrame {
                 btnConHistorialActionPerformed(evt);
             }
         });
+        jPanel1.add(btnConHistorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(81, 133, 211, -1));
 
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -71,6 +77,7 @@ public class GUIMenuDecano extends javax.swing.JFrame {
                 btnSalirActionPerformed(evt);
             }
         });
+        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(156, 244, -1, -1));
 
         btnAprobados.setText("Consultar Listado TGI Aprobados");
         btnAprobados.addActionListener(new java.awt.event.ActionListener() {
@@ -78,6 +85,7 @@ public class GUIMenuDecano extends javax.swing.JFrame {
                 btnAprobadosActionPerformed(evt);
             }
         });
+        jPanel1.add(btnAprobados, new org.netbeans.lib.awtextra.AbsoluteConstraints(81, 174, 211, -1));
 
         btnAprobadosCoor.setText("Listado aprobados por el coordinador");
         btnAprobadosCoor.setToolTipText("");
@@ -86,48 +94,10 @@ public class GUIMenuDecano extends javax.swing.JFrame {
                 btnAprobadosCoorActionPerformed(evt);
             }
         });
+        jPanel1.add(btnAprobadosCoor, new org.netbeans.lib.awtextra.AbsoluteConstraints(81, 210, -1, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(146, 146, 146)
-                .addComponent(lblMenuDecano, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(151, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(156, 156, 156)
-                .addComponent(btnSalir)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnConHistorial, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAprobados)
-                    .addComponent(btnRegistrarR, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnAprobadosCoor)
-                .addGap(79, 79, 79))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(lblMenuDecano)
-                .addGap(35, 35, 35)
-                .addComponent(btnRegistrarR)
-                .addGap(18, 18, 18)
-                .addComponent(btnConHistorial)
-                .addGap(18, 18, 18)
-                .addComponent(btnAprobados)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
-                .addComponent(btnAprobadosCoor)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnSalir)
-                .addContainerGap())
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/decano.jpg"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, 280));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -216,6 +186,7 @@ public class GUIMenuDecano extends javax.swing.JFrame {
     private javax.swing.JButton btnConHistorial;
     private javax.swing.JButton btnRegistrarR;
     private javax.swing.JButton btnSalir;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblMenuDecano;
     // End of variables declaration//GEN-END:variables

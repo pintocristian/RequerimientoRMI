@@ -5,7 +5,8 @@
  */
 package cliente.vistas;
 
-import SGestionAnteproyectos.dto.clsFormatoTiDDTO;
+import SGestionAnteproyectos.dto.clsFormatoTiADTO;
+import SGestionAnteproyectos.dto.clsFormatoTiBDTO;
 import SGestionAnteproyectos.sop_rmi.GestionAnteproyectoINT;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
@@ -17,23 +18,23 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Usuario
  */
-public class GUIListarAprobadosD extends javax.swing.JFrame {
+public class GUIListarNoAsig extends javax.swing.JFrame {
 
     /**
-     * Creates new form GUIListarAprobadosD
+     * Creates new form GUIListarNoAsig
      */
-        private static GestionAnteproyectoINT objetoRemotoAnteproyecto;
-    private ArrayList<clsFormatoTiDDTO> listAnt;
-    public GUIListarAprobadosD(GestionAnteproyectoINT objAnte) {
+    private static GestionAnteproyectoINT objetoRemotoAnteproyecto;
+    private ArrayList<clsFormatoTiADTO> listAnt;
+    public GUIListarNoAsig(GestionAnteproyectoINT objAnte) {
         initComponents();
-        
         this.objetoRemotoAnteproyecto = objAnte;
-         try {
-            this.listAnt= this.objetoRemotoAnteproyecto.ListarAntDAprobados();
+        
+        try {
+            this.listAnt= this.objetoRemotoAnteproyecto.ListarAntNoAsig();
         } catch (RemoteException ex) {
             Logger.getLogger(GUIListarAnt.class.getName()).log(Level.SEVERE, null, ex);
         }
-      
+        
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("Codigo Anteproyecto");
         
@@ -46,8 +47,7 @@ public class GUIListarAprobadosD extends javax.swing.JFrame {
         tblAnt.setModel(modelo);
         
     }
-    public GUIListarAprobadosD(){}
-
+    public GUIListarNoAsig(){}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -58,7 +58,7 @@ public class GUIListarAprobadosD extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        lblTitulos = new javax.swing.JLabel();
+        lblTitulo = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblAnt = new javax.swing.JTable();
         btnAtras = new javax.swing.JButton();
@@ -67,8 +67,8 @@ public class GUIListarAprobadosD extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 153));
 
-        lblTitulos.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        lblTitulos.setText("Anteproyectos aprobados por el coordinador");
+        lblTitulo.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        lblTitulo.setText("Anteproyectos No Asignados");
 
         tblAnt.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -95,29 +95,29 @@ public class GUIListarAprobadosD extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(21, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19))
+                .addContainerGap(51, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(186, 186, 186)
+                        .addGap(202, 202, 202)
                         .addComponent(btnAtras))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addComponent(lblTitulos, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(120, 120, 120)
+                        .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblTitulos)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addComponent(lblTitulo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46)
                 .addComponent(btnAtras)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -161,20 +161,20 @@ public class GUIListarAprobadosD extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GUIListarAprobadosD.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUIListarNoAsig.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GUIListarAprobadosD.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUIListarNoAsig.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GUIListarAprobadosD.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUIListarNoAsig.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GUIListarAprobadosD.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUIListarNoAsig.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GUIListarAprobadosD().setVisible(true);
+                new GUIListarNoAsig().setVisible(true);
             }
         });
     }
@@ -183,7 +183,7 @@ public class GUIListarAprobadosD extends javax.swing.JFrame {
     private javax.swing.JButton btnAtras;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblTitulos;
+    private javax.swing.JLabel lblTitulo;
     private javax.swing.JTable tblAnt;
     // End of variables declaration//GEN-END:variables
 }

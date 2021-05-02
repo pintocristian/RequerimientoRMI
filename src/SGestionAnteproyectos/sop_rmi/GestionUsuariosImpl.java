@@ -14,6 +14,7 @@ import SGestionAnteproyectos.sop_rmi.GestionUsuariosINT;
 import SSeguimientoAnteproyectos.sop_rmi.GestionSeguimientoINT;
 import cliente.utilidades.UtilidadesRegistroC;
 import java.util.ArrayList;
+import java.util.Vector;
 /**
  *
  * @author Usuario
@@ -25,6 +26,7 @@ public class GestionUsuariosImpl extends UnicastRemoteObject implements GestionU
     public GestionUsuariosImpl() throws RemoteException {
       super();
        Usuarios= new ArrayList();
+      
     }
 
     @Override
@@ -124,6 +126,10 @@ public class GestionUsuariosImpl extends UnicastRemoteObject implements GestionU
           }
           return lista;
     }
+
+  
+
+ 
 
  
    

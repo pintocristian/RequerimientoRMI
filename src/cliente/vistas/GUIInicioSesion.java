@@ -9,6 +9,7 @@ import SGestionAnteproyectos.dto.clsUsuarioDTO;
 import SGestionAnteproyectos.sop_rmi.GestionAnteproyectoINT;
 import SGestionAnteproyectos.sop_rmi.GestionUsuariosINT;
 import SSeguimientoAnteproyectos.sop_rmi.GestionSeguimientoINT;
+import cliente.sop_rmi.NotificacionImpl;
 import java.rmi.RemoteException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -110,8 +111,22 @@ public class GUIInicioSesion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuardarInicioSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarInicioSesionActionPerformed
-        String usuarioAdmin="Admin";
-        String claveAdmin="Admin";
+        String usuarioAdmin="Administrador";
+        String claveAdmin="Administrador";
+        String numero1=txtUsuario.getText();
+        String numero2=txtClave.getText();
+        if(txtUsuario.getText().isEmpty() || txtClave.getText().isEmpty()){
+        
+             JOptionPane.showMessageDialog(null,"el usuario y la contrasenia no pueden estar vacios"); 
+            
+        }else if(numero1.length()<8 || numero2.length()<8){
+              txtUsuario.setText("");
+              txtClave.setText("");
+            JOptionPane.showMessageDialog(null,"el usuario y la contraseña tienen que tener minimo 8 caracteres"); 
+            
+        }else{
+        
+            
         if(txtUsuario.getText().equals(usuarioAdmin) && txtClave.getText().equals(claveAdmin)){
             GUIAdminPrincipal GUIAdminP = new GUIAdminPrincipal(objetoRemotoUsuario,objetoRemotoAnteproyectos,objetoRemotoSeguimiento);
             GUIAdminP.setVisible(true);
@@ -126,8 +141,11 @@ public class GUIInicioSesion extends javax.swing.JFrame {
                     String Rol=objUsuario.getRole();
                     switch(Rol){
                         case "Director":
+                             NotificacionImpl objAdmin = new NotificacionImpl();
+                             objetoRemotoAnteproyectos.registrarCallback(objAdmin);
                             
-                            GUIMenuDirector GUIMDir =new  GUIMenuDirector(objetoRemotoUsuario,objetoRemotoAnteproyectos,objetoRemotoSeguimiento);
+                             GUIMenuDirector GUIMDir =new  GUIMenuDirector(objetoRemotoUsuario,objetoRemotoAnteproyectos,objetoRemotoSeguimiento);
+                           
                             GUIMDir.setVisible(true);
                             break;
                         case "Evaluador":
@@ -160,6 +178,10 @@ public class GUIInicioSesion extends javax.swing.JFrame {
             }
             this.dispose();
         }
+        
+            
+        }
+        
         
     }//GEN-LAST:event_btnGuardarInicioSesionActionPerformed
 

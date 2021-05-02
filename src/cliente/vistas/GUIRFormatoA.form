@@ -63,46 +63,61 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblNombrePrograma">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Arial Black" size="11" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Nombre del programa"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="19" y="84" width="130" height="-1"/>
+              <AbsoluteConstraints x="19" y="84" width="140" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="lblTituloAnteproyecto">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Arial Black" size="11" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Titulo Anteproyecto"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="19" y="122" width="120" height="-1"/>
+              <AbsoluteConstraints x="19" y="122" width="130" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="lblNombreEst01">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Arial Black" size="11" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Nombre estudiante01"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="19" y="160" width="120" height="-1"/>
+              <AbsoluteConstraints x="19" y="160" width="140" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="lblNombreEst02">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Arial Black" size="11" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Nombre estudiante02"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="19" y="229" width="120" height="-1"/>
+              <AbsoluteConstraints x="20" y="230" width="150" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="lblCodigo01">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Arial Black" size="11" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Codigo01"/>
           </Properties>
           <Constraints>
@@ -113,6 +128,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblCodigo02">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Arial Black" size="11" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Codigo02"/>
           </Properties>
           <Constraints>
@@ -123,6 +141,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblNombreDir">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Arial Black" size="11" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Nombre Director"/>
           </Properties>
           <Constraints>
@@ -133,6 +154,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblNombreCodir">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Arial Black" size="11" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Nombre Co-director"/>
           </Properties>
           <Constraints>
@@ -156,6 +180,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblCodigoA">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Arial Black" size="11" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Codigo"/>
           </Properties>
           <Constraints>
@@ -256,7 +283,7 @@
         <Component class="javax.swing.JLabel" name="lblCodigoASalida">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial Black" size="11" style="0"/>
+              <Font name="Arial Black" size="12" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="-"/>
           </Properties>

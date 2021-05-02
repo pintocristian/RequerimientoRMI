@@ -10,6 +10,8 @@ import SGestionAnteproyectos.dto.clsFormatoTiADTO;
 import SGestionAnteproyectos.dto.clsFormatoTiBDTO;
 import SGestionAnteproyectos.dto.clsFormatoTiCDTO;
 import SGestionAnteproyectos.dto.clsFormatoTiDDTO;
+import SGestionAnteproyectos.dto.clsUsuarioDTO;
+import cliente.sop_rmi.NotificacionINT;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
@@ -34,5 +36,7 @@ public interface GestionAnteproyectoINT extends Remote {
     public ArrayList<clsFormatoTiBDTO> ListarAnt(int id)throws RemoteException;
     public ArrayList<clsFormatoTiBDTO> ListarAntBAprobados()throws RemoteException;
     public ArrayList<clsFormatoTiCDTO> ListarAntCAprobados()throws RemoteException;
-    public ArrayList<clsFormatoTiDDTO> ListarAntDAprobados()throws RemoteException;    
+    public ArrayList<clsFormatoTiDDTO> ListarAntDAprobados()throws RemoteException;  
+    public ArrayList<clsFormatoTiADTO> ListarAntNoAsig()throws RemoteException;   
+     public void registrarCallback(NotificacionINT objAdmin) throws RemoteException;
 }

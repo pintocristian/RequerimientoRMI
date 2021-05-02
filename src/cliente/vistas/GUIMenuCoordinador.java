@@ -44,6 +44,7 @@ public class GUIMenuCoordinador extends javax.swing.JFrame {
         btnSalir = new javax.swing.JButton();
         btnListar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        btnListarSinAsig = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -77,7 +78,7 @@ public class GUIMenuCoordinador extends javax.swing.JFrame {
                 btnSalirActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 290, 69, -1));
+        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, 69, -1));
 
         btnListar.setText("Listar evaluadores");
         btnListar.addActionListener(new java.awt.event.ActionListener() {
@@ -93,7 +94,15 @@ public class GUIMenuCoordinador extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, -1, -1));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, -1, -1));
+
+        btnListarSinAsig.setText("Listar Proyectos no asignados");
+        btnListarSinAsig.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListarSinAsigActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnListarSinAsig, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 220, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/coordinador.jpg"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-90, 0, 580, 420));
@@ -147,6 +156,13 @@ public class GUIMenuCoordinador extends javax.swing.JFrame {
       objAprC.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void btnListarSinAsigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarSinAsigActionPerformed
+     
+      GUIListarNoAsig objNoAsig = new    GUIListarNoAsig(objetoRemotoAnteproyecto);
+      objNoAsig.setVisible(true);
+        
+    }//GEN-LAST:event_btnListarSinAsigActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -187,6 +203,7 @@ public class GUIMenuCoordinador extends javax.swing.JFrame {
     private javax.swing.JButton btnAsignar;
     private javax.swing.JButton btnEvaluar;
     private javax.swing.JButton btnListar;
+    private javax.swing.JButton btnListarSinAsig;
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;

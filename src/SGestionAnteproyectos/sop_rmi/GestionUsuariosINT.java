@@ -9,6 +9,7 @@ import SGestionAnteproyectos.dto.clsUsuarioDTO;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.Vector;
 
 /**
  *
@@ -21,4 +22,6 @@ public interface GestionUsuariosINT extends Remote{
    public clsUsuarioDTO Sesion(String usuario, String clave)throws RemoteException;
    public int consultarEvaluador(int id)throws RemoteException;
    public ArrayList<clsUsuarioDTO> listarEv()throws RemoteException;
+  
+  
 }

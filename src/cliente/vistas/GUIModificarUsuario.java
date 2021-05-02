@@ -131,9 +131,14 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBuscarModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarModActionPerformed
-  
+      
          try {
-            Id=Integer.parseInt(txtIdentificacionMod.getText());
+             
+               if(txtIdentificacionMod.getText().isEmpty()){
+                    JOptionPane.showMessageDialog(null,"Por favor ingrese un identificador");
+               }else{
+           
+                    Id=Integer.parseInt(txtIdentificacionMod.getText());
             clsUsuarioDTO objUsuario=objetoRemotoUsuario.ConsultarUsuario(Id);
               if(objUsuario!=null){ 
                txtContraseniaMod.setText(objUsuario.getContrasenia());
@@ -144,6 +149,10 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
               }else{
               JOptionPane.showMessageDialog(null,"Usuario No encontrado");
             } 
+                   
+               }
+             
+           
          } catch (RemoteException ex) {
              Logger.getLogger(GUIModificarUsuario.class.getName()).log(Level.SEVERE, null, ex);
          }

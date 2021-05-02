@@ -154,7 +154,11 @@ public class GUIRFormatoD extends javax.swing.JFrame {
 
     private void btnValidarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValidarActionPerformed
 
-        try {
+        if(txtCodigoAnt.getText().isEmpty()){
+                             JOptionPane.showMessageDialog(null, "Porfavor ingresa el codigo");
+        }else{
+        
+                    try {
             int flujo = objetoRemotoAnteproyecto.VerificarAnteproyecto(Integer.parseInt(txtCodigoAnt.getText()));
             int concepto = objetoRemotoAnteproyecto.ConsultarConceptoJefe(Integer.parseInt(txtCodigoAnt.getText()));
             if (concepto == 1) {
@@ -180,6 +184,10 @@ public class GUIRFormatoD extends javax.swing.JFrame {
         } catch (RemoteException ex) {
             Logger.getLogger(GUIRFormatoD.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        }
+        
+        
     }//GEN-LAST:event_btnValidarActionPerformed
 
     /**

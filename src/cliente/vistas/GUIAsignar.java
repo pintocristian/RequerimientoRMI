@@ -106,7 +106,7 @@ public class GUIAsignar extends javax.swing.JFrame {
         int u1=-2;
         int u2=-2;
         int a=-2;
-        if(txtCodAnt.getText().isEmpty() && txtCodEv1.getText().isEmpty() && txtCodEv2.getText().isEmpty()){
+        if(txtCodAnt.getText().isEmpty() || txtCodEv1.getText().isEmpty() || txtCodEv2.getText().isEmpty()){
          JOptionPane.showMessageDialog(null, "Todos los campos son obligatorios");
         
         }

@@ -162,13 +162,17 @@ public class GUIRFormatoC extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEvaluarActionPerformed
 
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
-         try {
+        if(txtCodigoAnt.getText().isEmpty()){
+          JOptionPane.showMessageDialog(null, "Ingresa el codigo porfavor");
+        }else{
+        
+                try {
                          
            int flujo=objetoRemotoAnteproyecto.VerificarAnteproyecto(Integer.parseInt(txtCodigoAnt.getText()));
            clsConceptosDTO Conceptos;
            Conceptos = this.objetoRemotoAnteproyecto.ConsultarConceptos(Integer.parseInt(txtCodigoAnt.getText()));
            this.lblConceptos.setText("Concepto 1:" +Conceptos.getConcepto1()+"Concepto 2:"+Conceptos.getConcepto2());
-           if(Conceptos.getConcepto1()==1 &&Conceptos.getConcepto2()==1){
+           if(Conceptos.getConcepto1()==1 && Conceptos.getConcepto2()==1){
                this.txtEstructura.setEnabled(true);
                this.txtConcepto.setEnabled(true);
                this.txtObservaciones.setEnabled(true);
@@ -189,6 +193,8 @@ public class GUIRFormatoC extends javax.swing.JFrame {
         } catch (RemoteException ex) {
             Logger.getLogger(GUIRFormatoC.class.getName()).log(Level.SEVERE, null, ex);
         }
+        } 
+        
     }//GEN-LAST:event_btnConsultarActionPerformed
 
     /**

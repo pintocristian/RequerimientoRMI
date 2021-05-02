@@ -77,27 +77,35 @@ public class GUIRFormatoA extends javax.swing.JFrame {
         lblRegistrarAnte.setText("Registrar Anteproyecto");
         jPanel1.add(lblRegistrarAnte, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 11, 200, -1));
 
+        lblNombrePrograma.setFont(new java.awt.Font("Arial Black", 0, 11)); // NOI18N
         lblNombrePrograma.setText("Nombre del programa");
-        jPanel1.add(lblNombrePrograma, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 84, 130, -1));
+        jPanel1.add(lblNombrePrograma, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 84, 140, -1));
 
+        lblTituloAnteproyecto.setFont(new java.awt.Font("Arial Black", 0, 11)); // NOI18N
         lblTituloAnteproyecto.setText("Titulo Anteproyecto");
-        jPanel1.add(lblTituloAnteproyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 122, 120, -1));
+        jPanel1.add(lblTituloAnteproyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 122, 130, -1));
 
+        lblNombreEst01.setFont(new java.awt.Font("Arial Black", 0, 11)); // NOI18N
         lblNombreEst01.setText("Nombre estudiante01");
-        jPanel1.add(lblNombreEst01, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 160, 120, -1));
+        jPanel1.add(lblNombreEst01, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 160, 140, -1));
 
+        lblNombreEst02.setFont(new java.awt.Font("Arial Black", 0, 11)); // NOI18N
         lblNombreEst02.setText("Nombre estudiante02");
-        jPanel1.add(lblNombreEst02, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 229, 120, -1));
+        jPanel1.add(lblNombreEst02, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 150, -1));
 
+        lblCodigo01.setFont(new java.awt.Font("Arial Black", 0, 11)); // NOI18N
         lblCodigo01.setText("Codigo01");
         jPanel1.add(lblCodigo01, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 196, 80, 19));
 
+        lblCodigo02.setFont(new java.awt.Font("Arial Black", 0, 11)); // NOI18N
         lblCodigo02.setText("Codigo02");
         jPanel1.add(lblCodigo02, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 260, 70, -1));
 
+        lblNombreDir.setFont(new java.awt.Font("Arial Black", 0, 11)); // NOI18N
         lblNombreDir.setText("Nombre Director");
         jPanel1.add(lblNombreDir, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 291, 100, -1));
 
+        lblNombreCodir.setFont(new java.awt.Font("Arial Black", 0, 11)); // NOI18N
         lblNombreCodir.setText("Nombre Co-director");
         jPanel1.add(lblNombreCodir, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 317, 120, -1));
 
@@ -105,6 +113,7 @@ public class GUIRFormatoA extends javax.swing.JFrame {
         lblObjetivos.setText("Objetivos del anteproyecto");
         jPanel1.add(lblObjetivos, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 350, 180, -1));
 
+        lblCodigoA.setFont(new java.awt.Font("Arial Black", 0, 11)); // NOI18N
         lblCodigoA.setText("Codigo");
         jPanel1.add(lblCodigoA, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 49, 60, -1));
         jPanel1.add(txtTituloA, new org.netbeans.lib.awtextra.AbsoluteConstraints(314, 119, 98, -1));
@@ -130,7 +139,7 @@ public class GUIRFormatoA extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 372, -1, -1));
 
-        lblCodigoASalida.setFont(new java.awt.Font("Arial Black", 0, 11)); // NOI18N
+        lblCodigoASalida.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         lblCodigoASalida.setText("-");
         jPanel1.add(lblCodigoASalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(314, 49, -1, -1));
 

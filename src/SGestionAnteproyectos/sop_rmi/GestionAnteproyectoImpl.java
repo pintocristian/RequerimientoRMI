@@ -11,6 +11,7 @@ import SGestionAnteproyectos.dto.clsFormatoTiBDTO;
 import SGestionAnteproyectos.dto.clsFormatoTiCDTO;
 import SGestionAnteproyectos.dto.clsFormatoTiDDTO;
 import SGestionAnteproyectos.dto.clsFormatosDTO;
+import SGestionAnteproyectos.dto.clsUsuarioDTO;
 import SGestionAnteproyectos.utilidades.UtilidadesRegistroC;
 import SSeguimientoAnteproyectos.dto.clsFormatoTiADTO2;
 import SSeguimientoAnteproyectos.dto.clsFormatoTiBDTO2;
@@ -18,12 +19,15 @@ import SSeguimientoAnteproyectos.dto.clsFormatoTiCDTO2;
 import SSeguimientoAnteproyectos.dto.clsFormatoTiDDTO2;
 import SSeguimientoAnteproyectos.dto.clsFormatosDTO2;
 import SSeguimientoAnteproyectos.sop_rmi.GestionSeguimientoINT;
+import cliente.sop_rmi.NotificacionINT;
+import cliente.sop_rmi.NotificacionImpl;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -31,6 +35,7 @@ import java.util.logging.Logger;
  *
  * @author Usuario
  */
+
 public class GestionAnteproyectoImpl extends UnicastRemoteObject implements GestionAnteproyectoINT{
      private GestionSeguimientoINT objReferenciaRemota;
      private ArrayList<clsFormatoTiADTO> FormatoA;
@@ -38,12 +43,14 @@ public class GestionAnteproyectoImpl extends UnicastRemoteObject implements Gest
      private ArrayList<clsFormatoTiCDTO> FormatoC;
      private ArrayList<clsFormatoTiDDTO> FormatoD;
      private static int incremento =0;
+     private Vector listaDir;
     public GestionAnteproyectoImpl() throws RemoteException {
         super();
         this.FormatoA=new ArrayList();
         this.FormatoB=new ArrayList();
         this.FormatoC=new ArrayList();
         this.FormatoD=new ArrayList();
+        this.listaDir= new Vector();
     }
 
     @Override
@@ -58,16 +65,20 @@ public class GestionAnteproyectoImpl extends UnicastRemoteObject implements Gest
     public boolean RegistrarFormatoTiB(clsFormatoTiBDTO objFormatoB) throws RemoteException {
         System.out.println("Entrando a registrar formato");
         boolean encontro = false;
-
+        boolean bandera = false;
+        int concepto1 = -1;
+        int concepto2 = -1;
+        int id = -1;
+        int codigo = objFormatoB.getCodigo();
         for (int i = 0; i < FormatoB.size(); i++) {
             if (this.FormatoB.get(i).getCodigo() == objFormatoB.getCodigo() && this.FormatoB.get(i).getCodigo() == objFormatoB.getCodigo()) {
-               if(this.FormatoB.get(i).getConcepto()==-1){
+                if (this.FormatoB.get(i).getConcepto() == -1) {
                     this.FormatoB.get(i).setConcepto(objFormatoB.getConcepto());
                     this.FormatoB.get(i).setObservaciones(objFormatoB.getObservaciones());
                     this.FormatoB.get(i).setFecha(objFormatoB.getFecha());
                     encontro = true;
                     break;
-               }
+                }
             }
         }
         if (encontro == true) {
@@ -78,8 +89,40 @@ public class GestionAnteproyectoImpl extends UnicastRemoteObject implements Gest
                 }
             }
         }
+      
         
+        
+        
+        for (int i = 0; i < this.FormatoA.size(); i++) {
+            if (this.FormatoA.get(i).getCodigo() == codigo && this.FormatoA.get(i).getFlujo() == 3) {
+                bandera = true;
+            }
+        }
 
+        if (bandera == true) {
+
+            for (int i = 0; i < this.FormatoB.size(); i++) {
+                if (this.FormatoB.get(i).getCodigo() == codigo) {
+                    concepto1 = this.FormatoB.get(i).getConcepto();
+                    id = this.FormatoB.get(i).getId_evaluador();
+                    break;
+                }
+            }
+            for (int j = 0; j < this.FormatoB.size(); j++) {
+                if (this.FormatoB.get(j).getCodigo() == codigo && this.FormatoB.get(j).getId_evaluador() != id) {
+                    concepto2 = this.FormatoB.get(j).getConcepto();
+
+                    break;
+                }
+            }
+           if(concepto1==1 && concepto2==1){
+               hacerCallback(codigo);
+           }
+        }
+
+        
+        
+        
         return encontro;
 
     }
@@ -175,7 +218,7 @@ public class GestionAnteproyectoImpl extends UnicastRemoteObject implements Gest
            }
        }
        for(int j=0;j<this.FormatoB.size();j++){
-           if(this.FormatoB.get(j).getCodigo()==codigo && this.FormatoB.get(j).getCodigo() != id){
+           if(this.FormatoB.get(j).getCodigo()==codigo && this.FormatoB.get(j).getId_evaluador() != id){
                concepto2=this.FormatoB.get(j).getConcepto(); 
              
                break;
@@ -443,9 +486,53 @@ public class GestionAnteproyectoImpl extends UnicastRemoteObject implements Gest
            return objD;
     }
 
-  
-   
+    @Override
+    public ArrayList<clsFormatoTiADTO> ListarAntNoAsig() throws RemoteException {
+        ArrayList<clsFormatoTiADTO> listaNoAsig= new ArrayList();
+        boolean vacia=false;
+        for(int i=0;i<this.FormatoA.size();i++){
+            if(this.FormatoA.get(i).getFlujo()==1){
+                if(this.FormatoB.isEmpty()){
+                    vacia=true;
+                    break;
+                }else{
+                     for (int j = 0; j < this.FormatoB.size(); j=j+2) {
+                        if (this.FormatoA.get(i).getCodigo() != this.FormatoB.get(j).getCodigo()) {
+                            listaNoAsig.add(this.FormatoA.get(i));
+                        }
+                    }
+                }
 
+            
+            }
+        }
+         
+        if(vacia==true){
+        listaNoAsig=this.FormatoA;
+        }
+        
+        return listaNoAsig;
+    }
+
+  
+    @Override
+    public void registrarCallback(NotificacionINT objAdmin) throws RemoteException {
+    
+        System.out.println("En regCallbck()");
+       if(!(listaDir.contains(objAdmin))){
+          listaDir.addElement(objAdmin);
+          System.out.println("Nuevo  Objeto adicionado");
+        }
+    
+    }
+    
+    public void hacerCallback(int codigo) throws RemoteException{
+       
+        for(int i=0;i<listaDir.size();i++){
+          NotificacionINT obj=(NotificacionINT)listaDir.elementAt(i);
+          obj.Notificar(codigo);
+    }
+  }
     
 
 

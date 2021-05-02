@@ -37,7 +37,7 @@ public class GUIMensajesServidor2 extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Mensajes");
 
-        jPanel1.setBackground(new java.awt.Color(0, 204, 255));
+        jPanel1.setBackground(new java.awt.Color(0, 153, 153));
 
         txtMensaje2.setColumns(20);
         txtMensaje2.setRows(5);

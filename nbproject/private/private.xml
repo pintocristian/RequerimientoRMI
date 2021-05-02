@@ -3,46 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/SSeguimientoAnteproyectos/utilidades/UtilidadesRegistroS.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/cliente/vistas/GUIModificarUsuario.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/cliente/vistas/GUIMenuCoordinador.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/SGestionAnteproyectos/sop_rmi/GestionUsuariosINT.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/SSeguimientoAnteproyectos/dto/clsFormatoTiBDTO2.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/cliente/vistas/GUIMenuDecano.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/SGestionAnteproyectos/sop_rmi/GestionAnteproyectoImpl.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/SSeguimientoAnteproyectos/sop_rmi/GestionSeguimientoINT.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/SSeguimientoAnteproyectos/dto/clsFormatosDTO2.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/cliente/vistas/GUIRFormatoB.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/SGestionAnteproyectos/dto/clsConceptosDTO.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/SSeguimientoAnteproyectos/dto/clsFormatoTiADTO2.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/SSeguimientoAnteproyectos/dto/clsFormatoTiDDTO2.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/SSeguimientoAnteproyectos/vistas/GUIConectarServidor2.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/cliente/vistas/GUIMenuDirector.java</file>
             <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/cliente/vistas/GUIRFormatoC.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/SSeguimientoAnteproyectos/utilidades/GestionFicheros.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/SGestionAnteproyectos/dto/clsFormatoTiBDTO.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/cliente/vistas/GUIConectarCliente.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/SGestionAnteproyectos/dto/clsFormatoTiADTO.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/SGestionAnteproyectos/dto/clsFormatoTiCDTO.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/cliente/vistas/GUIListarEv.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/SGestionAnteproyectos/sop_rmi/GestionAnteproyectoINT.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/SSeguimientoAnteproyectos/dto/clsFormatoTiCDTO2.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/cliente/vistas/GUIMenuEvaluador.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/cliente/vistas/GUIListarAnt.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/SGestionAnteproyectos/dto/clsFormatoTiDDTO.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/SGestionAnteproyectos/vistas/GUIConectarServidor1.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/cliente/vistas/GUIMenuJdpto.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/SSeguimientoAnteproyectos/sop_rmi/GestionSeguimientoImpl.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/SGestionAnteproyectos/dto/clsUsuarioDTO.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/SGestionAnteproyectos/dto/clsFormatosDTO.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/SSeguimientoAnteproyectos/dto/clsResolucionDTO.java</file>
             <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/SGestionAnteproyectos/sop_rmi/GestionUsuariosImpl.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/SGestionAnteproyectos/vistas/GUIMensajesServidor1.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/SSeguimientoAnteproyectos/utilidades/ObjectOutputStreamV2.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/cliente/vistas/GUIRFormatoA.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/cliente/vistas/GUIAsignar.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/cliente/vistas/GUIListarJdpto.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/cliente/vistas/GUIRFormatoD.java</file>
+            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/SGestionAnteproyectos/sop_rmi/GestionAnteproyectoImpl.java</file>
+            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/cliente/vistas/GUIInicioSesion.java</file>
+            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/SGestionAnteproyectos/sop_rmi/GestionAnteproyectoINT.java</file>
+            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/cliente/sop_rmi/NotificacionImpl.java</file>
+            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/cliente/sop_rmi/NotificacionINT.java</file>
+            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/cliente/vistas/GUIMenuJdpto.java</file>
+            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/SGestionAnteproyectos/sop_rmi/GestionUsuariosINT.java</file>
+            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/SGestionAnteproyectos/dto/clsUsuarioDTO.java</file>
         </group>
     </open-files>
 </project-private>
