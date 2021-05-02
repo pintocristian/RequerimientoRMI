@@ -79,6 +79,12 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
 
         lblContraseniaMod.setText("Contraseña:");
         jPanel1.add(lblContraseniaMod, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 82, -1));
+
+        txtIdentificacionMod.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtIdentificacionModKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtIdentificacionMod, new org.netbeans.lib.awtextra.AbsoluteConstraints(188, 47, 94, -1));
         jPanel1.add(txtNombreComMod, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 94, 20));
         jPanel1.add(txtDepartamentoMod, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, 94, -1));
@@ -191,6 +197,11 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_btnModificarUActionPerformed
+
+    private void txtIdentificacionModKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIdentificacionModKeyTyped
+             char c =evt.getKeyChar();
+      if(c<'0' || c>'9') evt.consume();
+    }//GEN-LAST:event_txtIdentificacionModKeyTyped
 
     /**
      * @param args the command line arguments

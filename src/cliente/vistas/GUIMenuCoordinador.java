@@ -146,7 +146,7 @@ public class GUIMenuCoordinador extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEvaluarActionPerformed
 
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
-        GUIListarEv GUIList= new GUIListarEv (objetoRemotoUsuario);
+        GUIListarEv GUIList= new GUIListarEv(objetoRemotoUsuario);
         GUIList.setVisible(true);
         
     }//GEN-LAST:event_btnListarActionPerformed

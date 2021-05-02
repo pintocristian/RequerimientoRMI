@@ -75,8 +75,26 @@ public class GUIAsignar extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnAsignar, new org.netbeans.lib.awtextra.AbsoluteConstraints(167, 217, -1, -1));
+
+        txtCodAnt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCodAntKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtCodAnt, new org.netbeans.lib.awtextra.AbsoluteConstraints(237, 43, 63, -1));
+
+        txtCodEv1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCodEv1KeyTyped(evt);
+            }
+        });
         jPanel1.add(txtCodEv1, new org.netbeans.lib.awtextra.AbsoluteConstraints(237, 87, 63, -1));
+
+        txtCodEv2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCodEv2KeyTyped(evt);
+            }
+        });
         jPanel1.add(txtCodEv2, new org.netbeans.lib.awtextra.AbsoluteConstraints(237, 134, 63, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/asignar.jpg"))); // NOI18N
@@ -156,6 +174,21 @@ public class GUIAsignar extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_btnAsignarActionPerformed
+
+    private void txtCodAntKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodAntKeyTyped
+             char c =evt.getKeyChar();
+      if(c<'0' || c>'9') evt.consume();
+    }//GEN-LAST:event_txtCodAntKeyTyped
+
+    private void txtCodEv1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodEv1KeyTyped
+             char c =evt.getKeyChar();
+      if(c<'0' || c>'9') evt.consume();
+    }//GEN-LAST:event_txtCodEv1KeyTyped
+
+    private void txtCodEv2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodEv2KeyTyped
+             char c =evt.getKeyChar();
+      if(c<'0' || c>'9') evt.consume();
+    }//GEN-LAST:event_txtCodEv2KeyTyped
 
     /**
      * @param args the command line arguments

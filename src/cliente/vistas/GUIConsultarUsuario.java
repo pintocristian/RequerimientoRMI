@@ -64,6 +64,12 @@ public class GUIConsultarUsuario extends javax.swing.JFrame {
 
         lblIdentifiacionConsultar.setText("Identificacion");
         jPanel1.add(lblIdentifiacionConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 90, -1));
+
+        txtIndentificacionConsultar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtIndentificacionConsultarKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtIndentificacionConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(222, 44, 112, -1));
 
         btnConsultarU.setText("Consultar");
@@ -163,6 +169,11 @@ public class GUIConsultarUsuario extends javax.swing.JFrame {
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
       this.dispose();
     }//GEN-LAST:event_btnAtrasActionPerformed
+
+    private void txtIndentificacionConsultarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIndentificacionConsultarKeyTyped
+            char c =evt.getKeyChar();
+      if(c<'0' || c>'9') evt.consume();
+    }//GEN-LAST:event_txtIndentificacionConsultarKeyTyped
 
     /**
      * @param args the command line arguments

@@ -25,7 +25,7 @@ public class GUIRFormatoD extends javax.swing.JFrame {
     public GUIRFormatoD(GestionAnteproyectoINT objAnteproyecto) {
         initComponents();
         this.objetoRemotoAnteproyecto=objAnteproyecto;
-        this.txtConcepto.setEnabled(false);
+        this.cmbConcepto.setEnabled(false);
         this.txtEstructura.setEnabled(false);
         this.txtObservaciones.setEnabled(false);
         this.btnEvaluar.setEnabled(false);
@@ -47,12 +47,12 @@ public class GUIRFormatoD extends javax.swing.JFrame {
         lblConcepto = new javax.swing.JLabel();
         lblObservaciones = new javax.swing.JLabel();
         txtEstructura = new javax.swing.JTextField();
-        txtConcepto = new javax.swing.JTextField();
         btnEvaluar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtObservaciones = new javax.swing.JTextArea();
         txtCodigoAnt = new javax.swing.JTextField();
         btnValidar = new javax.swing.JButton();
+        cmbConcepto = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -77,7 +77,6 @@ public class GUIRFormatoD extends javax.swing.JFrame {
         lblObservaciones.setText("Observaciones");
         jPanel1.add(lblObservaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 165, 120, -1));
         jPanel1.add(txtEstructura, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 89, 73, -1));
-        jPanel1.add(txtConcepto, new org.netbeans.lib.awtextra.AbsoluteConstraints(236, 127, 72, -1));
 
         btnEvaluar.setText("Evaluar");
         btnEvaluar.addActionListener(new java.awt.event.ActionListener() {
@@ -92,6 +91,12 @@ public class GUIRFormatoD extends javax.swing.JFrame {
         jScrollPane1.setViewportView(txtObservaciones);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(81, 190, 190, 106));
+
+        txtCodigoAnt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCodigoAntKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtCodigoAnt, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 49, 73, -1));
 
         btnValidar.setText("Validar");
@@ -101,6 +106,9 @@ public class GUIRFormatoD extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnValidar, new org.netbeans.lib.awtextra.AbsoluteConstraints(325, 48, -1, -1));
+
+        cmbConcepto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aprobado", "Reprobado" }));
+        jPanel1.add(cmbConcepto, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 90, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/d.jpg"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 470));
@@ -126,14 +134,27 @@ public class GUIRFormatoD extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEvaluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEvaluarActionPerformed
-        if(txtCodigoAnt.getText().isEmpty() || txtConcepto.getText().isEmpty() || txtEstructura.getText().isEmpty() || txtObservaciones.getText().isEmpty()){
+        if(txtCodigoAnt.getText().isEmpty() ||  txtEstructura.getText().isEmpty() || txtObservaciones.getText().isEmpty()){
           JOptionPane.showMessageDialog(null, "Todos los campos deben ser ingresados");
         }else{
           try {
                int codAnt=Integer.parseInt(txtCodigoAnt.getText()); 
                String estructura=txtEstructura.getText();
                String Observaciones=txtObservaciones.getText();
-               int concepto =Integer.parseInt(txtConcepto.getText());
+               
+                   int concepto ;
+                String con=(String) cmbConcepto.getSelectedItem();
+            if(con.equals("Aprobado")){
+                concepto=1;
+            }else{
+             concepto=0;
+            }
+               
+               
+               
+               
+              
+               
                clsFormatoTiDDTO objD = new clsFormatoTiDDTO(codAnt,estructura,concepto,Observaciones);
            
               
@@ -162,7 +183,7 @@ public class GUIRFormatoD extends javax.swing.JFrame {
             int flujo = objetoRemotoAnteproyecto.VerificarAnteproyecto(Integer.parseInt(txtCodigoAnt.getText()));
             int concepto = objetoRemotoAnteproyecto.ConsultarConceptoJefe(Integer.parseInt(txtCodigoAnt.getText()));
             if (concepto == 1) {
-                this.txtConcepto.setEnabled(true);
+                this.cmbConcepto.setEnabled(true);
                 this.txtEstructura.setEnabled(true);
                 this.txtObservaciones.setEnabled(true);
                 this.btnEvaluar.setEnabled(true);
@@ -189,6 +210,12 @@ public class GUIRFormatoD extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_btnValidarActionPerformed
+
+    private void txtCodigoAntKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodigoAntKeyTyped
+      char c =evt.getKeyChar();
+      if(c<'0' || c>'9') evt.consume();
+      
+    }//GEN-LAST:event_txtCodigoAntKeyTyped
 
     /**
      * @param args the command line arguments
@@ -228,6 +255,7 @@ public class GUIRFormatoD extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEvaluar;
     private javax.swing.JButton btnValidar;
+    private javax.swing.JComboBox<String> cmbConcepto;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
@@ -237,7 +265,6 @@ public class GUIRFormatoD extends javax.swing.JFrame {
     private javax.swing.JLabel lblEvaluarAnt;
     private javax.swing.JLabel lblObservaciones;
     private javax.swing.JTextField txtCodigoAnt;
-    private javax.swing.JTextField txtConcepto;
     private javax.swing.JTextField txtEstructura;
     private javax.swing.JTextArea txtObservaciones;
     // End of variables declaration//GEN-END:variables

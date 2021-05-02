@@ -29,21 +29,24 @@ public class GUIListarEv extends javax.swing.JFrame {
     public GUIListarEv(GestionUsuariosINT objUs) {
         initComponents();
         this.objetoRemotoUsuario=objUs;
-        try {
-           this.listaUs =this.objetoRemotoUsuario.listarEv();
-        } catch (RemoteException ex) {
-            Logger.getLogger(GUIListarEv.class.getName()).log(Level.SEVERE, null, ex);
-        }
         
+      
+         try {
+            this.listaUs= this.objetoRemotoUsuario.listarEv();
+        } catch (RemoteException ex) {
+            Logger.getLogger(GUIListarAnt.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      
         DefaultTableModel modelo = new DefaultTableModel();
-        modelo.addColumn("Codigo Evaluadores");
+        modelo.addColumn("Codigo evaluador");
+        
         tblEv.setEnabled(false);
-        for (int i = 0; i <this.listaUs.size() ; i++) {
+        
+        for (int i = 0; i < this.listaUs.size(); i++) {
             Object [] obj = new Object[]{this.listaUs.get(i).getId()};
             modelo.addRow(obj);
         }
         tblEv.setModel(modelo);
-      
     }
 
     public GUIListarEv() {}

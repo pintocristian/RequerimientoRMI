@@ -82,6 +82,12 @@ public class GUIRegistrarUsuario extends javax.swing.JFrame {
 
         lblContraseniaU.setText("contraseña:");
         jPanel1.add(lblContraseniaU, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 184, 76, -1));
+
+        txtIdentificacionU.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtIdentificacionUKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtIdentificacionU, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 48, 89, -1));
         jPanel1.add(txtNombreComU, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 77, 89, -1));
         jPanel1.add(txtDepartamentoU, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 132, 89, -1));
@@ -154,6 +160,11 @@ public class GUIRegistrarUsuario extends javax.swing.JFrame {
             this.dispose();
         }
     }//GEN-LAST:event_btnRegistrarUActionPerformed
+
+    private void txtIdentificacionUKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIdentificacionUKeyTyped
+         char c =evt.getKeyChar();
+      if(c<'0' || c>'9') evt.consume();
+    }//GEN-LAST:event_txtIdentificacionUKeyTyped
 
     /**
      * @param args the command line arguments

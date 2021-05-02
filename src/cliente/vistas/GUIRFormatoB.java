@@ -45,9 +45,9 @@ public class GUIRFormatoB extends javax.swing.JFrame {
         lblFechaEvaluacion = new javax.swing.JLabel();
         btnEvaluar = new javax.swing.JButton();
         txtObservaciones = new javax.swing.JTextField();
-        txtConceptoEv = new javax.swing.JTextField();
         txtFecha = new javax.swing.JTextField();
         txtCodAnt = new javax.swing.JTextField();
+        cmbConcepto = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -84,9 +84,17 @@ public class GUIRFormatoB extends javax.swing.JFrame {
         });
         jPanel1.add(btnEvaluar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 214, -1, -1));
         jPanel1.add(txtObservaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(258, 119, 59, -1));
-        jPanel1.add(txtConceptoEv, new org.netbeans.lib.awtextra.AbsoluteConstraints(258, 81, 59, -1));
         jPanel1.add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(258, 163, 59, -1));
+
+        txtCodAnt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCodAntKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtCodAnt, new org.netbeans.lib.awtextra.AbsoluteConstraints(258, 43, 59, -1));
+
+        cmbConcepto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aprobado", "Reprobado" }));
+        jPanel1.add(cmbConcepto, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 80, 90, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/b.jpg"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 270));
@@ -112,12 +120,23 @@ public class GUIRFormatoB extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEvaluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEvaluarActionPerformed
-        if (txtCodAnt.getText().isEmpty() || txtConceptoEv.getText().isEmpty() || txtFecha.getText().isEmpty() || txtObservaciones.getText().isEmpty()) {
+        if (txtCodAnt.getText().isEmpty() ||  txtFecha.getText().isEmpty() || txtObservaciones.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Todos los campos deben ser ingresados");
         } else {
 
             int CodigoAnt = Integer.parseInt(txtCodAnt.getText());
-            int Concepto = Integer.parseInt(txtConceptoEv.getText());
+            int Concepto;
+            String con=(String) cmbConcepto.getSelectedItem();
+            if(con.equals("Aprobado")){
+                Concepto=1;
+            }else{
+             Concepto=0;
+            }
+            
+           
+
+            
+            
             String Observaciones = txtObservaciones.getText();
             String Fecha = txtFecha.getText();
             clsFormatoTiBDTO objB = new clsFormatoTiBDTO(idEv, CodigoAnt, Concepto, Observaciones, Fecha);
@@ -152,6 +171,11 @@ public class GUIRFormatoB extends javax.swing.JFrame {
 
       
     }//GEN-LAST:event_btnEvaluarActionPerformed
+
+    private void txtCodAntKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodAntKeyTyped
+             char c =evt.getKeyChar();
+      if(c<'0' || c>'9') evt.consume();
+    }//GEN-LAST:event_txtCodAntKeyTyped
 
     /**
      * @param args the command line arguments
@@ -191,6 +215,7 @@ public class GUIRFormatoB extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEvaluar;
+    private javax.swing.JComboBox<String> cmbConcepto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblCodigoAnt;
@@ -199,7 +224,6 @@ public class GUIRFormatoB extends javax.swing.JFrame {
     private javax.swing.JLabel lblFechaEvaluacion;
     private javax.swing.JLabel lblObsevaciones;
     private javax.swing.JTextField txtCodAnt;
-    private javax.swing.JTextField txtConceptoEv;
     private javax.swing.JTextField txtFecha;
     private javax.swing.JTextField txtObservaciones;
     // End of variables declaration//GEN-END:variables

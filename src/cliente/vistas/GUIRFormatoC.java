@@ -27,7 +27,7 @@ public class GUIRFormatoC extends javax.swing.JFrame {
         initComponents();
         this.objetoRemotoAnteproyecto=objAnte;
         this.txtEstructura.setEnabled(false);
-        this.txtConcepto.setEnabled(false);
+        this.cmbConcepto.setEnabled(false);
         this.txtObservaciones.setEnabled(false);
         this.btnEvaluar.setEnabled(false);
     }
@@ -51,10 +51,10 @@ public class GUIRFormatoC extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         txtObservaciones = new javax.swing.JTextArea();
         txtEstructura = new javax.swing.JTextField();
-        txtConcepto = new javax.swing.JTextField();
         txtCodigoAnt = new javax.swing.JTextField();
         btnEvaluar = new javax.swing.JButton();
         btnConsultar = new javax.swing.JButton();
+        cmbConcepto = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -92,7 +92,12 @@ public class GUIRFormatoC extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(77, 217, 181, 117));
         jPanel1.add(txtEstructura, new org.netbeans.lib.awtextra.AbsoluteConstraints(218, 116, 71, -1));
-        jPanel1.add(txtConcepto, new org.netbeans.lib.awtextra.AbsoluteConstraints(218, 154, 71, -1));
+
+        txtCodigoAnt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCodigoAntKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtCodigoAnt, new org.netbeans.lib.awtextra.AbsoluteConstraints(218, 44, 71, -1));
 
         btnEvaluar.setText("Evaluar");
@@ -110,6 +115,9 @@ public class GUIRFormatoC extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(315, 43, -1, -1));
+
+        cmbConcepto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aprobado", "Reprobado" }));
+        jPanel1.add(cmbConcepto, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, 90, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/c.jpg"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 430, 390));
@@ -135,15 +143,28 @@ public class GUIRFormatoC extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEvaluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEvaluarActionPerformed
-       if(txtCodigoAnt.getText().isEmpty() || txtConcepto.getText().isEmpty() || txtEstructura.getText().isEmpty() || txtObservaciones.getText().isEmpty()){
+       if(txtCodigoAnt.getText().isEmpty() ||  txtEstructura.getText().isEmpty() || txtObservaciones.getText().isEmpty()){
          JOptionPane.showMessageDialog(null, "Todos los campos deben ser ingresados");
        }else {
         
            try {
                int codAnt=Integer.parseInt(txtCodigoAnt.getText());
                String estructura=txtEstructura.getText();
+               
                String Observaciones=txtObservaciones.getText();
-               int concepto =Integer.parseInt(txtConcepto.getText());
+               
+               int concepto ;
+                String con=(String) cmbConcepto.getSelectedItem();
+            if(con.equals("Aprobado")){
+                concepto=1;
+            }else{
+             concepto=0;
+            }
+               
+               
+               
+               
+               
                clsFormatoTiCDTO objC = new clsFormatoTiCDTO(codAnt,estructura,concepto,Observaciones);
              
                    boolean funciono=objetoRemotoAnteproyecto.RegistrarFormatoTiC(objC);
@@ -174,7 +195,7 @@ public class GUIRFormatoC extends javax.swing.JFrame {
            this.lblConceptos.setText("Concepto 1:" +Conceptos.getConcepto1()+"Concepto 2:"+Conceptos.getConcepto2());
            if(Conceptos.getConcepto1()==1 && Conceptos.getConcepto2()==1){
                this.txtEstructura.setEnabled(true);
-               this.txtConcepto.setEnabled(true);
+               this.cmbConcepto.setEnabled(true);
                this.txtObservaciones.setEnabled(true);
                this.btnEvaluar.setEnabled(true);
            }else if(flujo==0){
@@ -196,6 +217,11 @@ public class GUIRFormatoC extends javax.swing.JFrame {
         } 
         
     }//GEN-LAST:event_btnConsultarActionPerformed
+
+    private void txtCodigoAntKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodigoAntKeyTyped
+             char c =evt.getKeyChar();
+      if(c<'0' || c>'9') evt.consume();
+    }//GEN-LAST:event_txtCodigoAntKeyTyped
 
     /**
      * @param args the command line arguments
@@ -236,6 +262,7 @@ public class GUIRFormatoC extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConsultar;
     private javax.swing.JButton btnEvaluar;
+    private javax.swing.JComboBox<String> cmbConcepto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
@@ -246,7 +273,6 @@ public class GUIRFormatoC extends javax.swing.JFrame {
     private javax.swing.JLabel lblEvaluarAnt;
     private javax.swing.JLabel lblObservaciones;
     private javax.swing.JTextField txtCodigoAnt;
-    private javax.swing.JTextField txtConcepto;
     private javax.swing.JTextField txtEstructura;
     private javax.swing.JTextArea txtObservaciones;
     // End of variables declaration//GEN-END:variables

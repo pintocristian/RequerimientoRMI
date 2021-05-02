@@ -64,6 +64,12 @@ public class GUIRResolucion extends javax.swing.JFrame {
         lblCodA.setForeground(new java.awt.Color(255, 255, 255));
         lblCodA.setText("Codigo Anteproyecto: ");
         jPanel1.add(lblCodA, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 115, 120, -1));
+
+        txtCodA.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCodAKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtCodA, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 112, 97, -1));
 
         btnRegistrar.setText("Registrar");
@@ -134,6 +140,11 @@ public class GUIRResolucion extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_btnRegresarActionPerformed
+
+    private void txtCodAKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodAKeyTyped
+           char c =evt.getKeyChar();
+      if(c<'0' || c>'9') evt.consume();
+    }//GEN-LAST:event_txtCodAKeyTyped
 
     /**
      * @param args the command line arguments
