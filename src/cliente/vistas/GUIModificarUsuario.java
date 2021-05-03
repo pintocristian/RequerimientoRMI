@@ -139,6 +139,8 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
     private void btnBuscarModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarModActionPerformed
       
          try {
+        
+             
              
                if(txtIdentificacionMod.getText().isEmpty()){
                     JOptionPane.showMessageDialog(null,"Por favor ingrese un identificador");
@@ -167,10 +169,23 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
     private void btnModificarUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarUActionPerformed
 
         try {
-            
+                 String numero1=txtUsuarioMod.getText();
+             String numero2=txtContraseniaMod.getText();
+             boolean u=alfanumerico(txtUsuarioMod.getText());
+             boolean c=alfanumerico(txtContraseniaMod.getText());
             if(txtIdentificacionMod.getText().isEmpty() || txtNombreComMod.getText().isEmpty() || txtDepartamentoMod.getText().isEmpty() || txtContraseniaMod.getText().isEmpty() ||  txtUsuarioMod.getText().isEmpty()){
                  JOptionPane.showMessageDialog(null,"Ningun campo debe quedar vacio!!");
-            }else{
+            }else if(u==false || c==false){
+                     txtUsuarioMod.setText("");
+              txtContraseniaMod.setText("");
+          JOptionPane.showMessageDialog(null,"La contraseña debe tener numeros y letras"); 
+          
+        }else if(numero1.length()<8 || numero2.length()<8){
+              txtUsuarioMod.setText("");
+              txtContraseniaMod.setText("");
+            JOptionPane.showMessageDialog(null,"el usuario y la contraseña tienen que tener minimo 8 caracteres"); 
+            
+        }else{
                      Id = Integer.parseInt(txtIdentificacionMod.getText());
             String Nombre = txtNombreComMod.getText();
             String Rol = (String) cmbRolMod.getSelectedItem();
@@ -203,6 +218,28 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
       if(c<'0' || c>'9') evt.consume();
     }//GEN-LAST:event_txtIdentificacionModKeyTyped
 
+     public boolean alfanumerico( String texto){
+    boolean bandera=false;
+        char textoIngresado;
+        
+        byte conNumero = 0, conLetra = 0;
+        
+        for(byte i = 0; i < texto.length(); i++){
+            textoIngresado = texto.charAt(i);
+            String aux = String.valueOf(textoIngresado);
+            
+            if(aux.matches("[a-z]") || aux.matches("[A-Z]")){
+                conLetra++;
+            }else if(aux.matches("[0-9]")){
+                conNumero++;
+            }
+        }
+        if(conNumero > 0 && conLetra > 0){
+            bandera=true;
+        }
+    
+    return bandera;
+    }
     /**
      * @param args the command line arguments
      */

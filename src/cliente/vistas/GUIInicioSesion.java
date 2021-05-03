@@ -111,14 +111,19 @@ public class GUIInicioSesion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuardarInicioSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarInicioSesionActionPerformed
-        String usuarioAdmin="Administrador";
-        String claveAdmin="Administrador";
+        String usuarioAdmin="Administrador1";
+        String claveAdmin="Administrador1";
         String numero1=txtUsuario.getText();
         String numero2=txtClave.getText();
+        boolean u=alfanumerico(txtUsuario.getText());
+        boolean c=alfanumerico(txtClave.getText());
+        
         if(txtUsuario.getText().isEmpty() || txtClave.getText().isEmpty()){
         
              JOptionPane.showMessageDialog(null,"el usuario y la contrasenia no pueden estar vacios"); 
             
+        }else if(u==false || c==false){
+          JOptionPane.showMessageDialog(null,"La contraseña debe tener numeros y letras"); 
         }else if(numero1.length()<8 || numero2.length()<8){
               txtUsuario.setText("");
               txtClave.setText("");
@@ -184,7 +189,28 @@ public class GUIInicioSesion extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_btnGuardarInicioSesionActionPerformed
-
+    public boolean alfanumerico( String texto){
+    boolean bandera=false;
+        char textoIngresado;
+        
+        byte conNumero = 0, conLetra = 0;
+        
+        for(byte i = 0; i < texto.length(); i++){
+            textoIngresado = texto.charAt(i);
+            String aux = String.valueOf(textoIngresado);
+            
+            if(aux.matches("[a-z]") || aux.matches("[A-Z]")){
+                conLetra++;
+            }else if(aux.matches("[0-9]")){
+                conNumero++;
+            }
+        }
+        if(conNumero > 0 && conLetra > 0){
+            bandera=true;
+        }
+    
+    return bandera;
+    }
     /**
      * @param args the command line arguments
      */

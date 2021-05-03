@@ -131,10 +131,24 @@ public class GUIRegistrarUsuario extends javax.swing.JFrame {
     private void btnRegistrarUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarUActionPerformed
 
         try {
+             String numero1=txtUsuarioU.getText();
+             String numero2=txtContraseniaU.getText();
+             boolean u=alfanumerico(txtUsuarioU.getText());
+             boolean c=alfanumerico(txtContraseniaU.getText());
 
             if(txtIdentificacionU.getText().isEmpty() || txtNombreComU.getText().isEmpty() || txtDepartamentoU.getText().isEmpty() || txtUsuarioU.getText().isEmpty() ||  txtContraseniaU.getText().isEmpty()){
                 JOptionPane.showMessageDialog(null,"Ningun campo debe quedar vacio!!");
-            }else{
+            }else if(u==false || c==false){
+                     txtUsuarioU.setText("");
+              txtContraseniaU.setText("");
+          JOptionPane.showMessageDialog(null,"La contraseña debe tener numeros y letras"); 
+          
+        }else if(numero1.length()<8 || numero2.length()<8){
+              txtUsuarioU.setText("");
+              txtContraseniaU.setText("");
+            JOptionPane.showMessageDialog(null,"el usuario y la contraseña tienen que tener minimo 8 caracteres"); 
+            
+        }else{
                 int id=Integer.parseInt(txtIdentificacionU.getText());
                 String NombreCompleto=txtNombreComU.getText();
                 String Rol=(String) cmbRolU.getSelectedItem();
@@ -165,7 +179,28 @@ public class GUIRegistrarUsuario extends javax.swing.JFrame {
          char c =evt.getKeyChar();
       if(c<'0' || c>'9') evt.consume();
     }//GEN-LAST:event_txtIdentificacionUKeyTyped
-
+ public boolean alfanumerico( String texto){
+    boolean bandera=false;
+        char textoIngresado;
+        
+        byte conNumero = 0, conLetra = 0;
+        
+        for(byte i = 0; i < texto.length(); i++){
+            textoIngresado = texto.charAt(i);
+            String aux = String.valueOf(textoIngresado);
+            
+            if(aux.matches("[a-z]") || aux.matches("[A-Z]")){
+                conLetra++;
+            }else if(aux.matches("[0-9]")){
+                conNumero++;
+            }
+        }
+        if(conNumero > 0 && conLetra > 0){
+            bandera=true;
+        }
+    
+    return bandera;
+    }
     /**
      * @param args the command line arguments
      */
