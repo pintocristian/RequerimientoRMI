@@ -131,37 +131,43 @@ public class GUIRegistrarUsuario extends javax.swing.JFrame {
     private void btnRegistrarUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarUActionPerformed
 
         try {
-             String numero1=txtUsuarioU.getText();
-             String numero2=txtContraseniaU.getText();
-             boolean u=alfanumerico(txtUsuarioU.getText());
-             boolean c=alfanumerico(txtContraseniaU.getText());
+            String numero1 = txtUsuarioU.getText();
+            String numero2 = txtContraseniaU.getText();
+            int ide = Integer.parseInt(txtIdentificacionU.getText());
+            boolean u = alfanumerico(txtUsuarioU.getText());
+            boolean c = alfanumerico(txtContraseniaU.getText());
+            int validarId = objetoRemotoUsuario.validarId(ide);
+            boolean validarUs =objetoRemotoUsuario.validarUS(numero1);
+            if (txtIdentificacionU.getText().isEmpty() || txtNombreComU.getText().isEmpty() || txtDepartamentoU.getText().isEmpty() || txtUsuarioU.getText().isEmpty() || txtContraseniaU.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Ningun campo debe quedar vacio!!");
+            } else if (u == false || c == false) {
+                txtUsuarioU.setText("");
+                txtContraseniaU.setText("");
+                JOptionPane.showMessageDialog(null, "La contraseña debe tener numeros y letras");
 
-            if(txtIdentificacionU.getText().isEmpty() || txtNombreComU.getText().isEmpty() || txtDepartamentoU.getText().isEmpty() || txtUsuarioU.getText().isEmpty() ||  txtContraseniaU.getText().isEmpty()){
-                JOptionPane.showMessageDialog(null,"Ningun campo debe quedar vacio!!");
-            }else if(u==false || c==false){
-                     txtUsuarioU.setText("");
-              txtContraseniaU.setText("");
-          JOptionPane.showMessageDialog(null,"La contraseña debe tener numeros y letras"); 
-          
-        }else if(numero1.length()<8 || numero2.length()<8){
-              txtUsuarioU.setText("");
-              txtContraseniaU.setText("");
-            JOptionPane.showMessageDialog(null,"el usuario y la contraseña tienen que tener minimo 8 caracteres"); 
-            
-        }else{
-                int id=Integer.parseInt(txtIdentificacionU.getText());
-                String NombreCompleto=txtNombreComU.getText();
-                String Rol=(String) cmbRolU.getSelectedItem();
-                String Departamento=txtDepartamentoU.getText();
-                String Usuario=txtUsuarioU.getText();
-                String Contrasenia=(String) txtContraseniaU.getText();
-                clsUsuarioDTO objUsuario=new clsUsuarioDTO(id,NombreCompleto,Rol,Departamento,Usuario,Contrasenia);
-                boolean funciono =objetoRemotoUsuario.RegistrarUsuarios(objUsuario);
-                if(funciono==true){
-                    JOptionPane.showMessageDialog(null,"Usuario registrado exitosamente");
+            } else if (numero1.length() < 8 || numero2.length() < 8) {
+                txtUsuarioU.setText("");
+                txtContraseniaU.setText("");
+                JOptionPane.showMessageDialog(null, "el usuario y la contraseña tienen que tener minimo 8 caracteres");
+
+            } else if(validarId==1){
+              JOptionPane.showMessageDialog(null, "El id digitado ya existe, porfavor ingresa otro");
+            }else if(validarUs==true){
+              JOptionPane.showMessageDialog(null, "El usuario digitado ya existe porfavor ingresa otro");
+            }else {
+                int id = Integer.parseInt(txtIdentificacionU.getText());
+                String NombreCompleto = txtNombreComU.getText();
+                String Rol = (String) cmbRolU.getSelectedItem();
+                String Departamento = txtDepartamentoU.getText();
+                String Usuario = txtUsuarioU.getText();
+                String Contrasenia = (String) txtContraseniaU.getText();
+                clsUsuarioDTO objUsuario = new clsUsuarioDTO(id, NombreCompleto, Rol, Departamento, Usuario, Contrasenia);
+                boolean funciono = objetoRemotoUsuario.RegistrarUsuarios(objUsuario);
+                if (funciono == true) {
+                    JOptionPane.showMessageDialog(null, "Usuario registrado exitosamente");
                     this.dispose();
-                }else{
-                    JOptionPane.showMessageDialog(null,"El usuario no se pudo Registrar con exito");
+                } else {
+                    JOptionPane.showMessageDialog(null, "El usuario no se pudo Registrar con exito");
                     this.dispose();
                 }
                 this.dispose();

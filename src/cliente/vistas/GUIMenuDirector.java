@@ -26,6 +26,7 @@ public class GUIMenuDirector extends javax.swing.JFrame {
         this.objetoRemotoUsuario=objUsuario;
         this.objetoRemotoAnteproyecto=objAnteproyecto;
          this.objetoRemotoSeguimiento= objRemotoSeg;
+         txtNotificacion.setEnabled(false);
     }
   public GUIMenuDirector(){}
     /**
@@ -42,6 +43,8 @@ public class GUIMenuDirector extends javax.swing.JFrame {
         btnRFormatoA = new javax.swing.JButton();
         btnSalirA = new javax.swing.JButton();
         lblMenuDirector = new javax.swing.JLabel();
+        lblNotificacion = new javax.swing.JLabel();
+        txtNotificacion = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -67,7 +70,7 @@ public class GUIMenuDirector extends javax.swing.JFrame {
             }
         });
         jPanel2.add(btnRFormatoA);
-        btnRFormatoA.setBounds(120, 90, 90, 23);
+        btnRFormatoA.setBounds(150, 90, 90, 23);
 
         btnSalirA.setText("Salir");
         btnSalirA.addActionListener(new java.awt.event.ActionListener() {
@@ -76,16 +79,23 @@ public class GUIMenuDirector extends javax.swing.JFrame {
             }
         });
         jPanel2.add(btnSalirA);
-        btnSalirA.setBounds(120, 160, 90, 23);
+        btnSalirA.setBounds(150, 160, 90, 23);
 
         lblMenuDirector.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         lblMenuDirector.setText("Menu Director");
         jPanel2.add(lblMenuDirector);
-        lblMenuDirector.setBounds(110, 20, 150, 21);
+        lblMenuDirector.setBounds(140, 10, 150, 21);
+
+        lblNotificacion.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        lblNotificacion.setText("Notificacion");
+        jPanel2.add(lblNotificacion);
+        lblNotificacion.setBounds(0, 280, 110, 18);
+        jPanel2.add(txtNotificacion);
+        txtNotificacion.setBounds(90, 280, 350, 30);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/director.jpg"))); // NOI18N
         jPanel2.add(jLabel1);
-        jLabel1.setBounds(0, 0, 360, 280);
+        jLabel1.setBounds(0, 0, 470, 340);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -93,14 +103,14 @@ public class GUIMenuDirector extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 359, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 448, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 340, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -118,6 +128,9 @@ public class GUIMenuDirector extends javax.swing.JFrame {
         GUIA.setVisible(true);
     }//GEN-LAST:event_btnRFormatoAActionPerformed
 
+    public void Notificacion(String Mensaje){
+        txtNotificacion.setText(Mensaje);
+    }
     /**
      * @param args the command line arguments
      */
@@ -161,5 +174,7 @@ public class GUIMenuDirector extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblMenuDirector;
+    private javax.swing.JLabel lblNotificacion;
+    public javax.swing.JTextField txtNotificacion;
     // End of variables declaration//GEN-END:variables
 }

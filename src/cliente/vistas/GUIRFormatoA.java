@@ -178,8 +178,15 @@ public class GUIRFormatoA extends javax.swing.JFrame {
     private void btnRegistrarAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarAActionPerformed
 
         try {
+            
+            
+            
             if(lblCodigoASalida.getText().isEmpty() || txtNombrePA.getText().isEmpty() ||  txtTituloA.getText().isEmpty() && txtNombreEst01.getText().isEmpty() || txtCodigoEst01.getText().isEmpty() || txtNombreDir.getText().isEmpty() || txtNombreCoodir.getText().isEmpty() || txtObjetivos.getText().isEmpty() || txtNombreEst02.getText().isEmpty() || txtCodigoEst02.getText().isEmpty()){
                JOptionPane.showMessageDialog(null, "Todos los campos deben ser ingresados");
+            
+            }else if(txtCodigoEst01.getText().equals(txtCodigoEst02.getText())){
+                 JOptionPane.showMessageDialog(null, "Verifique que el codigo de los estudiantes es diferente");
+            
             }else{
             int codigo = Integer.parseInt(lblCodigoASalida.getText());
             String NombreP = txtNombrePA.getText();

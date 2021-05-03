@@ -146,11 +146,11 @@ public class GUIInicioSesion extends javax.swing.JFrame {
                     String Rol=objUsuario.getRole();
                     switch(Rol){
                         case "Director":
-                             NotificacionImpl objAdmin = new NotificacionImpl();
-                             objetoRemotoAnteproyectos.registrarCallback(objAdmin);
+                        
                             
                              GUIMenuDirector GUIMDir =new  GUIMenuDirector(objetoRemotoUsuario,objetoRemotoAnteproyectos,objetoRemotoSeguimiento);
-                           
+                             NotificacionImpl objAdmin = new NotificacionImpl(GUIMDir);
+                             objetoRemotoAnteproyectos.registrarCallback(objAdmin);
                             GUIMDir.setVisible(true);
                             break;
                         case "Evaluador":
