@@ -26,6 +26,7 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
     public GUIModificarUsuario(GestionUsuariosINT objetoRemoto) {
         initComponents();
          this.objetoRemotoUsuario=objetoRemoto;
+       
     }
     public GUIModificarUsuario(){}
     /**
@@ -139,7 +140,8 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
     private void btnBuscarModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarModActionPerformed
       
          try {
-        
+               this.txtIdentificacionMod.setEnabled(false);
+               this.txtUsuarioMod.setEnabled(false);
              
              
                if(txtIdentificacionMod.getText().isEmpty()){
@@ -181,9 +183,9 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
           JOptionPane.showMessageDialog(null,"La contraseña debe tener numeros y letras"); 
           
         }else if(numero1.length()<8 || numero2.length()<8){
-              txtUsuarioMod.setText("");
+              
               txtContraseniaMod.setText("");
-            JOptionPane.showMessageDialog(null,"el usuario y la contraseña tienen que tener minimo 8 caracteres"); 
+            JOptionPane.showMessageDialog(null,"la contraseña tienen que tener minimo 8 caracteres"); 
             
         }else{
                      Id = Integer.parseInt(txtIdentificacionMod.getText());
