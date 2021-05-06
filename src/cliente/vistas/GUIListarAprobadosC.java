@@ -65,12 +65,11 @@ public class GUIListarAprobadosC extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 153));
-        jPanel1.setLayout(null);
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblTitulo.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         lblTitulo.setText("Listado de anteproyectos ");
-        jPanel1.add(lblTitulo);
-        lblTitulo.setBounds(95, 11, 207, 21);
+        jPanel1.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 11, 207, -1));
 
         tblAnt.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -85,8 +84,7 @@ public class GUIListarAprobadosC extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblAnt);
 
-        jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(10, 63, 375, 91);
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 63, 375, 91));
 
         btnAtras.setText("Atras");
         btnAtras.addActionListener(new java.awt.event.ActionListener() {
@@ -94,12 +92,10 @@ public class GUIListarAprobadosC extends javax.swing.JFrame {
                 btnAtrasActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAtras);
-        btnAtras.setBounds(144, 172, 59, 23);
+        jPanel1.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(144, 172, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondoListas.jpg"))); // NOI18N
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(0, 0, 400, 230);
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 230));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

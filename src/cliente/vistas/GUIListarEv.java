@@ -71,16 +71,14 @@ public class GUIListarEv extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 153));
-        jPanel1.setLayout(null);
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblAsignados.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         lblAsignados.setText("Listado de Evaluadores");
-        jPanel1.add(lblAsignados);
-        lblAsignados.setBounds(151, 22, 242, 16);
+        jPanel1.add(lblAsignados, new org.netbeans.lib.awtextra.AbsoluteConstraints(151, 22, 242, 16));
 
         lblSalida.setText("-");
-        jPanel1.add(lblSalida);
-        lblSalida.setBounds(22, 44, 4, 14);
+        jPanel1.add(lblSalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 44, -1, -1));
 
         tblEv.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -95,8 +93,7 @@ public class GUIListarEv extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblEv);
 
-        jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(131, 86, 262, 93);
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 86, 262, 93));
 
         btnAtras.setText("Atras");
         btnAtras.addActionListener(new java.awt.event.ActionListener() {
@@ -104,12 +101,10 @@ public class GUIListarEv extends javax.swing.JFrame {
                 btnAtrasActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAtras);
-        btnAtras.setBounds(210, 210, 59, 23);
+        jPanel1.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondoListas.jpg"))); // NOI18N
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(0, 0, 530, 300);
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 300));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
