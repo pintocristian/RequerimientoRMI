@@ -189,7 +189,7 @@ public class GestionAnteproyectoImpl extends UnicastRemoteObject implements Gest
         incremento =incremento+1;
         Date date = new Date();
         LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-        String año  =Integer.toString(localDate.getYear());
+        String anio  =Integer.toString(localDate.getYear());
         int mes = localDate.getMonthValue();
         String Fecha="";
         if(mes <= 6){
@@ -197,7 +197,7 @@ public class GestionAnteproyectoImpl extends UnicastRemoteObject implements Gest
         }else{
             periodo="2";
         }
-        Fecha=año+periodo;
+        Fecha=anio+periodo;
         int Numero=Integer.parseInt(Fecha);
         Numero=Numero*1000;
         Numero=Numero+incremento;

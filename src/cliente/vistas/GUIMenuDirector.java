@@ -60,7 +60,7 @@ public class GUIMenuDirector extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel2.setBackground(new java.awt.Color(0, 51, 204));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(null);
 
         btnRFormatoA.setText("Registrar");
@@ -70,7 +70,7 @@ public class GUIMenuDirector extends javax.swing.JFrame {
             }
         });
         jPanel2.add(btnRFormatoA);
-        btnRFormatoA.setBounds(150, 90, 90, 23);
+        btnRFormatoA.setBounds(230, 80, 90, 23);
 
         btnSalirA.setText("Salir");
         btnSalirA.addActionListener(new java.awt.event.ActionListener() {
@@ -79,23 +79,23 @@ public class GUIMenuDirector extends javax.swing.JFrame {
             }
         });
         jPanel2.add(btnSalirA);
-        btnSalirA.setBounds(150, 160, 90, 23);
+        btnSalirA.setBounds(230, 180, 90, 23);
 
         lblMenuDirector.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         lblMenuDirector.setText("Menu Director");
         jPanel2.add(lblMenuDirector);
-        lblMenuDirector.setBounds(140, 10, 150, 21);
+        lblMenuDirector.setBounds(220, 10, 150, 21);
 
         lblNotificacion.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         lblNotificacion.setText("Notificacion");
         jPanel2.add(lblNotificacion);
-        lblNotificacion.setBounds(0, 280, 110, 18);
+        lblNotificacion.setBounds(0, 320, 110, 18);
         jPanel2.add(txtNotificacion);
-        txtNotificacion.setBounds(90, 280, 350, 30);
+        txtNotificacion.setBounds(100, 320, 450, 30);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/director.jpg"))); // NOI18N
         jPanel2.add(jLabel1);
-        jLabel1.setBounds(0, 0, 470, 340);
+        jLabel1.setBounds(50, 10, 470, 350);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -103,14 +103,14 @@ public class GUIMenuDirector extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 448, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 550, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 340, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 414, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
