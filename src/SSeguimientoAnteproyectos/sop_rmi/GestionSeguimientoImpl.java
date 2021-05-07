@@ -53,15 +53,40 @@ public class GestionSeguimientoImpl extends UnicastRemoteObject implements Gesti
 
     @Override
     public boolean RegistrarResolucion(int idAnteproyecto) throws RemoteException {
-         System.out.println("Entrando a registrar resolucion");
-        numR = generarCodigoR();
-        clsResolucionDTO objResolucion = new clsResolucionDTO(numR,fecha,idAnteproyecto);
-        boolean r = objG.escribirEnResolucion(ficheroResolucion, objResolucion);
-        if (r) {
-            System.out.println("Registro Resolucion exitoso");
-        }else{
-            System.out.println("Error al registrar resolucion");
+        System.out.println("Entrando a registrar resolucion");
+
+        boolean r = false;
+        boolean b1 = false;
+
+        try {
+            ArrayList<clsFormatosDTO2> auxList = ConsultarHistorial();
+            for (int i = 0; i < auxList.size(); i++) {
+                if (auxList.get(i).getCodigoAnteproyectos() == idAnteproyecto) {
+                    b1 = true;
+                }
+            }
+            ArrayList<clsResolucionDTO> auxList2 = ConsultarResoluciones();
+            for (int i = 0; i < auxList2.size(); i++) {
+                if (auxList2.get(i).getCodigo() == idAnteproyecto) {
+                    b1 = false;
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error al consultar listados");
         }
+        
+        if (b1) {
+            numR = generarCodigoR();
+            clsResolucionDTO objResolucion = new clsResolucionDTO(numR, fecha, idAnteproyecto);
+            
+            r = objG.escribirEnResolucion(ficheroResolucion, objResolucion);
+            if (r) {
+                System.out.println("Registro Resolucion exitoso");
+            } else {
+                System.out.println("Error al registrar resolucion");
+            }
+        }
+
         return r;
     }
     public String generarCodigoR(){
