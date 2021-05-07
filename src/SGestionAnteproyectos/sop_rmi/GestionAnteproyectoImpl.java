@@ -304,7 +304,8 @@ public class GestionAnteproyectoImpl extends UnicastRemoteObject implements Gest
 
     @Override
     public boolean verificarPropiedad(int codigoAnt, int codEv) throws RemoteException {
-     boolean bandera =false;
+       System.out.println("Entrando a verificar propiedad");
+        boolean bandera =false;
         for(int i=0;i<this.FormatoB.size();i++){
           if(this.FormatoB.get(i).getCodigo()==codigoAnt && this.FormatoB.get(i).getId_evaluador()==codEv){
               bandera= true;
@@ -314,6 +315,7 @@ public class GestionAnteproyectoImpl extends UnicastRemoteObject implements Gest
     }
 
    public void EnviarFormatos(int ide){
+       System.out.println("Entrando a enviar formatos");
        int id=ide;
        int ev1=0;
        clsFormatoTiADTO objA=new  clsFormatoTiADTO();
@@ -488,6 +490,7 @@ public class GestionAnteproyectoImpl extends UnicastRemoteObject implements Gest
 
     @Override
     public ArrayList<clsFormatoTiADTO> ListarAntNoAsig() throws RemoteException {
+          System.out.println("Entrando a listar no asignados");
         ArrayList<clsFormatoTiADTO> listaNoAsig= new ArrayList();
         boolean vacia=false;
         for(int i=0;i<this.FormatoA.size();i++){
@@ -517,17 +520,15 @@ public class GestionAnteproyectoImpl extends UnicastRemoteObject implements Gest
   
     @Override
     public void registrarCallback(NotificacionINT objAdmin) throws RemoteException {
-    
-        System.out.println("En regCallbck()");
+      System.out.println("Entrando a registrar callback");
        if(!(listaDir.contains(objAdmin))){
           listaDir.addElement(objAdmin);
-          System.out.println("Nuevo  Objeto adicionado");
         }
     
     }
     
     public void hacerCallback(int codigo) throws RemoteException{
-       
+         System.out.println("Entrando a hacer callback");
         for(int i=0;i<listaDir.size();i++){
           NotificacionINT obj=(NotificacionINT)listaDir.elementAt(i);
           obj.Notificar(codigo);

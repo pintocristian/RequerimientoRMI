@@ -41,6 +41,7 @@ public class GestionSeguimientoImpl extends UnicastRemoteObject implements Gesti
     
     @Override
     public boolean RegistrarHistorial(clsFormatosDTO2 objFormatos) throws RemoteException {
+          System.out.println("Entrando a registrar historial");
         boolean r = objG.escribirEnHistorial(ficheroHistorial, objFormatos);
         if (r) {
             System.out.println("Registro Historial exitoso");
@@ -52,6 +53,7 @@ public class GestionSeguimientoImpl extends UnicastRemoteObject implements Gesti
 
     @Override
     public boolean RegistrarResolucion(int idAnteproyecto) throws RemoteException {
+         System.out.println("Entrando a registrar resolucion");
         numR = generarCodigoR();
         clsResolucionDTO objResolucion = new clsResolucionDTO(numR,fecha,idAnteproyecto);
         boolean r = objG.escribirEnResolucion(ficheroResolucion, objResolucion);
@@ -63,6 +65,7 @@ public class GestionSeguimientoImpl extends UnicastRemoteObject implements Gesti
         return r;
     }
     public String generarCodigoR(){
+        System.out.println("Entrando a generar codigo de resolucion");
         String codigo = "8.4.2-90.14/";
         ArrayList<clsResolucionDTO> aux;
         int numero = 0;
@@ -81,12 +84,14 @@ public class GestionSeguimientoImpl extends UnicastRemoteObject implements Gesti
     }
     @Override
     public ArrayList<clsResolucionDTO> ConsultarResoluciones() throws RemoteException {
+          System.out.println("Entrando a consultar resoluciones");
         listaResoluciones = objG.leerResolucion(ficheroResolucion);
         return listaResoluciones;
     }
 
     @Override
     public ArrayList<clsFormatosDTO2> ConsultarHistorial() throws RemoteException {
+         System.out.println("Entrando a consultar historial");
         listaHistorial = objG.leerHistorial(ficheroHistorial);
         return listaHistorial;
     }

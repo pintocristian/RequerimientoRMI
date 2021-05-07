@@ -129,6 +129,7 @@ public class GestionUsuariosImpl extends UnicastRemoteObject implements GestionU
 
     @Override
     public int validarId(int id) throws RemoteException {
+          System.out.println("Entrando a validar ID");
         int resultado=-1;
         for(int i=0;i<this.Usuarios.size();i++){
             if(id==this.Usuarios.get(i).getId()){
@@ -142,6 +143,7 @@ public class GestionUsuariosImpl extends UnicastRemoteObject implements GestionU
 
     @Override
     public boolean validarUS(String usuario) throws RemoteException {
+          System.out.println("Entrando a validar usuario");
       boolean bandera=false;
         for(int i=0;i<this.Usuarios.size();i++){
             if(this.Usuarios.get(i).getUsuario().equals(usuario)){

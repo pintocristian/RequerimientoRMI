@@ -88,15 +88,15 @@ public class GestionFicheros {
 
             while (aux != null) {
                 if (aux instanceof clsResolucionDTO) {
-                    System.out.println("es de tipo resoluciones");
+                  
                 }
                 listaResoluciones.add((clsResolucionDTO) aux);
-                System.out.println("paso el lista.add");
+               
                 aux = ois.readObject();
-                System.out.println("leyo objeto");
+              
             }
             ois.close();
-            System.out.println("cerro");
+        
 
         } catch (EOFException e1) {
             System.out.println("Fin de fichero");
@@ -115,7 +115,7 @@ public class GestionFicheros {
 
             while (aux != null) {
                 if (aux instanceof clsFormatosDTO2) {
-                    System.out.println("es de tipo formatos");
+                  
                 }
                 listaFormatos.add((clsFormatosDTO2) aux);
                 aux = ois.readObject();
