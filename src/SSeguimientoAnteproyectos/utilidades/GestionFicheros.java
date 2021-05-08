@@ -61,7 +61,7 @@ public class GestionFicheros {
                 oos.close();
                 return true;
             } catch (IOException e) {
-                System.out.println("error al escribir en resolucion1");
+                System.out.println("error al escribir en resolucion");
             }
 
         } else {
@@ -72,7 +72,7 @@ public class GestionFicheros {
                 oos.close();
                 return true;
             } catch (IOException e) {
-                System.out.println("error al escribir en resolucion2");
+                System.out.println("error al escribir en resolucion");
             }
 
         }
@@ -101,7 +101,7 @@ public class GestionFicheros {
         } catch (EOFException e1) {
             System.out.println("Fin de fichero");
         } catch (IOException | ClassNotFoundException e2) {
-            System.out.println("persona leida");
+            System.out.println("resolucion leida");
         }
         return listaResoluciones;
     }
@@ -124,7 +124,7 @@ public class GestionFicheros {
         } catch (EOFException e1) {
             System.out.println("Fin de fichero");
         } catch (IOException | ClassNotFoundException e2) {
-            System.out.println("persona leidaxd");
+            System.out.println("historial leido");
         }
         return listaFormatos;
     }
