@@ -21,14 +21,18 @@ public class GUIMenuDirector extends javax.swing.JFrame {
     private static GestionAnteproyectoINT objetoRemotoAnteproyecto;
     private static GestionUsuariosINT objetoRemotoUsuario;
     private static GestionSeguimientoINT objetoRemotoSeguimiento;
-    public GUIMenuDirector(GestionUsuariosINT objUsuario,GestionAnteproyectoINT objAnteproyecto,GestionSeguimientoINT objRemotoSeg) {
+
+    public GUIMenuDirector(GestionUsuariosINT objUsuario, GestionAnteproyectoINT objAnteproyecto, GestionSeguimientoINT objRemotoSeg) {
         initComponents();
-        this.objetoRemotoUsuario=objUsuario;
-        this.objetoRemotoAnteproyecto=objAnteproyecto;
-         this.objetoRemotoSeguimiento= objRemotoSeg;
-         txtNotificacion.setEnabled(false);
+        this.objetoRemotoUsuario = objUsuario;
+        this.objetoRemotoAnteproyecto = objAnteproyecto;
+        this.objetoRemotoSeguimiento = objRemotoSeg;
+        txtNotificacion.setEnabled(false);
     }
-  public GUIMenuDirector(){}
+
+    public GUIMenuDirector() {
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -118,19 +122,20 @@ public class GUIMenuDirector extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalirAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirAActionPerformed
-        GUIInicioSesion GUISesion =new GUIInicioSesion(objetoRemotoUsuario,objetoRemotoAnteproyecto,objetoRemotoSeguimiento);
+        GUIInicioSesion GUISesion = new GUIInicioSesion(objetoRemotoUsuario, objetoRemotoAnteproyecto, objetoRemotoSeguimiento);
         GUISesion.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnSalirAActionPerformed
 
     private void btnRFormatoAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRFormatoAActionPerformed
-        GUIRFormatoA GUIA = new GUIRFormatoA (objetoRemotoAnteproyecto);
+        GUIRFormatoA GUIA = new GUIRFormatoA(objetoRemotoAnteproyecto);
         GUIA.setVisible(true);
     }//GEN-LAST:event_btnRFormatoAActionPerformed
 
-    public void Notificacion(String Mensaje){
+    public void Notificacion(String Mensaje) {
         txtNotificacion.setText(Mensaje);
     }
+
     /**
      * @param args the command line arguments
      */

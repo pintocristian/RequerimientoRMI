@@ -27,7 +27,7 @@ public class GestionSeguimientoImpl extends UnicastRemoteObject implements Gesti
     private boolean auxRegistrarResolucion = false;
     private boolean auxRegistrarFormatos = false;
     private GestionFicheros objG;
-    private String numR ;
+    private String numR;
     private String fecha = String.valueOf(Calendar.getInstance().get(Calendar.YEAR));
     private String ficheroHistorial = "HistorialTGI.txt";
     private String ficheroResolucion = "ListadoTGIAprobados.txt";
@@ -38,14 +38,14 @@ public class GestionSeguimientoImpl extends UnicastRemoteObject implements Gesti
         listaHistorial = new ArrayList();
         objG = new GestionFicheros();
     }
-    
+
     @Override
     public boolean RegistrarHistorial(clsFormatosDTO2 objFormatos) throws RemoteException {
-          System.out.println("Entrando a registrar historial");
+        System.out.println("Entrando a registrar historial");
         boolean r = objG.escribirEnHistorial(ficheroHistorial, objFormatos);
         if (r) {
             System.out.println("Registro Historial exitoso");
-        }else{
+        } else {
             System.out.println("Error al registrar historial");
         }
         return true;
@@ -74,11 +74,11 @@ public class GestionSeguimientoImpl extends UnicastRemoteObject implements Gesti
         } catch (Exception e) {
             System.out.println("Error al consultar listados");
         }
-        
+
         if (b1) {
             numR = generarCodigoR();
             clsResolucionDTO objResolucion = new clsResolucionDTO(numR, fecha, idAnteproyecto);
-            
+
             r = objG.escribirEnResolucion(ficheroResolucion, objResolucion);
             if (r) {
                 System.out.println("Registro Resolucion exitoso");
@@ -89,34 +89,36 @@ public class GestionSeguimientoImpl extends UnicastRemoteObject implements Gesti
 
         return r;
     }
-    public String generarCodigoR(){
+
+    public String generarCodigoR() {
         System.out.println("Entrando a generar codigo de resolucion");
         String codigo = "8.4.2-90.14/";
         ArrayList<clsResolucionDTO> aux;
         int numero = 0;
         try {
             aux = ConsultarResoluciones();
-            numero = aux.size()+1;
+            numero = aux.size() + 1;
         } catch (RemoteException ex) {
             System.out.println("ocurrio un error al genera codigo");
         }
-        
+
         Formatter frmt = new Formatter();
-        frmt.format("%03d",numero);
+        frmt.format("%03d", numero);
         codigo = codigo + frmt;
         return codigo;
-        
+
     }
+
     @Override
     public ArrayList<clsResolucionDTO> ConsultarResoluciones() throws RemoteException {
-          System.out.println("Entrando a consultar resoluciones");
+        System.out.println("Entrando a consultar resoluciones");
         listaResoluciones = objG.leerResolucion(ficheroResolucion);
         return listaResoluciones;
     }
 
     @Override
     public ArrayList<clsFormatosDTO2> ConsultarHistorial() throws RemoteException {
-         System.out.println("Entrando a consultar historial");
+        System.out.println("Entrando a consultar historial");
         listaHistorial = objG.leerHistorial(ficheroHistorial);
         return listaHistorial;
     }

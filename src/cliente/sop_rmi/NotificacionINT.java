@@ -13,5 +13,6 @@ import java.rmi.RemoteException;
  * @author Usuario
  */
 public interface NotificacionINT extends Remote {
-    public void Notificar(int codigo)throws RemoteException;
+
+    public void Notificar(int codigo) throws RemoteException;
 }

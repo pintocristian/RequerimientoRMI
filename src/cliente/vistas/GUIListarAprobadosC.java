@@ -24,28 +24,32 @@ public class GUIListarAprobadosC extends javax.swing.JFrame {
      */
     private static GestionAnteproyectoINT objetoRemotoAnteproyecto;
     private ArrayList<clsFormatoTiCDTO> listAnt;
+
     public GUIListarAprobadosC(GestionAnteproyectoINT objAnte) {
         initComponents();
         this.objetoRemotoAnteproyecto = objAnte;
-         try {
-            this.listAnt= this.objetoRemotoAnteproyecto.ListarAntCAprobados();
+        try {
+            this.listAnt = this.objetoRemotoAnteproyecto.ListarAntCAprobados();
         } catch (RemoteException ex) {
             Logger.getLogger(GUIListarAnt.class.getName()).log(Level.SEVERE, null, ex);
         }
-      
+
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("Codigo Anteproyecto");
-        
+
         tblAnt.setEnabled(false);
-        
+
         for (int i = 0; i < this.listAnt.size(); i++) {
-            Object [] obj = new Object[]{this.listAnt.get(i).getCodigo()};
+            Object[] obj = new Object[]{this.listAnt.get(i).getCodigo()};
             modelo.addRow(obj);
         }
         tblAnt.setModel(modelo);
-        
+
     }
-    public GUIListarAprobadosC(){}
+
+    public GUIListarAprobadosC() {
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -118,7 +122,7 @@ public class GUIListarAprobadosC extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
-       this.dispose();
+        this.dispose();
     }//GEN-LAST:event_btnAtrasActionPerformed
 
     /**

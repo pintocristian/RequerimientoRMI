@@ -12,12 +12,16 @@ import java.io.Serializable;
  *
  * @author Usuario
  */
-public class clsFormatoTiDDTO2 implements Serializable{
+public class clsFormatoTiDDTO2 implements Serializable {
+
     private int codigo;
     private String estructura;
     private int conceptoCoor;
     private String observaciones;
-    public clsFormatoTiDDTO2(){}
+
+    public clsFormatoTiDDTO2() {
+    }
+
     public clsFormatoTiDDTO2(int codigo, String estructura, int conceptoCoor, String observaciones) {
         this.codigo = codigo;
         this.estructura = estructura;
@@ -56,6 +60,5 @@ public class clsFormatoTiDDTO2 implements Serializable{
     public void setObservaciones(String observaciones) {
         this.observaciones = observaciones;
     }
-    
-    
+
 }

@@ -26,8 +26,9 @@ public class GUIRResolucion extends javax.swing.JFrame {
     private static GestionAnteproyectoINT objetoRemotoAnteproyecto;
     private static GestionSeguimientoINT objetoRemotoSeguimiento;
 
-    public GUIRResolucion(){}
-    
+    public GUIRResolucion() {
+    }
+
     public GUIRResolucion(GestionAnteproyectoINT objAnteproyecto, GestionSeguimientoINT objSeguimiento) {
         initComponents();
         this.objetoRemotoAnteproyecto = objAnteproyecto;
@@ -113,27 +114,27 @@ public class GUIRResolucion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        if(txtCodA.getText().isEmpty()){
+        if (txtCodA.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Ingresa el codigo");
-        }else{
-        
-                int codigo = Integer.parseInt(txtCodA.getText());
-        boolean r=false;
-        try {
-            r = objetoRemotoSeguimiento.RegistrarResolucion(codigo);
-        } catch (IOException ex) {
-            Logger.getLogger(GUIRResolucion.class.getName()).log(Level.SEVERE, null, ex);
+        } else {
+
+            int codigo = Integer.parseInt(txtCodA.getText());
+            boolean r = false;
+            try {
+                r = objetoRemotoSeguimiento.RegistrarResolucion(codigo);
+            } catch (IOException ex) {
+                Logger.getLogger(GUIRResolucion.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            if (r) {
+                JOptionPane.showMessageDialog(null, "Resolucion registrada Exitosamente!");
+                this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "No se ha podido realizar el registro de la resolucion");
+                this.dispose();
+            }
+
         }
-        if (r) {
-            JOptionPane.showMessageDialog(null, "Resolucion registrada Exitosamente!");
-            this.dispose();
-        }else{
-            JOptionPane.showMessageDialog(null, "No se ha podido realizar el registro de la resolucion");
-            this.dispose();
-        }
-            
-        }
-        
+
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
@@ -142,8 +143,10 @@ public class GUIRResolucion extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRegresarActionPerformed
 
     private void txtCodAKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodAKeyTyped
-           char c =evt.getKeyChar();
-      if(c<'0' || c>'9') evt.consume();
+        char c = evt.getKeyChar();
+        if (c < '0' || c > '9') {
+            evt.consume();
+        }
     }//GEN-LAST:event_txtCodAKeyTyped
 
     /**

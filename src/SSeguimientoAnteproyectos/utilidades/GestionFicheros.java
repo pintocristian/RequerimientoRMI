@@ -80,7 +80,7 @@ public class GestionFicheros {
     }
 
     public ArrayList<clsResolucionDTO> leerResolucion(String fichero) {
-        ArrayList<clsResolucionDTO> listaResoluciones=new ArrayList();
+        ArrayList<clsResolucionDTO> listaResoluciones = new ArrayList();
         try {
             ObjectInputStream ois = new ObjectInputStream(
                     new FileInputStream(fichero));
@@ -88,15 +88,14 @@ public class GestionFicheros {
 
             while (aux != null) {
                 if (aux instanceof clsResolucionDTO) {
-                  
+
                 }
                 listaResoluciones.add((clsResolucionDTO) aux);
-               
+
                 aux = ois.readObject();
-              
+
             }
             ois.close();
-        
 
         } catch (EOFException e1) {
             System.out.println("Fin de fichero");
@@ -107,7 +106,7 @@ public class GestionFicheros {
     }
 
     public ArrayList<clsFormatosDTO2> leerHistorial(String fichero) {
-        ArrayList<clsFormatosDTO2> listaFormatos=new ArrayList();
+        ArrayList<clsFormatosDTO2> listaFormatos = new ArrayList();
         try {
             ObjectInputStream ois = new ObjectInputStream(
                     new FileInputStream(fichero));
@@ -115,7 +114,7 @@ public class GestionFicheros {
 
             while (aux != null) {
                 if (aux instanceof clsFormatosDTO2) {
-                  
+
                 }
                 listaFormatos.add((clsFormatosDTO2) aux);
                 aux = ois.readObject();
@@ -128,7 +127,6 @@ public class GestionFicheros {
         }
         return listaFormatos;
     }
-
 
     public boolean estaVacio(String prmArchivo) {
         boolean r = false;

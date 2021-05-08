@@ -23,15 +23,19 @@ public class GUIRFormatoC extends javax.swing.JFrame {
      * Creates new form GUIFormatoC
      */
     private static GestionAnteproyectoINT objetoRemotoAnteproyecto;
-    public GUIRFormatoC(GestionAnteproyectoINT  objAnte) {
+
+    public GUIRFormatoC(GestionAnteproyectoINT objAnte) {
         initComponents();
-        this.objetoRemotoAnteproyecto=objAnte;
+        this.objetoRemotoAnteproyecto = objAnte;
         this.txtEstructura.setEnabled(false);
         this.cmbConcepto.setEnabled(false);
         this.txtObservaciones.setEnabled(false);
         this.btnEvaluar.setEnabled(false);
     }
-   public GUIRFormatoC(){}
+
+    public GUIRFormatoC() {
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -143,84 +147,82 @@ public class GUIRFormatoC extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEvaluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEvaluarActionPerformed
-       if(txtCodigoAnt.getText().isEmpty() ||  txtEstructura.getText().isEmpty() || txtObservaciones.getText().isEmpty()){
-         JOptionPane.showMessageDialog(null, "Todos los campos deben ser ingresados");
-       }else {
-        
-           try {
-               int codAnt=Integer.parseInt(txtCodigoAnt.getText());
-               String estructura=txtEstructura.getText();
-               
-               String Observaciones=txtObservaciones.getText();
-               
-               int concepto ;
-                String con=(String) cmbConcepto.getSelectedItem();
-            if(con.equals("Aprobado")){
-                concepto=1;
-            }else{
-             concepto=0;
-            }
-               
-               
-               
-               
-               
-               clsFormatoTiCDTO objC = new clsFormatoTiCDTO(codAnt,estructura,concepto,Observaciones);
-             
-                   boolean funciono=objetoRemotoAnteproyecto.RegistrarFormatoTiC(objC);
-                   if(funciono==true){
-                   JOptionPane.showMessageDialog(null, "EL Anteproyecto  ah sido evaluado con exito");
+        if (txtCodigoAnt.getText().isEmpty() || txtEstructura.getText().isEmpty() || txtObservaciones.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Todos los campos deben ser ingresados");
+        } else {
+
+            try {
+                int codAnt = Integer.parseInt(txtCodigoAnt.getText());
+                String estructura = txtEstructura.getText();
+
+                String Observaciones = txtObservaciones.getText();
+
+                int concepto;
+                String con = (String) cmbConcepto.getSelectedItem();
+                if (con.equals("Aprobado")) {
+                    concepto = 1;
+                } else {
+                    concepto = 0;
+                }
+
+                clsFormatoTiCDTO objC = new clsFormatoTiCDTO(codAnt, estructura, concepto, Observaciones);
+
+                boolean funciono = objetoRemotoAnteproyecto.RegistrarFormatoTiC(objC);
+                if (funciono == true) {
+                    JOptionPane.showMessageDialog(null, "El Anteproyecto ha sido evaluado con exito");
                     this.dispose();
-                   }else{
-                    JOptionPane.showMessageDialog(null, "EL Anteproyecto no ah sido evaluado con exito");
-                     this.dispose();
-                    }
-                     
-           } catch (RemoteException ex) {
-               Logger.getLogger(GUIRFormatoC.class.getName()).log(Level.SEVERE, null, ex);
-           }
-       }
+                } else {
+                    JOptionPane.showMessageDialog(null, "El Anteproyecto no ha sido evaluado con exito");
+                    this.dispose();
+                }
+
+            } catch (RemoteException ex) {
+                Logger.getLogger(GUIRFormatoC.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }//GEN-LAST:event_btnEvaluarActionPerformed
 
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
-        if(txtCodigoAnt.getText().isEmpty()){
-          JOptionPane.showMessageDialog(null, "Ingresa el codigo porfavor");
-        }else{
-        
-                try {
-                         
-           int flujo=objetoRemotoAnteproyecto.VerificarAnteproyecto(Integer.parseInt(txtCodigoAnt.getText()));
-           clsConceptosDTO Conceptos;
-           Conceptos = this.objetoRemotoAnteproyecto.ConsultarConceptos(Integer.parseInt(txtCodigoAnt.getText()));
-           this.lblConceptos.setText("Concepto 1:" +Conceptos.getConcepto1()+"Concepto 2:"+Conceptos.getConcepto2());
-           if(Conceptos.getConcepto1()==1 && Conceptos.getConcepto2()==1){
-               this.txtEstructura.setEnabled(true);
-               this.cmbConcepto.setEnabled(true);
-               this.txtObservaciones.setEnabled(true);
-               this.btnEvaluar.setEnabled(true);
-           }else if(flujo==0){
-                 JOptionPane.showMessageDialog(null, "No se encontro Anteproyecto");
-                  this.dispose();
-                }else if(flujo>=4){
-                    JOptionPane.showMessageDialog(null, "EL Anteproyecto ya fue evaluador por el jefe de departamento");
+        if (txtCodigoAnt.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Ingresa el codigo porfavor");
+        } else {
+
+            try {
+
+                int flujo = objetoRemotoAnteproyecto.VerificarAnteproyecto(Integer.parseInt(txtCodigoAnt.getText()));
+                clsConceptosDTO Conceptos;
+                Conceptos = this.objetoRemotoAnteproyecto.ConsultarConceptos(Integer.parseInt(txtCodigoAnt.getText()));
+                this.lblConceptos.setText("Concepto 1:" + Conceptos.getConcepto1() + "Concepto 2:" + Conceptos.getConcepto2());
+                if (Conceptos.getConcepto1() == 1 && Conceptos.getConcepto2() == 1) {
+                    this.txtEstructura.setEnabled(true);
+                    this.cmbConcepto.setEnabled(true);
+                    this.txtObservaciones.setEnabled(true);
+                    this.btnEvaluar.setEnabled(true);
+                } else if (flujo == 0) {
+                    JOptionPane.showMessageDialog(null, "No se encontro Anteproyecto");
                     this.dispose();
-               }else if(flujo<3){
-                JOptionPane.showMessageDialog(null, "EL Anteproyecto aun no ha completa la fase del formato b");
-                 this.dispose();
-               }else{
-                   JOptionPane.showMessageDialog(null, "EL Anteproyecto no fue aprobado por los evaluadores");
-                   this.dispose();
+                } else if (flujo >= 4) {
+                    JOptionPane.showMessageDialog(null, "El Anteproyecto ya fue evaluador por el jefe de departamento");
+                    this.dispose();
+                } else if (flujo < 3) {
+                    JOptionPane.showMessageDialog(null, "El Anteproyecto aun no ha completa la fase del formato b");
+                    this.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(null, "El Anteproyecto no fue aprobado por los evaluadores");
+                    this.dispose();
+                }
+            } catch (RemoteException ex) {
+                Logger.getLogger(GUIRFormatoC.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } catch (RemoteException ex) {
-            Logger.getLogger(GUIRFormatoC.class.getName()).log(Level.SEVERE, null, ex);
         }
-        } 
-        
+
     }//GEN-LAST:event_btnConsultarActionPerformed
 
     private void txtCodigoAntKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodigoAntKeyTyped
-             char c =evt.getKeyChar();
-      if(c<'0' || c>'9') evt.consume();
+        char c = evt.getKeyChar();
+        if (c < '0' || c > '9') {
+            evt.consume();
+        }
     }//GEN-LAST:event_txtCodigoAntKeyTyped
 
     /**

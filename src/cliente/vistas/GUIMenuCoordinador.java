@@ -20,14 +20,18 @@ public class GUIMenuCoordinador extends javax.swing.JFrame {
      */
     private static GestionAnteproyectoINT objetoRemotoAnteproyecto;
     private static GestionUsuariosINT objetoRemotoUsuario;
-        private static GestionSeguimientoINT objetoRemotoSeguimiento;
-    public GUIMenuCoordinador(GestionUsuariosINT objUsuario,GestionAnteproyectoINT objAnteproyecto,GestionSeguimientoINT objRemotoSeg) {
+    private static GestionSeguimientoINT objetoRemotoSeguimiento;
+
+    public GUIMenuCoordinador(GestionUsuariosINT objUsuario, GestionAnteproyectoINT objAnteproyecto, GestionSeguimientoINT objRemotoSeg) {
         initComponents();
-        this.objetoRemotoUsuario=objUsuario;
-        this.objetoRemotoAnteproyecto=objAnteproyecto;
-        this.objetoRemotoSeguimiento= objRemotoSeg;
+        this.objetoRemotoUsuario = objUsuario;
+        this.objetoRemotoAnteproyecto = objAnteproyecto;
+        this.objetoRemotoSeguimiento = objRemotoSeg;
     }
-       public GUIMenuCoordinador(){}
+
+    public GUIMenuCoordinador() {
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -128,39 +132,39 @@ public class GUIMenuCoordinador extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        GUIInicioSesion GUISesion =new GUIInicioSesion(objetoRemotoUsuario,objetoRemotoAnteproyecto,objetoRemotoSeguimiento);
+        GUIInicioSesion GUISesion = new GUIInicioSesion(objetoRemotoUsuario, objetoRemotoAnteproyecto, objetoRemotoSeguimiento);
         GUISesion.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnAsignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsignarActionPerformed
-       GUIAsignar GUIAsignar =new GUIAsignar(objetoRemotoAnteproyecto,objetoRemotoUsuario);
+        GUIAsignar GUIAsignar = new GUIAsignar(objetoRemotoAnteproyecto, objetoRemotoUsuario);
         GUIAsignar.setVisible(true);
-        
+
     }//GEN-LAST:event_btnAsignarActionPerformed
 
     private void btnEvaluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEvaluarActionPerformed
-        GUIRFormatoD GUID=new   GUIRFormatoD(objetoRemotoAnteproyecto);
+        GUIRFormatoD GUID = new GUIRFormatoD(objetoRemotoAnteproyecto);
         GUID.setVisible(true);
-        
+
     }//GEN-LAST:event_btnEvaluarActionPerformed
 
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
-        GUIListarEv GUIList= new GUIListarEv(objetoRemotoUsuario);
+        GUIListarEv GUIList = new GUIListarEv(objetoRemotoUsuario);
         GUIList.setVisible(true);
-        
+
     }//GEN-LAST:event_btnListarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      GUIListarAprobadosC objAprC = new  GUIListarAprobadosC(objetoRemotoAnteproyecto);
-      objAprC.setVisible(true);
+        GUIListarAprobadosC objAprC = new GUIListarAprobadosC(objetoRemotoAnteproyecto);
+        objAprC.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnListarSinAsigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarSinAsigActionPerformed
-     
-      GUIListarNoAsig objNoAsig = new    GUIListarNoAsig(objetoRemotoAnteproyecto);
-      objNoAsig.setVisible(true);
-        
+
+        GUIListarNoAsig objNoAsig = new GUIListarNoAsig(objetoRemotoAnteproyecto);
+        objNoAsig.setVisible(true);
+
     }//GEN-LAST:event_btnListarSinAsigActionPerformed
 
     /**

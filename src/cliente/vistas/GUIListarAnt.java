@@ -25,30 +25,33 @@ public class GUIListarAnt extends javax.swing.JFrame {
     private static GestionAnteproyectoINT objetoRemotoAnteproyecto;
     private ArrayList<clsFormatoTiBDTO> listAnt;
     private int id;
-    public GUIListarAnt(GestionAnteproyectoINT objAnte,int id) {
+
+    public GUIListarAnt(GestionAnteproyectoINT objAnte, int id) {
         initComponents();
         this.objetoRemotoAnteproyecto = objAnte;
-        this.id=id;
+        this.id = id;
         try {
-            this.listAnt= this.objetoRemotoAnteproyecto.ListarAnt(id);
+            this.listAnt = this.objetoRemotoAnteproyecto.ListarAnt(id);
         } catch (RemoteException ex) {
             Logger.getLogger(GUIListarAnt.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("Codigo Anteproyecto");
-        
+
         tblAnt.setEnabled(false);
-        
+
         for (int i = 0; i < this.listAnt.size(); i++) {
-            Object [] obj = new Object[]{this.listAnt.get(i).getCodigo()};
+            Object[] obj = new Object[]{this.listAnt.get(i).getCodigo()};
             modelo.addRow(obj);
         }
         tblAnt.setModel(modelo);
-    
-    
+
     }
- public GUIListarAnt(){}
+
+    public GUIListarAnt() {
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

@@ -4,9 +4,11 @@
  * and open the template in the editor.
  */
 package SSeguimientoAnteproyectos.vistas;
+
 import SSeguimientoAnteproyectos.sop_rmi.GestionSeguimientoImpl;
 import SSeguimientoAnteproyectos.utilidades.UtilidadesRegistroS;
 import javax.swing.JOptionPane;
+
 /**
  *
  * @author Usuario
@@ -98,18 +100,18 @@ public class GUIConectarServidor2 extends javax.swing.JFrame {
         String MensajeArrancarNS;
         String MensajeRegistrar;
 
-        int puerto=Integer.parseInt(txtPuerto2.getText());
-        String direccion=txtIP2.getText();
-        try{
-        GestionSeguimientoImpl objetoRemoto = new  GestionSeguimientoImpl();
-        MensajeArrancarNS=UtilidadesRegistroS.arrancarNS(direccion, puerto);
-        MensajeRegistrar=UtilidadesRegistroS.RegistrarObjetoRemoto(objetoRemoto, direccion, puerto, "objetoRemotoSeguimiento");
-        GUIMensajesServidor2 GUIS2 =new GUIMensajesServidor2();
-        GUIS2.setVisible(true);
-        String mensaje=MensajeArrancarNS+"\n"+MensajeRegistrar+"\n"+"\n";
-        GUIS2.txtMensaje2.setText(mensaje);     
-        }catch(Exception e){
-        JOptionPane.showMessageDialog(null,"No fue posible arrancar el NS o registrar el objeto remoto"+e.getMessage());
+        int puerto = Integer.parseInt(txtPuerto2.getText());
+        String direccion = txtIP2.getText();
+        try {
+            GestionSeguimientoImpl objetoRemoto = new GestionSeguimientoImpl();
+            MensajeArrancarNS = UtilidadesRegistroS.arrancarNS(direccion, puerto);
+            MensajeRegistrar = UtilidadesRegistroS.RegistrarObjetoRemoto(objetoRemoto, direccion, puerto, "objetoRemotoSeguimiento");
+            GUIMensajesServidor2 GUIS2 = new GUIMensajesServidor2();
+            GUIS2.setVisible(true);
+            String mensaje = MensajeArrancarNS + "\n" + MensajeRegistrar + "\n" + "\n";
+            GUIS2.txtMensaje2.setText(mensaje);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No fue posible arrancar el NS o registrar el objeto remoto" + e.getMessage());
         }
     }//GEN-LAST:event_btnConectar2ActionPerformed
 

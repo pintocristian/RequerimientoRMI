@@ -23,12 +23,13 @@ public class GUIConsultarHistorial extends javax.swing.JFrame {
     /**
      * Creates new form GUIConsultarHistorial
      */
-    private  GestionAnteproyectoINT objetoRemotoAnteproyecto;
-    private  GestionSeguimientoINT objetoRemotoSeguimiento;
+    private GestionAnteproyectoINT objetoRemotoAnteproyecto;
+    private GestionSeguimientoINT objetoRemotoSeguimiento;
     private ArrayList<clsFormatosDTO2> listaHistorial;
-    
-    public GUIConsultarHistorial(){}
-    
+
+    public GUIConsultarHistorial() {
+    }
+
     public GUIConsultarHistorial(GestionAnteproyectoINT objAnteproyecto, GestionSeguimientoINT objSeguimiento) {
         initComponents();
         this.objetoRemotoAnteproyecto = objAnteproyecto;
@@ -38,71 +39,74 @@ public class GUIConsultarHistorial extends javax.swing.JFrame {
         } catch (RemoteException ex) {
             Logger.getLogger(GUIConsultarHistorial.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("Campo");
         modelo.addColumn("Valor");
-        
+
         this.tblHistorial.setEnabled(false);
-        
+
         for (int i = 0; i < this.listaHistorial.size(); i++) {
             // FormatoA 
-            Object [] obj = new Object[]{"Codigo Anteproyecto",listaHistorial.get(i).getFormatoA().getCodigo()};
+            Object[] obj = new Object[]{"Codigo Anteproyecto", listaHistorial.get(i).getFormatoA().getCodigo()};
             modelo.addRow(obj);
-            obj = new Object[]{"Nombre Programa",listaHistorial.get(i).getFormatoA().getNombrePrograma()};
+            obj = new Object[]{"Nombre Programa", listaHistorial.get(i).getFormatoA().getNombrePrograma()};
             modelo.addRow(obj);
-            obj = new Object[]{"Titulo",listaHistorial.get(i).getFormatoA().getTitulo()};
+            obj = new Object[]{"Titulo", listaHistorial.get(i).getFormatoA().getTitulo()};
             modelo.addRow(obj);
-            obj = new Object[]{"Estudiante 1",listaHistorial.get(i).getFormatoA().getEstudiante01()};
+            obj = new Object[]{"Estudiante 1", listaHistorial.get(i).getFormatoA().getEstudiante01()};
             modelo.addRow(obj);
-            obj = new Object[]{"Codigo estudiante 1",listaHistorial.get(i).getFormatoA().getCodigoestudiante01()};
+            obj = new Object[]{"Codigo estudiante 1", listaHistorial.get(i).getFormatoA().getCodigoestudiante01()};
             modelo.addRow(obj);
-            obj = new Object[]{"Estudiante 2",listaHistorial.get(i).getFormatoA().getEstudiante02()};
+            obj = new Object[]{"Estudiante 2", listaHistorial.get(i).getFormatoA().getEstudiante02()};
             modelo.addRow(obj);
-            obj = new Object[]{"Codigo estudiante 2",listaHistorial.get(i).getFormatoA().getCodigoestudiante02()};
+            obj = new Object[]{"Codigo estudiante 2", listaHistorial.get(i).getFormatoA().getCodigoestudiante02()};
             modelo.addRow(obj);
-            obj = new Object[]{"Director",listaHistorial.get(i).getFormatoA().getDirector()};
+            obj = new Object[]{"Director", listaHistorial.get(i).getFormatoA().getDirector()};
             modelo.addRow(obj);
-            obj = new Object[]{"Codirector",listaHistorial.get(i).getFormatoA().getCodirector()};
+            obj = new Object[]{"Codirector", listaHistorial.get(i).getFormatoA().getCodirector()};
             modelo.addRow(obj);
-            obj = new Object[]{"Objetivo",listaHistorial.get(i).getFormatoA().getObjetivo()};
+            obj = new Object[]{"Objetivo", listaHistorial.get(i).getFormatoA().getObjetivo()};
             modelo.addRow(obj);
             // FormatoB1
-            obj = new Object[]{"Id Evaluador 1",listaHistorial.get(i).getFormatoB1().getId_evaluador()};
+            obj = new Object[]{"Id Evaluador 1", listaHistorial.get(i).getFormatoB1().getId_evaluador()};
             modelo.addRow(obj);
-            obj = new Object[]{"Concepto",listaHistorial.get(i).getFormatoB1().getConcepto()};
+            obj = new Object[]{"Concepto", listaHistorial.get(i).getFormatoB1().getConcepto()};
             modelo.addRow(obj);
-            obj = new Object[]{"Observaciones",listaHistorial.get(i).getFormatoB1().getObservaciones()};
+            obj = new Object[]{"Observaciones", listaHistorial.get(i).getFormatoB1().getObservaciones()};
             modelo.addRow(obj);
-            obj = new Object[]{"Fecha",listaHistorial.get(i).getFormatoB1().getFecha()};
+            obj = new Object[]{"Fecha", listaHistorial.get(i).getFormatoB1().getFecha()};
             modelo.addRow(obj);
             // FormatoB2
-            obj = new Object[]{"Id Evaluador 2",listaHistorial.get(i).getFormatoB2().getId_evaluador()};
+            obj = new Object[]{"Id Evaluador 2", listaHistorial.get(i).getFormatoB2().getId_evaluador()};
             modelo.addRow(obj);
-            obj = new Object[]{"Concepto",listaHistorial.get(i).getFormatoB2().getConcepto()};
+            obj = new Object[]{"Concepto", listaHistorial.get(i).getFormatoB2().getConcepto()};
             modelo.addRow(obj);
-            obj = new Object[]{"Observaciones",listaHistorial.get(i).getFormatoB2().getObservaciones()};
+            obj = new Object[]{"Observaciones", listaHistorial.get(i).getFormatoB2().getObservaciones()};
             modelo.addRow(obj);
-            obj = new Object[]{"Fecha",listaHistorial.get(i).getFormatoB2().getFecha()};
+            obj = new Object[]{"Fecha", listaHistorial.get(i).getFormatoB2().getFecha()};
             modelo.addRow(obj);
             // FormatoC
-            obj = new Object[]{"Concepto Departamento",listaHistorial.get(i).getFormatoC().getConceptoDpto()};
+            obj = new Object[]{"Concepto Departamento", listaHistorial.get(i).getFormatoC().getConceptoDpto()};
             modelo.addRow(obj);
-            obj = new Object[]{"Estructura",listaHistorial.get(i).getFormatoC().getEstructura()};
+            obj = new Object[]{"Estructura", listaHistorial.get(i).getFormatoC().getEstructura()};
             modelo.addRow(obj);
-            obj = new Object[]{"Observaciones",listaHistorial.get(i).getFormatoC().getObservaciones()};
+            obj = new Object[]{"Observaciones", listaHistorial.get(i).getFormatoC().getObservaciones()};
             modelo.addRow(obj);
             // FormatoD
-            obj = new Object[]{"Concepto Coordinador",listaHistorial.get(i).getFormatoD().getConceptoCoor()};
+            obj = new Object[]{"Concepto Coordinador", listaHistorial.get(i).getFormatoD().getConceptoCoor()};
             modelo.addRow(obj);
-            obj = new Object[]{"Estructura",listaHistorial.get(i).getFormatoD().getEstructura()};
+            obj = new Object[]{"Estructura", listaHistorial.get(i).getFormatoD().getEstructura()};
             modelo.addRow(obj);
-            obj = new Object[]{"Observaciones",listaHistorial.get(i).getFormatoD().getObservaciones()};
+            obj = new Object[]{"Observaciones", listaHistorial.get(i).getFormatoD().getObservaciones()};
+            modelo.addRow(obj);
+            obj = new Object[]{"", ""};
+            modelo.addRow(obj);
+            obj = new Object[]{"", ""};
             modelo.addRow(obj);
         }
         this.tblHistorial.setModel(modelo);
-        
-        
+
     }
 
     /**

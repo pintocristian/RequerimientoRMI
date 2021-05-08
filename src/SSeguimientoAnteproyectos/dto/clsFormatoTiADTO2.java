@@ -12,7 +12,8 @@ import java.io.Serializable;
  *
  * @author Usuario
  */
-public class clsFormatoTiADTO2 implements Serializable{
+public class clsFormatoTiADTO2 implements Serializable {
+
     private int codigo;
     private String nombrePrograma;
     private String titulo;
@@ -36,9 +37,12 @@ public class clsFormatoTiADTO2 implements Serializable{
         this.director = director;
         this.codirector = codirector;
         this.objetivo = objetivo;
-      
+
     }
-   public clsFormatoTiADTO2(){}
+
+    public clsFormatoTiADTO2() {
+    }
+
     public int getCodigo() {
         return codigo;
     }
@@ -126,6 +130,5 @@ public class clsFormatoTiADTO2 implements Serializable{
     public void setFlujo(int flujo) {
         this.flujo = flujo;
     }
-    
-    
+
 }

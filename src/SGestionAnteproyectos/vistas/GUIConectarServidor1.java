@@ -99,31 +99,30 @@ public class GUIConectarServidor1 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnConectar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConectar1ActionPerformed
-      
- 
+
         String MensajeRegistrar;
         String MensajeRecuperar;
-        
+
         String MensajeRegistrarU;
         String MensajeRecuperarU;
-        
-        int puerto=Integer.parseInt(txtPuerto1.getText());
-        String direccion=txtIP1.getText();
-        try{
-        GestionAnteproyectoImpl objetoRemoto = new  GestionAnteproyectoImpl();
-        MensajeRecuperar=objetoRemoto.consultarReferenciaRemota(direccion, puerto);
-        MensajeRegistrar=UtilidadesRegistroS.RegistrarObjetoRemoto(objetoRemoto, direccion, puerto, "objetoRemotoGestion");
-        
-        GestionUsuariosImpl objetoRemotoU = new  GestionUsuariosImpl();
-        MensajeRecuperarU=objetoRemotoU.consultarReferenciaRemota(direccion, puerto);
-        MensajeRegistrarU=UtilidadesRegistroS.RegistrarObjetoRemoto(objetoRemotoU, direccion, puerto, "objetoRemotoUsuario");
-        
-        GUIMensajesServidor1 GUIS1 =new GUIMensajesServidor1();
-        GUIS1.setVisible(true);
-        String mensaje=MensajeRecuperar+"\n"+MensajeRegistrar+"\n"+MensajeRegistrarU+"\n"+MensajeRecuperarU+"\n";
-        GUIS1.txtMensaje1.setText(mensaje);     
-        }catch(Exception e){
-        JOptionPane.showMessageDialog(null,"No fue posible arrancar el NS o registrar el objeto remoto"+e.getMessage());
+
+        int puerto = Integer.parseInt(txtPuerto1.getText());
+        String direccion = txtIP1.getText();
+        try {
+            GestionAnteproyectoImpl objetoRemoto = new GestionAnteproyectoImpl();
+            MensajeRecuperar = objetoRemoto.consultarReferenciaRemota(direccion, puerto);
+            MensajeRegistrar = UtilidadesRegistroS.RegistrarObjetoRemoto(objetoRemoto, direccion, puerto, "objetoRemotoGestion");
+
+            GestionUsuariosImpl objetoRemotoU = new GestionUsuariosImpl();
+            MensajeRecuperarU = objetoRemotoU.consultarReferenciaRemota(direccion, puerto);
+            MensajeRegistrarU = UtilidadesRegistroS.RegistrarObjetoRemoto(objetoRemotoU, direccion, puerto, "objetoRemotoUsuario");
+
+            GUIMensajesServidor1 GUIS1 = new GUIMensajesServidor1();
+            GUIS1.setVisible(true);
+            String mensaje = MensajeRecuperar + "\n" + MensajeRegistrar + "\n" + MensajeRegistrarU + "\n" + MensajeRecuperarU + "\n";
+            GUIS1.txtMensaje1.setText(mensaje);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No fue posible arrancar el NS o registrar el objeto remoto" + e.getMessage());
         }
     }//GEN-LAST:event_btnConectar1ActionPerformed
 

@@ -14,7 +14,8 @@ import java.io.Serializable;
  *
  * @author Usuario
  */
-public class clsFormatosDTO implements Serializable{
+public class clsFormatosDTO implements Serializable {
+
     private int codigoAnteproyectos;
     private clsFormatoTiADTO formatoA;
     private clsFormatoTiBDTO formatoB1;
@@ -78,5 +79,5 @@ public class clsFormatosDTO implements Serializable{
     public void setFormatoD(clsFormatoTiDDTO formatoD) {
         this.formatoD = formatoD;
     }
-    
+
 }

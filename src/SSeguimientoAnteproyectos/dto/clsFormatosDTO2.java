@@ -13,7 +13,8 @@ import java.io.Serializable;
  *
  * @author Usuario
  */
-public class clsFormatosDTO2 implements Serializable{
+public class clsFormatosDTO2 implements Serializable {
+
     private int codigoAnteproyectos;
     private clsFormatoTiADTO2 formatoA;
     private clsFormatoTiBDTO2 formatoB1;
@@ -77,5 +78,5 @@ public class clsFormatosDTO2 implements Serializable{
     public void setFormatoD(clsFormatoTiDDTO2 formatoD) {
         this.formatoD = formatoD;
     }
-    
+
 }

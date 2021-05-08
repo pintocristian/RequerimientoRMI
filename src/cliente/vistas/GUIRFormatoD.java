@@ -21,16 +21,20 @@ public class GUIRFormatoD extends javax.swing.JFrame {
     /**
      * Creates new form GUIRFormatoD
      */
-        private static GestionAnteproyectoINT objetoRemotoAnteproyecto;
+    private static GestionAnteproyectoINT objetoRemotoAnteproyecto;
+
     public GUIRFormatoD(GestionAnteproyectoINT objAnteproyecto) {
         initComponents();
-        this.objetoRemotoAnteproyecto=objAnteproyecto;
+        this.objetoRemotoAnteproyecto = objAnteproyecto;
         this.cmbConcepto.setEnabled(false);
         this.txtEstructura.setEnabled(false);
         this.txtObservaciones.setEnabled(false);
         this.btnEvaluar.setEnabled(false);
     }
- public GUIRFormatoD() {}
+
+    public GUIRFormatoD() {
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -134,87 +138,83 @@ public class GUIRFormatoD extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEvaluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEvaluarActionPerformed
-        if(txtCodigoAnt.getText().isEmpty() ||  txtEstructura.getText().isEmpty() || txtObservaciones.getText().isEmpty()){
-          JOptionPane.showMessageDialog(null, "Todos los campos deben ser ingresados");
-        }else{
-          try {
-               int codAnt=Integer.parseInt(txtCodigoAnt.getText()); 
-               String estructura=txtEstructura.getText();
-               String Observaciones=txtObservaciones.getText();
-               
-                   int concepto ;
-                String con=(String) cmbConcepto.getSelectedItem();
-            if(con.equals("Aprobado")){
-                concepto=1;
-            }else{
-             concepto=0;
-            }
-               
-               
-               
-               
-              
-               
-               clsFormatoTiDDTO objD = new clsFormatoTiDDTO(codAnt,estructura,concepto,Observaciones);
-           
-              
-                   boolean funciono=objetoRemotoAnteproyecto.RegistrarFormatoTiD(objD);
-                   if(funciono==true){
-                   JOptionPane.showMessageDialog(null, "EL Anteproyecto  ah sido evaluado con exito");
+        if (txtCodigoAnt.getText().isEmpty() || txtEstructura.getText().isEmpty() || txtObservaciones.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Todos los campos deben ser ingresados");
+        } else {
+            try {
+                int codAnt = Integer.parseInt(txtCodigoAnt.getText());
+                String estructura = txtEstructura.getText();
+                String Observaciones = txtObservaciones.getText();
+
+                int concepto;
+                String con = (String) cmbConcepto.getSelectedItem();
+                if (con.equals("Aprobado")) {
+                    concepto = 1;
+                } else {
+                    concepto = 0;
+                }
+
+                clsFormatoTiDDTO objD = new clsFormatoTiDDTO(codAnt, estructura, concepto, Observaciones);
+
+                boolean funciono = objetoRemotoAnteproyecto.RegistrarFormatoTiD(objD);
+                if (funciono == true) {
+                    JOptionPane.showMessageDialog(null, "EL Anteproyecto ha sido evaluado con exito");
                     this.dispose();
-                   }else{
-                    JOptionPane.showMessageDialog(null, "EL Anteproyecto no ah sido evaluado con exito");
-                     this.dispose();
-                    }
-                      
-           } catch (RemoteException ex) {
-               Logger.getLogger(GUIRFormatoC.class.getName()).log(Level.SEVERE, null, ex);
-           }
+                } else {
+                    JOptionPane.showMessageDialog(null, "El Anteproyecto no ha sido evaluado con exito");
+                    this.dispose();
+                }
+
+            } catch (RemoteException ex) {
+                Logger.getLogger(GUIRFormatoC.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_btnEvaluarActionPerformed
 
     private void btnValidarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValidarActionPerformed
 
-        if(txtCodigoAnt.getText().isEmpty()){
-                             JOptionPane.showMessageDialog(null, "Porfavor ingresa el codigo");
-        }else{
-        
-                    try {
-            int flujo = objetoRemotoAnteproyecto.VerificarAnteproyecto(Integer.parseInt(txtCodigoAnt.getText()));
-            int concepto = objetoRemotoAnteproyecto.ConsultarConceptoJefe(Integer.parseInt(txtCodigoAnt.getText()));
-            if (concepto == 1) {
-                this.cmbConcepto.setEnabled(true);
-                this.txtEstructura.setEnabled(true);
-                this.txtObservaciones.setEnabled(true);
-                this.btnEvaluar.setEnabled(true);
-            } else if (flujo==0){
-                 JOptionPane.showMessageDialog(null, "No se encontro Anteproyecto");
-                  this.dispose();
-                }else if (flujo<4){
-                    JOptionPane.showMessageDialog(null, "EL Anteproyecto todavia no ha sido evaluado por el jefe de departamentp");
+        if (txtCodigoAnt.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Por favor ingresa el codigo");
+        } else {
+
+            try {
+                int flujo = objetoRemotoAnteproyecto.VerificarAnteproyecto(Integer.parseInt(txtCodigoAnt.getText()));
+                int concepto = objetoRemotoAnteproyecto.ConsultarConceptoJefe(Integer.parseInt(txtCodigoAnt.getText()));
+                if (concepto == 1) {
+                    this.cmbConcepto.setEnabled(true);
+                    this.txtEstructura.setEnabled(true);
+                    this.txtObservaciones.setEnabled(true);
+                    this.btnEvaluar.setEnabled(true);
+                } else if (flujo == 0) {
+                    JOptionPane.showMessageDialog(null, "No se encontro Anteproyecto");
                     this.dispose();
-                }else if(flujo==5){
+                } else if (flujo < 4) {
+                    JOptionPane.showMessageDialog(null, "El Anteproyecto todavia no ha sido evaluado por el jefe de departamentp");
+                    this.dispose();
+                } else if (flujo == 5) {
                     JOptionPane.showMessageDialog(null, "El  Anteproyecto ya fue evaluado por el coordinador");
                     this.dispose();
-                }else {
-                JOptionPane.showMessageDialog(null, "EL Anteproyecto no fue aprobado por el jede de departamento");
-               
-                this.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(null, "El Anteproyecto no fue aprobado por el jede de departamento");
+
+                    this.dispose();
+                }
+
+            } catch (RemoteException ex) {
+                Logger.getLogger(GUIRFormatoD.class.getName()).log(Level.SEVERE, null, ex);
             }
 
-        } catch (RemoteException ex) {
-            Logger.getLogger(GUIRFormatoD.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        }
-        
-        
+
+
     }//GEN-LAST:event_btnValidarActionPerformed
 
     private void txtCodigoAntKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodigoAntKeyTyped
-      char c =evt.getKeyChar();
-      if(c<'0' || c>'9') evt.consume();
-      
+        char c = evt.getKeyChar();
+        if (c < '0' || c > '9') {
+            evt.consume();
+        }
+
     }//GEN-LAST:event_txtCodigoAntKeyTyped
 
     /**

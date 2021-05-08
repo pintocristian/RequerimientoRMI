@@ -21,14 +21,18 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
     /**
      * Creates new form GUIModificarUsuario
      */
-     private static GestionUsuariosINT objetoRemotoUsuario;
-     private int Id;
+    private static GestionUsuariosINT objetoRemotoUsuario;
+    private int Id;
+
     public GUIModificarUsuario(GestionUsuariosINT objetoRemoto) {
         initComponents();
-         this.objetoRemotoUsuario=objetoRemoto;
-       
+        this.objetoRemotoUsuario = objetoRemoto;
+
     }
-    public GUIModificarUsuario(){}
+
+    public GUIModificarUsuario() {
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -138,76 +142,73 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBuscarModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarModActionPerformed
-      
-         try {
-               this.txtIdentificacionMod.setEnabled(false);
-               this.txtUsuarioMod.setEnabled(false);
-             
-             
-               if(txtIdentificacionMod.getText().isEmpty()){
-                    JOptionPane.showMessageDialog(null,"Por favor ingrese un identificador");
-               }else{
-           
-                    Id=Integer.parseInt(txtIdentificacionMod.getText());
-            clsUsuarioDTO objUsuario=objetoRemotoUsuario.ConsultarUsuario(Id);
-              if(objUsuario!=null){ 
-               txtContraseniaMod.setText(objUsuario.getContrasenia());
-               txtDepartamentoMod.setText(objUsuario.getDepartamento());
-               txtNombreComMod.setText(objUsuario.getNombreCompleto());
-               cmbRolMod.setSelectedItem(objUsuario.getRole());
-               txtUsuarioMod.setText(objUsuario.getUsuario());
-              }else{
-              JOptionPane.showMessageDialog(null,"Usuario No encontrado");
-            } 
-                   
-               }
-             
-           
-         } catch (RemoteException ex) {
-             Logger.getLogger(GUIModificarUsuario.class.getName()).log(Level.SEVERE, null, ex);
-         }
+
+        try {
+            this.txtIdentificacionMod.setEnabled(false);
+            this.txtUsuarioMod.setEnabled(false);
+
+            if (txtIdentificacionMod.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Por favor ingrese un identificador");
+            } else {
+
+                Id = Integer.parseInt(txtIdentificacionMod.getText());
+                clsUsuarioDTO objUsuario = objetoRemotoUsuario.ConsultarUsuario(Id);
+                if (objUsuario != null) {
+                    txtContraseniaMod.setText(objUsuario.getContrasenia());
+                    txtDepartamentoMod.setText(objUsuario.getDepartamento());
+                    txtNombreComMod.setText(objUsuario.getNombreCompleto());
+                    cmbRolMod.setSelectedItem(objUsuario.getRole());
+                    txtUsuarioMod.setText(objUsuario.getUsuario());
+                } else {
+                    JOptionPane.showMessageDialog(null, "Usuario No encontrado");
+                }
+
+            }
+
+        } catch (RemoteException ex) {
+            Logger.getLogger(GUIModificarUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnBuscarModActionPerformed
 
     private void btnModificarUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarUActionPerformed
 
         try {
-                 String numero1=txtUsuarioMod.getText();
-             String numero2=txtContraseniaMod.getText();
-             boolean u=alfanumerico(txtUsuarioMod.getText());
-             boolean c=alfanumerico(txtContraseniaMod.getText());
-            if(txtIdentificacionMod.getText().isEmpty() || txtNombreComMod.getText().isEmpty() || txtDepartamentoMod.getText().isEmpty() || txtContraseniaMod.getText().isEmpty() ||  txtUsuarioMod.getText().isEmpty()){
-                 JOptionPane.showMessageDialog(null,"Ningun campo debe quedar vacio!!");
-            }else if(u==false || c==false){
-                     txtUsuarioMod.setText("");
-              txtContraseniaMod.setText("");
-          JOptionPane.showMessageDialog(null,"La contraseña debe tener numeros y letras"); 
-          
-        }else if(numero1.length()<8 || numero2.length()<8){
-              
-              txtContraseniaMod.setText("");
-            JOptionPane.showMessageDialog(null,"la contraseña tienen que tener minimo 8 caracteres"); 
-            
-        }else{
-                     Id = Integer.parseInt(txtIdentificacionMod.getText());
-            String Nombre = txtNombreComMod.getText();
-            String Rol = (String) cmbRolMod.getSelectedItem();
-            String Departamento = txtDepartamentoMod.getText();
-            String Contrasenia = txtContraseniaMod.getText();
-            String Usuario = txtUsuarioMod.getText();
-            clsUsuarioDTO objUsuario = new clsUsuarioDTO(Id, Nombre, Rol, Departamento, Usuario, Contrasenia);
+            String numero1 = txtUsuarioMod.getText();
+            String numero2 = txtContraseniaMod.getText();
+            boolean u = alfanumerico(txtUsuarioMod.getText());
+            boolean c = alfanumerico(txtContraseniaMod.getText());
+            if (txtIdentificacionMod.getText().isEmpty() || txtNombreComMod.getText().isEmpty() || txtDepartamentoMod.getText().isEmpty() || txtContraseniaMod.getText().isEmpty() || txtUsuarioMod.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Ningun campo debe quedar vacio!!");
+            } else if (u == false || c == false) {
+                txtUsuarioMod.setText("");
+                txtContraseniaMod.setText("");
+                JOptionPane.showMessageDialog(null, "La contraseña debe tener numeros y letras");
 
-            boolean funciono = objetoRemotoUsuario.ModificarUsuario(objUsuario);
-            if (funciono == true) {
-                JOptionPane.showMessageDialog(null, "Usuario Modificado exitosamente");
-                this.dispose();
+            } else if (numero1.length() < 8 || numero2.length() < 8) {
+
+                txtContraseniaMod.setText("");
+                JOptionPane.showMessageDialog(null, "La contraseña tienen que tener minimo 8 caracteres");
+
             } else {
-                JOptionPane.showMessageDialog(null, "El usuario no se pudo Modificar con exito");
+                Id = Integer.parseInt(txtIdentificacionMod.getText());
+                String Nombre = txtNombreComMod.getText();
+                String Rol = (String) cmbRolMod.getSelectedItem();
+                String Departamento = txtDepartamentoMod.getText();
+                String Contrasenia = txtContraseniaMod.getText();
+                String Usuario = txtUsuarioMod.getText();
+                clsUsuarioDTO objUsuario = new clsUsuarioDTO(Id, Nombre, Rol, Departamento, Usuario, Contrasenia);
+
+                boolean funciono = objetoRemotoUsuario.ModificarUsuario(objUsuario);
+                if (funciono == true) {
+                    JOptionPane.showMessageDialog(null, "Usuario Modificado exitosamente");
+                    this.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(null, "El usuario no se pudo Modificar con exito");
+                    this.dispose();
+                }
                 this.dispose();
             }
-            this.dispose();
-            }
-            
-            
+
         } catch (RemoteException ex) {
             Logger.getLogger(GUIModificarUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -216,32 +217,35 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnModificarUActionPerformed
 
     private void txtIdentificacionModKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIdentificacionModKeyTyped
-             char c =evt.getKeyChar();
-      if(c<'0' || c>'9') evt.consume();
+        char c = evt.getKeyChar();
+        if (c < '0' || c > '9') {
+            evt.consume();
+        }
     }//GEN-LAST:event_txtIdentificacionModKeyTyped
 
-     public boolean alfanumerico( String texto){
-    boolean bandera=false;
+    public boolean alfanumerico(String texto) {
+        boolean bandera = false;
         char textoIngresado;
-        
+
         byte conNumero = 0, conLetra = 0;
-        
-        for(byte i = 0; i < texto.length(); i++){
+
+        for (byte i = 0; i < texto.length(); i++) {
             textoIngresado = texto.charAt(i);
             String aux = String.valueOf(textoIngresado);
-            
-            if(aux.matches("[a-z]") || aux.matches("[A-Z]")){
+
+            if (aux.matches("[a-z]") || aux.matches("[A-Z]")) {
                 conLetra++;
-            }else if(aux.matches("[0-9]")){
+            } else if (aux.matches("[0-9]")) {
                 conNumero++;
             }
         }
-        if(conNumero > 0 && conLetra > 0){
-            bandera=true;
+        if (conNumero > 0 && conLetra > 0) {
+            bandera = true;
         }
-    
-    return bandera;
+
+        return bandera;
     }
+
     /**
      * @param args the command line arguments
      */

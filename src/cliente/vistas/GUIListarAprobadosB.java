@@ -24,27 +24,31 @@ public class GUIListarAprobadosB extends javax.swing.JFrame {
      */
     private static GestionAnteproyectoINT objetoRemotoAnteproyecto;
     private ArrayList<clsFormatoTiBDTO> listAnt;
+
     public GUIListarAprobadosB(GestionAnteproyectoINT objAnte) {
         initComponents();
         this.objetoRemotoAnteproyecto = objAnte;
-      try {
-            this.listAnt= this.objetoRemotoAnteproyecto.ListarAntBAprobados();
+        try {
+            this.listAnt = this.objetoRemotoAnteproyecto.ListarAntBAprobados();
         } catch (RemoteException ex) {
             Logger.getLogger(GUIListarAnt.class.getName()).log(Level.SEVERE, null, ex);
         }
-      
+
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("Codigo Anteproyecto");
-        
+
         tblAnt.setEnabled(false);
-        
+
         for (int i = 0; i < this.listAnt.size(); i++) {
-            Object [] obj = new Object[]{this.listAnt.get(i).getCodigo()};
+            Object[] obj = new Object[]{this.listAnt.get(i).getCodigo()};
             modelo.addRow(obj);
         }
         tblAnt.setModel(modelo);
     }
-    public GUIListarAprobadosB(){}
+
+    public GUIListarAprobadosB() {
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

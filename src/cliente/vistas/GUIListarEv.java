@@ -23,33 +23,33 @@ public class GUIListarEv extends javax.swing.JFrame {
     /**
      * Creates new form GUIListarEv
      */
-   
- private static GestionUsuariosINT objetoRemotoUsuario;
-    private ArrayList<clsUsuarioDTO> listaUs; 
+    private static GestionUsuariosINT objetoRemotoUsuario;
+    private ArrayList<clsUsuarioDTO> listaUs;
+
     public GUIListarEv(GestionUsuariosINT objUs) {
         initComponents();
-        this.objetoRemotoUsuario=objUs;
-        
-      
-         try {
-            this.listaUs= this.objetoRemotoUsuario.listarEv();
+        this.objetoRemotoUsuario = objUs;
+
+        try {
+            this.listaUs = this.objetoRemotoUsuario.listarEv();
         } catch (RemoteException ex) {
             Logger.getLogger(GUIListarAnt.class.getName()).log(Level.SEVERE, null, ex);
         }
-      
+
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("Codigo evaluador");
-        
+
         tblEv.setEnabled(false);
-        
+
         for (int i = 0; i < this.listaUs.size(); i++) {
-            Object [] obj = new Object[]{this.listaUs.get(i).getId()};
+            Object[] obj = new Object[]{this.listaUs.get(i).getId()};
             modelo.addRow(obj);
         }
         tblEv.setModel(modelo);
     }
 
-    public GUIListarEv() {}
+    public GUIListarEv() {
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.

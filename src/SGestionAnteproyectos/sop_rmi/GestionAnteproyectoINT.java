@@ -21,22 +21,40 @@ import java.util.ArrayList;
  * @author Usuario
  */
 public interface GestionAnteproyectoINT extends Remote {
-    public boolean RegistrarFormatoTiA(clsFormatoTiADTO objFormatoA)throws RemoteException;
-    public boolean RegistrarFormatoTiB(clsFormatoTiBDTO objFormatoB)throws RemoteException;
-    public boolean RegistrarFormatoTiC(clsFormatoTiCDTO objFormatoC)throws RemoteException;
-    public boolean RegistrarFormatoTiD(clsFormatoTiDDTO objFormatoD)throws RemoteException;
-    public int VerificarAnteproyecto(int codigo)throws RemoteException;
-    public int solicitarCodigo()throws RemoteException;
-    public clsConceptosDTO ConsultarConceptos(int codigo)throws RemoteException;
-    public boolean Asignar(clsFormatoTiBDTO objFormatoB)throws RemoteException;
-    public int ConsultarConceptoJefe(int codigo)throws RemoteException;
-    public int ConsultarConceptoD(int codigo)throws RemoteException;
-    public int  consultarAnteproyecto(int codigo)throws RemoteException;
-    public boolean verificarPropiedad(int codigoAnt, int codEv)throws RemoteException;
-    public ArrayList<clsFormatoTiBDTO> ListarAnt(int id)throws RemoteException;
-    public ArrayList<clsFormatoTiBDTO> ListarAntBAprobados()throws RemoteException;
-    public ArrayList<clsFormatoTiCDTO> ListarAntCAprobados()throws RemoteException;
-    public ArrayList<clsFormatoTiDDTO> ListarAntDAprobados()throws RemoteException;  
-    public ArrayList<clsFormatoTiADTO> ListarAntNoAsig()throws RemoteException;   
-     public void registrarCallback(NotificacionINT objAdmin) throws RemoteException;
+
+    public boolean RegistrarFormatoTiA(clsFormatoTiADTO objFormatoA) throws RemoteException;
+
+    public boolean RegistrarFormatoTiB(clsFormatoTiBDTO objFormatoB) throws RemoteException;
+
+    public boolean RegistrarFormatoTiC(clsFormatoTiCDTO objFormatoC) throws RemoteException;
+
+    public boolean RegistrarFormatoTiD(clsFormatoTiDDTO objFormatoD) throws RemoteException;
+
+    public int VerificarAnteproyecto(int codigo) throws RemoteException;
+
+    public int solicitarCodigo() throws RemoteException;
+
+    public clsConceptosDTO ConsultarConceptos(int codigo) throws RemoteException;
+
+    public boolean Asignar(clsFormatoTiBDTO objFormatoB) throws RemoteException;
+
+    public int ConsultarConceptoJefe(int codigo) throws RemoteException;
+
+    public int ConsultarConceptoD(int codigo) throws RemoteException;
+
+    public int consultarAnteproyecto(int codigo) throws RemoteException;
+
+    public boolean verificarPropiedad(int codigoAnt, int codEv) throws RemoteException;
+
+    public ArrayList<clsFormatoTiBDTO> ListarAnt(int id) throws RemoteException;
+
+    public ArrayList<clsFormatoTiBDTO> ListarAntBAprobados() throws RemoteException;
+
+    public ArrayList<clsFormatoTiCDTO> ListarAntCAprobados() throws RemoteException;
+
+    public ArrayList<clsFormatoTiDDTO> ListarAntDAprobados() throws RemoteException;
+
+    public ArrayList<clsFormatoTiADTO> ListarAntNoAsig() throws RemoteException;
+
+    public void registrarCallback(NotificacionINT objAdmin) throws RemoteException;
 }

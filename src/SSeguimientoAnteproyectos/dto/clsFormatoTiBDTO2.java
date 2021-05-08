@@ -12,21 +12,24 @@ import java.io.Serializable;
  *
  * @author Usuario
  */
-public class clsFormatoTiBDTO2 implements Serializable{
+public class clsFormatoTiBDTO2 implements Serializable {
+
     private int id_evaluador;
     private int codigo;
     private int concepto;
     private String observaciones;
     private String fecha;
-  
-    public clsFormatoTiBDTO2(){}
+
+    public clsFormatoTiBDTO2() {
+    }
+
     public clsFormatoTiBDTO2(int id_evaluador, int codigo, int concepto, String observaciones, String fecha) {
         this.id_evaluador = id_evaluador;
         this.codigo = codigo;
         this.concepto = concepto;
         this.observaciones = observaciones;
         this.fecha = fecha;
-   
+
     }
 
     public int getId_evaluador() {
@@ -69,7 +72,4 @@ public class clsFormatoTiBDTO2 implements Serializable{
         this.fecha = fecha;
     }
 
-
-    
-    
 }

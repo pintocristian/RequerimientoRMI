@@ -11,7 +11,8 @@ import java.io.Serializable;
  *
  * @author Cristian
  */
-public class clsConceptosDTO implements Serializable{
+public class clsConceptosDTO implements Serializable {
+
     int concepto1;
     int concepto2;
 
@@ -36,5 +37,5 @@ public class clsConceptosDTO implements Serializable{
     public void setConcepto2(int concepto2) {
         this.concepto2 = concepto2;
     }
-    
+
 }

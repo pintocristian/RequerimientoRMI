@@ -12,6 +12,7 @@ import java.io.Serializable;
  * @author Usuario
  */
 public class clsResolucionDTO implements Serializable {
+
     String numeroReosolucion;
     String fecha;
     int codigo;
@@ -45,6 +46,5 @@ public class clsResolucionDTO implements Serializable {
     public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
-    
-    
+
 }

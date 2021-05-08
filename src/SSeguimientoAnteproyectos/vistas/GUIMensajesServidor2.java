@@ -4,9 +4,11 @@
  * and open the template in the editor.
  */
 package SSeguimientoAnteproyectos.vistas;
+
 import SSeguimientoAnteproyectos.utilidades.UtilidadesRegistroS;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
 /**
  *
  * @author Usuario
@@ -20,7 +22,6 @@ public class GUIMensajesServidor2 extends javax.swing.JFrame {
         initComponents();
     }
 
-  
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

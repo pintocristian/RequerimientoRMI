@@ -22,13 +22,16 @@ public class GUIRegistrarUsuario extends javax.swing.JFrame {
     /**
      * Creates new form RegistrarAdmin
      */
-
     private static GestionUsuariosINT objetoRemotoUsuario;
+
     public GUIRegistrarUsuario(GestionUsuariosINT objetoRemoto) {
         initComponents();
-        this.objetoRemotoUsuario=objetoRemoto;
+        this.objetoRemotoUsuario = objetoRemoto;
     }
-    public GUIRegistrarUsuario(){}
+
+    public GUIRegistrarUsuario() {
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -137,7 +140,7 @@ public class GUIRegistrarUsuario extends javax.swing.JFrame {
             boolean u = alfanumerico(txtUsuarioU.getText());
             boolean c = alfanumerico(txtContraseniaU.getText());
             int validarId = objetoRemotoUsuario.validarId(ide);
-            boolean validarUs =objetoRemotoUsuario.validarUS(numero1);
+            boolean validarUs = objetoRemotoUsuario.validarUS(numero1);
             if (txtIdentificacionU.getText().isEmpty() || txtNombreComU.getText().isEmpty() || txtDepartamentoU.getText().isEmpty() || txtUsuarioU.getText().isEmpty() || txtContraseniaU.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Ningun campo debe quedar vacio!!");
             } else if (u == false || c == false) {
@@ -148,13 +151,13 @@ public class GUIRegistrarUsuario extends javax.swing.JFrame {
             } else if (numero1.length() < 8 || numero2.length() < 8) {
                 txtUsuarioU.setText("");
                 txtContraseniaU.setText("");
-                JOptionPane.showMessageDialog(null, "el usuario y la contraseña tienen que tener minimo 8 caracteres");
+                JOptionPane.showMessageDialog(null, "El usuario y la contraseña tienen que tener minimo 8 caracteres");
 
-            } else if(validarId==1){
-              JOptionPane.showMessageDialog(null, "El id digitado ya existe, porfavor ingresa otro");
-            }else if(validarUs==true){
-              JOptionPane.showMessageDialog(null, "El usuario digitado ya existe porfavor ingresa otro");
-            }else {
+            } else if (validarId == 1) {
+                JOptionPane.showMessageDialog(null, "El id digitado ya existe, por favor ingresa otro");
+            } else if (validarUs == true) {
+                JOptionPane.showMessageDialog(null, "El usuario digitado ya existe por favor ingresa otro");
+            } else {
                 int id = Integer.parseInt(txtIdentificacionU.getText());
                 String NombreCompleto = txtNombreComU.getText();
                 String Rol = (String) cmbRolU.getSelectedItem();
@@ -182,31 +185,34 @@ public class GUIRegistrarUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRegistrarUActionPerformed
 
     private void txtIdentificacionUKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIdentificacionUKeyTyped
-         char c =evt.getKeyChar();
-      if(c<'0' || c>'9') evt.consume();
+        char c = evt.getKeyChar();
+        if (c < '0' || c > '9') {
+            evt.consume();
+        }
     }//GEN-LAST:event_txtIdentificacionUKeyTyped
- public boolean alfanumerico( String texto){
-    boolean bandera=false;
+    public boolean alfanumerico(String texto) {
+        boolean bandera = false;
         char textoIngresado;
-        
+
         byte conNumero = 0, conLetra = 0;
-        
-        for(byte i = 0; i < texto.length(); i++){
+
+        for (byte i = 0; i < texto.length(); i++) {
             textoIngresado = texto.charAt(i);
             String aux = String.valueOf(textoIngresado);
-            
-            if(aux.matches("[a-z]") || aux.matches("[A-Z]")){
+
+            if (aux.matches("[a-z]") || aux.matches("[A-Z]")) {
                 conLetra++;
-            }else if(aux.matches("[0-9]")){
+            } else if (aux.matches("[0-9]")) {
                 conNumero++;
             }
         }
-        if(conNumero > 0 && conLetra > 0){
-            bandera=true;
+        if (conNumero > 0 && conLetra > 0) {
+            bandera = true;
         }
-    
-    return bandera;
+
+        return bandera;
     }
+
     /**
      * @param args the command line arguments
      */

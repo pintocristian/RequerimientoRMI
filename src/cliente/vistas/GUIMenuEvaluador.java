@@ -22,14 +22,18 @@ public class GUIMenuEvaluador extends javax.swing.JFrame {
     private static GestionUsuariosINT objetoRemotoUsuario;
     private static GestionSeguimientoINT objetoRemotoSeguimiento;
     private int idEv;
-    public GUIMenuEvaluador(GestionUsuariosINT objUsuario,GestionAnteproyectoINT objAnteproyecto, int idEv,GestionSeguimientoINT objRemotoSeg) {
+
+    public GUIMenuEvaluador(GestionUsuariosINT objUsuario, GestionAnteproyectoINT objAnteproyecto, int idEv, GestionSeguimientoINT objRemotoSeg) {
         initComponents();
-        this.objetoRemotoUsuario=objUsuario;
-        this.objetoRemotoAnteproyecto=objAnteproyecto;
-        this.idEv=idEv;
-        this.objetoRemotoSeguimiento= objRemotoSeg;
+        this.objetoRemotoUsuario = objUsuario;
+        this.objetoRemotoAnteproyecto = objAnteproyecto;
+        this.idEv = idEv;
+        this.objetoRemotoSeguimiento = objRemotoSeg;
     }
-    public GUIMenuEvaluador(){}
+
+    public GUIMenuEvaluador() {
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -103,18 +107,18 @@ public class GUIMenuEvaluador extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        GUIInicioSesion GUISesion =new GUIInicioSesion(objetoRemotoUsuario,objetoRemotoAnteproyecto,objetoRemotoSeguimiento);
+        GUIInicioSesion GUISesion = new GUIInicioSesion(objetoRemotoUsuario, objetoRemotoAnteproyecto, objetoRemotoSeguimiento);
         GUISesion.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnEvaluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEvaluarActionPerformed
-        GUIRFormatoB GUIB = new GUIRFormatoB (objetoRemotoAnteproyecto,idEv);
+        GUIRFormatoB GUIB = new GUIRFormatoB(objetoRemotoAnteproyecto, idEv);
         GUIB.setVisible(true);
     }//GEN-LAST:event_btnEvaluarActionPerformed
 
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
-        GUIListarAnt GUIList = new GUIListarAnt(objetoRemotoAnteproyecto,idEv);
+        GUIListarAnt GUIList = new GUIListarAnt(objetoRemotoAnteproyecto, idEv);
         GUIList.setVisible(true);
     }//GEN-LAST:event_btnListarActionPerformed
 

@@ -23,12 +23,13 @@ public class GUIConsultarResolucion extends javax.swing.JFrame {
     /**
      * Creates new form GUIConsultarResolucion
      */
-    private  GestionAnteproyectoINT objetoRemotoAnteproyecto;
-    private  GestionSeguimientoINT objetoRemotoSeguimiento;
+    private GestionAnteproyectoINT objetoRemotoAnteproyecto;
+    private GestionSeguimientoINT objetoRemotoSeguimiento;
     private ArrayList<clsResolucionDTO> resoluciones;
-    
-    public GUIConsultarResolucion(){}
-    
+
+    public GUIConsultarResolucion() {
+    }
+
     public GUIConsultarResolucion(GestionAnteproyectoINT objAnteproyecto, GestionSeguimientoINT objSeguimiento) {
         initComponents();
         this.objetoRemotoAnteproyecto = objAnteproyecto;
@@ -44,7 +45,7 @@ public class GUIConsultarResolucion extends javax.swing.JFrame {
             this.tblResoluciones.setEnabled(false);
 
             for (int i = 0; i < resoluciones.size(); i++) {
-                Object [] obj = new Object[]{resoluciones.get(i).getNumeroReosolucion(),
+                Object[] obj = new Object[]{resoluciones.get(i).getNumeroReosolucion(),
                     resoluciones.get(i).getFecha(),
                     resoluciones.get(i).getCodigo()};
                 modelo.addRow(obj);
@@ -52,7 +53,7 @@ public class GUIConsultarResolucion extends javax.swing.JFrame {
             this.tblResoluciones.setModel(modelo);
         } catch (RemoteException ex) {
             Logger.getLogger(GUIConsultarResolucion.class.getName()).log(Level.SEVERE, null, ex);
-        }        
+        }
     }
 
     /**

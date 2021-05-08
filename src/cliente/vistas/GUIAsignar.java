@@ -23,13 +23,17 @@ public class GUIAsignar extends javax.swing.JFrame {
      * Creates new form GUIAsignar
      */
     private static GestionAnteproyectoINT objetoRemotoAnteproyecto;
-      private static GestionUsuariosINT objetoRemotoUsuario;
-    public GUIAsignar(GestionAnteproyectoINT  objAnte,GestionUsuariosINT objUsuario) {
+    private static GestionUsuariosINT objetoRemotoUsuario;
+
+    public GUIAsignar(GestionAnteproyectoINT objAnte, GestionUsuariosINT objUsuario) {
         initComponents();
-        this.objetoRemotoAnteproyecto=objAnte;
-        this.objetoRemotoUsuario=objUsuario;
+        this.objetoRemotoAnteproyecto = objAnte;
+        this.objetoRemotoUsuario = objUsuario;
     }
-     public GUIAsignar(){}
+
+    public GUIAsignar() {
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -121,73 +125,78 @@ public class GUIAsignar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAsignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsignarActionPerformed
-        int u1=-2;
-        int u2=-2;
-        int a=-2;
-        if(txtCodAnt.getText().isEmpty() || txtCodEv1.getText().isEmpty() || txtCodEv2.getText().isEmpty()){
-         JOptionPane.showMessageDialog(null, "Todos los campos son obligatorios");
-        
-        }
-        else if( txtCodEv1.getText().equals(txtCodEv2.getText())){
-             JOptionPane.showMessageDialog(null, "los id de los evaluadores deben ser diferentes");
-        }else{
-            int codigoAnte=Integer.parseInt(txtCodAnt.getText());
-            int codEva1=Integer.parseInt( txtCodEv1.getText());
-            int codEva2=Integer.parseInt( txtCodEv2.getText());
+        int u1 = -2;
+        int u2 = -2;
+        int a = -2;
+        if (txtCodAnt.getText().isEmpty() || txtCodEv1.getText().isEmpty() || txtCodEv2.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Todos los campos son obligatorios");
+
+        } else if (txtCodEv1.getText().equals(txtCodEv2.getText())) {
+            JOptionPane.showMessageDialog(null, "Los id de los evaluadores deben ser diferentes");
+        } else {
+            int codigoAnte = Integer.parseInt(txtCodAnt.getText());
+            int codEva1 = Integer.parseInt(txtCodEv1.getText());
+            int codEva2 = Integer.parseInt(txtCodEv2.getText());
             try {
-                a=objetoRemotoAnteproyecto.consultarAnteproyecto(codigoAnte);
-                u1=objetoRemotoUsuario.consultarEvaluador(codEva1);
-                u2=objetoRemotoUsuario.consultarEvaluador(codEva2);
-                
-                if(a==1 && u1==1 && u2==1){
-                    clsFormatoTiBDTO objB1 = new clsFormatoTiBDTO(codEva1,codigoAnte,-1,"","");
-                    clsFormatoTiBDTO objB2 = new clsFormatoTiBDTO(codEva2,codigoAnte,-1,"","");
-                    boolean asignando1=objetoRemotoAnteproyecto.Asignar(objB1);
-                    boolean asignando2=objetoRemotoAnteproyecto.Asignar(objB2);
-                    
-                    if(asignando1==true && asignando2==true){
-                      JOptionPane.showMessageDialog(null, "Evaluadores asignados correctamente");
-                            this.dispose();
-                    }
-                }else if(a==-1){
-                  JOptionPane.showMessageDialog(null, "No se encuentran Anteproyectos registrados ");
+                a = objetoRemotoAnteproyecto.consultarAnteproyecto(codigoAnte);
+                u1 = objetoRemotoUsuario.consultarEvaluador(codEva1);
+                u2 = objetoRemotoUsuario.consultarEvaluador(codEva2);
+
+                if (a == 1 && u1 == 1 && u2 == 1) {
+                    clsFormatoTiBDTO objB1 = new clsFormatoTiBDTO(codEva1, codigoAnte, -1, "", "");
+                    clsFormatoTiBDTO objB2 = new clsFormatoTiBDTO(codEva2, codigoAnte, -1, "", "");
+                    boolean asignando1 = objetoRemotoAnteproyecto.Asignar(objB1);
+                    boolean asignando2 = objetoRemotoAnteproyecto.Asignar(objB2);
+
+                    if (asignando1 == true && asignando2 == true) {
+                        JOptionPane.showMessageDialog(null, "Evaluadores asignados correctamente");
                         this.dispose();
-                }else if(a==0){
+                    }
+                } else if (a == -1) {
+                    JOptionPane.showMessageDialog(null, "No se encuentran Anteproyectos registrados ");
+                    this.dispose();
+                } else if (a == 0) {
                     JOptionPane.showMessageDialog(null, "No se encuentra el anteproyecto regitrado ");
-                          this.dispose();
-                }else if(a==2){
+                    this.dispose();
+                } else if (a == 2) {
                     JOptionPane.showMessageDialog(null, "Al anteproyecto ya se le asignaron los evaluadores ");
-                          this.dispose();
-                }else if(u1==-1){
-                      JOptionPane.showMessageDialog(null, "No se encuentran Evaluadores registrados ");
-                            this.dispose();
-                }else if(u1==2){
-                      JOptionPane.showMessageDialog(null, "No existe este evaluador ");
-                            this.dispose();
+                    this.dispose();
+                } else if (u1 == -1) {
+                    JOptionPane.showMessageDialog(null, "No se encuentran Evaluadores registrados ");
+                    this.dispose();
+                } else if (u1 == 2) {
+                    JOptionPane.showMessageDialog(null, "No existe este evaluador ");
+                    this.dispose();
                 }
-                
+
             } catch (RemoteException ex) {
                 Logger.getLogger(GUIAsignar.class.getName()).log(Level.SEVERE, null, ex);
             }
-           
+
         }
-        
-        
+
+
     }//GEN-LAST:event_btnAsignarActionPerformed
 
     private void txtCodAntKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodAntKeyTyped
-             char c =evt.getKeyChar();
-      if(c<'0' || c>'9') evt.consume();
+        char c = evt.getKeyChar();
+        if (c < '0' || c > '9') {
+            evt.consume();
+        }
     }//GEN-LAST:event_txtCodAntKeyTyped
 
     private void txtCodEv1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodEv1KeyTyped
-             char c =evt.getKeyChar();
-      if(c<'0' || c>'9') evt.consume();
+        char c = evt.getKeyChar();
+        if (c < '0' || c > '9') {
+            evt.consume();
+        }
     }//GEN-LAST:event_txtCodEv1KeyTyped
 
     private void txtCodEv2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodEv2KeyTyped
-             char c =evt.getKeyChar();
-      if(c<'0' || c>'9') evt.consume();
+        char c = evt.getKeyChar();
+        if (c < '0' || c > '9') {
+            evt.consume();
+        }
     }//GEN-LAST:event_txtCodEv2KeyTyped
 
     /**

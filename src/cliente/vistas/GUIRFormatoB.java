@@ -11,6 +11,7 @@ import java.rmi.RemoteException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+
 /**
  *
  * @author Usuario
@@ -22,12 +23,16 @@ public class GUIRFormatoB extends javax.swing.JFrame {
      */
     private static GestionAnteproyectoINT objetoRemotoAnteproyecto;
     private int idEv;
-    public GUIRFormatoB(GestionAnteproyectoINT  objAnte, int idv) {
+
+    public GUIRFormatoB(GestionAnteproyectoINT objAnte, int idv) {
         initComponents();
-         this.objetoRemotoAnteproyecto=objAnte;
-         this.idEv=idv;
+        this.objetoRemotoAnteproyecto = objAnte;
+        this.idEv = idv;
     }
- public GUIRFormatoB(){}
+
+    public GUIRFormatoB() {
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -120,48 +125,44 @@ public class GUIRFormatoB extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEvaluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEvaluarActionPerformed
-        if (txtCodAnt.getText().isEmpty() ||  txtFecha.getText().isEmpty() || txtObservaciones.getText().isEmpty()) {
+        if (txtCodAnt.getText().isEmpty() || txtFecha.getText().isEmpty() || txtObservaciones.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Todos los campos deben ser ingresados");
         } else {
 
             int CodigoAnt = Integer.parseInt(txtCodAnt.getText());
             int Concepto;
-            String con=(String) cmbConcepto.getSelectedItem();
-            if(con.equals("Aprobado")){
-                Concepto=1;
-            }else{
-             Concepto=0;
+            String con = (String) cmbConcepto.getSelectedItem();
+            if (con.equals("Aprobado")) {
+                Concepto = 1;
+            } else {
+                Concepto = 0;
             }
-            
-           
 
-            
-            
             String Observaciones = txtObservaciones.getText();
             String Fecha = txtFecha.getText();
             clsFormatoTiBDTO objB = new clsFormatoTiBDTO(idEv, CodigoAnt, Concepto, Observaciones, Fecha);
             try {
                 boolean funciono = objetoRemotoAnteproyecto.verificarPropiedad(CodigoAnt, idEv);
                 int funciono2 = objetoRemotoAnteproyecto.VerificarAnteproyecto(CodigoAnt);
-                
-                if(funciono2>=3){
-                     JOptionPane.showMessageDialog(null, "ya se realizaron las evaluaciones para este anteproyecto");
-                      this.dispose();
-                }else if(funciono2==0){
-                 JOptionPane.showMessageDialog(null, "No se encontro Anteproyecto");
-                  this.dispose();
-                }else if(funciono==false){
-                        JOptionPane.showMessageDialog(null, "No puede evaluar anteproyectos que no le han sido asignado");
-                         this.dispose();
-                }else{
-                   boolean funciono3 =objetoRemotoAnteproyecto.RegistrarFormatoTiB(objB);
-                   if(funciono3==true){
-                     JOptionPane.showMessageDialog(null, "Anteproyecto evaluado exitosamente");
-                      this.dispose();
-                   }else{
+
+                if (funciono2 >= 3) {
+                    JOptionPane.showMessageDialog(null, "Ya se realizaron las evaluaciones para este anteproyecto");
+                    this.dispose();
+                } else if (funciono2 == 0) {
+                    JOptionPane.showMessageDialog(null, "No se encontro Anteproyecto");
+                    this.dispose();
+                } else if (funciono == false) {
+                    JOptionPane.showMessageDialog(null, "No puede evaluar anteproyectos que no le han sido asignado");
+                    this.dispose();
+                } else {
+                    boolean funciono3 = objetoRemotoAnteproyecto.RegistrarFormatoTiB(objB);
+                    if (funciono3 == true) {
+                        JOptionPane.showMessageDialog(null, "Anteproyecto evaluado exitosamente");
+                        this.dispose();
+                    } else {
                         JOptionPane.showMessageDialog(null, "Usted ya emitio un concepto para este anteproyecto");
-                         this.dispose();
-                   }
+                        this.dispose();
+                    }
                 }
 
             } catch (RemoteException ex) {
@@ -169,12 +170,14 @@ public class GUIRFormatoB extends javax.swing.JFrame {
             }
         }
 
-      
+
     }//GEN-LAST:event_btnEvaluarActionPerformed
 
     private void txtCodAntKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodAntKeyTyped
-             char c =evt.getKeyChar();
-      if(c<'0' || c>'9') evt.consume();
+        char c = evt.getKeyChar();
+        if (c < '0' || c > '9') {
+            evt.consume();
+        }
     }//GEN-LAST:event_txtCodAntKeyTyped
 
     /**

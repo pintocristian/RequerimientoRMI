@@ -21,18 +21,21 @@ public class GUIRFormatoA extends javax.swing.JFrame {
     /**
      * Creates new form GUIRFormatoA
      */
-  
     private static GestionAnteproyectoINT objetoRemotoAnteproyecto;
-    public GUIRFormatoA(GestionAnteproyectoINT  objAnte) {
+
+    public GUIRFormatoA(GestionAnteproyectoINT objAnte) {
         initComponents();
-        this.objetoRemotoAnteproyecto=objAnte;
+        this.objetoRemotoAnteproyecto = objAnte;
         try {
             this.lblCodigoASalida.setText(Integer.toString(this.objetoRemotoAnteproyecto.solicitarCodigo()));
         } catch (RemoteException ex) {
             Logger.getLogger(GUIRFormatoA.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-      public GUIRFormatoA(){}
+
+    public GUIRFormatoA() {
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -178,50 +181,52 @@ public class GUIRFormatoA extends javax.swing.JFrame {
     private void btnRegistrarAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarAActionPerformed
 
         try {
-            
-            
-            
-            if(lblCodigoASalida.getText().isEmpty() || txtNombrePA.getText().isEmpty() ||  txtTituloA.getText().isEmpty() && txtNombreEst01.getText().isEmpty() || txtCodigoEst01.getText().isEmpty() || txtNombreDir.getText().isEmpty() || txtNombreCoodir.getText().isEmpty() || txtObjetivos.getText().isEmpty() || txtNombreEst02.getText().isEmpty() || txtCodigoEst02.getText().isEmpty()){
-               JOptionPane.showMessageDialog(null, "Todos los campos deben ser ingresados");
-            
-            }else if(txtCodigoEst01.getText().equals(txtCodigoEst02.getText())){
-                 JOptionPane.showMessageDialog(null, "Verifique que el codigo de los estudiantes es diferente");
-            
-            }else{
-            int codigo = Integer.parseInt(lblCodigoASalida.getText());
-            String NombreP = txtNombrePA.getText();
-            String TituloA = txtTituloA.getText();
-            String NombreEst1 = txtNombreEst01.getText();
-            int Codigo1 = Integer.parseInt(txtCodigoEst01.getText());
-            String NombreEst2 = txtNombreEst02.getText();
-            int Codigo2 = Integer.parseInt(txtCodigoEst02.getText());
-            String NombreDir = txtNombreDir.getText();
-            String NombreCoodir = txtNombreCoodir.getText();
-            String Objetivos =txtObjetivos.getText();
-            clsFormatoTiADTO objFormatoA = new clsFormatoTiADTO(codigo, NombreP, TituloA, NombreEst1, Codigo1, NombreEst2, Codigo2, NombreDir, NombreCoodir, Objetivos);
-            boolean funciono = objetoRemotoAnteproyecto.RegistrarFormatoTiA(objFormatoA);
-            if (funciono == true) {
-                JOptionPane.showMessageDialog(null, "Anteproyecto registrado exitosamente");
-                this.dispose();
+
+            if (lblCodigoASalida.getText().isEmpty() || txtNombrePA.getText().isEmpty() || txtTituloA.getText().isEmpty() && txtNombreEst01.getText().isEmpty() || txtCodigoEst01.getText().isEmpty() || txtNombreDir.getText().isEmpty() || txtNombreCoodir.getText().isEmpty() || txtObjetivos.getText().isEmpty() || txtNombreEst02.getText().isEmpty() || txtCodigoEst02.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Todos los campos deben ser ingresados");
+
+            } else if (txtCodigoEst01.getText().equals(txtCodigoEst02.getText())) {
+                JOptionPane.showMessageDialog(null, "Verifique que el codigo de los estudiantes es diferente");
+
             } else {
-                JOptionPane.showMessageDialog(null, "El Anteproyecto no se pudo Registrar con exito");
-                this.dispose();
+                int codigo = Integer.parseInt(lblCodigoASalida.getText());
+                String NombreP = txtNombrePA.getText();
+                String TituloA = txtTituloA.getText();
+                String NombreEst1 = txtNombreEst01.getText();
+                int Codigo1 = Integer.parseInt(txtCodigoEst01.getText());
+                String NombreEst2 = txtNombreEst02.getText();
+                int Codigo2 = Integer.parseInt(txtCodigoEst02.getText());
+                String NombreDir = txtNombreDir.getText();
+                String NombreCoodir = txtNombreCoodir.getText();
+                String Objetivos = txtObjetivos.getText();
+                clsFormatoTiADTO objFormatoA = new clsFormatoTiADTO(codigo, NombreP, TituloA, NombreEst1, Codigo1, NombreEst2, Codigo2, NombreDir, NombreCoodir, Objetivos);
+                boolean funciono = objetoRemotoAnteproyecto.RegistrarFormatoTiA(objFormatoA);
+                if (funciono == true) {
+                    JOptionPane.showMessageDialog(null, "Anteproyecto registrado exitosamente");
+                    this.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(null, "El Anteproyecto no se pudo Registrar con exito");
+                    this.dispose();
+                }
             }
-            }
-            
+
         } catch (RemoteException ex) {
             Logger.getLogger(GUIRFormatoA.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnRegistrarAActionPerformed
 
     private void txtCodigoEst01KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodigoEst01KeyTyped
-          char c =evt.getKeyChar();
-      if(c<'0' || c>'9') evt.consume();
+        char c = evt.getKeyChar();
+        if (c < '0' || c > '9') {
+            evt.consume();
+        }
     }//GEN-LAST:event_txtCodigoEst01KeyTyped
 
     private void txtCodigoEst02KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodigoEst02KeyTyped
-           char c =evt.getKeyChar();
-      if(c<'0' || c>'9') evt.consume();
+        char c = evt.getKeyChar();
+        if (c < '0' || c > '9') {
+            evt.consume();
+        }
     }//GEN-LAST:event_txtCodigoEst02KeyTyped
 
     /**

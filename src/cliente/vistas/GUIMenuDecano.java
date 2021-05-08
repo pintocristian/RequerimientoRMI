@@ -20,14 +20,18 @@ public class GUIMenuDecano extends javax.swing.JFrame {
      */
     private static GestionAnteproyectoINT objetoRemotoAnteproyecto;
     private static GestionUsuariosINT objetoRemotoUsuario;
-         private static GestionSeguimientoINT objetoRemotoSeguimiento;
-    public GUIMenuDecano(GestionUsuariosINT objUsuario,GestionAnteproyectoINT objAnteproyecto,GestionSeguimientoINT objRemotoSeg) {
+    private static GestionSeguimientoINT objetoRemotoSeguimiento;
+
+    public GUIMenuDecano(GestionUsuariosINT objUsuario, GestionAnteproyectoINT objAnteproyecto, GestionSeguimientoINT objRemotoSeg) {
         initComponents();
-        this.objetoRemotoUsuario=objUsuario;
-        this.objetoRemotoAnteproyecto=objAnteproyecto;
-        this.objetoRemotoSeguimiento= objRemotoSeg;
+        this.objetoRemotoUsuario = objUsuario;
+        this.objetoRemotoAnteproyecto = objAnteproyecto;
+        this.objetoRemotoSeguimiento = objRemotoSeg;
     }
-    public GUIMenuDecano(){}
+
+    public GUIMenuDecano() {
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -120,28 +124,28 @@ public class GUIMenuDecano extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        GUIInicioSesion GUISesion =new GUIInicioSesion(objetoRemotoUsuario,objetoRemotoAnteproyecto,objetoRemotoSeguimiento);
+        GUIInicioSesion GUISesion = new GUIInicioSesion(objetoRemotoUsuario, objetoRemotoAnteproyecto, objetoRemotoSeguimiento);
         GUISesion.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnAprobadosCoorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAprobadosCoorActionPerformed
-      GUIListarAprobadosD objListD = new GUIListarAprobadosD(objetoRemotoAnteproyecto);
-      objListD.setVisible(true);
+        GUIListarAprobadosD objListD = new GUIListarAprobadosD(objetoRemotoAnteproyecto);
+        objListD.setVisible(true);
     }//GEN-LAST:event_btnAprobadosCoorActionPerformed
 
     private void btnRegistrarRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarRActionPerformed
-    GUIRResolucion objR = new GUIRResolucion(objetoRemotoAnteproyecto,objetoRemotoSeguimiento);
-    objR.setVisible(true);
+        GUIRResolucion objR = new GUIRResolucion(objetoRemotoAnteproyecto, objetoRemotoSeguimiento);
+        objR.setVisible(true);
     }//GEN-LAST:event_btnRegistrarRActionPerformed
 
     private void btnAprobadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAprobadosActionPerformed
-        GUIConsultarResolucion objCR = new  GUIConsultarResolucion(objetoRemotoAnteproyecto,objetoRemotoSeguimiento);
+        GUIConsultarResolucion objCR = new GUIConsultarResolucion(objetoRemotoAnteproyecto, objetoRemotoSeguimiento);
         objCR.setVisible(true);
     }//GEN-LAST:event_btnAprobadosActionPerformed
 
     private void btnConHistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConHistorialActionPerformed
-          GUIConsultarHistorial objH = new  GUIConsultarHistorial(objetoRemotoAnteproyecto,objetoRemotoSeguimiento);
+        GUIConsultarHistorial objH = new GUIConsultarHistorial(objetoRemotoAnteproyecto, objetoRemotoSeguimiento);
         objH.setVisible(true);
     }//GEN-LAST:event_btnConHistorialActionPerformed
 

@@ -22,11 +22,15 @@ public class GUIConsultarUsuario extends javax.swing.JFrame {
      * Creates new form GUIConsultarUsuario
      */
     private static GestionUsuariosINT objetoRemotoUsuario;
+
     public GUIConsultarUsuario(GestionUsuariosINT objetoRemoto) {
         initComponents();
-          this.objetoRemotoUsuario=objetoRemoto;
+        this.objetoRemotoUsuario = objetoRemoto;
     }
-     public GUIConsultarUsuario(){}
+
+    public GUIConsultarUsuario() {
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -140,39 +144,41 @@ public class GUIConsultarUsuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnConsultarUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarUActionPerformed
-   
-        try {
-            if(txtIndentificacionConsultar.getText().isEmpty()){
-                  JOptionPane.showMessageDialog(null,"Por favor ingrese el identificador");
-            }else{
-            int id =Integer.parseInt(txtIndentificacionConsultar.getText());
-            clsUsuarioDTO objUsuario=objetoRemotoUsuario.ConsultarUsuario(id);
-            if(objUsuario!=null){
 
-                lblNombreComSalida.setText(objUsuario.getNombreCompleto());
-                lblRolConSalida.setText(objUsuario.getRole());
-                lblUsuarioConSalida.setText(objUsuario.getUsuario());
-                lblDepartamentoConSalida.setText(objUsuario.getDepartamento());
-            }else{
-              JOptionPane.showMessageDialog(null,"Usuario No encontrado");
-              this.dispose();
+        try {
+            if (txtIndentificacionConsultar.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Por favor ingrese el identificador");
+            } else {
+                int id = Integer.parseInt(txtIndentificacionConsultar.getText());
+                clsUsuarioDTO objUsuario = objetoRemotoUsuario.ConsultarUsuario(id);
+                if (objUsuario != null) {
+
+                    lblNombreComSalida.setText(objUsuario.getNombreCompleto());
+                    lblRolConSalida.setText(objUsuario.getRole());
+                    lblUsuarioConSalida.setText(objUsuario.getUsuario());
+                    lblDepartamentoConSalida.setText(objUsuario.getDepartamento());
+                } else {
+                    JOptionPane.showMessageDialog(null, "Usuario No encontrado");
+                    this.dispose();
+                }
+
             }
-            
-           }
-            
+
         } catch (RemoteException ex) {
             Logger.getLogger(GUIConsultarUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
-      
+
     }//GEN-LAST:event_btnConsultarUActionPerformed
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
-      this.dispose();
+        this.dispose();
     }//GEN-LAST:event_btnAtrasActionPerformed
 
     private void txtIndentificacionConsultarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIndentificacionConsultarKeyTyped
-            char c =evt.getKeyChar();
-      if(c<'0' || c>'9') evt.consume();
+        char c = evt.getKeyChar();
+        if (c < '0' || c > '9') {
+            evt.consume();
+        }
     }//GEN-LAST:event_txtIndentificacionConsultarKeyTyped
 
     /**

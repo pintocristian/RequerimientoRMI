@@ -11,7 +11,8 @@ import java.io.Serializable;
  *
  * @author Usuario
  */
-public class clsUsuarioDTO implements Serializable{
+public class clsUsuarioDTO implements Serializable {
+
     private int id;
     private String nombreCompleto;
     private String role;
@@ -75,6 +76,5 @@ public class clsUsuarioDTO implements Serializable{
     public void setContrasenia(String contrasenia) {
         this.contrasenia = contrasenia;
     }
-    
-    
+
 }

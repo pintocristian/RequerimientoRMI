@@ -24,16 +24,20 @@ public class GUIInicioSesion extends javax.swing.JFrame {
     /**
      * Creates new form GUIInicioSesion
      */
-      private static GestionUsuariosINT objetoRemotoUsuario;
-      private static GestionAnteproyectoINT objetoRemotoAnteproyectos;
-       private static GestionSeguimientoINT objetoRemotoSeguimiento;
-    public GUIInicioSesion(GestionUsuariosINT objetoRemotoU,GestionAnteproyectoINT objetoRemotoA,GestionSeguimientoINT objRemotoSeg) {
+    private static GestionUsuariosINT objetoRemotoUsuario;
+    private static GestionAnteproyectoINT objetoRemotoAnteproyectos;
+    private static GestionSeguimientoINT objetoRemotoSeguimiento;
+
+    public GUIInicioSesion(GestionUsuariosINT objetoRemotoU, GestionAnteproyectoINT objetoRemotoA, GestionSeguimientoINT objRemotoSeg) {
         initComponents();
-        this.objetoRemotoUsuario=objetoRemotoU;
-        this.objetoRemotoAnteproyectos=objetoRemotoA;
-        this.objetoRemotoSeguimiento= objRemotoSeg;
+        this.objetoRemotoUsuario = objetoRemotoU;
+        this.objetoRemotoAnteproyectos = objetoRemotoA;
+        this.objetoRemotoSeguimiento = objRemotoSeg;
     }
-    public GUIInicioSesion(){}
+
+    public GUIInicioSesion() {
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -111,106 +115,104 @@ public class GUIInicioSesion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuardarInicioSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarInicioSesionActionPerformed
-        String usuarioAdmin="Administrador1";
-        String claveAdmin="Administrador1";
-        String numero1=txtUsuario.getText();
-        String numero2=txtClave.getText();
-        boolean u=alfanumerico(txtUsuario.getText());
-        boolean c=alfanumerico(txtClave.getText());
-        
-        if(txtUsuario.getText().isEmpty() || txtClave.getText().isEmpty()){
-        
-             JOptionPane.showMessageDialog(null,"el usuario y la contrasenia no pueden estar vacios"); 
-            
-        }else if(u==false || c==false){
-          JOptionPane.showMessageDialog(null,"La contraseña debe tener numeros y letras"); 
-        }else if(numero1.length()<8 || numero2.length()<8){
-              txtUsuario.setText("");
-              txtClave.setText("");
-            JOptionPane.showMessageDialog(null,"el usuario y la contraseña tienen que tener minimo 8 caracteres"); 
-            
-        }else{
-        
-            
-        if(txtUsuario.getText().equals(usuarioAdmin) && txtClave.getText().equals(claveAdmin)){
-            GUIAdminPrincipal GUIAdminP = new GUIAdminPrincipal(objetoRemotoUsuario,objetoRemotoAnteproyectos,objetoRemotoSeguimiento);
-            GUIAdminP.setVisible(true);
-            this.dispose();
-        }else{
-        
-            try {
-                String usuario=txtUsuario.getText();
-                String clave=new String(txtClave.getText());
-                clsUsuarioDTO objUsuario=objetoRemotoUsuario.Sesion(usuario, clave);
-                if(objUsuario!=null){
-                    String Rol=objUsuario.getRole();
-                    switch(Rol){
-                        case "Director":
-                        
-                            
-                             GUIMenuDirector GUIMDir =new  GUIMenuDirector(objetoRemotoUsuario,objetoRemotoAnteproyectos,objetoRemotoSeguimiento);
-                             NotificacionImpl objAdmin = new NotificacionImpl(GUIMDir);
-                             objetoRemotoAnteproyectos.registrarCallback(objAdmin);
-                            GUIMDir.setVisible(true);
-                            break;
-                        case "Evaluador":
-                            int idEv=objUsuario.getId();
-                            GUIMenuEvaluador GUIMEva =new  GUIMenuEvaluador(objetoRemotoUsuario,objetoRemotoAnteproyectos,idEv,objetoRemotoSeguimiento);
-                            GUIMEva.setVisible(true);
-                            break;
-                        case "Jefe departamento":
-                            GUIMenuJdpto GUIMJdpto =new  GUIMenuJdpto(objetoRemotoUsuario,objetoRemotoAnteproyectos,objetoRemotoSeguimiento);
-                            GUIMJdpto.setVisible(true);
-                            break;
-                          
-                        case "Coordinador":
-                            GUIMenuCoordinador GUIMCoor =new  GUIMenuCoordinador(objetoRemotoUsuario,objetoRemotoAnteproyectos,objetoRemotoSeguimiento);
-                            GUIMCoor.setVisible(true);
-                            break;
-                        case "Decano":
-                            GUIMenuDecano GUIMDec =new  GUIMenuDecano(objetoRemotoUsuario,objetoRemotoAnteproyectos,objetoRemotoSeguimiento);
-                            GUIMDec.setVisible(true);
-                            break;
-                        default :
-                            JOptionPane.showMessageDialog(null,"El rol ingresado no existe"); 
-                            break;
+        String usuarioAdmin = "Administrador1";
+        String claveAdmin = "Administrador1";
+        String numero1 = txtUsuario.getText();
+        String numero2 = txtClave.getText();
+        boolean u = alfanumerico(txtUsuario.getText());
+        boolean c = alfanumerico(txtClave.getText());
+
+        if (txtUsuario.getText().isEmpty() || txtClave.getText().isEmpty()) {
+
+            JOptionPane.showMessageDialog(null, "El usuario y la contrasenia no pueden estar vacios");
+
+        } else if (u == false || c == false) {
+            JOptionPane.showMessageDialog(null, "La contraseña debe tener numeros y letras");
+        } else if (numero1.length() < 8 || numero2.length() < 8) {
+            txtUsuario.setText("");
+            txtClave.setText("");
+            JOptionPane.showMessageDialog(null, "El usuario y la contraseña tienen que tener minimo 8 caracteres");
+
+        } else {
+
+            if (txtUsuario.getText().equals(usuarioAdmin) && txtClave.getText().equals(claveAdmin)) {
+                GUIAdminPrincipal GUIAdminP = new GUIAdminPrincipal(objetoRemotoUsuario, objetoRemotoAnteproyectos, objetoRemotoSeguimiento);
+                GUIAdminP.setVisible(true);
+                this.dispose();
+            } else {
+
+                try {
+                    String usuario = txtUsuario.getText();
+                    String clave = new String(txtClave.getText());
+                    clsUsuarioDTO objUsuario = objetoRemotoUsuario.Sesion(usuario, clave);
+                    if (objUsuario != null) {
+                        String Rol = objUsuario.getRole();
+                        switch (Rol) {
+                            case "Director":
+
+                                GUIMenuDirector GUIMDir = new GUIMenuDirector(objetoRemotoUsuario, objetoRemotoAnteproyectos, objetoRemotoSeguimiento);
+                                NotificacionImpl objAdmin = new NotificacionImpl(GUIMDir);
+                                objetoRemotoAnteproyectos.registrarCallback(objAdmin);
+                                GUIMDir.setVisible(true);
+                                break;
+                            case "Evaluador":
+                                int idEv = objUsuario.getId();
+                                GUIMenuEvaluador GUIMEva = new GUIMenuEvaluador(objetoRemotoUsuario, objetoRemotoAnteproyectos, idEv, objetoRemotoSeguimiento);
+                                GUIMEva.setVisible(true);
+                                break;
+                            case "Jefe departamento":
+                                GUIMenuJdpto GUIMJdpto = new GUIMenuJdpto(objetoRemotoUsuario, objetoRemotoAnteproyectos, objetoRemotoSeguimiento);
+                                GUIMJdpto.setVisible(true);
+                                break;
+
+                            case "Coordinador":
+                                GUIMenuCoordinador GUIMCoor = new GUIMenuCoordinador(objetoRemotoUsuario, objetoRemotoAnteproyectos, objetoRemotoSeguimiento);
+                                GUIMCoor.setVisible(true);
+                                break;
+                            case "Decano":
+                                GUIMenuDecano GUIMDec = new GUIMenuDecano(objetoRemotoUsuario, objetoRemotoAnteproyectos, objetoRemotoSeguimiento);
+                                GUIMDec.setVisible(true);
+                                break;
+                            default:
+                                JOptionPane.showMessageDialog(null, "El rol ingresado no existe");
+                                break;
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Credenciales incorrectas");
                     }
-                }else{
-                   JOptionPane.showMessageDialog(null,"Credenciales incorrectas"); 
-               }
-            } catch (RemoteException ex) {
-                Logger.getLogger(GUIInicioSesion.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (RemoteException ex) {
+                    Logger.getLogger(GUIInicioSesion.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                this.dispose();
             }
-            this.dispose();
+
         }
-        
-            
-        }
-        
-        
+
+
     }//GEN-LAST:event_btnGuardarInicioSesionActionPerformed
-    public boolean alfanumerico( String texto){
-    boolean bandera=false;
+    public boolean alfanumerico(String texto) {
+        boolean bandera = false;
         char textoIngresado;
-        
+
         byte conNumero = 0, conLetra = 0;
-        
-        for(byte i = 0; i < texto.length(); i++){
+
+        for (byte i = 0; i < texto.length(); i++) {
             textoIngresado = texto.charAt(i);
             String aux = String.valueOf(textoIngresado);
-            
-            if(aux.matches("[a-z]") || aux.matches("[A-Z]")){
+
+            if (aux.matches("[a-z]") || aux.matches("[A-Z]")) {
                 conLetra++;
-            }else if(aux.matches("[0-9]")){
+            } else if (aux.matches("[0-9]")) {
                 conNumero++;
             }
         }
-        if(conNumero > 0 && conLetra > 0){
-            bandera=true;
+        if (conNumero > 0 && conLetra > 0) {
+            bandera = true;
         }
-    
-    return bandera;
+
+        return bandera;
     }
+
     /**
      * @param args the command line arguments
      */

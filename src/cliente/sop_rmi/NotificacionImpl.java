@@ -14,16 +14,19 @@ import javax.swing.JOptionPane;
  *
  * @author Usuario
  */
-public class NotificacionImpl extends UnicastRemoteObject implements NotificacionINT{
+public class NotificacionImpl extends UnicastRemoteObject implements NotificacionINT {
+
     private GUIMenuDirector Director;
-    public NotificacionImpl(GUIMenuDirector director)throws RemoteException{
-    this.Director=director;
+
+    public NotificacionImpl(GUIMenuDirector director) throws RemoteException {
+        this.Director = director;
     }
+
     @Override
     public void Notificar(int codigo) throws RemoteException {
-          System.out.println("El anteproyecto con codigo: "+codigo+" Fue aprobado por los evaluadores");
-         Director.Notificacion("El anteproyecto con codigo: "+codigo+" Fue aprobado por los evaluadores");
-         
+        System.out.println("El anteproyecto con codigo: " + codigo + " Fue aprobado por los evaluadores");
+        Director.Notificacion("El anteproyecto con codigo: " + codigo + " Fue aprobado por los evaluadores");
+
     }
-    
+
 }

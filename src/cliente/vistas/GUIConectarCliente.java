@@ -98,18 +98,18 @@ public class GUIConectarCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnConectarCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConectarCActionPerformed
-        
-        int puerto=Integer.parseInt(txtPuertoC.getText());
-        String direccion=txtIPC.getText();
+
+        int puerto = Integer.parseInt(txtPuertoC.getText());
+        String direccion = txtIPC.getText();
         GestionAnteproyectoINT objRemoto;
         GestionUsuariosINT objRemotoU;
-        GestionSeguimientoINT  objRemotoSeguimiento;
-        objRemotoU =  (GestionUsuariosINT) UtilidadesRegistroC.obtenerObjRemoto(direccion,puerto,"objetoRemotoUsuario");
-        objRemoto = (GestionAnteproyectoINT) UtilidadesRegistroC.obtenerObjRemoto(direccion,puerto,"objetoRemotoGestion");
+        GestionSeguimientoINT objRemotoSeguimiento;
+        objRemotoU = (GestionUsuariosINT) UtilidadesRegistroC.obtenerObjRemoto(direccion, puerto, "objetoRemotoUsuario");
+        objRemoto = (GestionAnteproyectoINT) UtilidadesRegistroC.obtenerObjRemoto(direccion, puerto, "objetoRemotoGestion");
         objRemotoSeguimiento = (GestionSeguimientoINT) UtilidadesRegistroC.obtenerObjRemoto(direccion, puerto, "objetoRemotoSeguimiento");
-        GUIInicioSesion GUISesion =new GUIInicioSesion(objRemotoU,objRemoto,objRemotoSeguimiento);
+        GUIInicioSesion GUISesion = new GUIInicioSesion(objRemotoU, objRemoto, objRemotoSeguimiento);
         GUISesion.setVisible(true);
-         this.dispose();
+        this.dispose();
     }//GEN-LAST:event_btnConectarCActionPerformed
 
     /**

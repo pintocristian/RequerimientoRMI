@@ -19,15 +19,19 @@ public class GUIAdminPrincipal extends javax.swing.JFrame {
      * Creates new form GUIAdminPrincipal
      */
     private static GestionUsuariosINT objetoRemotoUsuario;
-     private static GestionAnteproyectoINT objetoRemotoAnteproyecto;
-        private static GestionSeguimientoINT objetoRemotoSeguimiento;
-    public GUIAdminPrincipal(GestionUsuariosINT objetoUsuario,GestionAnteproyectoINT objAnteproyecto,GestionSeguimientoINT objRemotoSeg) {
+    private static GestionAnteproyectoINT objetoRemotoAnteproyecto;
+    private static GestionSeguimientoINT objetoRemotoSeguimiento;
+
+    public GUIAdminPrincipal(GestionUsuariosINT objetoUsuario, GestionAnteproyectoINT objAnteproyecto, GestionSeguimientoINT objRemotoSeg) {
         initComponents();
-        this.objetoRemotoUsuario=objetoUsuario;
-        this.objetoRemotoAnteproyecto=objAnteproyecto;
-           this.objetoRemotoSeguimiento= objRemotoSeg;
+        this.objetoRemotoUsuario = objetoUsuario;
+        this.objetoRemotoAnteproyecto = objAnteproyecto;
+        this.objetoRemotoSeguimiento = objRemotoSeg;
     }
-     public GUIAdminPrincipal(){}
+
+    public GUIAdminPrincipal() {
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -117,25 +121,25 @@ public class GUIAdminPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        GUIRegistrarUsuario GUIUsuario =new GUIRegistrarUsuario(objetoRemotoUsuario);
+        GUIRegistrarUsuario GUIUsuario = new GUIRegistrarUsuario(objetoRemotoUsuario);
         GUIUsuario.setVisible(true);
-       
+
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        GUIModificarUsuario GUIModUsuario =new GUIModificarUsuario(objetoRemotoUsuario);
+        GUIModificarUsuario GUIModUsuario = new GUIModificarUsuario(objetoRemotoUsuario);
         GUIModUsuario.setVisible(true);
-       
+
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
-        GUIConsultarUsuario GUIConUsuario =new GUIConsultarUsuario(objetoRemotoUsuario);
+        GUIConsultarUsuario GUIConUsuario = new GUIConsultarUsuario(objetoRemotoUsuario);
         GUIConUsuario.setVisible(true);
-         
+
     }//GEN-LAST:event_btnConsultarActionPerformed
 
     private void btnCerrarAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarAdminActionPerformed
-        GUIInicioSesion GUISesion =new GUIInicioSesion(objetoRemotoUsuario,objetoRemotoAnteproyecto,objetoRemotoSeguimiento);
+        GUIInicioSesion GUISesion = new GUIInicioSesion(objetoRemotoUsuario, objetoRemotoAnteproyecto, objetoRemotoSeguimiento);
         GUISesion.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnCerrarAdminActionPerformed
