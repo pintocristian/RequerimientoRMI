@@ -100,7 +100,7 @@ public class GUIRFormatoB extends javax.swing.JFrame {
 
         cmbConcepto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aprobado", "Reprobado" }));
         jPanel1.add(cmbConcepto, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 80, 90, -1));
-        jPanel1.add(jdFechaEvaluacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, -1, -1));
+        jPanel1.add(jdFechaEvaluacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 160, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/b.jpg"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 270));

@@ -4,16 +4,8 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/SGestionAnteproyectos/sop_rmi/GestionAnteproyectoImpl.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/SGestionAnteproyectos/dto/clsDirectorDTO.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/SGestionAnteproyectos/dto/clsFormatoTiADTO.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/cliente/vistas/GUIInicioSesion.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/SGestionAnteproyectos/sop_rmi/GestionAnteproyectoINT.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/cliente/sop_rmi/NotificacionImpl.java</file>
             <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/cliente/vistas/GUIRFormatoB.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/cliente/sop_rmi/NotificacionINT.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/cliente/vistas/GUIRFormatoA.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/cliente/vistas/GUIMenuDirector.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/SSeguimientoAnteproyectos/sop_rmi/GestionSeguimientoImpl.java</file>
+            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/cliente/vistas/GUIRResolucion.java</file>
         </group>
     </open-files>
 </project-private>

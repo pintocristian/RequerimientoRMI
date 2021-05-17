@@ -528,22 +528,20 @@ public class GestionAnteproyectoImpl extends UnicastRemoteObject implements Gest
 
     public void hacerCallback(int codigo) throws RemoteException {
         System.out.println("Entrando a hacer callback");
-        boolean bandera=false;
+      
         for (int i = 0; i < listaDir.size(); i++) {
             for(int j=0;j<listaDir.get(i).getLista().size();j++){
                 if((int)listaDir.get(i).getLista().get(j)==codigo){ 
                     // NotificacionINT obj = (NotificacionINT) listaDir.elementAt(i);
                     //obj.Notificar(codigo);
                     listaDir.get(i).getReferencia().Notificar(codigo);
-                     bandera=true;
-                     break;
+                    
+                    
                      
                 }
              
             }
-            if(bandera==true){
-                break;
-            }
+            
         }
     }
 
