@@ -6,6 +6,7 @@
 package SGestionAnteproyectos.sop_rmi;
 
 import SGestionAnteproyectos.dto.clsConceptosDTO;
+import SGestionAnteproyectos.dto.clsDirectorDTO;
 import SGestionAnteproyectos.dto.clsFormatoTiADTO;
 import SGestionAnteproyectos.dto.clsFormatoTiBDTO;
 import SGestionAnteproyectos.dto.clsFormatoTiCDTO;
@@ -43,7 +44,7 @@ public class GestionAnteproyectoImpl extends UnicastRemoteObject implements Gest
     private ArrayList<clsFormatoTiCDTO> FormatoC;
     private ArrayList<clsFormatoTiDDTO> FormatoD;
     private static int incremento = 0;
-    private Vector listaDir;
+    private Vector<clsDirectorDTO> listaDir;
 
     public GestionAnteproyectoImpl() throws RemoteException {
         super();
@@ -504,20 +505,58 @@ public class GestionAnteproyectoImpl extends UnicastRemoteObject implements Gest
     }
 
     @Override
-    public void registrarCallback(NotificacionINT objAdmin) throws RemoteException {
+    public void registrarCallback(clsDirectorDTO objDirector) throws RemoteException {
         System.out.println("Entrando a registrar callback");
-        if (!(listaDir.contains(objAdmin))) {
-            listaDir.addElement(objAdmin);
+        boolean bandera = false;
+        int indice = -1;
+        for (int i = 0; i < listaDir.size(); i++) {
+            if (listaDir.get(i).getId() == objDirector.getId()) {
+                indice = i;
+                bandera = true;
+            }
+
+        }
+        if (bandera == false) {
+            if (!(listaDir.contains(objDirector))) {
+                listaDir.addElement(objDirector);
+            }
+        } else {
+            listaDir.get(indice).setReferencia(objDirector.getReferencia());
         }
 
     }
 
     public void hacerCallback(int codigo) throws RemoteException {
         System.out.println("Entrando a hacer callback");
+        boolean bandera=false;
         for (int i = 0; i < listaDir.size(); i++) {
-            NotificacionINT obj = (NotificacionINT) listaDir.elementAt(i);
-            obj.Notificar(codigo);
+            for(int j=0;j<listaDir.get(i).getLista().size();j++){
+                if((int)listaDir.get(i).getLista().get(j)==codigo){ 
+                    // NotificacionINT obj = (NotificacionINT) listaDir.elementAt(i);
+                    //obj.Notificar(codigo);
+                    listaDir.get(i).getReferencia().Notificar(codigo);
+                     bandera=true;
+                     break;
+                     
+                }
+             
+            }
+            if(bandera==true){
+                break;
+            }
         }
+    }
+
+    @Override
+    public void AsignarAnteproyectos(int id, int codigo) throws RemoteException {
+        for (clsDirectorDTO objDirector : listaDir) {
+           if(objDirector.getId()==id){
+               objDirector.getLista().add(codigo);
+           
+           }
+        }
+            
+        
     }
 
 }

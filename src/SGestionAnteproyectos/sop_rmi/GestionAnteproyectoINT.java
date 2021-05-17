@@ -6,6 +6,7 @@
 package SGestionAnteproyectos.sop_rmi;
 
 import SGestionAnteproyectos.dto.clsConceptosDTO;
+import SGestionAnteproyectos.dto.clsDirectorDTO;
 import SGestionAnteproyectos.dto.clsFormatoTiADTO;
 import SGestionAnteproyectos.dto.clsFormatoTiBDTO;
 import SGestionAnteproyectos.dto.clsFormatoTiCDTO;
@@ -56,5 +57,7 @@ public interface GestionAnteproyectoINT extends Remote {
 
     public ArrayList<clsFormatoTiADTO> ListarAntNoAsig() throws RemoteException;
 
-    public void registrarCallback(NotificacionINT objAdmin) throws RemoteException;
+    public void registrarCallback(clsDirectorDTO objDirector) throws RemoteException;
+    
+    public void AsignarAnteproyectos(int id, int codigo) throws RemoteException;
 }

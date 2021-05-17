@@ -5,6 +5,7 @@
  */
 package cliente.vistas;
 
+import SGestionAnteproyectos.dto.clsDirectorDTO;
 import SGestionAnteproyectos.dto.clsUsuarioDTO;
 import SGestionAnteproyectos.sop_rmi.GestionAnteproyectoINT;
 import SGestionAnteproyectos.sop_rmi.GestionUsuariosINT;
@@ -149,12 +150,14 @@ public class GUIInicioSesion extends javax.swing.JFrame {
                         String Rol = objUsuario.getRole();
                         switch (Rol) {
                             case "Director":
-
-                                GUIMenuDirector GUIMDir = new GUIMenuDirector(objetoRemotoUsuario, objetoRemotoAnteproyectos, objetoRemotoSeguimiento);
+                                
+                                GUIMenuDirector GUIMDir = new GUIMenuDirector(objetoRemotoUsuario, objetoRemotoAnteproyectos, objetoRemotoSeguimiento,objUsuario.getId());
                                 NotificacionImpl objAdmin = new NotificacionImpl(GUIMDir);
-                                objetoRemotoAnteproyectos.registrarCallback(objAdmin);
+                                clsDirectorDTO objDirector = new clsDirectorDTO(objUsuario.getId(),objAdmin);
+                                objetoRemotoAnteproyectos.registrarCallback(objDirector);
                                 GUIMDir.setVisible(true);
                                 break;
+                                
                             case "Evaluador":
                                 int idEv = objUsuario.getId();
                                 GUIMenuEvaluador GUIMEva = new GUIMenuEvaluador(objetoRemotoUsuario, objetoRemotoAnteproyectos, idEv, objetoRemotoSeguimiento);

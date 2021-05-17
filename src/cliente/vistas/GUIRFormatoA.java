@@ -22,10 +22,11 @@ public class GUIRFormatoA extends javax.swing.JFrame {
      * Creates new form GUIRFormatoA
      */
     private static GestionAnteproyectoINT objetoRemotoAnteproyecto;
-
-    public GUIRFormatoA(GestionAnteproyectoINT objAnte) {
+    private static int idDir;
+    public GUIRFormatoA(GestionAnteproyectoINT objAnte, int idDir) {
         initComponents();
         this.objetoRemotoAnteproyecto = objAnte;
+        this.idDir=idDir;
         try {
             this.lblCodigoASalida.setText(Integer.toString(this.objetoRemotoAnteproyecto.solicitarCodigo()));
         } catch (RemoteException ex) {
@@ -202,6 +203,7 @@ public class GUIRFormatoA extends javax.swing.JFrame {
                 clsFormatoTiADTO objFormatoA = new clsFormatoTiADTO(codigo, NombreP, TituloA, NombreEst1, Codigo1, NombreEst2, Codigo2, NombreDir, NombreCoodir, Objetivos);
                 boolean funciono = objetoRemotoAnteproyecto.RegistrarFormatoTiA(objFormatoA);
                 if (funciono == true) {
+                    objetoRemotoAnteproyecto.AsignarAnteproyectos(idDir,codigo);
                     JOptionPane.showMessageDialog(null, "Anteproyecto registrado exitosamente");
                     this.dispose();
                 } else {

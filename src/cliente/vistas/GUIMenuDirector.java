@@ -21,13 +21,14 @@ public class GUIMenuDirector extends javax.swing.JFrame {
     private static GestionAnteproyectoINT objetoRemotoAnteproyecto;
     private static GestionUsuariosINT objetoRemotoUsuario;
     private static GestionSeguimientoINT objetoRemotoSeguimiento;
-
-    public GUIMenuDirector(GestionUsuariosINT objUsuario, GestionAnteproyectoINT objAnteproyecto, GestionSeguimientoINT objRemotoSeg) {
+    private static int idDir;
+    public GUIMenuDirector(GestionUsuariosINT objUsuario, GestionAnteproyectoINT objAnteproyecto, GestionSeguimientoINT objRemotoSeg,int idDir) {
         initComponents();
         this.objetoRemotoUsuario = objUsuario;
         this.objetoRemotoAnteproyecto = objAnteproyecto;
         this.objetoRemotoSeguimiento = objRemotoSeg;
         txtNotificacion.setEnabled(false);
+        this.idDir=idDir;
     }
 
     public GUIMenuDirector() {
@@ -128,7 +129,7 @@ public class GUIMenuDirector extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirAActionPerformed
 
     private void btnRFormatoAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRFormatoAActionPerformed
-        GUIRFormatoA GUIA = new GUIRFormatoA(objetoRemotoAnteproyecto);
+        GUIRFormatoA GUIA = new GUIRFormatoA(objetoRemotoAnteproyecto,idDir);
         GUIA.setVisible(true);
     }//GEN-LAST:event_btnRFormatoAActionPerformed
 
