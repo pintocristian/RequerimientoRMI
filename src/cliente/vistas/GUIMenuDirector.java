@@ -27,7 +27,7 @@ public class GUIMenuDirector extends javax.swing.JFrame {
         this.objetoRemotoUsuario = objUsuario;
         this.objetoRemotoAnteproyecto = objAnteproyecto;
         this.objetoRemotoSeguimiento = objRemotoSeg;
-        txtNotificacion.setEnabled(false);
+        txtNotificacion.setEditable(false);
         this.idDir=idDir;
     }
 

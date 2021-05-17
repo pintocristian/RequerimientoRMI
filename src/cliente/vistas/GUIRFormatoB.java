@@ -8,6 +8,7 @@ package cliente.vistas;
 import SGestionAnteproyectos.sop_rmi.GestionAnteproyectoINT;
 import SGestionAnteproyectos.dto.clsFormatoTiBDTO;
 import java.rmi.RemoteException;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -50,9 +51,9 @@ public class GUIRFormatoB extends javax.swing.JFrame {
         lblFechaEvaluacion = new javax.swing.JLabel();
         btnEvaluar = new javax.swing.JButton();
         txtObservaciones = new javax.swing.JTextField();
-        txtFecha = new javax.swing.JTextField();
         txtCodAnt = new javax.swing.JTextField();
         cmbConcepto = new javax.swing.JComboBox<>();
+        jdFechaEvaluacion = new com.toedter.calendar.JDateChooser();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -89,7 +90,6 @@ public class GUIRFormatoB extends javax.swing.JFrame {
         });
         jPanel1.add(btnEvaluar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 214, -1, -1));
         jPanel1.add(txtObservaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(258, 119, 59, -1));
-        jPanel1.add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(258, 163, 59, -1));
 
         txtCodAnt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -100,6 +100,7 @@ public class GUIRFormatoB extends javax.swing.JFrame {
 
         cmbConcepto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aprobado", "Reprobado" }));
         jPanel1.add(cmbConcepto, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 80, 90, -1));
+        jPanel1.add(jdFechaEvaluacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/b.jpg"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 270));
@@ -125,7 +126,7 @@ public class GUIRFormatoB extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEvaluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEvaluarActionPerformed
-        if (txtCodAnt.getText().isEmpty() || txtFecha.getText().isEmpty() || txtObservaciones.getText().isEmpty()) {
+        if (txtCodAnt.getText().isEmpty() || jdFechaEvaluacion.getDate()==null|| txtObservaciones.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Todos los campos deben ser ingresados");
         } else {
 
@@ -139,7 +140,9 @@ public class GUIRFormatoB extends javax.swing.JFrame {
             }
 
             String Observaciones = txtObservaciones.getText();
-            String Fecha = txtFecha.getText();
+            Date FechaCalendar = jdFechaEvaluacion.getDate();
+            String Fecha = String.valueOf(FechaCalendar);
+            
             clsFormatoTiBDTO objB = new clsFormatoTiBDTO(idEv, CodigoAnt, Concepto, Observaciones, Fecha);
             try {
                 boolean funciono = objetoRemotoAnteproyecto.verificarPropiedad(CodigoAnt, idEv);
@@ -221,13 +224,13 @@ public class GUIRFormatoB extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmbConcepto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private com.toedter.calendar.JDateChooser jdFechaEvaluacion;
     private javax.swing.JLabel lblCodigoAnt;
     private javax.swing.JLabel lblConceptoEv;
     private javax.swing.JLabel lblEvaluarAnt;
     private javax.swing.JLabel lblFechaEvaluacion;
     private javax.swing.JLabel lblObsevaciones;
     private javax.swing.JTextField txtCodAnt;
-    private javax.swing.JTextField txtFecha;
     private javax.swing.JTextField txtObservaciones;
     // End of variables declaration//GEN-END:variables
 }
