@@ -8,7 +8,6 @@ package cliente.sop_rmi;
 import cliente.vistas.GUIMenuDirector;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-import javax.swing.JOptionPane;
 
 /**
  *

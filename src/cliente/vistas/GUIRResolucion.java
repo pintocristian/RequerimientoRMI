@@ -6,10 +6,8 @@
 package cliente.vistas;
 
 import SGestionAnteproyectos.sop_rmi.GestionAnteproyectoINT;
-import SGestionAnteproyectos.sop_rmi.GestionUsuariosINT;
 import SSeguimientoAnteproyectos.sop_rmi.GestionSeguimientoINT;
 import java.io.IOException;
-import java.rmi.RemoteException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;

@@ -6,7 +6,6 @@
 package cliente.vistas;
 
 import SGestionAnteproyectos.dto.clsUsuarioDTO;
-import SGestionAnteproyectos.sop_rmi.GestionAnteproyectoINT;
 import SGestionAnteproyectos.sop_rmi.GestionUsuariosINT;
 import java.rmi.RemoteException;
 import java.util.logging.Level;
@@ -145,7 +144,7 @@ public class GUIRegistrarUsuario extends javax.swing.JFrame {
             boolean c = alfanumerico(txtContraseniaU.getText());
             int validarId = objetoRemotoUsuario.validarId(ide);
             boolean validarUs = objetoRemotoUsuario.validarUS(numero1);
-            if (txtIdentificacionU.getText().isEmpty() || txtNombreComU.getText().isEmpty()  || txtUsuarioU.getText().isEmpty() || txtContraseniaU.getText().isEmpty()) {
+            if (txtIdentificacionU.getText().isEmpty() || txtNombreComU.getText().isEmpty() || txtUsuarioU.getText().isEmpty() || txtContraseniaU.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Ningun campo debe quedar vacio!!");
             } else if (u == false || c == false) {
                 txtUsuarioU.setText("");
@@ -161,12 +160,12 @@ public class GUIRegistrarUsuario extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "El id digitado ya existe, por favor ingresa otro");
             } else if (validarUs == true) {
                 JOptionPane.showMessageDialog(null, "El usuario digitado ya existe por favor ingresa otro");
-            } else if (Rol.equals("Decano") && objetoRemotoUsuario.verificarDecano()){
+            } else if (Rol.equals("Decano") && objetoRemotoUsuario.verificarDecano()) {
                 JOptionPane.showMessageDialog(null, "Solamente puede existir un decano");
-            }else {
+            } else {
                 int id = Integer.parseInt(txtIdentificacionU.getText());
                 String NombreCompleto = txtNombreComU.getText();
-                
+
                 String Departamento = (String) cmbDepU.getSelectedItem();
                 String Usuario = txtUsuarioU.getText();
                 String Contrasenia = (String) txtContraseniaU.getText();

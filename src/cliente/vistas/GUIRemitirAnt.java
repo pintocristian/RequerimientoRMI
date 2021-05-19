@@ -5,7 +5,6 @@
  */
 package cliente.vistas;
 
-import SGestionAnteproyectos.dto.clsFormatoTiADTO;
 import SGestionAnteproyectos.dto.clsRemitidoDTO;
 import SGestionAnteproyectos.sop_rmi.GestionAnteproyectoINT;
 import java.rmi.RemoteException;
@@ -13,7 +12,6 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -36,7 +34,7 @@ public class GUIRemitirAnt extends javax.swing.JFrame {
         this.depDir = depDir;
         this.listaRemitidos = new ArrayList();
         try {
-            
+
             listaRemitidos = objGestion.ListarAprobadosSinRemitir(idDir);
             if (listaRemitidos.isEmpty()) {
                 this.cmbCodigos.addItem("No hay Anteproyectos para Remitir");

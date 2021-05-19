@@ -5,10 +5,6 @@
  */
 package SSeguimientoAnteproyectos.vistas;
 
-import SSeguimientoAnteproyectos.utilidades.UtilidadesRegistroS;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-
 /**
  *
  * @author Usuario

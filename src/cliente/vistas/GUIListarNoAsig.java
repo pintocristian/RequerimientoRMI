@@ -6,7 +6,6 @@
 package cliente.vistas;
 
 import SGestionAnteproyectos.dto.clsFormatoTiADTO;
-import SGestionAnteproyectos.dto.clsFormatoTiBDTO;
 import SGestionAnteproyectos.sop_rmi.GestionAnteproyectoINT;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
@@ -29,9 +28,9 @@ public class GUIListarNoAsig extends javax.swing.JFrame {
     public GUIListarNoAsig(GestionAnteproyectoINT objAnte) {
         initComponents();
         this.objetoRemotoAnteproyecto = objAnte;
-        
+
         try {
-            
+
             this.listAnt = this.objetoRemotoAnteproyecto.ListarAntNoAsig();
         } catch (RemoteException ex) {
             Logger.getLogger(GUIListarAnt.class.getName()).log(Level.SEVERE, null, ex);
@@ -47,7 +46,7 @@ public class GUIListarNoAsig extends javax.swing.JFrame {
             modelo.addRow(obj);
         }
         tblAnt.setModel(modelo);
-        
+
     }
 
     public GUIListarNoAsig() {

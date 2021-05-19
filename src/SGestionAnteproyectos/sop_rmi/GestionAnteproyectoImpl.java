@@ -11,9 +11,7 @@ import SGestionAnteproyectos.dto.clsFormatoTiADTO;
 import SGestionAnteproyectos.dto.clsFormatoTiBDTO;
 import SGestionAnteproyectos.dto.clsFormatoTiCDTO;
 import SGestionAnteproyectos.dto.clsFormatoTiDDTO;
-import SGestionAnteproyectos.dto.clsFormatosDTO;
 import SGestionAnteproyectos.dto.clsRemitidoDTO;
-import SGestionAnteproyectos.dto.clsUsuarioDTO;
 import SGestionAnteproyectos.utilidades.UtilidadesRegistroC;
 import SSeguimientoAnteproyectos.dto.clsFormatoTiADTO2;
 import SSeguimientoAnteproyectos.dto.clsFormatoTiBDTO2;
@@ -21,8 +19,6 @@ import SSeguimientoAnteproyectos.dto.clsFormatoTiCDTO2;
 import SSeguimientoAnteproyectos.dto.clsFormatoTiDDTO2;
 import SSeguimientoAnteproyectos.dto.clsFormatosDTO2;
 import SSeguimientoAnteproyectos.sop_rmi.GestionSeguimientoINT;
-import cliente.sop_rmi.NotificacionINT;
-import cliente.sop_rmi.NotificacionImpl;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.time.LocalDate;
@@ -59,7 +55,7 @@ public class GestionAnteproyectoImpl extends UnicastRemoteObject implements Gest
 
         this.RemitidosDirector = new ArrayList();
         this.JefeACoordinador = new ArrayList();
-        
+
         this.listaDir = new Vector();
     }
 
@@ -491,39 +487,39 @@ public class GestionAnteproyectoImpl extends UnicastRemoteObject implements Gest
         }
         return aux1;
     }
-    
+
     @Override
     public void eliminarCallback(int id) throws RemoteException {
-      System.out.println("Entrando a eliminar callback");
+        System.out.println("Entrando a eliminar callback");
         for (int i = 0; i < listaDir.size(); i++) {
             if (listaDir.get(i).getId() == id) {
-                    
-                listaDir.remove(i);    
-            
+
+                listaDir.remove(i);
+
             }
 
         }
-        
+
     }
 
     @Override
     public boolean verificarUnicaS(clsDirectorDTO objDirector) throws RemoteException {
-             System.out.println("Entrando a verificar sesion");
+        System.out.println("Entrando a verificar sesion");
         for (int i = 0; i < listaDir.size(); i++) {
             if (listaDir.get(i).getId() == objDirector.getId()) {
-                    return true;
+                return true;
             }
 
         }
-       return false;
+        return false;
     }
-    
+
     @Override
     public ArrayList<clsRemitidoDTO> ListarCodigosRemitidos(String depDir) throws RemoteException {
         System.out.println("Entrando a Listar Codigos Remitidos por Director");
         ArrayList<clsRemitidoDTO> remitidosDepartamento = new ArrayList();
         ArrayList<clsRemitidoDTO> aux = new ArrayList();
-        
+
         for (int i = 0; i < RemitidosDirector.size(); i++) {
             if (RemitidosDirector.get(i).getDepartamentoDirector().equals(depDir)) {
                 if (verificarRemitido(RemitidosDirector.get(i).getCodigo()) == true) {
@@ -534,7 +530,7 @@ public class GestionAnteproyectoImpl extends UnicastRemoteObject implements Gest
         aux = remitidosDepartamento;
         for (int i = 0; i < aux.size(); i++) {
             for (int j = 0; j < JefeACoordinador.size(); j++) {
-                if (aux.get(i).getCodigo()==JefeACoordinador.get(j)) {
+                if (aux.get(i).getCodigo() == JefeACoordinador.get(j)) {
                     aux.remove(i);
                 }
             }

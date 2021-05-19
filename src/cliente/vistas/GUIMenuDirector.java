@@ -26,14 +26,15 @@ public class GUIMenuDirector extends javax.swing.JFrame {
     private static GestionSeguimientoINT objetoRemotoSeguimiento;
     private static int idDir;
     private static String depDir;
-    public GUIMenuDirector(GestionUsuariosINT objUsuario, GestionAnteproyectoINT objAnteproyecto, GestionSeguimientoINT objRemotoSeg,int idDir,String depDir) {
+
+    public GUIMenuDirector(GestionUsuariosINT objUsuario, GestionAnteproyectoINT objAnteproyecto, GestionSeguimientoINT objRemotoSeg, int idDir, String depDir) {
         initComponents();
         this.objetoRemotoUsuario = objUsuario;
         this.objetoRemotoAnteproyecto = objAnteproyecto;
         this.objetoRemotoSeguimiento = objRemotoSeg;
         txtNotificacion.setEditable(false);
-        this.idDir=idDir;
-        this.depDir =depDir;
+        this.idDir = idDir;
+        this.depDir = depDir;
     }
 
     public GUIMenuDirector() {
@@ -154,12 +155,12 @@ public class GUIMenuDirector extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirAActionPerformed
 
     private void btnRFormatoAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRFormatoAActionPerformed
-        GUIRFormatoA GUIA = new GUIRFormatoA(objetoRemotoAnteproyecto,idDir);
+        GUIRFormatoA GUIA = new GUIRFormatoA(objetoRemotoAnteproyecto, idDir);
         GUIA.setVisible(true);
     }//GEN-LAST:event_btnRFormatoAActionPerformed
 
     private void btnRemitirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemitirActionPerformed
-        GUIRemitirAnt GUIRA = new GUIRemitirAnt(objetoRemotoAnteproyecto,idDir,depDir);
+        GUIRemitirAnt GUIRA = new GUIRemitirAnt(objetoRemotoAnteproyecto, idDir, depDir);
         GUIRA.setVisible(true);
     }//GEN-LAST:event_btnRemitirActionPerformed
 

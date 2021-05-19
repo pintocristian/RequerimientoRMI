@@ -11,7 +11,8 @@ import java.io.Serializable;
  *
  * @author Cristian Pinto
  */
-public class clsRemitidoDTO  implements Serializable{
+public class clsRemitidoDTO implements Serializable {
+
     private int codigo;
     private String departamentoDirector;
 
@@ -35,6 +36,5 @@ public class clsRemitidoDTO  implements Serializable{
     public void setDepartamentoDirector(String departamentoDirector) {
         this.departamentoDirector = departamentoDirector;
     }
-    
-    
+
 }

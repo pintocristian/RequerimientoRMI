@@ -126,7 +126,7 @@ public class GUIRFormatoB extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEvaluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEvaluarActionPerformed
-        if (txtCodAnt.getText().isEmpty() || jdFechaEvaluacion.getDate()==null|| txtObservaciones.getText().isEmpty()) {
+        if (txtCodAnt.getText().isEmpty() || jdFechaEvaluacion.getDate() == null || txtObservaciones.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Todos los campos deben ser ingresados");
         } else {
 
@@ -142,7 +142,7 @@ public class GUIRFormatoB extends javax.swing.JFrame {
             String Observaciones = txtObservaciones.getText();
             Date FechaCalendar = jdFechaEvaluacion.getDate();
             String Fecha = String.valueOf(FechaCalendar);
-            
+
             clsFormatoTiBDTO objB = new clsFormatoTiBDTO(idEv, CodigoAnt, Concepto, Observaciones, Fecha);
             try {
                 boolean funciono = objetoRemotoAnteproyecto.verificarPropiedad(CodigoAnt, idEv);

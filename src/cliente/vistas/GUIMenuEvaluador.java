@@ -24,13 +24,13 @@ public class GUIMenuEvaluador extends javax.swing.JFrame {
     private static String depEv;
     private int idEv;
 
-    public GUIMenuEvaluador(GestionUsuariosINT objUsuario, GestionAnteproyectoINT objAnteproyecto, int idEv, GestionSeguimientoINT objRemotoSeg,String depEv) {
+    public GUIMenuEvaluador(GestionUsuariosINT objUsuario, GestionAnteproyectoINT objAnteproyecto, int idEv, GestionSeguimientoINT objRemotoSeg, String depEv) {
         initComponents();
         this.objetoRemotoUsuario = objUsuario;
         this.objetoRemotoAnteproyecto = objAnteproyecto;
         this.idEv = idEv;
         this.objetoRemotoSeguimiento = objRemotoSeg;
-        this.depEv=depEv;
+        this.depEv = depEv;
     }
 
     public GUIMenuEvaluador() {

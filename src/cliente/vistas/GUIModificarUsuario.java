@@ -52,13 +52,13 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
         lblContraseniaMod = new javax.swing.JLabel();
         txtIdentificacionMod = new javax.swing.JTextField();
         txtNombreComMod = new javax.swing.JTextField();
-        txtDepartamentoMod = new javax.swing.JTextField();
         txtContraseniaMod = new javax.swing.JTextField();
         cmbRolMod = new javax.swing.JComboBox<>();
         btnModificarU = new javax.swing.JButton();
         btnBuscarMod = new javax.swing.JButton();
         lblUsuarioMod = new javax.swing.JLabel();
         txtUsuarioMod = new javax.swing.JTextField();
+        cmbDepMod = new javax.swing.JComboBox<>();
         lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -93,7 +93,6 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
         });
         jPanel1.add(txtIdentificacionMod, new org.netbeans.lib.awtextra.AbsoluteConstraints(188, 47, 94, -1));
         jPanel1.add(txtNombreComMod, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 94, 20));
-        jPanel1.add(txtDepartamentoMod, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, 94, -1));
         jPanel1.add(txtContraseniaMod, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, 94, 20));
 
         cmbRolMod.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Director", "Evaluador", "Jefe departamento\t", "Coordinador", "Decano" }));
@@ -118,6 +117,10 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
         lblUsuarioMod.setText("Usuario");
         jPanel1.add(lblUsuarioMod, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 60, -1));
         jPanel1.add(txtUsuarioMod, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 200, 94, 20));
+
+        cmbDepMod.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PIET", "PIS", "PIAI" }));
+        cmbDepMod.setPreferredSize(new java.awt.Dimension(117, 20));
+        jPanel1.add(cmbDepMod, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, 94, -1));
 
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/modificar.jpg"))); // NOI18N
         jPanel1.add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 420));
@@ -156,7 +159,7 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
                 clsUsuarioDTO objUsuario = objetoRemotoUsuario.ConsultarUsuario(Id);
                 if (objUsuario != null) {
                     txtContraseniaMod.setText(objUsuario.getContrasenia());
-                    txtDepartamentoMod.setText(objUsuario.getDepartamento());
+                    cmbDepMod.setSelectedItem(objUsuario.getDepartamento());
                     txtNombreComMod.setText(objUsuario.getNombreCompleto());
                     cmbRolMod.setSelectedItem(objUsuario.getRole());
                     txtUsuarioMod.setText(objUsuario.getUsuario());
@@ -178,7 +181,7 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
             String numero2 = txtContraseniaMod.getText();
             boolean u = alfanumerico(txtUsuarioMod.getText());
             boolean c = alfanumerico(txtContraseniaMod.getText());
-            if (txtIdentificacionMod.getText().isEmpty() || txtNombreComMod.getText().isEmpty() || txtDepartamentoMod.getText().isEmpty() || txtContraseniaMod.getText().isEmpty() || txtUsuarioMod.getText().isEmpty()) {
+            if (txtIdentificacionMod.getText().isEmpty() || txtNombreComMod.getText().isEmpty() || txtContraseniaMod.getText().isEmpty() || txtUsuarioMod.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Ningun campo debe quedar vacio!!");
             } else if (u == false || c == false) {
                 txtUsuarioMod.setText("");
@@ -194,7 +197,7 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
                 Id = Integer.parseInt(txtIdentificacionMod.getText());
                 String Nombre = txtNombreComMod.getText();
                 String Rol = (String) cmbRolMod.getSelectedItem();
-                String Departamento = txtDepartamentoMod.getText();
+                String Departamento = (String) cmbDepMod.getSelectedItem();
                 String Contrasenia = txtContraseniaMod.getText();
                 String Usuario = txtUsuarioMod.getText();
                 clsUsuarioDTO objUsuario = new clsUsuarioDTO(Id, Nombre, Rol, Departamento, Usuario, Contrasenia);
@@ -285,6 +288,7 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscarMod;
     private javax.swing.JButton btnModificarU;
+    private javax.swing.JComboBox<String> cmbDepMod;
     private javax.swing.JComboBox<String> cmbRolMod;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblContraseniaMod;
@@ -296,7 +300,6 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel lblRolMod;
     private javax.swing.JLabel lblUsuarioMod;
     private javax.swing.JTextField txtContraseniaMod;
-    private javax.swing.JTextField txtDepartamentoMod;
     private javax.swing.JTextField txtIdentificacionMod;
     private javax.swing.JTextField txtNombreComMod;
     private javax.swing.JTextField txtUsuarioMod;

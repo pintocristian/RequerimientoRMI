@@ -30,7 +30,7 @@ public class GUIListarAprobadosD extends javax.swing.JFrame {
 
         this.objetoRemotoAnteproyecto = objAnte;
         try {
-            
+
             this.listAnt = this.objetoRemotoAnteproyecto.ListarAntDAprobados();
         } catch (RemoteException ex) {
             Logger.getLogger(GUIListarAnt.class.getName()).log(Level.SEVERE, null, ex);

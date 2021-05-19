@@ -5,15 +5,12 @@
  */
 package SGestionAnteproyectos.sop_rmi;
 
-import SGestionAnteproyectos.dto.clsFormatoTiBDTO;
 import SGestionAnteproyectos.dto.clsUsuarioDTO;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-import SGestionAnteproyectos.sop_rmi.GestionUsuariosINT;
 import SSeguimientoAnteproyectos.sop_rmi.GestionSeguimientoINT;
 import cliente.utilidades.UtilidadesRegistroC;
 import java.util.ArrayList;
-import java.util.Vector;
 
 /**
  *

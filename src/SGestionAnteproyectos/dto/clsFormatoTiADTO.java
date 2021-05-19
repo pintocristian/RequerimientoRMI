@@ -26,11 +26,10 @@ public class clsFormatoTiADTO implements Serializable {
     private int flujo;
     private int codigoDirector;
 
-    
     public clsFormatoTiADTO() {
     }
 
-    public clsFormatoTiADTO(int codigo, String nombrePrograma, String titulo, String estudiante01, int codigoestudiante01, String estudiante02, int codigoestudiante02, String director, String codirector, String objetivo,int codigoDirector) {
+    public clsFormatoTiADTO(int codigo, String nombrePrograma, String titulo, String estudiante01, int codigoestudiante01, String estudiante02, int codigoestudiante02, String director, String codirector, String objetivo, int codigoDirector) {
         this.codigo = codigo;
         this.nombrePrograma = nombrePrograma;
         this.titulo = titulo;
@@ -132,7 +131,7 @@ public class clsFormatoTiADTO implements Serializable {
     public void setFlujo(int flujo) {
         this.flujo = flujo;
     }
-    
+
     public int getCodigoDirector() {
         return codigoDirector;
     }

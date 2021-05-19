@@ -6,7 +6,6 @@
 package cliente.vistas;
 
 import SGestionAnteproyectos.dto.clsUsuarioDTO;
-import SGestionAnteproyectos.sop_rmi.GestionAnteproyectoINT;
 import SGestionAnteproyectos.sop_rmi.GestionUsuariosINT;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
@@ -31,7 +30,7 @@ public class GUIListarEv extends javax.swing.JFrame {
         this.objetoRemotoUsuario = objUs;
 
         try {
-            
+
             this.listaUs = this.objetoRemotoUsuario.listarEv();
         } catch (RemoteException ex) {
             Logger.getLogger(GUIListarAnt.class.getName()).log(Level.SEVERE, null, ex);

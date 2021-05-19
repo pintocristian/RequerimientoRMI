@@ -31,7 +31,7 @@ public class GUIListarAnt extends javax.swing.JFrame {
         this.objetoRemotoAnteproyecto = objAnte;
         this.id = id;
         try {
-            
+
             this.listAnt = this.objetoRemotoAnteproyecto.ListarAnt(id);
         } catch (RemoteException ex) {
             Logger.getLogger(GUIListarAnt.class.getName()).log(Level.SEVERE, null, ex);

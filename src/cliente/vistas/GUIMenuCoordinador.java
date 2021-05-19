@@ -23,7 +23,7 @@ public class GUIMenuCoordinador extends javax.swing.JFrame {
     private static GestionSeguimientoINT objetoRemotoSeguimiento;
     private static String depCoor;
 
-    public GUIMenuCoordinador(GestionUsuariosINT objUsuario, GestionAnteproyectoINT objAnteproyecto, GestionSeguimientoINT objRemotoSeg,String depCoor) {
+    public GUIMenuCoordinador(GestionUsuariosINT objUsuario, GestionAnteproyectoINT objAnteproyecto, GestionSeguimientoINT objRemotoSeg, String depCoor) {
         initComponents();
         this.objetoRemotoUsuario = objUsuario;
         this.objetoRemotoAnteproyecto = objAnteproyecto;
@@ -146,7 +146,7 @@ public class GUIMenuCoordinador extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAsignarActionPerformed
 
     private void btnEvaluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEvaluarActionPerformed
-        GUIRFormatoD GUID = new GUIRFormatoD(objetoRemotoAnteproyecto,depCoor);
+        GUIRFormatoD GUID = new GUIRFormatoD(objetoRemotoAnteproyecto, depCoor);
         GUID.setVisible(true);
 
     }//GEN-LAST:event_btnEvaluarActionPerformed

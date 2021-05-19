@@ -23,10 +23,11 @@ public class GUIRFormatoA extends javax.swing.JFrame {
      */
     private static GestionAnteproyectoINT objetoRemotoAnteproyecto;
     private static int idDir;
+
     public GUIRFormatoA(GestionAnteproyectoINT objAnte, int idDir) {
         initComponents();
         this.objetoRemotoAnteproyecto = objAnte;
-        this.idDir=idDir;
+        this.idDir = idDir;
         try {
             this.lblCodigoASalida.setText(Integer.toString(this.objetoRemotoAnteproyecto.solicitarCodigo()));
         } catch (RemoteException ex) {
@@ -200,10 +201,10 @@ public class GUIRFormatoA extends javax.swing.JFrame {
                 String NombreDir = txtNombreDir.getText();
                 String NombreCoodir = txtNombreCoodir.getText();
                 String Objetivos = txtObjetivos.getText();
-                clsFormatoTiADTO objFormatoA = new clsFormatoTiADTO(codigo, NombreP, TituloA, NombreEst1, Codigo1, NombreEst2, Codigo2, NombreDir, NombreCoodir, Objetivos,idDir);
+                clsFormatoTiADTO objFormatoA = new clsFormatoTiADTO(codigo, NombreP, TituloA, NombreEst1, Codigo1, NombreEst2, Codigo2, NombreDir, NombreCoodir, Objetivos, idDir);
                 boolean funciono = objetoRemotoAnteproyecto.RegistrarFormatoTiA(objFormatoA);
                 if (funciono == true) {
-                    objetoRemotoAnteproyecto.AsignarAnteproyectos(idDir,codigo);
+                    objetoRemotoAnteproyecto.AsignarAnteproyectos(idDir, codigo);
                     JOptionPane.showMessageDialog(null, "Anteproyecto registrado exitosamente");
                     this.dispose();
                 } else {

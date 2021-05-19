@@ -1,8 +1,3 @@
-/**
- * Javier Abell�n, 20 Marzo 2006
- * Redefinicion de la clase ObjectOutputStream para que no escriba una cabecera
- * al principio del Stream.
- */
 package SSeguimientoAnteproyectos.utilidades;
 
 import java.io.IOException;

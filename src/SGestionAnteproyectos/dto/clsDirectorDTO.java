@@ -13,7 +13,8 @@ import java.util.ArrayList;
  *
  * @author Usuario
  */
-public class clsDirectorDTO implements Serializable{
+public class clsDirectorDTO implements Serializable {
+
     private int id;
     private ArrayList lista;
     private NotificacionINT Referencia;
@@ -21,7 +22,7 @@ public class clsDirectorDTO implements Serializable{
     public clsDirectorDTO(int id, NotificacionINT Referencia) {
         this.id = id;
         this.Referencia = Referencia;
-        this.lista= new ArrayList();
+        this.lista = new ArrayList();
     }
 
     public int getId() {
@@ -47,7 +48,5 @@ public class clsDirectorDTO implements Serializable{
     public void setReferencia(NotificacionINT Referencia) {
         this.Referencia = Referencia;
     }
-    
-    
-    
+
 }

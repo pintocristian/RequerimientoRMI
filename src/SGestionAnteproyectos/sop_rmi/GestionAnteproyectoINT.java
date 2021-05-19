@@ -12,8 +12,6 @@ import SGestionAnteproyectos.dto.clsFormatoTiBDTO;
 import SGestionAnteproyectos.dto.clsFormatoTiCDTO;
 import SGestionAnteproyectos.dto.clsFormatoTiDDTO;
 import SGestionAnteproyectos.dto.clsRemitidoDTO;
-import SGestionAnteproyectos.dto.clsUsuarioDTO;
-import cliente.sop_rmi.NotificacionINT;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
@@ -45,11 +43,11 @@ public interface GestionAnteproyectoINT extends Remote {
     public int ConsultarConceptoD(int codigo) throws RemoteException;
 
     public int consultarAnteproyecto(int codigo) throws RemoteException;
-    
-    public void eliminarCallback(int id)throws RemoteException;
-    
-    public boolean verificarUnicaS(clsDirectorDTO objDirector)throws RemoteException;
-    
+
+    public void eliminarCallback(int id) throws RemoteException;
+
+    public boolean verificarUnicaS(clsDirectorDTO objDirector) throws RemoteException;
+
     public boolean verificarPropiedad(int codigoAnt, int codEv) throws RemoteException;
 
     public boolean verificarRemitido(int codigoAnt) throws RemoteException;

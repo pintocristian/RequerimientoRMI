@@ -5,7 +5,6 @@
  */
 package SSeguimientoAnteproyectos.dto;
 
-import SGestionAnteproyectos.dto.*;
 import java.io.Serializable;
 
 /**

@@ -24,7 +24,7 @@ public class GUIRFormatoD extends javax.swing.JFrame {
     private static GestionAnteproyectoINT objetoRemotoAnteproyecto;
     private static String depCoor;
 
-    public GUIRFormatoD(GestionAnteproyectoINT objAnteproyecto,String depCoor) {
+    public GUIRFormatoD(GestionAnteproyectoINT objAnteproyecto, String depCoor) {
         initComponents();
         this.objetoRemotoAnteproyecto = objAnteproyecto;
         this.depCoor = depCoor;
@@ -198,10 +198,10 @@ public class GUIRFormatoD extends javax.swing.JFrame {
                 } else if (flujo == 5) {
                     JOptionPane.showMessageDialog(null, "El  Anteproyecto ya fue evaluado por el coordinador");
                     this.dispose();
-                } else if(departamentoCorrecto==false){
+                } else if (departamentoCorrecto == false) {
                     JOptionPane.showMessageDialog(null, "El  Anteproyecto no correcponde a este departamento");
                     this.dispose();
-                }else {
+                } else {
                     JOptionPane.showMessageDialog(null, "El Anteproyecto no fue aprobado por el jede de departamento");
 
                     this.dispose();

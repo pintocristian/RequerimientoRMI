@@ -8,7 +8,6 @@ package SSeguimientoAnteproyectos.utilidades;
 import SSeguimientoAnteproyectos.dto.clsFormatosDTO2;
 import SSeguimientoAnteproyectos.dto.clsResolucionDTO;
 import java.io.EOFException;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;

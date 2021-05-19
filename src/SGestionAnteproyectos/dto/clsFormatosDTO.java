@@ -5,9 +5,6 @@
  */
 package SGestionAnteproyectos.dto;
 
-import SGestionAnteproyectos.dto.clsFormatoTiDDTO;
-import SGestionAnteproyectos.dto.clsFormatoTiCDTO;
-import SGestionAnteproyectos.dto.clsFormatoTiBDTO;
 import java.io.Serializable;
 
 /**

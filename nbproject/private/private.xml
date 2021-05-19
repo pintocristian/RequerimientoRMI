@@ -3,9 +3,39 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/SGestionAnteproyectos/sop_rmi/GestionAnteproyectoImpl.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/cliente/vistas/GUIRFormatoB.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/RequerimientoRMI/src/cliente/vistas/GUIRResolucion.java</file>
+            <file>file:/C:/Users/Cristian%20Pinto/Desktop/mientras%202/RequerimientoRMI/src/SGestionAnteproyectos/dto/clsRemitidoDTO.java</file>
+            <file>file:/C:/Users/Cristian%20Pinto/Desktop/mientras%202/RequerimientoRMI/src/cliente/vistas/GUIRemitirAnt.java</file>
+            <file>file:/C:/Users/Cristian%20Pinto/Desktop/mientras%202/RequerimientoRMI/src/cliente/vistas/GUIListarEv.java</file>
+            <file>file:/C:/Users/Cristian%20Pinto/Desktop/mientras%202/RequerimientoRMI/src/cliente/vistas/GUIRFormatoB.java</file>
+            <file>file:/C:/Users/Cristian%20Pinto/Desktop/mientras%202/RequerimientoRMI/src/cliente/vistas/GUIRResolucion.java</file>
+            <file>file:/C:/Users/Cristian%20Pinto/Desktop/mientras%202/RequerimientoRMI/src/SGestionAnteproyectos/sop_rmi/GestionAnteproyectoINT.java</file>
+            <file>file:/C:/Users/Cristian%20Pinto/Desktop/mientras%202/RequerimientoRMI/src/SGestionAnteproyectos/dto/clsFormatoTiADTO.java</file>
+            <file>file:/C:/Users/Cristian%20Pinto/Desktop/mientras%202/RequerimientoRMI/src/cliente/vistas/GUIRegistrarUsuario.java</file>
+            <file>file:/C:/Users/Cristian%20Pinto/Desktop/mientras%202/RequerimientoRMI/src/cliente/vistas/GUIListarAnt.java</file>
+            <file>file:/C:/Users/Cristian%20Pinto/Desktop/mientras%202/RequerimientoRMI/src/SGestionAnteproyectos/dto/clsFormatoTiBDTO.java</file>
+            <file>file:/C:/Users/Cristian%20Pinto/Desktop/mientras%202/RequerimientoRMI/src/cliente/sop_rmi/NotificacionImpl.java</file>
+            <file>file:/C:/Users/Cristian%20Pinto/Desktop/mientras%202/RequerimientoRMI/src/cliente/vistas/GUIRFormatoC.java</file>
+            <file>file:/C:/Users/Cristian%20Pinto/Desktop/mientras%202/RequerimientoRMI/src/cliente/vistas/GUIListarNoAsig.java</file>
+            <file>file:/C:/Users/Cristian%20Pinto/Desktop/mientras%202/RequerimientoRMI/src/cliente/vistas/GUIListarAprobadosB.java</file>
+            <file>file:/C:/Users/Cristian%20Pinto/Desktop/mientras%202/RequerimientoRMI/src/SGestionAnteproyectos/dto/clsDirectorDTO.java</file>
+            <file>file:/C:/Users/Cristian%20Pinto/Desktop/mientras%202/RequerimientoRMI/src/cliente/vistas/GUIMenuCoordinador.java</file>
+            <file>file:/C:/Users/Cristian%20Pinto/Desktop/mientras%202/RequerimientoRMI/src/SGestionAnteproyectos/sop_rmi/GestionUsuariosImpl.java</file>
+            <file>file:/C:/Users/Cristian%20Pinto/Desktop/mientras%202/RequerimientoRMI/src/cliente/vistas/GUIMenuDirector.java</file>
+            <file>file:/C:/Users/Cristian%20Pinto/Desktop/mientras%202/RequerimientoRMI/src/cliente/vistas/GUIModificarUsuario.java</file>
+            <file>file:/C:/Users/Cristian%20Pinto/Desktop/mientras%202/RequerimientoRMI/src/cliente/vistas/GUIMenuJdpto.java</file>
+            <file>file:/C:/Users/Cristian%20Pinto/Desktop/mientras%202/RequerimientoRMI/src/cliente/sop_rmi/NotificacionINT.java</file>
+            <file>file:/C:/Users/Cristian%20Pinto/Desktop/mientras%202/RequerimientoRMI/src/cliente/vistas/GUIMenuDecano.java</file>
+            <file>file:/C:/Users/Cristian%20Pinto/Desktop/mientras%202/RequerimientoRMI/src/cliente/vistas/GUIListarAprobadosC.java</file>
+            <file>file:/C:/Users/Cristian%20Pinto/Desktop/mientras%202/RequerimientoRMI/src/cliente/vistas/GUIMenuEvaluador.java</file>
+            <file>file:/C:/Users/Cristian%20Pinto/Desktop/mientras%202/RequerimientoRMI/src/cliente/vistas/GUIConsultarHistorial.java</file>
+            <file>file:/C:/Users/Cristian%20Pinto/Desktop/mientras%202/RequerimientoRMI/src/cliente/ClienteDeObjetos.java</file>
+            <file>file:/C:/Users/Cristian%20Pinto/Desktop/mientras%202/RequerimientoRMI/src/cliente/vistas/GUIInicioSesion.java</file>
+            <file>file:/C:/Users/Cristian%20Pinto/Desktop/mientras%202/RequerimientoRMI/src/cliente/vistas/GUIAsignar.java</file>
+            <file>file:/C:/Users/Cristian%20Pinto/Desktop/mientras%202/RequerimientoRMI/src/cliente/vistas/GUIRFormatoD.java</file>
+            <file>file:/C:/Users/Cristian%20Pinto/Desktop/mientras%202/RequerimientoRMI/src/cliente/vistas/GUIRFormatoA.java</file>
+            <file>file:/C:/Users/Cristian%20Pinto/Desktop/mientras%202/RequerimientoRMI/src/SGestionAnteproyectos/sop_rmi/GestionUsuariosINT.java</file>
+            <file>file:/C:/Users/Cristian%20Pinto/Desktop/mientras%202/RequerimientoRMI/src/SGestionAnteproyectos/sop_rmi/GestionAnteproyectoImpl.java</file>
+            <file>file:/C:/Users/Cristian%20Pinto/Desktop/mientras%202/RequerimientoRMI/src/cliente/vistas/GUIListarAprobadosD.java</file>
         </group>
     </open-files>
 </project-private>

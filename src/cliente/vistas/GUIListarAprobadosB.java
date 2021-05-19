@@ -5,7 +5,6 @@
  */
 package cliente.vistas;
 
-import SGestionAnteproyectos.dto.clsFormatoTiBDTO;
 import SGestionAnteproyectos.dto.clsRemitidoDTO;
 import SGestionAnteproyectos.sop_rmi.GestionAnteproyectoINT;
 import java.rmi.RemoteException;
@@ -27,12 +26,12 @@ public class GUIListarAprobadosB extends javax.swing.JFrame {
     private ArrayList<clsRemitidoDTO> listAnt;
     private static String depDir;
 
-    public GUIListarAprobadosB(GestionAnteproyectoINT objAnte,String depDir) {
+    public GUIListarAprobadosB(GestionAnteproyectoINT objAnte, String depDir) {
         initComponents();
         this.objetoRemotoAnteproyecto = objAnte;
         this.depDir = depDir;
         try {
-            
+
             this.listAnt = this.objetoRemotoAnteproyecto.ListarCodigosRemitidos(depDir);
         } catch (RemoteException ex) {
             Logger.getLogger(GUIListarAnt.class.getName()).log(Level.SEVERE, null, ex);
