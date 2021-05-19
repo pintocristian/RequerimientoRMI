@@ -494,7 +494,7 @@ public class GestionAnteproyectoImpl extends UnicastRemoteObject implements Gest
         for (int i = 0; i < listaDir.size(); i++) {
             if (listaDir.get(i).getId() == id) {
 
-                listaDir.remove(i);
+                listaDir.get(i).setActivo(false);
 
             }
 
@@ -506,7 +506,7 @@ public class GestionAnteproyectoImpl extends UnicastRemoteObject implements Gest
     public boolean verificarUnicaS(clsDirectorDTO objDirector) throws RemoteException {
         System.out.println("Entrando a verificar sesion");
         for (int i = 0; i < listaDir.size(); i++) {
-            if (listaDir.get(i).getId() == objDirector.getId()) {
+            if (listaDir.get(i).getId() == objDirector.getId() && listaDir.get(i).getActivo()==true) {
                 return true;
             }
 
@@ -630,6 +630,7 @@ public class GestionAnteproyectoImpl extends UnicastRemoteObject implements Gest
             }
         } else {
             listaDir.get(indice).setReferencia(objDirector.getReferencia());
+            listaDir.get(indice).setActivo(objDirector.getActivo());
         }
 
     }

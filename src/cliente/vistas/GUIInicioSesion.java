@@ -154,7 +154,7 @@ public class GUIInicioSesion extends javax.swing.JFrame {
                                 GUIMenuDirector GUIMDir = new GUIMenuDirector(objetoRemotoUsuario, objetoRemotoAnteproyectos, objetoRemotoSeguimiento, objUsuario.getId(), objUsuario.getDepartamento());
 
                                 NotificacionImpl objAdmin = new NotificacionImpl(GUIMDir);
-                                clsDirectorDTO objDirector = new clsDirectorDTO(objUsuario.getId(), objAdmin);
+                                clsDirectorDTO objDirector = new clsDirectorDTO(objUsuario.getId(), objAdmin,true);
                                 boolean existe = objetoRemotoAnteproyectos.verificarUnicaS(objDirector);
                                 if (existe == false) {
                                     objetoRemotoAnteproyectos.registrarCallback(objDirector);

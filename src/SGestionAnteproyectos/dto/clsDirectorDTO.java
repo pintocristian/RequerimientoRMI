@@ -18,11 +18,20 @@ public class clsDirectorDTO implements Serializable {
     private int id;
     private ArrayList lista;
     private NotificacionINT Referencia;
-
-    public clsDirectorDTO(int id, NotificacionINT Referencia) {
+    private boolean activo;
+    public clsDirectorDTO(int id, NotificacionINT Referencia, boolean activo) {
         this.id = id;
         this.Referencia = Referencia;
         this.lista = new ArrayList();
+        this.activo=activo;
+    }
+
+    public boolean getActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
     }
 
     public int getId() {
