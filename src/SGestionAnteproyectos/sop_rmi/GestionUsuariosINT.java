@@ -26,6 +26,8 @@ public interface GestionUsuariosINT extends Remote {
     public clsUsuarioDTO Sesion(String usuario, String clave) throws RemoteException;
 
     public int consultarEvaluador(int id) throws RemoteException;
+    
+    public boolean verificarDecano() throws RemoteException;
 
     public ArrayList<clsUsuarioDTO> listarEv() throws RemoteException;
 

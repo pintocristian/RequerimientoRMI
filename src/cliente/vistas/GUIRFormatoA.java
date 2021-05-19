@@ -200,7 +200,7 @@ public class GUIRFormatoA extends javax.swing.JFrame {
                 String NombreDir = txtNombreDir.getText();
                 String NombreCoodir = txtNombreCoodir.getText();
                 String Objetivos = txtObjetivos.getText();
-                clsFormatoTiADTO objFormatoA = new clsFormatoTiADTO(codigo, NombreP, TituloA, NombreEst1, Codigo1, NombreEst2, Codigo2, NombreDir, NombreCoodir, Objetivos);
+                clsFormatoTiADTO objFormatoA = new clsFormatoTiADTO(codigo, NombreP, TituloA, NombreEst1, Codigo1, NombreEst2, Codigo2, NombreDir, NombreCoodir, Objetivos,idDir);
                 boolean funciono = objetoRemotoAnteproyecto.RegistrarFormatoTiA(objFormatoA);
                 if (funciono == true) {
                     objetoRemotoAnteproyecto.AsignarAnteproyectos(idDir,codigo);

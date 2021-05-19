@@ -31,6 +31,7 @@ public class GUIListarEv extends javax.swing.JFrame {
         this.objetoRemotoUsuario = objUs;
 
         try {
+            
             this.listaUs = this.objetoRemotoUsuario.listarEv();
         } catch (RemoteException ex) {
             Logger.getLogger(GUIListarAnt.class.getName()).log(Level.SEVERE, null, ex);
@@ -127,6 +128,7 @@ public class GUIListarEv extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
+        this.listaUs.clear();
         this.dispose();
     }//GEN-LAST:event_btnAtrasActionPerformed
 

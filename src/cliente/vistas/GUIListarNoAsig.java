@@ -29,8 +29,9 @@ public class GUIListarNoAsig extends javax.swing.JFrame {
     public GUIListarNoAsig(GestionAnteproyectoINT objAnte) {
         initComponents();
         this.objetoRemotoAnteproyecto = objAnte;
-
+        
         try {
+            
             this.listAnt = this.objetoRemotoAnteproyecto.ListarAntNoAsig();
         } catch (RemoteException ex) {
             Logger.getLogger(GUIListarAnt.class.getName()).log(Level.SEVERE, null, ex);
@@ -46,7 +47,7 @@ public class GUIListarNoAsig extends javax.swing.JFrame {
             modelo.addRow(obj);
         }
         tblAnt.setModel(modelo);
-
+        
     }
 
     public GUIListarNoAsig() {
@@ -124,6 +125,7 @@ public class GUIListarNoAsig extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
+        this.listAnt.clear();
         this.dispose();
     }//GEN-LAST:event_btnAtrasActionPerformed
 

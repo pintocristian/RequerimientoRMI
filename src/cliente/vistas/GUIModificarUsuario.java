@@ -27,6 +27,7 @@ public class GUIModificarUsuario extends javax.swing.JFrame {
     public GUIModificarUsuario(GestionUsuariosINT objetoRemoto) {
         initComponents();
         this.objetoRemotoUsuario = objetoRemoto;
+        this.cmbRolMod.setEnabled(false);
 
     }
 

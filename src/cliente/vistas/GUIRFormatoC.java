@@ -23,10 +23,12 @@ public class GUIRFormatoC extends javax.swing.JFrame {
      * Creates new form GUIFormatoC
      */
     private static GestionAnteproyectoINT objetoRemotoAnteproyecto;
+    private static String depDir;
 
-    public GUIRFormatoC(GestionAnteproyectoINT objAnte) {
+    public GUIRFormatoC(GestionAnteproyectoINT objAnte, String depDir) {
         initComponents();
         this.objetoRemotoAnteproyecto = objAnte;
+        this.depDir = depDir;
         this.txtEstructura.setEnabled(false);
         this.cmbConcepto.setEnabled(false);
         this.txtObservaciones.setEnabled(false);
@@ -190,10 +192,15 @@ public class GUIRFormatoC extends javax.swing.JFrame {
             try {
 
                 int flujo = objetoRemotoAnteproyecto.VerificarAnteproyecto(Integer.parseInt(txtCodigoAnt.getText()));
+                boolean fueRemitido = false;
+                boolean departamentoCorrecto = false;
                 clsConceptosDTO Conceptos;
                 Conceptos = this.objetoRemotoAnteproyecto.ConsultarConceptos(Integer.parseInt(txtCodigoAnt.getText()));
+                fueRemitido = this.objetoRemotoAnteproyecto.verificarRemitido(Integer.parseInt(txtCodigoAnt.getText()));
+                departamentoCorrecto = this.objetoRemotoAnteproyecto.verificarRemitidoDep(Integer.parseInt(txtCodigoAnt.getText()), depDir);
+
                 this.lblConceptos.setText("Concepto 1:" + Conceptos.getConcepto1() + "Concepto 2:" + Conceptos.getConcepto2());
-                if (Conceptos.getConcepto1() == 1 && Conceptos.getConcepto2() == 1) {
+                if (Conceptos.getConcepto1() == 1 && Conceptos.getConcepto2() == 1 && fueRemitido == true && departamentoCorrecto == true && flujo == 3) {
                     this.txtEstructura.setEnabled(true);
                     this.cmbConcepto.setEnabled(true);
                     this.txtObservaciones.setEnabled(true);
@@ -206,6 +213,12 @@ public class GUIRFormatoC extends javax.swing.JFrame {
                     this.dispose();
                 } else if (flujo < 3) {
                     JOptionPane.showMessageDialog(null, "El Anteproyecto aun no ha completa la fase del formato b");
+                    this.dispose();
+                } else if (fueRemitido == false) {
+                    JOptionPane.showMessageDialog(null, "El Anteproyecto no ha sido remitido por el director");
+                    this.dispose();
+                } else if (departamentoCorrecto == false) {
+                    JOptionPane.showMessageDialog(null, "El Anteproyecto no corresponde a este Departamento");
                     this.dispose();
                 } else {
                     JOptionPane.showMessageDialog(null, "El Anteproyecto no fue aprobado por los evaluadores");

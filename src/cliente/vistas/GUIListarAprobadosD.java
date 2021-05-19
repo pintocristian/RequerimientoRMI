@@ -30,6 +30,7 @@ public class GUIListarAprobadosD extends javax.swing.JFrame {
 
         this.objetoRemotoAnteproyecto = objAnte;
         try {
+            
             this.listAnt = this.objetoRemotoAnteproyecto.ListarAntDAprobados();
         } catch (RemoteException ex) {
             Logger.getLogger(GUIListarAnt.class.getName()).log(Level.SEVERE, null, ex);
@@ -123,6 +124,7 @@ public class GUIListarAprobadosD extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
+        this.listAnt.clear();
         this.dispose();
     }//GEN-LAST:event_btnAtrasActionPerformed
 

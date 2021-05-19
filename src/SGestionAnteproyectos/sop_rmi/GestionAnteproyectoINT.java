@@ -11,6 +11,7 @@ import SGestionAnteproyectos.dto.clsFormatoTiADTO;
 import SGestionAnteproyectos.dto.clsFormatoTiBDTO;
 import SGestionAnteproyectos.dto.clsFormatoTiCDTO;
 import SGestionAnteproyectos.dto.clsFormatoTiDDTO;
+import SGestionAnteproyectos.dto.clsRemitidoDTO;
 import SGestionAnteproyectos.dto.clsUsuarioDTO;
 import cliente.sop_rmi.NotificacionINT;
 import java.rmi.Remote;
@@ -44,8 +45,16 @@ public interface GestionAnteproyectoINT extends Remote {
     public int ConsultarConceptoD(int codigo) throws RemoteException;
 
     public int consultarAnteproyecto(int codigo) throws RemoteException;
-
+    
+    public void eliminarCallback(int id)throws RemoteException;
+    
+    public boolean verificarUnicaS(clsDirectorDTO objDirector)throws RemoteException;
+    
     public boolean verificarPropiedad(int codigoAnt, int codEv) throws RemoteException;
+
+    public boolean verificarRemitido(int codigoAnt) throws RemoteException;
+
+    public boolean verificarRemitidoDep(int codigoAnt, String depDir) throws RemoteException;
 
     public ArrayList<clsFormatoTiBDTO> ListarAnt(int id) throws RemoteException;
 
@@ -57,7 +66,13 @@ public interface GestionAnteproyectoINT extends Remote {
 
     public ArrayList<clsFormatoTiADTO> ListarAntNoAsig() throws RemoteException;
 
+    public ArrayList<Integer> ListarAprobadosSinRemitir(int idDirector) throws RemoteException;
+
+    public ArrayList<clsRemitidoDTO> ListarCodigosRemitidos(String depDir) throws RemoteException;
+
+    public boolean RegistrarRemitido(clsRemitidoDTO objRemitido) throws RemoteException;
+
     public void registrarCallback(clsDirectorDTO objDirector) throws RemoteException;
-    
+
     public void AsignarAnteproyectos(int id, int codigo) throws RemoteException;
 }

@@ -21,12 +21,14 @@ public class GUIMenuJdpto extends javax.swing.JFrame {
     private static GestionAnteproyectoINT objetoRemotoAnteproyecto;
     private static GestionUsuariosINT objetoRemotoUsuario;
     private static GestionSeguimientoINT objetoRemotoSeguimiento;
+    private static String depDir;
 
-    public GUIMenuJdpto(GestionUsuariosINT objUsuario, GestionAnteproyectoINT objAnteproyecto, GestionSeguimientoINT objRemotoSeg) {
+    public GUIMenuJdpto(GestionUsuariosINT objUsuario, GestionAnteproyectoINT objAnteproyecto, GestionSeguimientoINT objRemotoSeg,String depDir) {
         initComponents();
         this.objetoRemotoUsuario = objUsuario;
         this.objetoRemotoAnteproyecto = objAnteproyecto;
         this.objetoRemotoSeguimiento = objRemotoSeg;
+        this.depDir = depDir;
     }
 
     public GUIMenuJdpto() {
@@ -111,12 +113,12 @@ public class GUIMenuJdpto extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnEvauarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEvauarActionPerformed
-        GUIRFormatoC GUIC = new GUIRFormatoC(objetoRemotoAnteproyecto);
+        GUIRFormatoC GUIC = new GUIRFormatoC(objetoRemotoAnteproyecto,depDir);
         GUIC.setVisible(true);
     }//GEN-LAST:event_btnEvauarActionPerformed
 
     private void btnListarAnteproyectosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarAnteproyectosActionPerformed
-        GUIListarAprobadosB objListB = new GUIListarAprobadosB(objetoRemotoAnteproyecto);
+        GUIListarAprobadosB objListB = new GUIListarAprobadosB(objetoRemotoAnteproyecto,depDir);
         objListB.setVisible(true);
     }//GEN-LAST:event_btnListarAnteproyectosActionPerformed
 

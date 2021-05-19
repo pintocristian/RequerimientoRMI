@@ -150,26 +150,32 @@ public class GUIInicioSesion extends javax.swing.JFrame {
                         String Rol = objUsuario.getRole();
                         switch (Rol) {
                             case "Director":
-                                
-                                GUIMenuDirector GUIMDir = new GUIMenuDirector(objetoRemotoUsuario, objetoRemotoAnteproyectos, objetoRemotoSeguimiento,objUsuario.getId());
+
+                                GUIMenuDirector GUIMDir = new GUIMenuDirector(objetoRemotoUsuario, objetoRemotoAnteproyectos, objetoRemotoSeguimiento, objUsuario.getId(), objUsuario.getDepartamento());
+
                                 NotificacionImpl objAdmin = new NotificacionImpl(GUIMDir);
-                                clsDirectorDTO objDirector = new clsDirectorDTO(objUsuario.getId(),objAdmin);
-                                objetoRemotoAnteproyectos.registrarCallback(objDirector);
-                                GUIMDir.setVisible(true);
+                                clsDirectorDTO objDirector = new clsDirectorDTO(objUsuario.getId(), objAdmin);
+                                boolean existe = objetoRemotoAnteproyectos.verificarUnicaS(objDirector);
+                                if (existe == false) {
+                                    objetoRemotoAnteproyectos.registrarCallback(objDirector);
+                                    GUIMDir.setVisible(true);
+                                } else {
+                                    JOptionPane.showMessageDialog(null, "ya existe una sesion activa para este usuario");
+                                }
                                 break;
-                                
+
                             case "Evaluador":
                                 int idEv = objUsuario.getId();
-                                GUIMenuEvaluador GUIMEva = new GUIMenuEvaluador(objetoRemotoUsuario, objetoRemotoAnteproyectos, idEv, objetoRemotoSeguimiento);
+                                GUIMenuEvaluador GUIMEva = new GUIMenuEvaluador(objetoRemotoUsuario, objetoRemotoAnteproyectos, idEv, objetoRemotoSeguimiento, objUsuario.getDepartamento());
                                 GUIMEva.setVisible(true);
                                 break;
                             case "Jefe departamento":
-                                GUIMenuJdpto GUIMJdpto = new GUIMenuJdpto(objetoRemotoUsuario, objetoRemotoAnteproyectos, objetoRemotoSeguimiento);
+                                GUIMenuJdpto GUIMJdpto = new GUIMenuJdpto(objetoRemotoUsuario, objetoRemotoAnteproyectos, objetoRemotoSeguimiento, objUsuario.getDepartamento());
                                 GUIMJdpto.setVisible(true);
                                 break;
 
                             case "Coordinador":
-                                GUIMenuCoordinador GUIMCoor = new GUIMenuCoordinador(objetoRemotoUsuario, objetoRemotoAnteproyectos, objetoRemotoSeguimiento);
+                                GUIMenuCoordinador GUIMCoor = new GUIMenuCoordinador(objetoRemotoUsuario, objetoRemotoAnteproyectos, objetoRemotoSeguimiento, objUsuario.getDepartamento());
                                 GUIMCoor.setVisible(true);
                                 break;
                             case "Decano":

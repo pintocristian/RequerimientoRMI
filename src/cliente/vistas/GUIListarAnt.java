@@ -31,6 +31,7 @@ public class GUIListarAnt extends javax.swing.JFrame {
         this.objetoRemotoAnteproyecto = objAnte;
         this.id = id;
         try {
+            
             this.listAnt = this.objetoRemotoAnteproyecto.ListarAnt(id);
         } catch (RemoteException ex) {
             Logger.getLogger(GUIListarAnt.class.getName()).log(Level.SEVERE, null, ex);
@@ -119,6 +120,7 @@ public class GUIListarAnt extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
+        this.listAnt.clear();
         this.dispose();
     }//GEN-LAST:event_btnAtrasActionPerformed
 

@@ -152,4 +152,16 @@ public class GestionUsuariosImpl extends UnicastRemoteObject implements GestionU
         return bandera;
     }
 
+    @Override
+    public boolean verificarDecano() throws RemoteException {
+        System.out.println("Entrando a verificarDecano");
+        boolean bandera = false;
+        for (int i = 0; i < this.Usuarios.size(); i++) {
+            if (this.Usuarios.get(i).getRole().equals("Decano")) {
+                bandera = true;
+            }
+        }
+        return bandera;
+    }
+
 }

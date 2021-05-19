@@ -12,6 +12,7 @@ import SGestionAnteproyectos.dto.clsFormatoTiBDTO;
 import SGestionAnteproyectos.dto.clsFormatoTiCDTO;
 import SGestionAnteproyectos.dto.clsFormatoTiDDTO;
 import SGestionAnteproyectos.dto.clsFormatosDTO;
+import SGestionAnteproyectos.dto.clsRemitidoDTO;
 import SGestionAnteproyectos.dto.clsUsuarioDTO;
 import SGestionAnteproyectos.utilidades.UtilidadesRegistroC;
 import SSeguimientoAnteproyectos.dto.clsFormatoTiADTO2;
@@ -46,12 +47,19 @@ public class GestionAnteproyectoImpl extends UnicastRemoteObject implements Gest
     private static int incremento = 0;
     private Vector<clsDirectorDTO> listaDir;
 
+    private ArrayList<clsRemitidoDTO> RemitidosDirector;
+    private ArrayList<Integer> JefeACoordinador;
+
     public GestionAnteproyectoImpl() throws RemoteException {
         super();
         this.FormatoA = new ArrayList();
         this.FormatoB = new ArrayList();
         this.FormatoC = new ArrayList();
         this.FormatoD = new ArrayList();
+
+        this.RemitidosDirector = new ArrayList();
+        this.JefeACoordinador = new ArrayList();
+        
         this.listaDir = new Vector();
     }
 
@@ -65,7 +73,7 @@ public class GestionAnteproyectoImpl extends UnicastRemoteObject implements Gest
 
     @Override
     public boolean RegistrarFormatoTiB(clsFormatoTiBDTO objFormatoB) throws RemoteException {
-        System.out.println("Entrando a registrar formato");
+        System.out.println("Entrando a registrar formato B");
         boolean encontro = false;
         boolean bandera = false;
         int concepto1 = -1;
@@ -133,6 +141,7 @@ public class GestionAnteproyectoImpl extends UnicastRemoteObject implements Gest
                 if (this.FormatoA.get(i).getCodigo() == objFormatoC.getCodigo()) {
                     this.FormatoA.get(i).setFlujo(4);
                     funciono = true;
+                    this.JefeACoordinador.add(objFormatoC.getCodigo());
                     break;
                 }
             }
@@ -304,6 +313,32 @@ public class GestionAnteproyectoImpl extends UnicastRemoteObject implements Gest
         return bandera;
     }
 
+    @Override
+    public boolean verificarRemitido(int codigoAnt) throws RemoteException {
+        System.out.println("Entrando a verificarRemitido");
+        boolean bandera = false;
+        for (int i = 0; i < this.RemitidosDirector.size(); i++) {
+            if (RemitidosDirector.get(i).getCodigo() == codigoAnt) {
+                bandera = true;
+            }
+        }
+        return bandera;
+    }
+
+    @Override
+    public boolean verificarRemitidoDep(int codigoAnt, String depDir) throws RemoteException {
+        System.out.println("Entrando a verificarRemitidoDep");
+        boolean bandera = false;
+        for (int i = 0; i < this.RemitidosDirector.size(); i++) {
+            if (RemitidosDirector.get(i).getCodigo() == codigoAnt) {
+                if (RemitidosDirector.get(i).getDepartamentoDirector().equals(depDir)) {
+                    bandera = true;
+                }
+            }
+        }
+        return bandera;
+    }
+
     public void EnviarFormatos(int ide) {
         System.out.println("Entrando a enviar formatos");
         int id = ide;
@@ -439,6 +474,83 @@ public class GestionAnteproyectoImpl extends UnicastRemoteObject implements Gest
     }
 
     @Override
+    public ArrayList<Integer> ListarAprobadosSinRemitir(int idDir) throws RemoteException {
+        System.out.println("Entrando a ListarAprobadosSinRemitir");
+        ArrayList<Integer> aux1 = new ArrayList();
+        ArrayList<clsFormatoTiBDTO> aux2 = ListarAntBAprobados();
+        for (int i = 0; i < this.FormatoA.size(); i++) {
+            for (int j = 0; j < aux2.size(); j++) {
+                if (this.FormatoA.get(i).getCodigo() == aux2.get(j).getCodigo()) {
+                    if (verificarRemitido(this.FormatoA.get(i).getCodigo()) == false) {
+                        if (this.FormatoA.get(i).getCodigoDirector() == idDir) {
+                            aux1.add(FormatoA.get(i).getCodigo());
+                        }
+                    }
+                }
+            }
+        }
+        return aux1;
+    }
+    
+    @Override
+    public void eliminarCallback(int id) throws RemoteException {
+      System.out.println("Entrando a eliminar callback");
+        for (int i = 0; i < listaDir.size(); i++) {
+            if (listaDir.get(i).getId() == id) {
+                    
+                listaDir.remove(i);    
+            
+            }
+
+        }
+        
+    }
+
+    @Override
+    public boolean verificarUnicaS(clsDirectorDTO objDirector) throws RemoteException {
+             System.out.println("Entrando a verificar sesion");
+        for (int i = 0; i < listaDir.size(); i++) {
+            if (listaDir.get(i).getId() == objDirector.getId()) {
+                    return true;
+            }
+
+        }
+       return false;
+    }
+    
+    @Override
+    public ArrayList<clsRemitidoDTO> ListarCodigosRemitidos(String depDir) throws RemoteException {
+        System.out.println("Entrando a Listar Codigos Remitidos por Director");
+        ArrayList<clsRemitidoDTO> remitidosDepartamento = new ArrayList();
+        ArrayList<clsRemitidoDTO> aux = new ArrayList();
+        
+        for (int i = 0; i < RemitidosDirector.size(); i++) {
+            if (RemitidosDirector.get(i).getDepartamentoDirector().equals(depDir)) {
+                if (verificarRemitido(RemitidosDirector.get(i).getCodigo()) == true) {
+                    remitidosDepartamento.add(RemitidosDirector.get(i));
+                }
+            }
+        }
+        aux = remitidosDepartamento;
+        for (int i = 0; i < aux.size(); i++) {
+            for (int j = 0; j < JefeACoordinador.size(); j++) {
+                if (aux.get(i).getCodigo()==JefeACoordinador.get(j)) {
+                    aux.remove(i);
+                }
+            }
+        }
+        return aux;
+    }
+
+    @Override
+    public boolean RegistrarRemitido(clsRemitidoDTO objRemitido) throws RemoteException {
+        System.out.println("Entrando a RegistrarRemitido por Director");
+        boolean r = false;
+        r = RemitidosDirector.add(objRemitido);
+        return r;
+    }
+
+    @Override
     public ArrayList<clsFormatoTiCDTO> ListarAntCAprobados() throws RemoteException {
         System.out.println("Entrando a listar anteproyectos aprobados por el jdpto");
         ArrayList<clsFormatoTiCDTO> objC = new ArrayList();
@@ -528,33 +640,30 @@ public class GestionAnteproyectoImpl extends UnicastRemoteObject implements Gest
 
     public void hacerCallback(int codigo) throws RemoteException {
         System.out.println("Entrando a hacer callback");
-      
+
         for (int i = 0; i < listaDir.size(); i++) {
-            for(int j=0;j<listaDir.get(i).getLista().size();j++){
-                if((int)listaDir.get(i).getLista().get(j)==codigo){ 
+            for (int j = 0; j < listaDir.get(i).getLista().size(); j++) {
+                if ((int) listaDir.get(i).getLista().get(j) == codigo) {
                     // NotificacionINT obj = (NotificacionINT) listaDir.elementAt(i);
                     //obj.Notificar(codigo);
                     listaDir.get(i).getReferencia().Notificar(codigo);
-                    
-                    
-                     
+
                 }
-             
+
             }
-            
+
         }
     }
 
     @Override
     public void AsignarAnteproyectos(int id, int codigo) throws RemoteException {
         for (clsDirectorDTO objDirector : listaDir) {
-           if(objDirector.getId()==id){
-               objDirector.getLista().add(codigo);
-           
-           }
+            if (objDirector.getId() == id) {
+                objDirector.getLista().add(codigo);
+
+            }
         }
-            
-        
+
     }
 
 }

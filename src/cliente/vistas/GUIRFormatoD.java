@@ -22,10 +22,12 @@ public class GUIRFormatoD extends javax.swing.JFrame {
      * Creates new form GUIRFormatoD
      */
     private static GestionAnteproyectoINT objetoRemotoAnteproyecto;
+    private static String depCoor;
 
-    public GUIRFormatoD(GestionAnteproyectoINT objAnteproyecto) {
+    public GUIRFormatoD(GestionAnteproyectoINT objAnteproyecto,String depCoor) {
         initComponents();
         this.objetoRemotoAnteproyecto = objAnteproyecto;
+        this.depCoor = depCoor;
         this.cmbConcepto.setEnabled(false);
         this.txtEstructura.setEnabled(false);
         this.txtObservaciones.setEnabled(false);
@@ -180,7 +182,9 @@ public class GUIRFormatoD extends javax.swing.JFrame {
             try {
                 int flujo = objetoRemotoAnteproyecto.VerificarAnteproyecto(Integer.parseInt(txtCodigoAnt.getText()));
                 int concepto = objetoRemotoAnteproyecto.ConsultarConceptoJefe(Integer.parseInt(txtCodigoAnt.getText()));
-                if (concepto == 1) {
+                boolean departamentoCorrecto = false;
+                departamentoCorrecto = this.objetoRemotoAnteproyecto.verificarRemitidoDep(Integer.parseInt(txtCodigoAnt.getText()), depCoor);
+                if (concepto == 1 && departamentoCorrecto && flujo == 4) {
                     this.cmbConcepto.setEnabled(true);
                     this.txtEstructura.setEnabled(true);
                     this.txtObservaciones.setEnabled(true);
@@ -194,7 +198,10 @@ public class GUIRFormatoD extends javax.swing.JFrame {
                 } else if (flujo == 5) {
                     JOptionPane.showMessageDialog(null, "El  Anteproyecto ya fue evaluado por el coordinador");
                     this.dispose();
-                } else {
+                } else if(departamentoCorrecto==false){
+                    JOptionPane.showMessageDialog(null, "El  Anteproyecto no correcponde a este departamento");
+                    this.dispose();
+                }else {
                     JOptionPane.showMessageDialog(null, "El Anteproyecto no fue aprobado por el jede de departamento");
 
                     this.dispose();

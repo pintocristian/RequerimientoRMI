@@ -8,6 +8,9 @@ package cliente.vistas;
 import SGestionAnteproyectos.sop_rmi.GestionAnteproyectoINT;
 import SGestionAnteproyectos.sop_rmi.GestionUsuariosINT;
 import SSeguimientoAnteproyectos.sop_rmi.GestionSeguimientoINT;
+import java.rmi.RemoteException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -22,13 +25,15 @@ public class GUIMenuDirector extends javax.swing.JFrame {
     private static GestionUsuariosINT objetoRemotoUsuario;
     private static GestionSeguimientoINT objetoRemotoSeguimiento;
     private static int idDir;
-    public GUIMenuDirector(GestionUsuariosINT objUsuario, GestionAnteproyectoINT objAnteproyecto, GestionSeguimientoINT objRemotoSeg,int idDir) {
+    private static String depDir;
+    public GUIMenuDirector(GestionUsuariosINT objUsuario, GestionAnteproyectoINT objAnteproyecto, GestionSeguimientoINT objRemotoSeg,int idDir,String depDir) {
         initComponents();
         this.objetoRemotoUsuario = objUsuario;
         this.objetoRemotoAnteproyecto = objAnteproyecto;
         this.objetoRemotoSeguimiento = objRemotoSeg;
         txtNotificacion.setEditable(false);
         this.idDir=idDir;
+        this.depDir =depDir;
     }
 
     public GUIMenuDirector() {
@@ -50,6 +55,7 @@ public class GUIMenuDirector extends javax.swing.JFrame {
         lblMenuDirector = new javax.swing.JLabel();
         lblNotificacion = new javax.swing.JLabel();
         txtNotificacion = new javax.swing.JTextField();
+        btnRemitir = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -64,6 +70,11 @@ public class GUIMenuDirector extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(null);
@@ -98,6 +109,15 @@ public class GUIMenuDirector extends javax.swing.JFrame {
         jPanel2.add(txtNotificacion);
         txtNotificacion.setBounds(100, 320, 450, 30);
 
+        btnRemitir.setText("Remitir Anteproyecto");
+        btnRemitir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemitirActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnRemitir);
+        btnRemitir.setBounds(200, 130, 150, 23);
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/director.jpg"))); // NOI18N
         jPanel2.add(jLabel1);
         jLabel1.setBounds(50, 10, 470, 350);
@@ -123,6 +143,11 @@ public class GUIMenuDirector extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalirAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirAActionPerformed
+        try {
+            objetoRemotoAnteproyecto.eliminarCallback(idDir);
+        } catch (RemoteException ex) {
+            Logger.getLogger(GUIMenuDirector.class.getName()).log(Level.SEVERE, null, ex);
+        }
         GUIInicioSesion GUISesion = new GUIInicioSesion(objetoRemotoUsuario, objetoRemotoAnteproyecto, objetoRemotoSeguimiento);
         GUISesion.setVisible(true);
         this.dispose();
@@ -132,6 +157,23 @@ public class GUIMenuDirector extends javax.swing.JFrame {
         GUIRFormatoA GUIA = new GUIRFormatoA(objetoRemotoAnteproyecto,idDir);
         GUIA.setVisible(true);
     }//GEN-LAST:event_btnRFormatoAActionPerformed
+
+    private void btnRemitirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemitirActionPerformed
+        GUIRemitirAnt GUIRA = new GUIRemitirAnt(objetoRemotoAnteproyecto,idDir,depDir);
+        GUIRA.setVisible(true);
+    }//GEN-LAST:event_btnRemitirActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // TODO add your handling code here:
+        try {
+            objetoRemotoAnteproyecto.eliminarCallback(idDir);
+        } catch (RemoteException ex) {
+            Logger.getLogger(GUIMenuDirector.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        GUIInicioSesion GUISesion = new GUIInicioSesion(objetoRemotoUsuario, objetoRemotoAnteproyecto, objetoRemotoSeguimiento);
+        GUISesion.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_formWindowClosing
 
     public void Notificacion(String Mensaje) {
         txtNotificacion.setText(Mensaje);
@@ -175,6 +217,7 @@ public class GUIMenuDirector extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRFormatoA;
+    private javax.swing.JButton btnRemitir;
     private javax.swing.JButton btnSalirA;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

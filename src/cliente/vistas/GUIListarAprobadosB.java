@@ -6,6 +6,7 @@
 package cliente.vistas;
 
 import SGestionAnteproyectos.dto.clsFormatoTiBDTO;
+import SGestionAnteproyectos.dto.clsRemitidoDTO;
 import SGestionAnteproyectos.sop_rmi.GestionAnteproyectoINT;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
@@ -23,13 +24,16 @@ public class GUIListarAprobadosB extends javax.swing.JFrame {
      * Creates new form GUIListarAprobadosB
      */
     private static GestionAnteproyectoINT objetoRemotoAnteproyecto;
-    private ArrayList<clsFormatoTiBDTO> listAnt;
+    private ArrayList<clsRemitidoDTO> listAnt;
+    private static String depDir;
 
-    public GUIListarAprobadosB(GestionAnteproyectoINT objAnte) {
+    public GUIListarAprobadosB(GestionAnteproyectoINT objAnte,String depDir) {
         initComponents();
         this.objetoRemotoAnteproyecto = objAnte;
+        this.depDir = depDir;
         try {
-            this.listAnt = this.objetoRemotoAnteproyecto.ListarAntBAprobados();
+            
+            this.listAnt = this.objetoRemotoAnteproyecto.ListarCodigosRemitidos(depDir);
         } catch (RemoteException ex) {
             Logger.getLogger(GUIListarAnt.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -71,18 +75,18 @@ public class GUIListarAprobadosB extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblTitulo.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        lblTitulo.setText("Anteproyectos Aprobados por los evaluadores");
-        jPanel1.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 22, -1, -1));
+        lblTitulo.setText("Anteproyectos Aprobados por los evaluadores y Remitidos ");
+        jPanel1.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         tblAnt.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null},
+                {null},
+                {null},
+                {null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Codigo Anteproyecto"
             }
         ));
         jScrollPane1.setViewportView(tblAnt);
@@ -98,7 +102,7 @@ public class GUIListarAprobadosB extends javax.swing.JFrame {
         jPanel1.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 209, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondoListas.jpg"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 330));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 330));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -121,6 +125,7 @@ public class GUIListarAprobadosB extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
+        listAnt.clear();
         this.dispose();
     }//GEN-LAST:event_btnAtrasActionPerformed
 

@@ -51,11 +51,11 @@ public class GUIRegistrarUsuario extends javax.swing.JFrame {
         lblContraseniaU = new javax.swing.JLabel();
         txtIdentificacionU = new javax.swing.JTextField();
         txtNombreComU = new javax.swing.JTextField();
-        txtDepartamentoU = new javax.swing.JTextField();
         txtUsuarioU = new javax.swing.JTextField();
         txtContraseniaU = new javax.swing.JTextField();
         btnRegistrarU = new javax.swing.JButton();
         cmbRolU = new javax.swing.JComboBox<>();
+        cmbDepU = new javax.swing.JComboBox<>();
         lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -93,7 +93,6 @@ public class GUIRegistrarUsuario extends javax.swing.JFrame {
         });
         jPanel1.add(txtIdentificacionU, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 48, 89, -1));
         jPanel1.add(txtNombreComU, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 77, 89, -1));
-        jPanel1.add(txtDepartamentoU, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 132, 89, -1));
         jPanel1.add(txtUsuarioU, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 158, 89, -1));
         jPanel1.add(txtContraseniaU, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 184, 89, -1));
 
@@ -106,7 +105,11 @@ public class GUIRegistrarUsuario extends javax.swing.JFrame {
         jPanel1.add(btnRegistrarU, new org.netbeans.lib.awtextra.AbsoluteConstraints(135, 264, -1, -1));
 
         cmbRolU.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Director", "Evaluador", "Jefe departamento", "Coordinador", "Decano" }));
-        jPanel1.add(cmbRolU, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 103, 89, -1));
+        jPanel1.add(cmbRolU, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 103, 90, -1));
+
+        cmbDepU.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PIET", "PIS", "PIAI" }));
+        cmbDepU.setPreferredSize(new java.awt.Dimension(117, 20));
+        jPanel1.add(cmbDepU, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 130, 90, -1));
 
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/registrar.jpg"))); // NOI18N
         jPanel1.add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, 330));
@@ -118,7 +121,7 @@ public class GUIRegistrarUsuario extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -136,12 +139,13 @@ public class GUIRegistrarUsuario extends javax.swing.JFrame {
         try {
             String numero1 = txtUsuarioU.getText();
             String numero2 = txtContraseniaU.getText();
+            String Rol = (String) cmbRolU.getSelectedItem();
             int ide = Integer.parseInt(txtIdentificacionU.getText());
             boolean u = alfanumerico(txtUsuarioU.getText());
             boolean c = alfanumerico(txtContraseniaU.getText());
             int validarId = objetoRemotoUsuario.validarId(ide);
             boolean validarUs = objetoRemotoUsuario.validarUS(numero1);
-            if (txtIdentificacionU.getText().isEmpty() || txtNombreComU.getText().isEmpty() || txtDepartamentoU.getText().isEmpty() || txtUsuarioU.getText().isEmpty() || txtContraseniaU.getText().isEmpty()) {
+            if (txtIdentificacionU.getText().isEmpty() || txtNombreComU.getText().isEmpty()  || txtUsuarioU.getText().isEmpty() || txtContraseniaU.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Ningun campo debe quedar vacio!!");
             } else if (u == false || c == false) {
                 txtUsuarioU.setText("");
@@ -157,11 +161,13 @@ public class GUIRegistrarUsuario extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "El id digitado ya existe, por favor ingresa otro");
             } else if (validarUs == true) {
                 JOptionPane.showMessageDialog(null, "El usuario digitado ya existe por favor ingresa otro");
-            } else {
+            } else if (Rol.equals("Decano") && objetoRemotoUsuario.verificarDecano()){
+                JOptionPane.showMessageDialog(null, "Solamente puede existir un decano");
+            }else {
                 int id = Integer.parseInt(txtIdentificacionU.getText());
                 String NombreCompleto = txtNombreComU.getText();
-                String Rol = (String) cmbRolU.getSelectedItem();
-                String Departamento = txtDepartamentoU.getText();
+                
+                String Departamento = (String) cmbDepU.getSelectedItem();
                 String Usuario = txtUsuarioU.getText();
                 String Contrasenia = (String) txtContraseniaU.getText();
                 clsUsuarioDTO objUsuario = new clsUsuarioDTO(id, NombreCompleto, Rol, Departamento, Usuario, Contrasenia);
@@ -253,6 +259,7 @@ public class GUIRegistrarUsuario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegistrarU;
+    private javax.swing.JComboBox<String> cmbDepU;
     private javax.swing.JComboBox<String> cmbRolU;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblContraseniaU;
@@ -264,7 +271,6 @@ public class GUIRegistrarUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel lblRolU;
     private javax.swing.JLabel lblUsuarioU;
     private javax.swing.JTextField txtContraseniaU;
-    private javax.swing.JTextField txtDepartamentoU;
     private javax.swing.JTextField txtIdentificacionU;
     private javax.swing.JTextField txtNombreComU;
     private javax.swing.JTextField txtUsuarioU;
